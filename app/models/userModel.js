@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var UserSchema = new mongoose.Schema({
     login: String,
     password: String
+},{
+    collection: 'sector' //как выяснилось, это обязательно
 })
 
 var UserModel = mongoose.model('user', UserSchema);

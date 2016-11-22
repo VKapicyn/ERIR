@@ -36,6 +36,8 @@ var ReportSchema = new mongoose.Schema({
     }, 
     manager : String 
     
+},{
+    collection: 'sector' //как выяснилось, это обязательно
 });
 
 //метод для отладки(проверка на id)
@@ -47,4 +49,4 @@ ReportSchema.methods.speak = function () {
 }
 
 var ReportModel = mongoose.model('report', ReportSchema);
-exports = ReportModel;
+module.exports = ReportModel;

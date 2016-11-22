@@ -6,6 +6,7 @@ var db = mongoose.connect("mongodb://localhost:27017/ERIO")//конектимс�
 var Report = require('./models/reportModel').ReportModel; // модель отчета
 var Company = require('./models/companyModel').CompanyModel; // модель компании
 var User = require('./models/userModel').UserModel; // модель пользователя
+var Sector = require('./models/sectorModel').SectorModel;//модель сектора
 
 exports.addReport = function(req,res){
     
@@ -39,3 +40,13 @@ exports.getCompanyById = function(req, res){
     res.render('report',{ report: 'Отчет №' + _id, id: _id});
     //res.render('company');
 };
+
+exports.getSectorByName = function(req, res){
+    var name = req.params.name;
+    Sector.find({name:name},'name', function(err, docs)
+    {
+        if (err) return handleError(err);
+        var name_render = req.params.name;
+        res.render('report',{report:name_render,id:docs}); //мы получили JSON,его осталось только корректно запарсить
+    });
+}
