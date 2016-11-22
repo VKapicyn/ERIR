@@ -18,7 +18,8 @@ app.get('/admin', control.AdminPage); // админка
 //маршрутизация API запросов
 app.get('/report/:id', api.getReportById); // выводим отчет по id
 app.get('/company/:id', api.getCompanyById); // выводим компанию по id
-app.get('/company/create/:id', api.addCompany);
+app.get('/company/create/:id', api.addCompany); //создаем компанию по id HALT! передалать
+app.get('/sector/:name', api.getSectorByName); //ищем отрасль по имени
 
 // запускаем сервер на порту 8080
 app.listen(8080);
