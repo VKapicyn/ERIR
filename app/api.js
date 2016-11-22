@@ -13,7 +13,7 @@ exports.addReport = function(req,res){
 
 exports.addCompany = function(req,res){
     //var name="name "+req.params.id;
-    var testcompany = new CompanyModel;//({name:"ttt"});
+    var testcompany = new Company;//({name:"ttt"});
     testcompany.name="777";
     testcompany.save();
     //testcompany.name="name "+req.params.id;

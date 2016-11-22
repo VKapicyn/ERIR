@@ -20,4 +20,4 @@ var CompanySchema = new mongoose.Schema({
 })
 
 var CompanyModel = mongoose.model('company', CompanySchema);
-exports = CompanyModel;
+module.exports.CompanyModel = CompanyModel;
