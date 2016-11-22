@@ -4,22 +4,38 @@ var mongoose = require('mongoose');
 //Доделать!!!
 var ReportSchema = new mongoose.Schema({
     //уникальный идентификатор
-    id : { 
-        type: Number
-    },
+    id : mongoose.Schema.Types.ObjectId,
     //0 - не проверен, 1 - одобрен, 2 - откланен
-    visible: {
-    	type: Number	
-    },
+    visible: Number,
     //время добавления
-    dataCreated : {
-        type: Date
-    }
-    /*
-
-    Дописать код
-
-    */
+    date: {
+        type: mongoose.Schema.Types.Date
+    },
+    name : String, 
+    year : Number, 
+    preview : String,//string converted in Base64 
+    company : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'company'
+    }, 
+    interactive : String, 
+    doc_rus : String,//? 
+    doc_en : String,//? 
+    about : String, 
+    consultant : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'company'
+    }, 
+    auditor : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'company'
+    }, 
+    designer : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'company'
+    }, 
+    manager : String 
+    
 });
 
 //метод для отладки(проверка на id)

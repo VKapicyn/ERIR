@@ -2,12 +2,8 @@ var mongoose = require('mongoose');
 
 //Схема данных пользователя (админ). 
 var UserSchema = new mongoose.Schema({
-    login: {
-        type: String
-    },
-    password: {
-        type: String
-    }
+    login: String,
+    password: String
 })
 
 var UserModel = mongoose.model('user', UserSchema);
