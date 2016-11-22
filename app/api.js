@@ -12,8 +12,14 @@ exports.addReport = function(req,res){
 }
 
 exports.addCompany = function(req,res){
-    var testcompany = new CompanyModel;
-    testcompany.name="test"+req.params.id;
+    //var name="name "+req.params.id;
+    var testcompany = new CompanyModel;//({name:"ttt"});
+    testcompany.name="777";
+    testcompany.save();
+    //testcompany.name="name "+req.params.id;
+    //testcompany.create({name}, function (err) {
+    //if (err) return handleError(err)});
+    res.render('report',{ report: 'Отчет №' + 777, id: "Работает"});
 }
 
 exports.getReportById = function(req, res){
@@ -28,5 +34,8 @@ exports.getCompanyById = function(req, res){
     /*
         здесь будет работа со схемой данных
     */
-    res.render('company');
+
+    var _id = 1;//сделать поиск
+    res.render('report',{ report: 'Отчет №' + _id, id: _id});
+    //res.render('company');
 };
