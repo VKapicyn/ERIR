@@ -43,10 +43,22 @@ exports.getCompanyById = function(req, res){
 
 exports.getSectorByName = function(req, res){
     var name = req.params.name;
-    Sector.find({name:name},'name', function(err, docs)
+    Sector.find({name:name}, function(err, docs)//работает только с findOne
     {
         if (err) return handleError(err);
-        var name_render = req.params.name;
-        res.render('report',{report:name_render,id:docs}); //мы получили JSON,его осталось только корректно запарсить
+        var id_render = Array();
+        var name_render= Array();
+        console.log(docs);
+        if(docs.length!=0){
+        for(var i = 0; i<docs.length;i++){
+        id_render[i] = docs[i]._id.toString();//такой метод позволяет из возврата функции find берем нужное
+        name_render[i] = docs[i].name.toString();
+        }
+        }
+        else{
+            id_render = 0;
+            name_render = 'Ничего не найдено';
+        }
+        res.render('report',{report:name_render,id:id_render});
     });
 }

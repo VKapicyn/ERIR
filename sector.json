@@ -1,0 +1,12 @@
+{ 
+    "_id" : ObjectId("583323db0098ce0464a23d01"), 
+    "name" : "Атомная!отрасль"
+}
+{ 
+    "_id" : ObjectId("58346ec20098ce3e665041dc"), 
+    "name" : "Test"
+}
+{ 
+    "_id" : ObjectId("583693610098ce3e665041de"), 
+    "name" : "Test"
+}
