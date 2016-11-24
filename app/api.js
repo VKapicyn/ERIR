@@ -43,7 +43,7 @@ exports.getCompanyById = function(req, res){
 
 exports.getSectorByName = function(req, res){
     var name = req.params.name;
-    Sector.find({name:name}, function(err, docs)//работает только с findOne
+    Sector.find({name:name}, function(err, docs)
     {
         if (err) return handleError(err);
         var id_render = Array();
@@ -61,4 +61,41 @@ exports.getSectorByName = function(req, res){
         }
         res.render('report',{report:name_render,id:id_render});
     });
+}
+exports.getCompaniesBySectorName = function(req, res){
+    var sector_name = req.params.name;
+    var ids_render=Array();
+    var names_render=Array();
+    var id;
+    var name;
+    Sector.findOne({name:sector_name}, function(err, docs)
+    {
+        if (err) return handleError(err);
+        if(docs){
+        id = docs._id.toString();//такой метод позволяет из возврата функции find берем нужное
+        id = docs._id.toString();
+        name = docs.name.toString();
+        console.log(id);
+        console.log(name);
+        }
+        else{
+            ids_render = 0;
+            names_render = 'Ничего не найдено';
+        }
+    });
+    Company.find({sector:mongoose.Types.ObjectId(id)},function(err, companies){//чот не работает
+        if(err) return handleError(err);
+        if(companies){
+        for(var i = 0; i<companies.length; i++){
+            names_render[i] = companies[i].name.toString();
+            ids_render[i] = companies[i]._id.toString();
+        }
+        }
+        else{
+            ids_render = 0;
+            names_render = 'Ничего не найдено';
+        }
+    })
+    var title = 'Компании отрасли ' + sector_name;
+    res.render('list_companies',{title:title, names: names_render, ids: ids_render});
 }

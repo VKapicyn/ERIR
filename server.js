@@ -20,7 +20,7 @@ app.get('/report/:id', api.getReportById); // выводим отчет по id
 app.get('/company/:id', api.getCompanyById); // выводим компанию по id
 app.get('/company/create/:id', api.addCompany); //создаем компанию по id HALT! передалать
 app.get('/sector/:name', api.getSectorByName); //ищем отрасль по имени
-
+app.get('/companies/sector/:name',api.getCompaniesBySectorName);//ищем компании по названию отрасли 
 // запускаем сервер на порту 8080
 app.listen(8080);
 console.log('Server started!');

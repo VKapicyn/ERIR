@@ -18,7 +18,7 @@ var CompanySchema = new mongoose.Schema({
     link : String, 
     consult : String
 },{
-    collection: 'sector' //как выяснилось, это обязательно
+    collection: 'companies' //как выяснилось, это обязательно
 })
 
 var CompanyModel = mongoose.model('company', CompanySchema);
