@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect("mongodb://localhost:27017/ERIO")//конектимсся к БД
+// var db = mongoose.connect("mongodb://localhost:27017/ERIO")//конектимсся к БД
 
 var multer = require("multer");
 var upload = multer({dest: './src/buffer'});
@@ -7,7 +7,7 @@ var conn = mongoose.connection;
 var fs = require('fs');
 var Grid = require('gridfs-stream');
 Grid.mongo = mongoose.mongo;
-gfs=Grid(conn.db);
+// gfs=Grid(conn.db);
 
 //схемы данных
 var Report = require('./models/reportModel').ReportModel; // модель отчета

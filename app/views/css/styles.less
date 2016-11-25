@@ -1,0 +1,102 @@
+ /* Fonts */
+/* font-family: "PTSansRegular"; */
+@font-face {
+    font-family: "PTSansRegular";
+    src: url("../fonts/PTSansRegular/PTSansRegular.eot");
+    src: url("../fonts/PTSansRegular/PTSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansRegular/PTSansRegular.woff") format("woff"),
+    url("../fonts/PTSansRegular/PTSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "PTSansItalic"; */
+@font-face {
+    font-family: "../PTSansItalic";
+    src: url("../fonts/PTSansItalic/PTSansItalic.eot");
+    src: url("../fonts/PTSansItalic/PTSansItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansItalic/PTSansItalic.woff") format("woff"),
+    url("../fonts/PTSansItalic/PTSansItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "PTSansBold"; */
+@font-face {
+    font-family: "PTSansBold";
+    src: url("../fonts/PTSansBold/PTSansBold.eot");
+    src: url("../fonts/PTSansBold/PTSansBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansBold/PTSansBold.woff") format("woff"),
+    url("../fonts/PTSansBold/PTSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+  background-color: @white;
+  color: @black;
+  font-family: 'PTSansRegular','Helvetica','Arial', sans-serif;
+  overflow-x: hidden !important; //от белой полосы
+}
+
+/* Variables */
+
+/* Colors */
+@white: #fff;
+@black: #000;
+@red: #9b322a;
+@gray: #ccc;
+@dark-gray: #999;
+@sea-green: #336666;
+/* /Colors*/
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* Navbar */
+  .container-fluid {
+    background: @gray;
+}
+  .navbar-brand{
+    img {
+      width: 160px;
+    }
+}
+
+.navbar-default {
+
+  .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: @white; //активная кнопка
+    background-color: @red;
+}
+
+  .navbar-nav {
+    li {
+      a {
+        color: @red; //цвет текста ссылок
+        .uppercase;
+        background-color: @dark-gray;
+        padding: 5px 15px;
+        margin: 20px 5px;        
+      }      
+
+      a:hover {
+        color: @red; //цвет текста ссылок
+        background-color: @dark-gray;    
+        .underline; 
+      }
+    }
+  }
+
+  .navbar-collapse {
+    // margin-bottom: 27px;
+  }
+} /* /.navbar-default */
+
+
+
+/* /Navbar */
+
