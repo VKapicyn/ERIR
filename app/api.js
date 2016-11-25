@@ -69,13 +69,10 @@ exports.getReportById = function(req, res){
 };
 
 exports.getCompanyById = function(req, res){
-    /*
-        здесь будет работа со схемой данных
-    */
-
-    var _id = 1;//сделать поиск
-    res.render('report',{ report: 'Отчет №' + _id, id: _id});
-    //res.render('company');
+    var name ='';
+    Company.findOne({_id:req.params.id}).then(function(document){
+		res.json(document);
+	})
 };
 
 exports.getSectorByName = function(req, res){
