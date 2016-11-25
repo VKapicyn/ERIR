@@ -1,5 +1,23 @@
-html
-    body
-        p.
-         не забыть
-          капчу
+doctype html
+html(lang='en')
+  body
+    form(method='post', action='/company/create', enctype="multipart/form-data")
+      input(type="file", multiple, name="logo")
+      br
+      input(name='name')
+      br
+      input(name='info')
+      br
+      input(name='adress')
+      br
+      input(name='telephone')
+      br
+      input(name='CEO')
+      br
+      input(name='fax')
+      br
+      input(name='link')
+      br
+      input(name='consult')
+      br
+      input(type='submit', value='Submit')
