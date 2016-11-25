@@ -72,10 +72,8 @@ exports.getCompaniesBySectorName = function(req, res){
     {
         if (err) return handleError(err);
         if(docs){
-        id = docs._id.toString();//такой метод позволяет из возврата функции find берем нужное
         id = docs._id.toString();
         name = docs.name.toString();
-        console.log(id);
         console.log(name);
         }
         else{
@@ -83,7 +81,7 @@ exports.getCompaniesBySectorName = function(req, res){
             names_render = 'Ничего не найдено';
         }
     });
-    Company.find({sector:mongoose.Types.ObjectId(id)},function(err, companies){//чот не работает
+    Company.find({sector:id},function(err, companies){//чот не работает
         if(err) return handleError(err);
         if(companies){
         for(var i = 0; i<companies.length; i++){
