@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реестр</title>
+
+    <!-- Styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link href="css/styles.css" rel="stylesheet">
+ 
+    <!--LESS-->
+    <script src="js/less.js"></script>
+    <script>less = { env: 'development' };</script>
+    <script>less.watch();</script>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+    <div class="navigation"> 
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <h1>Национальный реестр интегрированных отчетов</h1>
+            <!-- <h5>Краткое пояснение, что это</h5> -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              <a class="navbar-brand" href="#"><img src="../../src/img/da-strateg-logo.png" alt="logo1"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="main.html">На главную</a></li>
+                <li><a href="search.jade">Поиск</a></li>
+                <li><a href="stats.jade">Интерактивная статистика</a></li>
+                <li><a href="register.jade">Регистрация отчета и компании</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>  
+    </div> <!--/container navigation-->
+
+      <main class="container">
+      <div class="row search-panel col-md-5 col-xs-12 col-sm-12">
+          <!-- Навигация -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#search-report" aria-controls="search-report" role="tab" data-toggle="tab">Поиск отчета</a></li>
+            <li><a href="#search-organization" aria-controls="profile" role="tab" data-toggle="tab">Поиск организации</a></li>
+          </ul>
+          <!-- Содержимое вкладок -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="search-report">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-search" aria-hidden="true"></i>Поиск</button><br/>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-times" aria-hidden="true"></i>Очистить</button>
+                <br/><br/>
+
+                <select name="report-year">
+                  <option value="0">Все отчетные года</option>
+                  <option value="1">2009</option>
+                  <option value="2">2010</option>
+                  <option value="3">2011</option>
+                  <option value="4">2012</option>
+                  <option value="5">2013</option>
+                  <option value="6">2014</option>
+                  <option value="7">2015</option>
+                </select>                
+
+                <select name="economy">
+                  <option value="0">Все отрасли</option>
+                  <option value="1">Агропромышленный комплекс</option>                  
+                  <option value="2"> Атомная промышленность</option>
+                  <option value="3"> Банки и др. инвестиционно-финансовые организации</option>
+                  <option value="4"> Жилищно-коммунальное хозяйство</option>
+                  <option value="5"> Здравоохранение и фармацевтическая промышленность</option>
+                  <option value="6"> Инжиниринг, промыш.-инфраструктурное строительств</option>
+                  <option value="7"> Информационные технологии</option>
+                  <option value="8"> Легкая промышленность</option>
+                  <option value="9"> Лесная и целлюлозно-бумажная промышленность</option>
+                  <option value="10"> Машиностроение</option>
+                  <option value="11"> Наука</option>
+                  <option value="12"> Нефтяная и нефтегазовая промышленность</option>
+                  <option value="13"> Общественное питание</option>
+                  <option value="14"> Оптовая торговля</option>
+                  <option value="15"> Пищевая промышленность</option>
+                  <option value="16"> Полиграфическая промышленность</option>
+                  <option value="17"> Промышленность драгоценных металлов и алмазов</option>
+                  <option value="18"> Промышленность строительных материалов</option>
+                  <option value="19"> Розничная торговля</option>
+                  <option value="20"> Сервисные компании</option>
+                  <option value="21"> СМИ</option>
+                  <option value="22"> Страхование</option>
+                  <option value="23"> Строительство</option>
+                  <option value="24"> Табачная промышленность</option>
+                  <option value="24"> Упаковка</option>
+                  <option value="25"> Химическая и нефтегазовая промышленность</option>
+                  <option value="26"> Цветная металлургия</option>
+                  <option value="27"> Черная металлургия</option>
+                  <option value="28"> Электроэнергетика</option>
+                </select> <br/>
+<!--              
+                <select name=" ">
+                  <option value="0">Все </option>
+                  <option value="1"> </option>
+                  <option value="2"> </option>
+                  <option value="3"> </option>
+                  <option value="4"> </option>
+                  <option value="5"> </option>
+                  <option value="6"> </option>
+                  <option value="7"> </option>
+                </select> <br/>    
+                 -->              
+
+                <select name="headquarters">
+                  <option value="0"> Местонахождение штаб-квартиры</option>
+                  <option value="1"> Местонахождение 1</option>
+                  <option value="2"> Местонахождение 2</option>
+                  <option value="3"> Местонахождение 3</option>
+                </select> <br/>
+
+                <select name="company-size">
+                  <option value="0">Размер предприятия</option>
+                  <option value="1">Все размеры</option>
+                  <option value="2" title="Оборот до 800 млн рублей, количество сотрудников до 100 человек"> Малое предприятие</option>
+                  <option value="3" title="Оборот до 2 млрд рублей, количество сотрудников до 250 человек">Среднее предприятие</option>
+                  <option value="4" title="Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек">Крупное предприятие</option>
+                </select> <br/> 
+
+                <select name="organization-form">
+                  <option value="0">Организационно-правовая форма</option>
+                  <option value="1">Все формы</option>
+                  <option value="2"> Публичное акционерное общество</option>
+                  <option value="3"> Непубличное акционерное общество</option>
+                  <option value="4"> Общество с ограниченной ответственностью</option>
+                  <option value="5"> Государственная корпорация</option>
+                  <option value="6"> Государственное или муниципальное унитарное предприятие</option>
+                  <option value="7"> Прочие</option>
+                </select> <br/>  
+
+                <select name="ownership">
+                  <option value="0"> Форма собственности</option>
+                  <option value="1" title="Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ">Государственная</option>
+                  <option value="2"> Частная</option>
+                </select> <br/> 
+
+                <select name="standarts">
+                  <option value="0">Все стандарты</option>
+                  <option value="1"> Международный стандарт ИО</option>
+                  <option value="2"> GRI – G1</option>
+                  <option value="3"> GRI – G2</option>
+                  <option value="4"> GRI – G3</option>
+                  <option value="5"> GRI – G3.1</option>
+                  <option value="6"> GRI – G4</option>
+                  <option value="7"> AA1000 SES</option>
+                  <option value="8"> AA1000 APS</option>
+                  <option value="9"> Другие стандарты</option>
+                </select> <br/>  
+
+               <select name="best-practice">
+                  <option value="0">Лучшая практика</option>
+                  <option value="1"> Лучшее раскрытие стратегии</option>
+                  <option value="2"> Лучшее раскрытие бизнес-модели</option>
+                  <option value="3"> Лучшее раскрытие информации о рисках</option>
+                  <option value="4"> Лучшее раскрытие информации о корпоративном управлении</option>
+                  <option value="5"> Лучшее раскрытие информации о деятельности в области УР</option>
+                  <option value="6"> Лучшее раскрытие информации о системе публичной отчетности</option>
+                </select> <br/>         
+
+              </form>
+            </div> <!--/поиск отчета #search-report-->
+            <div role="tabpanel" class="tab-pane" id="search-organization">
+
+            </div><!--/поиск организации-->
+          </div> <!--/tab-content-->
+    
+      </div>      
+
+      <div class="row search-results col-md-7 col-md-offset-1 col-xs-8 col-sm-8">
+
+      </div>
+
+      </main>
+    <div class="space"></div><div class="space"></div>
+
+
+    <footer>
+    <div class="container">
+    <div class="row contacts">
+       <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  address">
+        <i class="fa fa-map-marker fa-2x" title=""></i>Правильный адрес
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  mail">
+        <i class="fa fa-envelope-o fa-2x" title=""></i>info@da-strateg.ru
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  phone">
+        <i class="fa fa-phone fa-2x" title=""></i>+7 499 400-56-39
+      </div>
+    </div>   
+    </div>
+  </footer>
+
+
+    <!--Slider-->
+      <script src="js/slides.min.jquery.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $('.carousel').carousel({
+          interval: 3000
+        })
+      });
+    </script>
+      <script type="text/javascript">
+        $("[data-toggle=tooltip]").tooltip(); //всплывающие подсказки (не работают)
+      </script>
+    <!--/Slider-->
+
+    </div> <!--/wrapper-->
+  </body>
+</html>

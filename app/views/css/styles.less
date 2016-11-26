@@ -88,8 +88,10 @@ p {
 }
 .green-btn:hover {
   background-color: lighten(@sea-green,10);
+  color: @white !important;
     a {
     text-decoration: none;
+    
   }
 }
   .green-btn:active {
@@ -100,6 +102,10 @@ p {
   margin-top: 20px;
 }
 
+
+main {
+  min-height: 700px;
+}
 /* Navbar */
   .navbar {
     background: @gray;
@@ -221,5 +227,44 @@ footer {
 
 }
 /* /Footer */
+
+/* Search-panel*/
+.search-panel {
+  background-color: @gray;
+  
+  .nav-tabs {
+    background-color: @red;
+    
+    li.active {
+      a {
+         background-color: @gray;
+         color: @red;
+      }
+    }    
+    li {
+      a {
+         color: @white;
+      }
+    }
+  }
+
+  .nav>li>a:hover {
+    text-decoration: none;
+    background-color: @gray;
+}
+
+.tab-content {
+  .btn {
+    margin: 5px 5px;
+  } 
+}
+
+   select {
+     margin: 5px 0;
+   }
+ 
+
+}
+/* /Search-panel*/
 
 
