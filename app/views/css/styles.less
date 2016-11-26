@@ -1,0 +1,225 @@
+ /* Fonts */
+/* font-family: "PTSansRegular"; */
+@font-face {
+    font-family: "PTSansRegular";
+    src: url("../fonts/PTSansRegular/PTSansRegular.eot");
+    src: url("../fonts/PTSansRegular/PTSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansRegular/PTSansRegular.woff") format("woff"),
+    url("../fonts/PTSansRegular/PTSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "PTSansItalic"; */
+@font-face {
+    font-family: "../PTSansItalic";
+    src: url("../fonts/PTSansItalic/PTSansItalic.eot");
+    src: url("../fonts/PTSansItalic/PTSansItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansItalic/PTSansItalic.woff") format("woff"),
+    url("../fonts/PTSansItalic/PTSansItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "PTSansBold"; */
+@font-face {
+    font-family: "PTSansBold";
+    src: url("../fonts/PTSansBold/PTSansBold.eot");
+    src: url("../fonts/PTSansBold/PTSansBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansBold/PTSansBold.woff") format("woff"),
+    url("../fonts/PTSansBold/PTSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* Variables */
+
+/* Colors */
+@white: #fff;
+@black: #000;
+@red: #9b322a;
+@gray: #ccc;
+@dark-gray: #a6a8aa;
+@sea-green: #336666;
+/* /Colors*/
+/* /Variables */
+
+body {
+  background-color: @white;
+  color: @black;
+  font-family: 'PTSansRegular','Helvetica','Arial', sans-serif;
+  overflow-x: hidden !important; //от белой полосы
+  min-height: 700px;
+}
+h1, h2, h3, p {
+  color: @black;
+}
+h1 {
+  font-size: 20px;
+}
+h2 {
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.center {
+  text-align: center;
+}
+
+.green-btn {
+  background-color: @sea-green;
+  color: @white;
+  a {
+    color: @white;
+  }
+
+}
+.green-btn:hover {
+  background-color: lighten(@sea-green,10);
+    a {
+    text-decoration: none;
+  }
+}
+  .green-btn:active {
+  background-color: darken(@sea-green,20);
+}
+
+.space {
+  margin-top: 20px;
+}
+
+/* Navbar */
+  .navbar {
+    background: @gray;
+}
+  .navbar-brand{
+    img {
+      width: 160px;
+    }
+}
+
+.navbar-default {
+
+  .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: @white; //активная кнопка
+    background-color: @red;
+}
+
+  .navbar-nav {
+    li {
+      a {
+        color: @red; //цвет текста ссылок
+        .uppercase;
+        background-color: @dark-gray;
+        padding: 5px 15px;
+        margin: 20px 5px;        
+      }      
+
+      a:hover {
+        color: @red; //цвет текста ссылок
+        background-color: @dark-gray;    
+        .underline; 
+      }
+    }
+  }
+} /* /.navbar-default */
+
+
+/* /Navbar */
+
+/* Mainpage*/
+  .mainpage {
+    .mainpage-slider {
+        .carousel-inner {
+          background-color: @gray;
+          img 
+           {
+              width: 80px;
+              display: inline-block;
+              margin: 40px 0;
+              .center;
+           }
+          
+      }
+
+      .carousel-control {
+          background-repeat: no-repeat;
+          margin-top: 7%;
+          width: 7%;
+       }
+
+       .carousel-control.right {
+           background-image: url(../../../src/img/Forward-50.png);
+        }
+       .carousel-control.left {
+           background-image: url(../../../src/img/Backward-50.png);
+        }    
+
+      
+    } /* /.mainpage-slider */
+    
+    .stat-and-news {
+      background-color: @white;
+      margin-top: 50px;
+      
+      .stat-caption, .news-caption {
+        background-color: @red;
+        color: @white;
+        .center;
+      }      
+      .stat-content {
+        .center;
+        img {
+          width: 90%;
+        }
+        padding-bottom: 20px;
+      }
+
+      .mainpage-news {
+
+      }
+    } /* /.stat-and-news*/
+    
+
+  } 
+
+      .partners {
+      // background-color: @gray;
+      img {
+        width: 120px;
+        margin: 20px;
+      }
+    }
+
+/* /Mainpage*/
+
+/* Footer */
+footer {
+  .contacts {
+    padding: 15px 0;
+  }
+  background-color: @dark-gray;
+  height: 90px;
+  .address, .mail, .phone  {
+    i {
+      color: @red;
+      padding: 5px 10px;
+    }
+  }
+
+}
+/* /Footer */
+
+
