@@ -53,7 +53,7 @@
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <h4>Национальный реестр интегрированных отчетов</h4>
+            <h1>Национальный реестр интегрированных отчетов</h1>
             <!-- <h5>Краткое пояснение, что это</h5> -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -79,8 +79,8 @@
     </div> <!--/container navigation-->
 
     <div class="container mainpage">
-      <main>
-        <div class="row mainpage-slider col-md-12 col-xs-12 col-sm-12">
+      <main class="container">
+        <div class="row mainpage-slider  col-md-12 col-xs-12 col-sm-12">
             <!-- слайдер -->
             <div class="carousel slide" id="myCarousel">
             <div class="carousel-inner">
@@ -128,18 +128,50 @@
                 <a data-slide="prev" href="#myCarousel" class="carousel-control left"></a>
                 <a data-slide="next" href="#myCarousel" class="carousel-control right"></a>
             </div><!-- /.control-box -->  
-
        </div> <!--/#myCarousel-->
+    </div> <!--/mainpage-slider-->  
+        <div class="space col-md-12 col-xs-12 col-sm-12"></div>
 
-        </div> <!--/mainpage-slider-->       
+        <div class="row stat-and-news">
+          <div class="col-md-6 col-xs-12 col-sm-12 mainpage-stat">
+            <div class="stat-caption">
+              В мире 10000 ИО, 3000 компаний, выпускающих ИО
+            </div>            
+            <div class="stat-content">
+              <img src="../../src/img/stat-bg.jpg" alt="">
+              <center>
+              <button type="button" class="btn btn-default btn-lg green-btn" title="Перейти на страницу поиска"><a href="#" target="_blank" title=""> <span class="glyphicon glyphicon-search"></span> <span class="uppercase">Поиск</span> <br/> Перейти на страницу поиска</button>
+              </center>
+            </div>
+          </div>     
 
-        <div class="row ">
-          <div class="col-md-5 col-md-offset-2 col-xs-12 col-sm-12 mainpage-stat">
-            статистика
-          </div>          
+          <div class="col-md-4 col-md-offset-1 col-xs-12 col-sm-12 mainpage-news">
+            <div class="news-caption uppercase">
+              Новости
+            </div>
+            <div class="news">
+              <div class="new">
+                <h3>Заголовок новости 1</h3>
+                <p>1 ноября 2016, 10:38</p>
+                <a href="#" target="_blank" title="" class="underline">Читать далее >>> </a>    
+                <hr/>
+              </div>              
 
-          <div class="col-md-3 col-md-offset-2 col-xs-12 col-sm-12 mainpage-news">
-            новости
+              <div class="new">
+                <h3>Заголовок новости 2</h3>
+                <p>1 ноября 2016, 10:38</p>
+                <a href="#" target="_blank" title="" class="underline">Читать далее >>> </a>    
+                <hr/>
+              </div>              
+
+              <div class="new">
+                <h3>Заголовок новости 3</h3>
+                <p>1 ноября 2016, 10:38</p>
+                <a href="#" target="_blank" title="" class="underline">Читать далее >>> </a>    
+                <hr/>
+              </div>
+            </div>            
+
           </div>
         </div> <!--/ row stat & news-->
       </main>

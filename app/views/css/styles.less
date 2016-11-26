@@ -30,13 +30,6 @@
     font-weight: normal;
 }
 
-body {
-  background-color: @white;
-  color: @black;
-  font-family: 'PTSansRegular','Helvetica','Arial', sans-serif;
-  overflow-x: hidden !important; //от белой полосы
-}
-
 /* Variables */
 
 /* Colors */
@@ -47,7 +40,31 @@ body {
 @dark-gray: #999;
 @sea-green: #336666;
 /* /Colors*/
+/* /Variables */
 
+body {
+  background-color: @white;
+  color: @black;
+  font-family: 'PTSansRegular','Helvetica','Arial', sans-serif;
+  overflow-x: hidden !important; //от белой полосы
+  min-height: 700px;
+}
+h1, h2, h3, p {
+  color: @black;
+}
+h1 {
+  font-size: 20px;
+}
+h2 {
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
 .uppercase {
   text-transform: uppercase;
 }
@@ -56,6 +73,37 @@ body {
   text-decoration: underline;
 }
 
+.center {
+  text-align: center;
+}
+
+.green-btn {
+  background-color: @sea-green;
+  color: @white;
+  a {
+    color: @white;
+  }
+
+}
+.green-btn:hover {
+  background-color: lighten(@sea-green,10);
+  // color: @white;
+    a {
+    text-decoration: none;
+  }
+}
+  .green-btn:active {
+  background-color: darken(@sea-green,20);
+}
+
+
+.space {
+  margin-top: 20px;
+}
+
+// .center {
+//   text-align: center;
+// }
 /* Navbar */
   .container-fluid {
     background: @gray;
@@ -109,7 +157,7 @@ body {
               width: 80px;
               display: inline-block;
               margin: 40px 0;
-              text-align: center;
+              .center;
            }
           
       }
@@ -128,7 +176,35 @@ body {
         }    
 
       
-    }
-  }
+    } /* /.mainpage-slider */
+    
+    .stat-and-news {
+      background-color: @white;
+      margin-top: 50px;
+      
+      .stat-caption, .news-caption {
+        background-color: @red;
+        color: @white;
+        .center;
+      }      
+      .stat-content {
+        .center;
+        img {
+          // height: 220px;
+          width: 90%;
+          
+        }
+        padding-bottom: 20px;
+      }
+
+      .mainpage-news {
+
+        // .news {
+        //   text-decoration: none !important;
+  
+        // }
+      }
+    } /* /.stat-and-news*/
+  } 
 /* /Mainpage*/
 
