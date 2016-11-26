@@ -21,6 +21,7 @@
     <!-- Scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/carousel.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,36 +32,123 @@
   </head>
   <body>
     <div class="container navigation"> 
-      <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <h4>Национальный реестр интегрированных отчетов</h4>
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-      <a class="navbar-brand" href="#"><img src="../../src/img/da-strateg-logo.png" alt="logo1"></a>
-    </div>
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <h4>Национальный реестр интегрированных отчетов</h4>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              <a class="navbar-brand" href="#"><img src="../../src/img/da-strateg-logo.png" alt="logo1"></a>
+            </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">На главную</a></li>
-        <li><a href="search.jade">Поиск</a></li>
-        <li><a href="stats.jade">Интерактивная статистика</a></li>
-        <li><a href="register.jade">Регистрация отчета и компании</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>  
-    </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="main.html">На главную</a></li>
+                <li><a href="search.jade">Поиск</a></li>
+                <li><a href="stats.jade">Интерактивная статистика</a></li>
+                <li><a href="register.jade">Регистрация отчета и компании</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>  
+    </div> <!--/container navigation-->
+
+    <div class="container mainpage">
+      <main>
+        <div class="row mainpage-slider col-md-10 col-md-offset-1 col-xs-12 col-sm-12">
+            <!-- слайдер -->
+            <div id="mainpage-carousel" class="carousel">
+                <!-- Картинки в карусельке -->
+                <div class="carousel-inner">
+                  <div class="row active item ">
+                  слайд1
+                    <div class="col-md-2 col-md-offset-1 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2009.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2010.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                     <a href="#" target="_blank" title=""> <img src="../../src/img/2011.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2012.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2013.jpg" alt=""></a>
+                    </div>
+                  </div>                    
+
+                  <div class="row item ">
+                    слайд2
+                    <div class="col-md-2 col-md-offset-1 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2013.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                     <a href="#" target="_blank" title=""> <img src="../../src/img/2012.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2013.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
+                    </div>
+                  </div> 
+
+                  <div class="row item ">
+                  слайд3
+                    <div class="col-md-2 col-md-offset-1 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                     <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
+                    </div>                    
+                    <div class="col-md-2 col-xs-2 col-sm-2">
+                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
+                    </div>
+                  </div>                   
+                <!-- Навигационные элементы -->
+                <a class="carousel-control left" href="#mainpage-carousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#mainpage-carousel" data-slide="next">&rsaquo;</a>
+            </div> <!--/carousel-inner-->
+          </div> <!--/#mainpage-carousel-->
+        </div> <!--/mainpage-slider-->       
+
+        <div class="row ">
+          <div class="col-md-5 col-md-offset-2 col-xs-12 col-sm-12 mainpage-stat">
+            статистика
+          </div>          
+
+          <div class="col-md-3 col-md-offset-2 col-xs-12 col-sm-12 mainpage-news">
+            новости
+          </div>
+        </div> <!--/ row stat & news-->
+      </main>
+    </div>  <!--/mainpage-->
+
+    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      $('.carousel').carousel();
+    </script>
   </body>
 </html>
