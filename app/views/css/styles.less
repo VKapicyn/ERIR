@@ -37,7 +37,7 @@
 @black: #000;
 @red: #9b322a;
 @gray: #ccc;
-@dark-gray: #999;
+@dark-gray: #a6a8aa;
 @sea-green: #336666;
 /* /Colors*/
 /* /Variables */
@@ -65,6 +65,7 @@ h3 {
 p {
   font-size: 14px;
 }
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -87,7 +88,6 @@ p {
 }
 .green-btn:hover {
   background-color: lighten(@sea-green,10);
-  // color: @white;
     a {
     text-decoration: none;
   }
@@ -96,16 +96,12 @@ p {
   background-color: darken(@sea-green,20);
 }
 
-
 .space {
   margin-top: 20px;
 }
 
-// .center {
-//   text-align: center;
-// }
 /* Navbar */
-  .container-fluid {
+  .navbar {
     background: @gray;
 }
   .navbar-brand{
@@ -138,10 +134,6 @@ p {
       }
     }
   }
-
-  .navbar-collapse {
-    // margin-bottom: 27px;
-  }
 } /* /.navbar-default */
 
 
@@ -165,7 +157,7 @@ p {
       .carousel-control {
           background-repeat: no-repeat;
           margin-top: 7%;
-          width: 10%;
+          width: 7%;
        }
 
        .carousel-control.right {
@@ -190,9 +182,7 @@ p {
       .stat-content {
         .center;
         img {
-          // height: 220px;
           width: 90%;
-          
         }
         padding-bottom: 20px;
       }
@@ -215,6 +205,7 @@ p {
 
 /* /Mainpage*/
 
+/* Footer */
 footer {
   .contacts {
     padding: 15px 0;
@@ -229,4 +220,6 @@ footer {
   }
 
 }
+/* /Footer */
+
 
