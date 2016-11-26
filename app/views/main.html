@@ -21,7 +21,25 @@
     <!-- Scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/carousel.js"></script>
+
+    <!--Slider-->
+      <script src="js/slides.min.jquery.js"></script>
+
+
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $('.carousel').carousel({
+          interval: 3000
+        })
+      });
+    </script>
+
+
+      <script type="text/javascript">
+        $("[data-toggle=tooltip]").tooltip();
+      </script>
+    <!--/Slider-->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,10 +50,11 @@
   </head>
   <body>
     <div class="container navigation"> 
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <h4>Национальный реестр интегрированных отчетов</h4>
+            <!-- <h5>Краткое пояснение, что это</h5> -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -61,32 +80,31 @@
 
     <div class="container mainpage">
       <main>
-        <div class="row mainpage-slider col-md-10 col-md-offset-1 col-xs-12 col-sm-12">
+        <div class="row mainpage-slider col-md-12 col-xs-12 col-sm-12">
             <!-- слайдер -->
-            <div id="mainpage-carousel" class="carousel">
-                <!-- Картинки в карусельке -->
-                <div class="carousel-inner">
-                  <div class="row active item ">
-                  слайд1
-                    <div class="col-md-2 col-md-offset-1 col-xs-2 col-sm-2">
-                      <a href="#" target="_blank" title=""> <img src="../../src/img/2009.jpg" alt=""></a>
+            <div class="carousel slide" id="myCarousel">
+            <div class="carousel-inner">
+                <div class="item active ">               
+                    <div class="col-md-2 col-md-offset-1 col-xs-2 col-sm-2"  data-toggle="tooltip" data-placement="top" data-html="true" title="Росатом / 2009 / 2010">
+                      <a href="#" target="_blank">
+                       <img src="../../src/img/2009.jpg" alt="">
+                      </a>
                     </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
+                    <div class="col-md-2 col-xs-2 col-sm-2" data-toggle="tooltip" data-placement="top" data-html="true" title="Росатом / 2010 / 2011">
                       <a href="#" target="_blank" title=""> <img src="../../src/img/2010.jpg" alt=""></a>
                     </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
+                    <div class="col-md-2 col-xs-2 col-sm-2" data-toggle="tooltip" data-placement="top" data-html="true" title="Росатом / 2011 / 2012">
                      <a href="#" target="_blank" title=""> <img src="../../src/img/2011.jpg" alt=""></a>
                     </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
+                    <div class="col-md-2 col-xs-2 col-sm-2" data-toggle="tooltip" data-placement="top" data-html="true" title="Росатом / 2012 / 2013">
                       <a href="#" target="_blank" title=""> <img src="../../src/img/2012.jpg" alt=""></a>
                     </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
+                    <div class="col-md-2 col-xs-2 col-sm-2" data-toggle="tooltip" data-placement="top" data-html="true" title="Росатом / 2013 / 2014">
                       <a href="#" target="_blank" title=""> <img src="../../src/img/2013.jpg" alt=""></a>
-                    </div>
-                  </div>                    
+                    </div>        
+                </div><!-- /Slide1 -->                  
 
-                  <div class="row item ">
-                    слайд2
+                <div class="item ">               
                     <div class="col-md-2 col-md-offset-1 col-xs-2 col-sm-2">
                       <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
                     </div>                    
@@ -101,32 +119,18 @@
                     </div>                    
                     <div class="col-md-2 col-xs-2 col-sm-2">
                       <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
-                    </div>
-                  </div> 
+                    </div>        
+                </div><!-- /Slide2 -->  
 
-                  <div class="row item ">
-                  слайд3
-                    <div class="col-md-2 col-md-offset-1 col-xs-2 col-sm-2">
-                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
-                    </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
-                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
-                    </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
-                     <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
-                    </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
-                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
-                    </div>                    
-                    <div class="col-md-2 col-xs-2 col-sm-2">
-                      <a href="#" target="_blank" title=""> <img src="../../src/img/2014.jpg" alt=""></a>
-                    </div>
-                  </div>                   
-                <!-- Навигационные элементы -->
-                <a class="carousel-control left" href="#mainpage-carousel" data-slide="prev">&lsaquo;</a>
-                <a class="carousel-control right" href="#mainpage-carousel" data-slide="next">&rsaquo;</a>
-            </div> <!--/carousel-inner-->
-          </div> <!--/#mainpage-carousel-->
+          </div> <!--/.carousel-inner-->
+
+            <div class="control-box">                            
+                <a data-slide="prev" href="#myCarousel" class="carousel-control left"></a>
+                <a data-slide="next" href="#myCarousel" class="carousel-control right"></a>
+            </div><!-- /.control-box -->  
+
+       </div> <!--/#myCarousel-->
+
         </div> <!--/mainpage-slider-->       
 
         <div class="row ">
@@ -143,12 +147,10 @@
 
     
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-      $('.carousel').carousel();
-    </script>
+
+
+
+
+
   </body>
 </html>
