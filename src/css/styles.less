@@ -66,6 +66,11 @@ p {
   font-size: 14px;
 }
 
+main {
+  min-height: 700px;
+}
+
+/* for text */
 .uppercase {
   text-transform: uppercase;
 }
@@ -74,10 +79,19 @@ p {
   text-decoration: underline;
 }
 
+.no-underline {
+  text-decoration: none;
+}
+.bold {
+  font-weight: bold;
+}
 .center {
   text-align: center;
 }
+/* /for text */
 
+
+/* elements */
 .green-btn {
   background-color: @sea-green;
   color: @white;
@@ -90,8 +104,7 @@ p {
   background-color: lighten(@sea-green,10);
   color: @white !important;
     a {
-    text-decoration: none;
-    
+    .no-underline;
   }
 }
   .green-btn:active {
@@ -102,10 +115,12 @@ p {
   margin-top: 20px;
 }
 
-
-main {
-  min-height: 700px;
+.simple-border {
+  border: 1px solid black;
 }
+/* /elements */
+
+
 /* Navbar */
   .navbar {
     background: @gray;
@@ -145,7 +160,7 @@ main {
 
 /* /Navbar */
 
-/* Mainpage*/
+/* ---Page Main---*/
   .mainpage {
     .mainpage-slider {
         .carousel-inner {
@@ -209,7 +224,7 @@ main {
       }
     }
 
-/* /Mainpage*/
+/* /---Page Main---*/
 
 /* Footer */
 footer {
@@ -228,7 +243,8 @@ footer {
 }
 /* /Footer */
 
-/* Search-panel*/
+/* ---Page Search--- */
+/* search-panel*/
 .search-panel {
   background-color: @gray;
   
@@ -249,7 +265,7 @@ footer {
   }
 
   .nav>li>a:hover {
-    text-decoration: none;
+    .no-underline;
     background-color: @gray;
 }
 
@@ -265,6 +281,91 @@ footer {
  
 
 }
-/* /Search-panel*/
+/* /search-panel*/
+
+/* search-results */
+.search-results {
+  .sort, .change-view {
+    .bold;
+    a {
+      color: @black;
+      .no-underline;
+    }
+
+     a:active { //выбран тип сортировки/тип вида - сделать ссылку красной
+          color: @red;
+        }
+  }
+
+  .sort {
+    .var-sort {
+      .simple-border; 
+      padding: 5px;
+      span {
+        margin: 5px;
+      }
+    }
+  } /* /sort */
+
+  .change-view {
+    margin: 10px 0;
+    .var-view {
+      .simple-border; 
+      padding: 5px;
+      div {
+         display: inline-block;
+         padding: 5px;
+      }
+     
+    }
+  }/* /change-view */
+  
+  .view {
+    .list {    
+      .element { 
+        background-color: @gray;
+        padding: 5px;
+        margin: 10px 0;
+        .bold;
+      }
+    }
+
+    .table {
+      table {
+        a {
+          .bold;
+        }
+      }
+    }
+
+    .icon {
+      .element {
+        display: inline-block;
+        img {
+          .simple-border;
+          height: 80px;
+          margin: 5px 5px 10px;
+        }
+
+      }
+    }    
+
+    .big-icon {
+        .element {
+        display: inline-block;
+        img {
+          .simple-border;
+          height: 200px;
+          margin: 5px 5px 10px;
+        }
+
+      }
+    }
+
+
+  } /* /view */
+}/* /search-results */
+
+/* /---Page Search--- */
 
 
