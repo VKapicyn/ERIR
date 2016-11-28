@@ -59,8 +59,9 @@
         </nav>  
     </div> <!--/container navigation-->
 
-      <main class="container">
-      <div class="row search-panel col-md-5 col-xs-12 col-sm-12">
+    <main class="container">
+     <div class="row">
+      <div class="search-panel col-md-5 col-xs-12 col-sm-12">
           <!-- Навигация -->
           <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a href="#search-report" aria-controls="search-report" role="tab" data-toggle="tab">Поиск отчета</a></li>
@@ -198,7 +199,7 @@
             </div> <!--/поиск отчета #search-report-->
 
             <div role="tabpanel" class="tab-pane" id="search-organization">
-                            <form class="navbar-form navbar-left" role="search">
+              <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
                 </div>
@@ -267,16 +268,117 @@
 
               </form>
 
-            </div><!--/поиск организации-->
+            </div><!--/search-organization-->
           </div> <!--/tab-content-->
     
-      </div>      
+      </div> <!--/search-panel-->     
 
-      <div class="row search-results col-md-7 col-md-offset-1 col-xs-8 col-sm-8">
+      <div class="search-results col-md-7 col-xs-8 col-sm-8">
+        <div class="sort">
+          <strong>Сортировка:</strong>
+          <div class="var-sort">
+            <span rel="name"><a href="#">Название компании</a></span>
+            <span rel="report-year"><a href="#">Отчетный год</a></span>
+            <span rel="economy"><a href="#">Отрасль экономики</a></span>
+            <span rel="company-size"><a href="#">Размер предприятия</a></span>
+          </div>
+        </div> <!--/sort-->
 
-      </div>
+        <div class="change-view">
+          <strong>Вид:</strong>
+          <div class="var-view">
+            <div class="view-list">
+              <a href="#" title="Список"><i class="fa fa-list fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-table">
+              <a href="#" title="Таблица"><i class="fa fa-table fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-icon">
+             <a href="#" title="Средние значки"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-big-icon">
+              <a href="#" title="Крупные значки"><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div> <!--/change-view-->
 
-      </main>
+        <div class="view">
+          <div class="list">
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
+            </div>           
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
+            </div>
+          </div>
+          <div class="table">
+            <table class="table">
+               <thead>
+                 <tr>
+                   <th>Компания</th>
+                   <th>Название отчета</th>
+                   <th>Год</th>
+                   <th>Стандарт</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td><a href="#" title="Перейти на страницу компании">Компания</a></td>
+                   <td><a href="#" title="Перейти на страницу отчета">Название отчета</a></td>
+                   <td>Год</td>
+                   <td>Стандарт</td>
+                 </tr>
+                 <tr>                 
+                 <tr>
+                   <td><a href="#" title="Перейти на страницу компании">Компания</a></td>
+                   <td><a href="#" title="Перейти на страницу отчета">Название отчета</a></td>
+                   <td>Год</td>
+                   <td>Стандарт</td>
+                 </tr>
+                 <tr>                 
+                 <tr>
+                   <td><a href="#" title="Перейти на страницу компании">Компания</a></td>
+                   <td><a href="#" title="Перейти на страницу отчета">Название отчета</a></td>
+                   <td>Год</td>
+                   <td>Стандарт</td>
+                 </tr>
+                 <tr>
+               </tbody>
+               </table>
+          </div>
+          <div class="icon">
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2009.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2010.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2011.jpg" alt="icon"></a>
+            </div>
+          </div>
+          <div class="big-icon">
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2009.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2010.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2011.jpg" alt="icon"></a>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div> <!--/search-results-->
+
+      </div> <!--/row-->
+    </main>
     <div class="space"></div><div class="space"></div>
 
 
