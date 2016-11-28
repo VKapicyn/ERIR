@@ -9,7 +9,8 @@ var ReportSchema = new mongoose.Schema({
     visible: Number,
     //время добавления
     date: {
-        type: mongoose.Schema.Types.Date
+        type: mongoose.Schema.Types.Date,
+        default: mongoose.Schema.Types.Date.now
     },
     name : String, 
     year : Number, 

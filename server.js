@@ -24,7 +24,13 @@ app.get('/admin', control.AdminPage); // админка
 //маршрутизация API запросов
 app.get('/report/:id', api.getReportById); // выводим отчет по id
 app.get('/company/:id', api.getCompanyById); // выводим компанию по id
-app.post('/company/create/', api.addCompany); //создаем компанию
+app.post('/company/create/', api.addCompany); // создаем компанию
+app.post('/search/companies/', api.searchCompnaies); // поиск по компаниям
+app.post('/report/create/', api.addReport); // создаем отчет
+app.post('/search/reaports/', api.searchReports); // поиск по отчетам
+
+
+//лишнее
 app.get('/sector/:name', api.getSectorByName); //ищем отрасль по имени
 app.get('/companies/sector/:name',api.getCompaniesBySectorName);//ищем компании по названию отрасли 
 
