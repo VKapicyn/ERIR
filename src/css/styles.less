@@ -112,7 +112,7 @@ main {
 }
 
 .red {
-  color: @red !important;
+  color: @red;
 }
 
 
@@ -288,8 +288,25 @@ footer {
 }
 /* /search-panel*/
 
+ .hidden {
+      display: none;  //скрыть блок
+ }
+
+
+
 /* search-results */
-.search-results {
+
+.search-results-report {
+  .hidden;
+}
+
+// .search-results-organization {
+//   .hidden;
+// }
+
+
+.search-results-report, .search-results-organization {
+
   .sort, .change-view {
     .bold;
     a {
@@ -298,9 +315,24 @@ footer {
     }
 
      a:active { //выбран тип сортировки/тип вида - сделать ссылку красной
-          color: @red;
+          .red;
         }
   }
+
+  .change-view {
+    .var-view {
+      a {
+       color: darken(@dark-gray, 10%);
+      }
+
+      a:active { //выбран тип сортировки/тип вида - сделать ссылку красной
+          .red;
+        }
+    }
+  }
+
+
+
 
   .sort {
     .var-sort {
@@ -327,10 +359,6 @@ footer {
   
   .view {
 
-    .hidden {
-      display: none;  //скрыть блок
-    }
-
     .list {  
       .hidden;
       .element { 
@@ -338,6 +366,9 @@ footer {
         padding: 5px;
         margin: 10px 0;
         .bold;
+        img {
+          width: 50px;
+        }
       }
     }
 
