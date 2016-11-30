@@ -260,7 +260,8 @@
     
       </div> <!--/search-panel-->     
 
-      <div class="search-results col-md-7 col-xs-8 col-sm-8">
+      <div class="search-results-report col-md-7 col-xs-8 col-sm-8">
+      <h3>Результаты поиска по отчету</h3>
         <div class="sort">
           <strong>Сортировка:</strong>
           <div class="var-sort">
@@ -358,9 +359,92 @@
           </div>
         </div>
 
+      </div> <!--/search-results-report-->
 
+<!--Результаты поиска по организации-->
+    <div class="search-results-organization col-md-7 col-xs-8 col-sm-8">
+    <h3>Результаты поиска по организации</h3>
+        <div class="sort">
+          <strong>Сортировка:</strong>
+          <div class="var-sort">
+            <span rel="name"><a href="#">Название компании</a></span>
+            <span rel="economy"><a href="#">Отрасль экономики</a></span>
+            <span rel="company-size"><a href="#">Размер предприятия</a></span>
+          </div>
+        </div> <!--/sort-->
 
-      </div> <!--/search-results-->
+        <div class="change-view">
+          <strong>Вид:</strong>
+          <div class="var-view">
+            <div class="view-list">
+              <a href="#" title="Список" class="o-showView1"><i class="fa fa-list fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-table">
+              <a href="#" title="Таблица" class="o-showView2"><i class="fa fa-table fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-icon">
+             <a href="#" title="Средние значки" class="o-showView3"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-big-icon">
+              <a href="#" title="Крупные значки" class="o-showView4"><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div> <!--/change-view-->
+
+        <div class="view" >
+          <div class="list" id="o-view1">
+            <div class="element">
+              <img src="../../src/img/rosatom-logo.jpg" alt="logo">
+              <a href="#" title="Перейти на страницу профиля компании">Название компании</a>
+            </div>           
+            <div class="element">
+              <img src="../../src/img/rosatom-logo.jpg" alt="logo">
+              <a href="#" title="Перейти на страницу профиля компании">Название компании</a>
+            </div>            
+          </div>
+
+          <div class="table" id="o-view2">
+            <table class="table">
+               <thead>
+                 <tr>
+                   <th>Компания</th>
+                   <th>Отрасль экономики</th>
+                   <th>Размер предприятия</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td><a href="#" title="Перейти на страницу компании">Название компании</a></td>
+                   <td>Атомная промышленность</td>
+                   <td>Крупное</td>
+                 </tr>                    
+                 <tr>
+                   <td><a href="#" title="Перейти на страницу компании">Название компании</a></td>
+                   <td>Атомная промышленность</td>
+                   <td>Крупное</td>
+                 </tr>               
+               </tbody>
+               </table>
+          </div>
+          <div class="icon" id="o-view3">
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+          </div>
+          <div class="big-icon" id="o-view4">
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+          </div>
+        </div>
+      </div> <!--/search-results-organization-->
+
 
       </div> <!--/row-->
     </main>
@@ -399,9 +483,8 @@
     <!--/Slider-->
 
 
-    <!--Выбор вида-->
-    <script src="jquery.js" type="text/javascript"></script>
-    <script type="text/javascript">// <![CDATA[
+    <!--Выбор вида. Поиск отчета-->
+    <script type="text/javascript">
     $(document).ready(function(){
         $(".showView1").click(function(){
             $("#view1").slideToggle("slow"); //показать view1 - список, остальные скрыть
@@ -441,8 +524,74 @@
             return false;
         });
     });
-    // ]]></script>
-    <!--/Выбор вида-->
+    </script>
+   <!--/Выбор вида. Поиск отчета-->
+
+   <!--Выбор вида. Поиск организации-->
+    <script type="text/javascript">
+       $(document).ready(function(){
+            $(".o-showView1").click(function(){
+                $("#o-view1").slideToggle("slow"); //показать o-view1 - список, остальные скрыть
+                $("#o-view2").hide();
+                $("#o-view3").hide();
+                $("#o-view4").hide();
+                return false;
+            });
+        });
+
+        $(document).ready(function(){
+            $(".o-showView2").click(function(){
+                $("#o-view2").slideToggle("slow"); //показать o-view2 - таблица, остальные скрыть
+                $("#o-view1").hide();
+                $("#o-view3").hide();
+                $("#o-view4").hide();
+                return false;
+            });
+        });
+
+        $(document).ready(function(){
+            $(".o-showView3").click(function(){
+                $("#o-view3").slideToggle("slow"); //показать o-view3 - средние значки, остальные скрыть
+                $("#o-view1").hide();
+                $("#o-view2").hide();
+                $("#o-view4").hide();
+                return false;
+            });
+        });
+
+        $(document).ready(function(){
+            $(".o-showView4").click(function(){
+                $("#o-view4").slideToggle("slow"); //показать o-view4 - крупные значки, остальные скрыть
+                $("#o-view1").hide();
+                $("#o-view2").hide();
+                $("#o-view3").hide();
+                return false;
+            });
+        });
+    </script>
+  <!--/Выбор вида. Поиск организации-->
+    
+    <!--Отобразить поле с результатами поиска в зависимости от выбранной вкладки-->
+    <!--Не работает, но переключении происходит при нажатии на Поиск-->
+    <script type="text/javascript">
+    $(document).ready(function(){
+            $("#search-report").click(function(){
+                $(".search-results-report").show();
+                $(".search-results-organization").hide();
+                return false;
+            });
+        });
+
+           $(document).ready(function(){
+            $("#search-organization").click(function(){
+                $(".search-results-organization").show();
+                $(".search-results-report").hide();
+                return false;
+            });
+        });           
+    </script>
+    <!--/Отобразить поле с результатами поиска в зависимости от выбранной вкладки-->
+
 
 
     </div> <!--/wrapper-->
