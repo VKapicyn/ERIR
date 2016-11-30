@@ -111,6 +111,11 @@ main {
   background-color: darken(@sea-green,20);
 }
 
+.red {
+  color: @red !important;
+}
+
+
 .space {
   margin-top: 20px;
 }
@@ -321,7 +326,13 @@ footer {
   }/* /change-view */
   
   .view {
-    .list {    
+
+    .hidden {
+      display: none;  //скрыть блок
+    }
+
+    .list {  
+      .hidden;
       .element { 
         background-color: @gray;
         padding: 5px;
@@ -331,6 +342,7 @@ footer {
     }
 
     .table {
+      // .hidden; //изначально вывод в виде таблицы
       table {
         a {
           .bold;
@@ -339,6 +351,7 @@ footer {
     }
 
     .icon {
+      .hidden;
       .element {
         display: inline-block;
         img {
@@ -351,6 +364,7 @@ footer {
     }    
 
     .big-icon {
+      .hidden;
         .element {
         display: inline-block;
         img {

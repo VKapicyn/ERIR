@@ -48,10 +48,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="main.html">На главную</a></li>
-                <li class="active"><a href="search.jade">Поиск</a></li>
-                <li><a href="stats.jade">Интерактивная статистика</a></li>
-                <li><a href="register.jade">Регистрация отчета и компании</a></li>
+                <li><a href="main">На главную</a></li>
+                <li class="active"><a href="search">Поиск</a></li>
+                <li><a href="stats">Интерактивная статистика</a></li>
+                <li><a href="register">Регистрация отчета и компании</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -275,22 +275,22 @@
           <strong>Вид:</strong>
           <div class="var-view">
             <div class="view-list">
-              <a href="#" title="Список"><i class="fa fa-list fa-3x" aria-hidden="true"></i></a>
+              <a href="#" title="Список" class="showView1"><i class="fa fa-list fa-3x" aria-hidden="true"></i></a>
             </div>
             <div class="view-table">
-              <a href="#" title="Таблица"><i class="fa fa-table fa-3x" aria-hidden="true"></i></a>
+              <a href="#" title="Таблица" class="showView2"><i class="fa fa-table fa-3x" aria-hidden="true"></i></a>
             </div>
             <div class="view-icon">
-             <a href="#" title="Средние значки"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a>
+             <a href="#" title="Средние значки" class="showView3"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a>
             </div>
             <div class="view-big-icon">
-              <a href="#" title="Крупные значки"><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></a>
+              <a href="#" title="Крупные значки" class="showView4"><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></a>
             </div>
           </div>
         </div> <!--/change-view-->
 
-        <div class="view">
-          <div class="list">
+        <div class="view" >
+          <div class="list" id="view1">
             <div class="element">
               <a href="#" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
             </div>           
@@ -301,7 +301,8 @@
               <a href="#" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
             </div>
           </div>
-          <div class="table">
+
+          <div class="table" id="view2">
             <table class="table">
                <thead>
                  <tr>
@@ -333,7 +334,7 @@
                </tbody>
                </table>
           </div>
-          <div class="icon">
+          <div class="icon" id="view3">
             <div class="element">
               <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2009.jpg" alt="icon"></a>
             </div>            
@@ -344,7 +345,7 @@
               <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2011.jpg" alt="icon"></a>
             </div>
           </div>
-          <div class="big-icon">
+          <div class="big-icon" id="view4">
             <div class="element">
               <a href="#" title="Перейти на страницу отчета"><img src="../../src/img/2009.jpg" alt="icon"></a>
             </div>            
@@ -396,6 +397,53 @@
         $("[data-toggle=tooltip]").tooltip(); //всплывающие подсказки (не работают)
       </script>
     <!--/Slider-->
+
+
+    <!--Выбор вида-->
+    <script src="jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">// <![CDATA[
+    $(document).ready(function(){
+        $(".showView1").click(function(){
+            $("#view1").slideToggle("slow"); //показать view1 - список, остальные скрыть
+            $("#view2").hide();
+            $("#view3").hide();
+            $("#view4").hide();
+            return false;
+        });
+    });
+
+    $(document).ready(function(){
+        $(".showView2").click(function(){
+            $("#view2").slideToggle("slow"); //показать view2 - таблица, остальные скрыть
+            $("#view1").hide();
+            $("#view3").hide();
+            $("#view4").hide();
+            return false;
+        });
+    });
+
+    $(document).ready(function(){
+        $(".showView3").click(function(){
+            $("#view3").slideToggle("slow"); //показать view3 - средние значки, остальные скрыть
+            $("#view1").hide();
+            $("#view2").hide();
+            $("#view4").hide();
+            return false;
+        });
+    });
+
+    $(document).ready(function(){
+        $(".showView4").click(function(){
+            $("#view4").slideToggle("slow"); //показать view4 - крупные значки, остальные скрыть
+            $("#view1").hide();
+            $("#view2").hide();
+            $("#view3").hide();
+            return false;
+        });
+    });
+    // ]]></script>
+    <!--/Выбор вида-->
+
 
     </div> <!--/wrapper-->
   </body>
