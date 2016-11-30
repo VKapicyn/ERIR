@@ -272,7 +272,8 @@ html(lang='en')
               // /search-organization
             // /tab-content
           // /search-panel
-          .search-results.col-md-7.col-xs-8.col-sm-8
+          .search-results-report.col-md-7.col-xs-8.col-sm-8
+            h3 Результаты поиска по отчету
             .sort
               strong Сортировка:
               .var-sort
@@ -289,27 +290,27 @@ html(lang='en')
               strong Вид:
               .var-view
                 .view-list
-                  a(href='#', title='Список')
+                  a.showView1(href='#', title='Список')
                     i.fa.fa-list.fa-3x(aria-hidden='true')
                 .view-table
-                  a(href='#', title='Таблица')
+                  a.showView2(href='#', title='Таблица')
                     i.fa.fa-table.fa-3x(aria-hidden='true')
                 .view-icon
-                  a(href='#', title='Средние значки')
+                  a.showView3(href='#', title='Средние значки')
                     i.fa.fa-picture-o.fa-2x(aria-hidden='true')
                 .view-big-icon
-                  a(href='#', title='Крупные значки')
+                  a.showView4(href='#', title='Крупные значки')
                     i.fa.fa-picture-o.fa-3x(aria-hidden='true')
             // /change-view
             .view
-              .list
+              #view1.list
                 .element
-                  a(href='#', title='Перейти на страницу отчета') Компания: Название отчета - год
+                  a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
                 .element
-                  a(href='#', title='Перейти на страницу отчета') Компания: Название отчета - год
+                  a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
                 .element
-                  a(href='#', title='Перейти на страницу отчета') Компания: Название отчета - год
-              .table
+                  a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
+              #view2.table
                 table.table
                   thead
                     tr
@@ -339,27 +340,97 @@ html(lang='en')
                         a(href='#', title='Перейти на страницу отчета') Название отчета
                       td Год
                       td Стандарт
-              .icon
+              #view3.icon
                 .element
-                  a(href='#', title='Перейти на страницу отчета')
+                  a(href='report', title='Перейти на страницу отчета')
                     img(src='img/2009.jpg', alt='icon')
                 .element
-                  a(href='#', title='Перейти на страницу отчета')
+                  a(href='report', title='Перейти на страницу отчета')
                     img(src='img/2010.jpg', alt='icon')
                 .element
-                  a(href='#', title='Перейти на страницу отчета')
+                  a(href='report', title='Перейти на страницу отчета')
                     img(src='img/2011.jpg', alt='icon')
-              .big-icon
+              #view4.big-icon
                 .element
-                  a(href='#', title='Перейти на страницу отчета')
+                  a(href='report', title='Перейти на страницу отчета')
                     img(src='img/2009.jpg', alt='icon')
                 .element
-                  a(href='#', title='Перейти на страницу отчета')
+                  a(href='report', title='Перейти на страницу отчета')
                     img(src='img/2010.jpg', alt='icon')
                 .element
-                  a(href='#', title='Перейти на страницу отчета')
+                  a(href='report', title='Перейти на страницу отчета')
                     img(src='img/2011.jpg', alt='icon')
-          // /search-results
+          // /search-results-report
+          // Результаты поиска по организации
+          .search-results-organization.col-md-7.col-xs-8.col-sm-8
+            h3 Результаты поиска по организации
+            .sort
+              strong Сортировка:
+              .var-sort
+                span(rel='name')
+                  a(href='#') Название компании
+                span(rel='economy')
+                  a(href='#') Отрасль экономики
+                span(rel='company-size')
+                  a(href='#') Размер предприятия
+            // /sort
+            .change-view
+              strong Вид:
+              .var-view
+                .view-list
+                  a.o-showView1(href='#', title='Список')
+                    i.fa.fa-list.fa-3x(aria-hidden='true')
+                .view-table
+                  a.o-showView2(href='#', title='Таблица')
+                    i.fa.fa-table.fa-3x(aria-hidden='true')
+                .view-icon
+                  a.o-showView3(href='#', title='Средние значки')
+                    i.fa.fa-picture-o.fa-2x(aria-hidden='true')
+                .view-big-icon
+                  a.o-showView4(href='#', title='Крупные значки')
+                    i.fa.fa-picture-o.fa-3x(aria-hidden='true')
+            // /change-view
+            .view
+              #o-view1.list
+                .element
+                  img(src='img/rosatom-logo.jpg', alt='logo')
+                  a(href='company', title='Перейти на страницу профиля компании') Название компании
+                .element
+                  img(src='img/rosatom-logo.jpg', alt='logo')
+                  a(href='company', title='Перейти на страницу профиля компании') Название компании
+              #o-view2.table
+                table.table
+                  thead
+                    tr
+                      th Компания
+                      th Отрасль экономики
+                      th Размер предприятия
+                  tbody
+                    tr
+                      td
+                        a(href='#', title='Перейти на страницу компании') Название компании
+                      td Атомная промышленность
+                      td Крупное
+                    tr
+                      td
+                        a(href='#', title='Перейти на страницу компании') Название компании
+                      td Атомная промышленность
+                      td Крупное
+              #o-view3.icon
+                .element
+                  a(href='company', title='Перейти на страницу компании')
+                    img(src='img/rosatom-logo.jpg', alt='icon')
+                .element
+                  a(href='company', title='Перейти на страницу компании')
+                    img(src='img/rosatom-logo.jpg', alt='icon')
+              #o-view4.big-icon
+                .element
+                  a(href='company', title='Перейти на страницу компании')
+                    img(src='img/rosatom-logo.jpg', alt='icon')
+                .element
+                  a(href='company', title='Перейти на страницу компании')
+                    img(src='img/rosatom-logo.jpg', alt='icon')
+          // /search-results-organization
         // /row
       .space
       .space
@@ -386,4 +457,100 @@ html(lang='en')
       script(type='text/javascript').
         $("[data-toggle=tooltip]").tooltip(); //всплывающие подсказки (не работают)
       // /Slider
+      // Выбор вида. Поиск отчета
+      script(type='text/javascript').
+        $(document).ready(function(){
+        $(".showView1").click(function(){
+        $("#view1").slideToggle("slow"); //показать view1 - список, остальные скрыть
+        $("#view2").hide();
+        $("#view3").hide();
+        $("#view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".showView2").click(function(){
+        $("#view2").slideToggle("slow"); //показать view2 - таблица, остальные скрыть
+        $("#view1").hide();
+        $("#view3").hide();
+        $("#view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".showView3").click(function(){
+        $("#view3").slideToggle("slow"); //показать view3 - средние значки, остальные скрыть
+        $("#view1").hide();
+        $("#view2").hide();
+        $("#view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".showView4").click(function(){
+        $("#view4").slideToggle("slow"); //показать view4 - крупные значки, остальные скрыть
+        $("#view1").hide();
+        $("#view2").hide();
+        $("#view3").hide();
+        return false;
+        });
+        });
+      // /Выбор вида. Поиск отчета
+      // Выбор вида. Поиск организации
+      script(type='text/javascript').
+        $(document).ready(function(){
+        $(".o-showView1").click(function(){
+        $("#o-view1").slideToggle("slow"); //показать o-view1 - список, остальные скрыть
+        $("#o-view2").hide();
+        $("#o-view3").hide();
+        $("#o-view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".o-showView2").click(function(){
+        $("#o-view2").slideToggle("slow"); //показать o-view2 - таблица, остальные скрыть
+        $("#o-view1").hide();
+        $("#o-view3").hide();
+        $("#o-view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".o-showView3").click(function(){
+        $("#o-view3").slideToggle("slow"); //показать o-view3 - средние значки, остальные скрыть
+        $("#o-view1").hide();
+        $("#o-view2").hide();
+        $("#o-view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".o-showView4").click(function(){
+        $("#o-view4").slideToggle("slow"); //показать o-view4 - крупные значки, остальные скрыть
+        $("#o-view1").hide();
+        $("#o-view2").hide();
+        $("#o-view3").hide();
+        return false;
+        });
+        });
+      // /Выбор вида. Поиск организации
+      // Отобразить поле с результатами поиска в зависимости от выбранной вкладки
+      // Не работает, но переключении происходит при нажатии на Поиск
+      script(type='text/javascript').
+        $(document).ready(function(){
+        $("#search-report").click(function(){
+        $(".search-results-report").show();
+        $(".search-results-organization").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $("#search-organization").click(function(){
+        $(".search-results-organization").show();
+        $(".search-results-report").hide();
+        return false;
+        });
+        });
+      // /Отобразить поле с результатами поиска в зависимости от выбранной вкладки
     // /wrapper
