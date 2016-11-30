@@ -1,6 +1,297 @@
-html
-    title
-        !=report
-    body
-        h2!=report
-        h4!=id
+//- html
+//-     title
+//-         !=report
+//-     body
+//-         h2!=report
+//-         h4!=id
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Реестр
+    // Styles
+    link(href=' css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href=' fonts/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', type='text/css', href=' css/responsive.css')
+    link(href=' css/styles.css', rel='stylesheet')
+    // LESS
+    script(src=' js/less.js')
+    script.
+      less = { env: 'development' };
+    script.
+      less.watch();
+    // Scripts
+    script(src=' js/jquery-3.1.1.min.js')
+    script(src=' js/bootstrap.min.js')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    .wrapper
+      .navigation
+        nav.navbar.navbar-default
+          .container
+            // Brand and toggle get grouped for better mobile display
+            h1 Национальный реестр интегрированных отчетов
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#')
+                img(src=' img/da-strateg-logo.png', alt='logo1')
+            // Collect the nav links, forms, and other content for toggling
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='main') На главную
+                li.active
+                  a(href='search') Поиск
+                li
+                  a(href='stats') Интерактивная статистика
+                li
+                  a(href='register') Регистрация отчета и компании
+            // /.navbar-collapse
+          // /.container-fluid
+      // /container navigation
+      main.container
+        .row
+          .col-md-10.col-md-offset-2.col-xs-12.col-sm-12.profile-report
+            h2
+              | 2010 Публичный годовой отчет государственной корпорации по атомной энергии "Росатом"
+            .row
+              .col-md-3.col-xs-6.col-sm-6.cover-and-isBest
+                img(src=' img/2010.jpg', alt='')
+                br
+                span.isBest
+                  | Отчет является лучшей практикой в раскрытии [элемент] в 2009 году, согласно исследованию 
+                  a(href='#', target='_blank', title='Перейти к исследованию') РРС
+              .col-md-7.col-xs-12.col-sm-12.report-info
+                table.table.table-hover
+                  tbody
+                    tr
+                      td Отчетный год
+                      td 2010
+                    tr
+                      td Отрасль экономики
+                      td Атомная промышленность
+                    tr
+                      td Международный стандарт по интегрированной отчетности
+                      td
+                        i.fa.fa-close(aria-hidden='true')
+                    tr
+                      td Руководство GRI
+                      td G3
+                    tr
+                      td AA1000SES
+                      td
+                        i.fa.fa-check(aria-hidden='true')
+                    tr
+                      td AA1000APS 
+                      td
+                        i.fa.fa-close(aria-hidden='true')
+                    tr
+                      td  Рейтинг прозрачности РРС
+                      td  - 
+                    tr
+                      td  Наличие в отчете бизнес-модели 
+                      td  - 
+                    tr
+                      td  Наличие в отчете информации о стратегии 
+                      td  - 
+                    tr
+                      td  Наличие в отчете информации об управлении рисками
+                      td  - 
+                    tr
+                      td  Лучшее раскрытие стратегии 
+                      td  - 
+                    tr
+                      td  Лучшее раскрытие бизнес-модели 
+                      td  - 
+                    tr
+                      td  Лучшее раскрытие информации об управлении рисками
+                      td  - 
+                    tr
+                      td  Лучшее раскрытие информации о корпоративном управлении
+                      td  - 
+                    tr
+                      td  Лучшее раскрытие информации о деятельности в области УР
+                      td  - 
+                    tr
+                      td  Лучшее раскрытие информации о системе публичной отчетности
+                      td  - 
+                    tr
+                      td  Компания-консультант
+                      td  Группа компаний «Да-Стратегия»
+                    tr
+                      td  Менеджер отчета
+                      td  - 
+                    tr
+                      td  Дизайн отчета
+                      td  - 
+                    tr
+                      td  Аудитор отчета
+                      td  ЗАО «ПрайсвотерхаусКуперс Аудит»
+              .col-md-2.col-xs-12.col-sm-12.report-buttons
+                button.btn.btn-default.green-btn(type='submit')
+                  i.fa.fa-download(aria-hidden='true')
+                  |  Скачать отчет (RU)
+                br
+                button.btn.btn-default.green-btn(type='submit')
+                  i.fa.fa-download(aria-hidden='true')
+                  |  Скачать отчет (ENG)
+                br
+                button.btn.btn-default.green-btn(type='submit')
+                  a(href='#', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
+                br
+            // /row
+            .row
+              h3 Другие отчеты компании
+              .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
+                .cover
+                  a(href='#', target='_blank', title='')
+                    img(src=' img/2009.jpg', alt='')
+                .cover
+                  a(href='#', target='_blank', title='')
+                    img(src=' img/2011.jpg', alt='')
+                .cover
+                  a(href='#', target='_blank', title='')
+                    img(src=' img/2012.jpg', alt='')
+                .cover
+                  a(href='#', target='_blank', title='')
+                    img(src=' img/2013.jpg', alt='')
+                .cover
+                  a(href='#', target='_blank', title='')
+                    img(src=' img/2014.jpg', alt='')
+              // /other-reports
+            // /row
+          // /profile-report
+        // /row
+      .space
+      .space
+      footer
+        .container
+          .row.contacts
+            .col-md-3.col-md-offset-1.col-xs-4.col-sm-4.address
+              i.fa.fa-map-marker.fa-2x(title='')
+              | Правильный адрес
+            .col-md-3.col-md-offset-1.col-xs-4.col-sm-4.mail
+              i.fa.fa-envelope-o.fa-2x(title='')
+              | info@da-strateg.ru
+            .col-md-3.col-md-offset-1.col-xs-4.col-sm-4.phone
+              i.fa.fa-phone.fa-2x(title='')
+              | +7 499 400-56-39
+      // Slider
+      script(src='js/slides.min.jquery.js')
+      script(type='text/javascript').
+        $(document).ready(function() {
+        $('.carousel').carousel({
+        interval: 3000
+        })
+        });
+      script(type='text/javascript').
+        $("[data-toggle=tooltip]").tooltip(); //всплывающие подсказки (не работают)
+      // /Slider
+      // Выбор вида. Поиск отчета
+      script(type='text/javascript').
+        $(document).ready(function(){
+        $(".showView1").click(function(){
+        $("#view1").slideToggle("slow"); //показать view1 - список, остальные скрыть
+        $("#view2").hide();
+        $("#view3").hide();
+        $("#view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".showView2").click(function(){
+        $("#view2").slideToggle("slow"); //показать view2 - таблица, остальные скрыть
+        $("#view1").hide();
+        $("#view3").hide();
+        $("#view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".showView3").click(function(){
+        $("#view3").slideToggle("slow"); //показать view3 - средние значки, остальные скрыть
+        $("#view1").hide();
+        $("#view2").hide();
+        $("#view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".showView4").click(function(){
+        $("#view4").slideToggle("slow"); //показать view4 - крупные значки, остальные скрыть
+        $("#view1").hide();
+        $("#view2").hide();
+        $("#view3").hide();
+        return false;
+        });
+        });
+      // /Выбор вида. Поиск отчета
+      // Выбор вида. Поиск организации
+      script(type='text/javascript').
+        $(document).ready(function(){
+        $(".o-showView1").click(function(){
+        $("#o-view1").slideToggle("slow"); //показать o-view1 - список, остальные скрыть
+        $("#o-view2").hide();
+        $("#o-view3").hide();
+        $("#o-view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".o-showView2").click(function(){
+        $("#o-view2").slideToggle("slow"); //показать o-view2 - таблица, остальные скрыть
+        $("#o-view1").hide();
+        $("#o-view3").hide();
+        $("#o-view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".o-showView3").click(function(){
+        $("#o-view3").slideToggle("slow"); //показать o-view3 - средние значки, остальные скрыть
+        $("#o-view1").hide();
+        $("#o-view2").hide();
+        $("#o-view4").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $(".o-showView4").click(function(){
+        $("#o-view4").slideToggle("slow"); //показать o-view4 - крупные значки, остальные скрыть
+        $("#o-view1").hide();
+        $("#o-view2").hide();
+        $("#o-view3").hide();
+        return false;
+        });
+        });
+      // /Выбор вида. Поиск организации
+      // Отобразить поле с результатами поиска в зависимости от выбранной вкладки
+      // Не работает, но переключении происходит при нажатии на Поиск
+      script(type='text/javascript').
+        $(document).ready(function(){
+        $("#search-report").click(function(){
+        $(".search-results-report").show();
+        $(".search-results-organization").hide();
+        return false;
+        });
+        });
+        $(document).ready(function(){
+        $("#search-organization").click(function(){
+        $(".search-results-organization").show();
+        $(".search-results-report").hide();
+        return false;
+        });
+        });
+      // /Отобразить поле с результатами поиска в зависимости от выбранной вкладки
+    // /wrapper
