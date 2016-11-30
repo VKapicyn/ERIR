@@ -57,8 +57,11 @@ h1 {
 }
 h2 {
   font-size: 18px;
+  .bold;
+  .red;
 }
 h3 {
+  .bold;
   font-size: 16px;
 }
 
@@ -113,6 +116,10 @@ main {
 
 .red {
   color: @red;
+}
+
+.sea-green {
+  color: @sea-green;
 }
 
 
@@ -332,8 +339,6 @@ footer {
   }
 
 
-
-
   .sort {
     .var-sort {
       .simple-border; 
@@ -412,5 +417,50 @@ footer {
 }/* /search-results */
 
 /* /---Page Search--- */
+
+/* ---Report-- */
+  .profile-report {
+    .cover-and-isBest {
+        img {
+          width: 150px;
+          .simple-border;
+        }
+
+          .isBest {
+        .red;
+        }
+
+      }
+
+      .report-info {
+         .fa-close {
+           .red;
+         }         
+
+         .fa-check {
+           .sea-green;
+         }
+      }
+
+
+      .report-buttons {
+        button {
+          margin: 5px;
+        } 
+      }
+
+      .other-reports {
+        .cover {
+          display: inline-block;
+          img {
+            height: 100px;
+            margin: 5px;
+            .simple-border;
+          }
+        }
+      }
+    
+  }
+/* /---Report-- */
 
 
