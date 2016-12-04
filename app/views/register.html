@@ -67,30 +67,110 @@
             <div class="row register-company">
               <div class="col-md-12 col-xs-12 col-sm-12">
               <h2 class="sea-green">Анкета регистрации профиля организации</h2>
-                <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-company-left">
+                <div class="col-md-6 col-xs-12 col-sm-12 register-company-left">
                   <h3>Информация об организации</h3>
-                  <select name="organization-form">
-                    <option value="0">Организационно-правовая форма</option>
-                    <option value="1">Все формы</option>
-                    <option value="2"> Публичное акционерное общество</option>
-                    <option value="3"> Непубличное акционерное общество</option>
-                    <option value="4"> Общество с ограниченной ответственностью</option>
-                    <option value="5"> Государственная корпорация</option>
-                    <option value="6"> Государственное или муниципальное унитарное предприятие</option>
-                    <option value="7"> Прочие</option>
-                 </select> <br/>
+                  <div> 
+                    <select name="organization-form">
+                      <option value="0">Организационно-правовая форма</option>
+                      <option value="1">Все формы</option>
+                      <option value="2"> Публичное акционерное общество</option>
+                      <option value="3"> Непубличное акционерное общество</option>
+                      <option value="4"> Общество с ограниченной ответственностью</option>
+                      <option value="5"> Государственная корпорация</option>
+                      <option value="6"> Государственное или муниципальное унитарное предприятие</option>
+                      <option value="7"> Прочие</option>
+                   </select> <br/>
+                 </div>
 
-                 Название организации <input name="name">
-                 <br>                   
-                 Адрес официального сайта <input name="name">
-                 <br>                   
+                 <div>Название организации <input name="name" class="change-w"></div> <br/>
+                 <div>Адрес официального сайта <input name="adress" class="change-w"></div> <br/>
 
+                 <div>Листинг
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="listing" class="change-w" placeholder="Если да, то на какой бирже"><br/>
+                 </div>
 
+                 <div>
+                  <select name="economy">
+                    <option value="1">Отрасль экономики</option>
+                    <option value="2">Все отрасли</option>
+                    <option value="3">Агропромышленный комплекс</option>                  
+                    <option value="4"> Атомная промышленность</option>
+                    <option value="5"> Банки и др. инвестиционно-финансовые организации</option>
+                    <option value="6"> Жилищно-коммунальное хозяйство</option>
+                    <option value="7"> Здравоохранение и фармацевтическая промышленность</option>
+                    <option value="8"> Инжиниринг, промыш.-инфраструктурное строительство</option>
+                    <option value="7"> Информационные технологии</option>
+                    <option value="9"> Легкая промышленность</option>
+                    <option value="10"> Лесная и целлюлозно-бумажная промышленность</option>
+                    <option value="11"> Машиностроение</option>
+                    <option value="12"> Наука</option>
+                    <option value="13"> Нефтяная и нефтегазовая промышленность</option>
+                    <option value="14"> Общественное питание</option>
+                    <option value="15"> Оптовая торговля</option>
+                    <option value="16"> Пищевая промышленность</option>
+                    <option value="17"> Полиграфическая промышленность</option>
+                    <option value="18"> Промышленность драгоценных металлов и алмазов</option>
+                    <option value="19"> Промышленность строительных материалов</option>
+                    <option value="20"> Розничная торговля</option>
+                    <option value="21"> Сервисные компании</option>
+                    <option value="22"> СМИ</option>
+                    <option value="23"> Страхование</option>
+                    <option value="24"> Строительство</option>
+                    <option value="25"> Табачная промышленность</option>
+                    <option value="26"> Упаковка</option>
+                    <option value="27"> Химическая и нефтегазовая промышленность</option>
+                    <option value="28"> Цветная металлургия</option>
+                    <option value="29"> Черная металлургия</option>
+                    <option value="30"> Электроэнергетика</option>
+                  </select> <br/>      
+                 </div>
 
+                 <div>
+                   <select name="company-size">
+                    <option value="0">Размер предприятия</option>
+                    <option value="1">Все размеры</option>
+                    <option value="2" title="Оборот до 800 млн рублей, количество сотрудников до 100 человек"> Малое предприятие</option>
+                    <option value="3" title="Оборот до 2 млрд рублей, количество сотрудников до 250 человек">Среднее предприятие</option>
+                    <option value="4" title="Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек">Крупное предприятие</option>
+                  </select> <br/> 
+                 </div>
+
+                 <div>
+                   <select name="ownership">
+                    <option value="0"> Форма собственности</option>
+                    <option value="1" title="Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ">Государственная</option>
+                    <option value="2"> Частная</option>
+                   </select> <br/> 
+                 </div>
+
+                 <div class="form-group">
+                    <span class="left">Краткое описание организации</span>
+                    <textarea class="form-control"></textarea>
+                 </div>
+
+                 <div>ФИО директора организации <input name="CEO" class="change-w"></div> <br/>
+                 <div>Юридический адрес головного офиса <input name="" class="change-w"></div> <br/>
                 </div> <!--/register-company-left-->               
 
                 <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-company-right">
                   <h3>Контактная информация</h3>
+                  <strong>Руководитель, ответственный за написание отчета</strong>
+                  <div>ФИО <input name="" class="change-w"></div> <br/>
+                  <div>Должность<input name="" class="change-w"></div> <br/>
+                  <div> Электронная почта<input name="" class="change-w"></div> <br/>
+                  <div>Телефон <input name="" class="change-w"></div> <br/>
+
+                  <strong>Пользователь, регистрирующий компанию/отчет</strong>
+                  <div>ФИО <input name="" class="change-w"></div> <br/>
+                  <div>Должность<input name="" class="change-w"></div> <br/>
+                  <div> Электронная почта<input name="" class="change-w"></div> <br/>
+                  <div>Телефон <input name="" class="change-w"></div> <br/>
 
                 </div><!--/register-company-right-->   
   

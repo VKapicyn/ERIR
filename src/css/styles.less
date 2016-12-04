@@ -95,6 +95,16 @@ main {
 .center {
   text-align: center;
 }
+.right {
+  //  margin-left: auto;
+  // margin-right: 0;
+  text-align: right;
+}
+.left {
+   margin-right: auto;
+  margin-left: 0;
+  text-align: left;
+}
 /* /for text */
 
 
@@ -487,14 +497,21 @@ footer {
 //Анкета регистрации профиля организации
   .register-company {
 
+    .change-w{
+            width: 200px;
+        }
+
     .register-company-left {
-      input {
+      div {
         margin: 5px;
-        //TODO: выровнять как на макете 
+        padding: 5px;
+        .right;       
       }
+
     }    
 
     .register-company-right {
+      .register-company-left; //повторить стили из левого блока
       
     }
   } /* /.register-company */
