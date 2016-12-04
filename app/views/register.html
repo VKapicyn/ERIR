@@ -67,7 +67,7 @@
             <div class="row register-company">
               <div class="col-md-12 col-xs-12 col-sm-12">
               <h2 class="sea-green">Анкета регистрации профиля организации</h2>
-                <div class="col-md-6 col-xs-12 col-sm-12 register-company-left">
+                <div class="col-md-6 col-xs-12 col-sm-12 register-left">
                   <h3>Информация об организации</h3>
                   <div> 
                     <select name="organization-form">
@@ -158,7 +158,7 @@
                  <div>Юридический адрес головного офиса <input name="" class="change-w"></div> <br/>
                 </div> <!--/register-company-left-->               
 
-                <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-company-right">
+                <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-right">
                   <h3>Контактная информация</h3>
                   <strong>Руководитель, ответственный за написание отчета</strong>
                   <div>ФИО <input name="" class="change-w"></div> <br/>
@@ -179,12 +179,186 @@
             <div class="row register-report">
                <div class="col-md-12 col-xs-12 col-sm-12">
                 <h2 class="sea-green">Анкета регистрации профиля отчета</h2>
-                <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-company-left">
+                <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-left">
+                <div>
+                  <select name="report-year">
+                    <option value="0">Отчетный год</option>
+                    <option value="1">Все отчетные года</option>
+                    <option value="2">2009</option>
+                    <option value="3">2010</option>
+                    <option value="4">2011</option>
+                    <option value="5">2012</option>
+                    <option value="6">2013</option>
+                    <option value="7">2014</option>
+                    <option value="8">2015</option>
+                </select>    
+                </div>
 
+                <div>
+                Использование МСИО
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> 
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio3" value="option3" checked="" type="radio" > Частично
+                  </label> <br/>
+                </div>  
 
-                </div> <!--/register-report-left-->               
+                <div>
+                Использование Руководства GRI 
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
 
-                <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-company-right">
+                <div>
+                Использование стандарта A1000SES
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>               
+
+                <div>
+                Использование стандарта A1000APS
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие в отчете бизнес-модели
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие в отчете информации о стратегии
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие в отчете информации о рисках
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие Общественного заверения отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Участие Панели заинтересованных сторон в создании отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+            </div> <!--/register-report-left-->               
+
+            <div class="col-md-6 col-xs-12 col-sm-12 register-right">
+               <div>
+                Финансовый аудитор отчета 
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Юридическое название аудитора"><br/>
+                </div>                 
+
+                <div>
+                Аудитор нефинансовой информации отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Юридическое название аудитора"><br/>
+                </div>                 
+
+                <div>
+                Консультант подготовки отчета 
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Юридическое название компании"><br/>
+                </div> 
+                        
+                <div>
+                Менеджер процесса подготовки отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Фамилия и имя менеджера"><br/>
+                </div>                 
+
+                <div>
+               Дизайнер отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Фамилия и имя дизайнера"><br/>
+                </div> 
+
+                <div>
+                  Количество страниц<input name="" class="change-w-number" type="number"><br/>
+                </div>
+
+                 <div>
+               Победы в национальных конкурсах отчетности
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Конкурсы и занятые места"><br/>
+                </div> 
 
                 </div><!--/register-report-right-->   
 

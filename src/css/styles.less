@@ -494,14 +494,22 @@ footer {
 /* ---/ Page Profile Company-- */
 
 /* ---Page Register-- */
-//Анкета регистрации профиля организации
-  .register-company {
+//Анкета регистрации профиля организации   
+
+  .register-company, .register-report {    
+    @input-width: 220px; 
 
     .change-w{
-            width: 200px;
+          width: @input-width; //ширина поля input
+          margin-left: 10px;
         }
 
-    .register-company-left {
+    .change-w-number {
+      .change-w;
+      width: @input-width/3; //ширина поля input
+    }
+
+    .register-left, .register-right {
       div {
         margin: 5px;
         padding: 5px;
@@ -510,24 +518,10 @@ footer {
 
     }    
 
-    .register-company-right {
-      .register-company-left; //повторить стили из левого блока
-      
-    }
   } /* /.register-company */
 
 //Анкета регистрации профиля организации
   .register-report {
 
-    .register-company-left {
-      
-    }
-        
-    .register-company-right {
-      
-    }
-
   } /* /.register-report */
 /* /---Page Register-- */
-
-
