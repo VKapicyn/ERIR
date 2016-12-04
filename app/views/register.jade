@@ -1,23 +1,387 @@
+//- doctype html
+//- html(lang='en')
+//-   body
+//-     form(method='post', action='/company/create', enctype="multipart/form-data")
+//-       input(type="file", multiple, name="logo")
+//-       br
+//-       input(name='name')
+//-       br
+//-       input(name='info')
+//-       br
+//-       input(name='adress')
+//-       br
+//-       input(name='telephone')
+//-       br
+//-       input(name='CEO')
+//-       br
+//-       input(name='fax')
+//-       br
+//-       input(name='link')
+//-       br
+//-       input(name='consult')
+//-       br
+//-       input(type='submit', value='Submit')
+
 doctype html
 html(lang='en')
+  //подключение header
+  include includes/head 
   body
-    form(method='post', action='/company/create', enctype="multipart/form-data")
-      input(type="file", multiple, name="logo")
-      br
-      input(name='name')
-      br
-      input(name='info')
-      br
-      input(name='adress')
-      br
-      input(name='telephone')
-      br
-      input(name='CEO')
-      br
-      input(name='fax')
-      br
-      input(name='link')
-      br
-      input(name='consult')
-      br
-      input(type='submit', value='Submit')
+    .wrapper
+      .navigation
+        nav.navbar.navbar-default
+          .container
+            // Brand and toggle get grouped for better mobile display
+            p.nav-description Национальный реестр интегрированных отчетов
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#')
+                img(src='img/da-strateg-logo.png', alt='logo1')
+            // Collect the nav links, forms, and other content for toggling
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='main.html') На главную
+                li.active
+                  a(href='search.html') Поиск
+                li
+                  a(href='stats.html') Интерактивная статистика
+                li
+                  a(href='register.html') Регистрация отчета и компании
+            // /.navbar-collapse
+          // /.container-fluid
+      // /container navigation
+      main.container
+        .row
+          h1.uppercase.center Регистрация отчета и компании
+          .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
+            br
+            .row.register-company
+              .col-md-12.col-xs-12.col-sm-12
+                h2.sea-green Анкета регистрации профиля организации
+                .col-md-6.col-xs-12.col-sm-12.register-left
+                  h3 Информация об организации
+                  div
+                    select(name='organization-form')
+                      option(value='0') Организационно-правовая форма
+                      option(value='1') Все формы
+                      option(value='2')  Публичное акционерное общество
+                      option(value='3')  Непубличное акционерное общество
+                      option(value='4')  Общество с ограниченной ответственностью
+                      option(value='5')  Государственная корпорация
+                      option(value='6')  Государственное или муниципальное унитарное предприятие
+                      option(value='7')  Прочие
+                    br
+                  div
+                    | Название организации 
+                    input.change-w(name='name')
+                  br
+                  div
+                    | Адрес официального сайта 
+                    input.change-w(name='adress')
+                  br
+                  div
+                    | Листинг
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                    input.change-w(name='listing', placeholder='Если да, то на какой бирже')
+                    br
+                  div
+                    select(name='economy')
+                      option(value='1') Отрасль экономики
+                      option(value='2') Все отрасли
+                      option(value='3') Агропромышленный комплекс
+                      option(value='4')  Атомная промышленность
+                      option(value='5')  Банки и др. инвестиционно-финансовые организации
+                      option(value='6')  Жилищно-коммунальное хозяйство
+                      option(value='7')  Здравоохранение и фармацевтическая промышленность
+                      option(value='8')  Инжиниринг, промыш.-инфраструктурное строительство
+                      option(value='7')  Информационные технологии
+                      option(value='9')  Легкая промышленность
+                      option(value='10')  Лесная и целлюлозно-бумажная промышленность
+                      option(value='11')  Машиностроение
+                      option(value='12')  Наука
+                      option(value='13')  Нефтяная и нефтегазовая промышленность
+                      option(value='14')  Общественное питание
+                      option(value='15')  Оптовая торговля
+                      option(value='16')  Пищевая промышленность
+                      option(value='17')  Полиграфическая промышленность
+                      option(value='18')  Промышленность драгоценных металлов и алмазов
+                      option(value='19')  Промышленность строительных материалов
+                      option(value='20')  Розничная торговля
+                      option(value='21')  Сервисные компании
+                      option(value='22')  СМИ
+                      option(value='23')  Страхование
+                      option(value='24')  Строительство
+                      option(value='25')  Табачная промышленность
+                      option(value='26')  Упаковка
+                      option(value='27')  Химическая и нефтегазовая промышленность
+                      option(value='28')  Цветная металлургия
+                      option(value='29')  Черная металлургия
+                      option(value='30')  Электроэнергетика
+                    br
+                  div
+                    select(name='company-size')
+                      option(value='0') Размер предприятия
+                      option(value='1') Все размеры
+                      option(value='2', title='Оборот до 800 млн рублей, количество сотрудников до 100 человек')  Малое предприятие
+                      option(value='3', title='Оборот до 2 млрд рублей, количество сотрудников до 250 человек') Среднее предприятие
+                      option(value='4', title='Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек') Крупное предприятие
+                    br
+                  div
+                    select(name='ownership')
+                      option(value='0')  Форма собственности
+                      option(value='1', title='Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ') Государственная
+                      option(value='2')  Частная
+                    br
+                  .form-group
+                    span.left Краткое описание организации
+                    textarea.form-control
+                  div
+                    | ФИО директора организации 
+                    input.change-w(name='CEO')
+                  br
+                  div
+                    | Юридический адрес головного офиса 
+                    input.change-w(name='')
+                  br
+                // /register-company-left
+                .col-md-5.col-md-offset-1.col-xs-12.col-sm-12.register-right
+                  h3 Контактная информация
+                  strong Руководитель, ответственный за написание отчета
+                  div
+                    | ФИО 
+                    input.change-w(name='')
+                  br
+                  div
+                    | Должность
+                    input.change-w(name='')
+                  br
+                  div
+                    | Электронная почта
+                    input.change-w(name='')
+                  br
+                  div
+                    | Телефон 
+                    input.change-w(name='')
+                  br
+                  strong Пользователь, регистрирующий компанию/отчет
+                  div
+                    | ФИО 
+                    input.change-w(name='')
+                  br
+                  div
+                    | Должность
+                    input.change-w(name='')
+                  br
+                  div
+                    | Электронная почта
+                    input.change-w(name='')
+                  br
+                  div
+                    | Телефон 
+                    input.change-w(name='')
+                  br
+                // /register-company-right
+            // /row register-company
+            .row.register-report
+              .col-md-12.col-xs-12.col-sm-12
+                h2.sea-green Анкета регистрации профиля отчета
+                .col-md-5.col-md-offset-1.col-xs-12.col-sm-12.register-left
+                  div
+                    select(name='report-year')
+                      option(value='0') Отчетный год
+                      option(value='1') Все отчетные года
+                      option(value='2') 2009
+                      option(value='3') 2010
+                      option(value='4') 2011
+                      option(value='5') 2012
+                      option(value='6') 2013
+                      option(value='7') 2014
+                      option(value='8') 2015
+                  div
+                    | Использование МСИО
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    label.radio-inline
+                      input#radio3(name='radioGroup', value='option3', checked='', type='radio')
+                      |  Частично
+                    br
+                  div
+                    | Использование Руководства GRI 
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                  div
+                    | Использование стандарта A1000SES
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                  div
+                    | Использование стандарта A1000APS
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                  div
+                    | Наличие в отчете бизнес-модели
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                  div
+                    | Наличие в отчете информации о стратегии
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                  div
+                    | Наличие в отчете информации о рисках
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                  div
+                    | Наличие Общественного заверения отчета
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                  div
+                    | Участие Панели заинтересованных сторон в создании отчета
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                // /register-report-left
+                .col-md-6.col-xs-12.col-sm-12.register-right
+                  div
+                    | Финансовый аудитор отчета 
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                    input.change-w(name='', placeholder='Юридическое название аудитора')
+                    br
+                  div
+                    | Аудитор нефинансовой информации отчета
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                    input.change-w(name='', placeholder='Юридическое название аудитора')
+                    br
+                  div
+                    | Консультант подготовки отчета 
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                    input.change-w(name='', placeholder='Юридическое название компании')
+                    br
+                  div
+                    | Менеджер процесса подготовки отчета
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                    input.change-w(name='', placeholder='Фамилия и имя менеджера')
+                    br
+                  div
+                    | Дизайнер отчета
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                    input.change-w(name='', placeholder='Фамилия и имя дизайнера')
+                    br
+                  div
+                    | Количество страниц
+                    input.change-w-number(name='', type='number')
+                    br
+                  div
+                    | Победы в национальных конкурсах отчетности
+                    label.radio-inline
+                      input#radio1(name='radioGroup', value='option1', type='radio')
+                      |  Да
+                    label.radio-inline
+                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                      |  Нет
+                    br
+                    input.change-w(name='', placeholder='Конкурсы и занятые места')
+                    br
+                // /register-report-right
+            // /row register-report
+            .buttons.center
+              button.btn.btn-default.green-btn(type='submit') Загрузить отчет
+              button.btn.btn-default.green-btn(type='submit') Загрузить обложку отчета
+              button.btn.btn-default.green-btn(type='submit') Загрузить логотип компании
+              br
+              br
+          // /profile-company
+        // /container
+      .space
+      .space
+      //подключение footer
+      include includes/footer
+
+
+      // Slider etc
+      script(src='js/slides.min.jquery.js')
+      script(src='js/elements.js')
+    // /wrapper
+
