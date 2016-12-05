@@ -7,6 +7,7 @@
 
 doctype html
 html(lang='en')
+<<<<<<< HEAD
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -31,13 +32,23 @@ html(lang='en')
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+=======
+
+  //подключение header
+  include includes/head 
+
+>>>>>>> frontend
   body
     .wrapper
       .navigation
         nav.navbar.navbar-default
           .container
             // Brand and toggle get grouped for better mobile display
+<<<<<<< HEAD
             h1 Национальный реестр интегрированных отчетов
+=======
+            p.nav-description Национальный реестр интегрированных отчетов
+>>>>>>> frontend
             .navbar-header
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
                 span.sr-only Toggle navigation
@@ -175,6 +186,7 @@ html(lang='en')
         // /row
       .space
       .space
+<<<<<<< HEAD
       footer
         .container
           .row.contacts
@@ -295,3 +307,11 @@ html(lang='en')
         });
       // /Отобразить поле с результатами поиска в зависимости от выбранной вкладки
     // /wrapper
+=======
+
+       //подключение footer
+      include includes/footer
+      // Slider
+      script(src='js/slides.min.jquery.js')
+      script(src='js/elements.js')
+>>>>>>> frontend

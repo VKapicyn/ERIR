@@ -1,5 +1,6 @@
 doctype html
 html(lang='en')
+<<<<<<< HEAD
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -25,13 +26,22 @@ html(lang='en')
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+=======
+  //подключение header
+  include includes/head 
+
+>>>>>>> frontend
   body
     .wrapper
       .navigation
         nav.navbar.navbar-default
           .container
             // Brand and toggle get grouped for better mobile display
+<<<<<<< HEAD
             h1 Национальный реестр интегрированных отчетов
+=======
+            p.nav-description Национальный реестр интегрированных отчетов
+>>>>>>> frontend
             // <h5>Краткое пояснение, что это</h5>
             .navbar-header
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
@@ -40,7 +50,11 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='#')
+<<<<<<< HEAD
                 img(src=' img/da-strateg-logo.png', alt='logo1')
+=======
+                img(src='img/da-strateg-logo.png', alt='logo1')
+>>>>>>> frontend
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
@@ -144,6 +158,7 @@ html(lang='en')
                 img(src=' img/rrc-logo.png', alt='logo2')
           // /.partners
       // /mainpage
+<<<<<<< HEAD
       footer
         .container
           .row.contacts
@@ -168,3 +183,12 @@ html(lang='en')
         $("[data-toggle=tooltip]").tooltip(); //всплывающие подсказки (не работают)
       // /Slider
     // /wrapper
+=======
+
+      //подключение footer
+      include includes/footer
+
+      // Slider
+      script(src='/js/slides.min.jquery.js')
+      script(src='/js/elements.js')
+>>>>>>> frontend

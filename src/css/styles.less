@@ -54,6 +54,9 @@ h1, h2, h3, p {
 }
 h1 {
   font-size: 20px;
+  .uppercase;
+  .bold;
+  .red;
 }
 h2 {
   font-size: 18px;
@@ -63,6 +66,7 @@ h2 {
 h3 {
   .bold;
   font-size: 16px;
+  .sea-green;
 }
 
 p {
@@ -90,6 +94,14 @@ main {
 }
 .center {
   text-align: center;
+}
+.right {
+  text-align: right;
+}
+.left {
+   margin-right: auto;
+  margin-left: 0;
+  text-align: left;
 }
 /* /for text */
 
@@ -128,7 +140,10 @@ main {
 }
 
 .simple-border {
+<<<<<<< HEAD
   // border: 1px solid black;
+=======
+>>>>>>> frontend
   border: 1px solid @dark-gray;
 }
 /* /elements */
@@ -170,6 +185,11 @@ main {
   }
 } /* /.navbar-default */
 
+.nav-description {
+  font-size: 20px;
+      margin-top: 20px;
+    margin-bottom: 10px;
+}
 
 /* /Navbar */
 
@@ -230,7 +250,6 @@ main {
   } 
 
       .partners {
-      // background-color: @gray;
       img {
         width: 120px;
         margin: 20px;
@@ -324,9 +343,26 @@ footer {
 
      a:active { //выбран тип сортировки/тип вида - сделать ссылку красной
           .red;
+<<<<<<< HEAD
         }
   }
 
+  .change-view {
+    .var-view {
+      a {
+       color: darken(@dark-gray, 10%);
+      }
+
+      a:active { //выбран тип сортировки/тип вида - сделать ссылку красной
+          .red;
+=======
+>>>>>>> frontend
+        }
+    }
+  }
+
+<<<<<<< HEAD
+=======
   .change-view {
     .var-view {
       a {
@@ -339,6 +375,7 @@ footer {
     }
   }
 
+>>>>>>> frontend
 
   .sort {
     .var-sort {
@@ -419,7 +456,11 @@ footer {
 
 /* /---Page Search--- */
 
+<<<<<<< HEAD
 /* ---Profile Report-- */
+=======
+/* --- Page Profile Report-- */
+>>>>>>> frontend
   .profile-report {
     .cover-and-isBest {
         img {
@@ -450,6 +491,7 @@ footer {
         } 
       }
 }
+<<<<<<< HEAD
 /* /---Profile Report-- */
 
   .profile-report, .profile-company {
@@ -475,4 +517,97 @@ footer {
   }
 /* ---/Profile Company-- */
 
+=======
+/* /---Page Profile Report-- */
+>>>>>>> frontend
 
+  .profile-report, .profile-company {
+    .buttons { 
+        button
+        {
+          margin: 10px;
+        }
+    }
+    .other-reports {
+          .cover {
+            display: inline-block;
+            img {
+              height: 100px;
+              margin: 5px;
+              .simple-border;
+            }
+          }
+        }
+  }
+
+/* --- Page Profile Company-- */
+  .profile-company {
+    .company-logo {
+      img {
+        width: 150px;
+      }
+    }
+  }
+/* ---/ Page Profile Company-- */
+
+/* ---Page Register-- */
+//Анкета регистрации профиля организации   
+
+  .register-company, .register-report {    
+    @input-width: 220px; 
+
+    .change-w{
+          width: @input-width; //ширина поля input
+          margin-left: 10px;
+        }
+
+    .change-w-number {
+      .change-w;
+      width: @input-width/3; //ширина поля input
+    }
+
+    .register-left, .register-right {
+      div {
+        margin: 5px;
+        padding: 5px;
+        .right;       
+      }
+
+    }    
+
+  } /* /.register-company */
+
+//Анкета регистрации профиля организации
+  .register-report {
+
+  } /* /.register-report */
+/* /---Page Register--- */
+
+/* ---Page Stats--- */
+
+.stats-left {
+   background-color: @gray;
+   padding-left: 0;
+   padding-right: 0;
+}
+.stats-selection {
+  div{
+        margin: 5px;
+        padding: 5px 10px;
+        .left;       
+  }
+}
+
+.stats-caption {
+        background-color: @red;
+        color: @white;
+        .center;
+      }  
+      
+.stats-result {
+  .simple-border;
+  h3 {
+    margin: 10px;
+  }
+}          
+/* ---/Page Stats--- */
