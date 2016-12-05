@@ -46,11 +46,11 @@ html(lang='en')
               ul.nav.navbar-nav
                 li
                   a(href='main.html') На главную
-                li.active
+                li
                   a(href='search.html') Поиск
                 li
                   a(href='stats.html') Интерактивная статистика
-                li
+                li.active
                   a(href='register.html') Регистрация отчета и компании
             // /.navbar-collapse
           // /.container-fluid
@@ -367,9 +367,15 @@ html(lang='en')
                 // /register-report-right
             // /row register-report
             .buttons.center
-              button.btn.btn-default.green-btn(type='submit') Загрузить отчет
-              button.btn.btn-default.green-btn(type='submit') Загрузить обложку отчета
-              button.btn.btn-default.green-btn(type='submit') Загрузить логотип компании
+              button.btn.btn-default.green-btn(type='submit')
+                i.fa.fa-file-pdf-o(aria-hidden='true')
+                |  Загрузить отчет
+              button.btn.btn-default.green-btn(type='submit')
+                i.fa.fa-file-image-o(aria-hidden='true')
+                |  Загрузить обложку отчета
+              button.btn.btn-default.green-btn(type='submit')
+                i.fa.fa-pied-piper(aria-hidden='true')
+                |  Загрузить логотип компании
               br
               br
           // /profile-company
