@@ -7,48 +7,17 @@
 
 doctype html
 html(lang='en')
-<<<<<<< HEAD
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    title Реестр
-    // Styles
-    link(href='css/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href=' fonts/font-awesome/css/font-awesome.css')
-    link(rel='stylesheet', type='text/css', href=' css/responsive.css')
-    link(href='css/styles.css', rel='stylesheet')
-    // LESS
-    script(src='js/less.js')
-    script.
-      less = { env: 'development' };
-    script.
-      less.watch();
-    // Scripts
-    script(src='js/jquery-3.1.1.min.js')
-    script(src='js/bootstrap.min.js')
-    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-    // WARNING: Respond.js doesn't work if you view the page via file://
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-=======
 
   //подключение header
   include includes/head 
 
->>>>>>> frontend
   body
     .wrapper
       .navigation
         nav.navbar.navbar-default
           .container
             // Brand and toggle get grouped for better mobile display
-<<<<<<< HEAD
-            h1 Национальный реестр интегрированных отчетов
-=======
             p.nav-description Национальный реестр интегрированных отчетов
->>>>>>> frontend
             .navbar-header
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
                 span.sr-only Toggle navigation
@@ -186,132 +155,9 @@ html(lang='en')
         // /row
       .space
       .space
-<<<<<<< HEAD
-      footer
-        .container
-          .row.contacts
-            .col-md-3.col-md-offset-1.col-xs-4.col-sm-4.address
-              i.fa.fa-map-marker.fa-2x(title='')
-              | Правильный адрес
-            .col-md-3.col-md-offset-1.col-xs-4.col-sm-4.mail
-              i.fa.fa-envelope-o.fa-2x(title='')
-              | info@da-strateg.ru
-            .col-md-3.col-md-offset-1.col-xs-4.col-sm-4.phone
-              i.fa.fa-phone.fa-2x(title='')
-              | +7 499 400-56-39
-      // Slider
-      script(src='js/slides.min.jquery.js')
-      script(type='text/javascript').
-        $(document).ready(function() {
-        $('.carousel').carousel({
-        interval: 3000
-        })
-        });
-      script(type='text/javascript').
-        $("[data-toggle=tooltip]").tooltip(); //всплывающие подсказки (не работают)
-      // /Slider
-      // Выбор вида. Поиск отчета
-      script(type='text/javascript').
-        $(document).ready(function(){
-        $(".showView1").click(function(){
-        $("#view1").slideToggle("slow"); //показать view1 - список, остальные скрыть
-        $("#view2").hide();
-        $("#view3").hide();
-        $("#view4").hide();
-        return false;
-        });
-        });
-        $(document).ready(function(){
-        $(".showView2").click(function(){
-        $("#view2").slideToggle("slow"); //показать view2 - таблица, остальные скрыть
-        $("#view1").hide();
-        $("#view3").hide();
-        $("#view4").hide();
-        return false;
-        });
-        });
-        $(document).ready(function(){
-        $(".showView3").click(function(){
-        $("#view3").slideToggle("slow"); //показать view3 - средние значки, остальные скрыть
-        $("#view1").hide();
-        $("#view2").hide();
-        $("#view4").hide();
-        return false;
-        });
-        });
-        $(document).ready(function(){
-        $(".showView4").click(function(){
-        $("#view4").slideToggle("slow"); //показать view4 - крупные значки, остальные скрыть
-        $("#view1").hide();
-        $("#view2").hide();
-        $("#view3").hide();
-        return false;
-        });
-        });
-      // /Выбор вида. Поиск отчета
-      // Выбор вида. Поиск организации
-      script(type='text/javascript').
-        $(document).ready(function(){
-        $(".o-showView1").click(function(){
-        $("#o-view1").slideToggle("slow"); //показать o-view1 - список, остальные скрыть
-        $("#o-view2").hide();
-        $("#o-view3").hide();
-        $("#o-view4").hide();
-        return false;
-        });
-        });
-        $(document).ready(function(){
-        $(".o-showView2").click(function(){
-        $("#o-view2").slideToggle("slow"); //показать o-view2 - таблица, остальные скрыть
-        $("#o-view1").hide();
-        $("#o-view3").hide();
-        $("#o-view4").hide();
-        return false;
-        });
-        });
-        $(document).ready(function(){
-        $(".o-showView3").click(function(){
-        $("#o-view3").slideToggle("slow"); //показать o-view3 - средние значки, остальные скрыть
-        $("#o-view1").hide();
-        $("#o-view2").hide();
-        $("#o-view4").hide();
-        return false;
-        });
-        });
-        $(document).ready(function(){
-        $(".o-showView4").click(function(){
-        $("#o-view4").slideToggle("slow"); //показать o-view4 - крупные значки, остальные скрыть
-        $("#o-view1").hide();
-        $("#o-view2").hide();
-        $("#o-view3").hide();
-        return false;
-        });
-        });
-      // /Выбор вида. Поиск организации
-      // Отобразить поле с результатами поиска в зависимости от выбранной вкладки
-      // Не работает, но переключении происходит при нажатии на Поиск
-      script(type='text/javascript').
-        $(document).ready(function(){
-        $("#search-report").click(function(){
-        $(".search-results-report").show();
-        $(".search-results-organization").hide();
-        return false;
-        });
-        });
-        $(document).ready(function(){
-        $("#search-organization").click(function(){
-        $(".search-results-organization").show();
-        $(".search-results-report").hide();
-        return false;
-        });
-        });
-      // /Отобразить поле с результатами поиска в зависимости от выбранной вкладки
-    // /wrapper
-=======
 
        //подключение footer
       include includes/footer
       // Slider
       script(src='js/slides.min.jquery.js')
       script(src='js/elements.js')
->>>>>>> frontend
