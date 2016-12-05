@@ -1,0 +1,130 @@
+doctype html
+html(lang='en')
+  //подключение header
+  include includes/head 
+  
+  body
+    .wrapper
+      .navigation
+        nav.navbar.navbar-default
+          .container
+            // Brand and toggle get grouped for better mobile display
+            // <h1>Национальный реестр интегрированных отчетов</h1>
+            p.nav-description Национальный реестр интегрированных отчетов
+            // <h5>Краткое пояснение, что это</h5>
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#')
+                img(src='img/da-strateg-logo.png', alt='logo1')
+            // Collect the nav links, forms, and other content for toggling
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='main.html') На главную
+                li
+                  a(href='search.html') Поиск
+                li.active
+                  a(href='stats.html') Интерактивная статистика
+                li
+                  a(href='register.html') Регистрация отчета и компании
+            // /.navbar-collapse
+          // /.container-fluid
+      // /container navigation
+      .container.mainpage
+        main.container
+          .row
+            .stats-left.col-md-4.col-xs-12.col-sm-12
+              .stats-caption.uppercase
+                | Формирование диаграммы
+              .stats-selection
+                div
+                  select(name='diagram-type')
+                    option(value='0') Тип диаграммы
+                    option(value='1') Круговая
+                    option(value='2') Столбиковая (гистограмма)
+                div
+                  select(name='economy')
+                    option(value='1') Отрасль экономики
+                    option(value='2') Все отрасли
+                    option(value='3') Агропромышленный комплекс
+                    option(value='4')  Атомная промышленность
+                    option(value='5')  Банки и др. инвестиционно-финанс. организации
+                    option(value='6')  Жилищно-коммунальное хозяйство
+                    option(value='7')  Здравоохранение и фармацевтика
+                    option(value='8')  Промышленно-инфраструктурное строительство
+                    option(value='7')  Информационные технологии
+                    option(value='9')  Легкая промышленность
+                    option(value='10')  Лесная и целлюлозно-бумажная промышленность
+                    option(value='11')  Машиностроение
+                    option(value='12')  Наука
+                    option(value='13')  Нефтяная и нефтегазовая промышленность
+                    option(value='14')  Общественное питание
+                    option(value='15')  Оптовая торговля
+                    option(value='16')  Пищевая промышленность
+                    option(value='17')  Полиграфическая промышленность
+                    option(value='18')  Промышленность драгоценных металлов и алмазов
+                    option(value='19')  Промышленность строительных материалов
+                    option(value='20')  Розничная торговля
+                    option(value='21')  Сервисные компании
+                    option(value='22')  СМИ
+                    option(value='23')  Страхование
+                    option(value='24')  Строительство
+                    option(value='25')  Табачная промышленность
+                    option(value='26')  Упаковка
+                    option(value='27')  Химическая и нефтегазовая промышленность
+                    option(value='28')  Цветная металлургия
+                    option(value='29')  Черная металлургия
+                    option(value='30')  Электроэнергетика
+                  br
+                div
+                  select(name='statdart')
+                    option(value='1')  Все стандарты
+                    option(value='2')  Международный стандарт ИО
+                    option(value='3')  GRI – G1
+                    option(value='4')  GRI – G2
+                    option(value='5')  GRI – G3
+                    option(value='6')  GRI – G3.1
+                    option(value='7')  GRI – G4
+                    option(value='8')  AA1000 SES
+                    option(value='7')  AA1000 APS
+                    option(value='9')  Другие стандарты
+                div
+                  select(name='company-size')
+                    option(value='0') Размер предприятия
+                    option(value='1') Все размеры
+                    option(value='2', title='Оборот до 800 млн рублей, количество сотрудников до 100 человек')  Малое предприятие
+                    option(value='3', title='Оборот до 2 млрд рублей, количество сотрудников до 250 человек') Среднее предприятие
+                    option(value='4', title='Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек') Крупное предприятие
+                  br
+                div
+                  select(name='ownership')
+                    option(value='0')  Форма собственности
+                    option(value='1', title='Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ') Государственная
+                    option(value='2')  Частная
+                  br
+                .buttons.center
+                  button.btn.btn-default.green-btn(type='submit') Создать
+              // /stats-selection
+            // /stats-left
+            .stats-right.col-md-8.col-xs-12.col-sm-12
+              .stats-caption.uppercase
+                | Окно статистики
+              .stats-result
+                h3 Название диаграммы
+                .graph
+                  | Здесь диаграмма
+            // /stats-right
+          // /row
+      // /mainpage
+
+      //подключение footer
+      include includes/footer
+
+      // Slider etc
+      script(src='js/slides.min.jquery.js')
+      script(src='js/elements.js')
+    // /wrapper
