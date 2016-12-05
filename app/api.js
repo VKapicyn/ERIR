@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect("mongodb://localhost:27017/ERIO")//конектимсся к БД
+var db = mongoose.connect("mongodb://80.93.177.208:27017/ERIO")//конектимсся к БД
 
 var multer = require("multer");
 var upload = multer({dest: './src/buffer'});
