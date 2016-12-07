@@ -96,9 +96,9 @@ html(lang='en')
                       td  Сайт
                       td
                         a(href='#{company.link}', target='_blank') #{company.link}
+            - var page_reports = reports 
             .row
               h3 Список отчетов организации
-              - var page_reports = reports 
               .col-md-10.col-md-offset-2.col-xs-12.col-sm-6.other-reports
                 for report in page_reports
                   .cover

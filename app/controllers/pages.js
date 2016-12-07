@@ -2,9 +2,9 @@ exports.GeneralPage = function (req, res) {
   res.render('main', { title: 'Главная', message: 'Здесь главная!'})
 };
 
-exports.SearchPage = function (req, res) {
-  res.render('search')
-};
+//exports.SearchPage = function (req, res) {
+//  res.render('search')
+//};
 
 exports.StatsPage = function (req, res) {
   res.render('stats')

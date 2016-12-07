@@ -62,8 +62,6 @@ exports.getFile = function(req, res){
   };
 
 exports.getCompanyById = function(req, res){
-    var xx = Company.find({});
-
     Company.findOne({_id:new ObjectId(req.params.id)}).then(function(company){
         //заменить на поиск по отчетам
         Report.find({
@@ -75,7 +73,13 @@ exports.getCompanyById = function(req, res){
         else
             res.send('Компания не прошла проверку у администрации ресурса');
         });
-	})
+	});
+};
+
+exports.Search = function(req, res){
+    Company.find({}).then(function(company){
+        res.render('search',{company:company});
+    });
 };
 
 exports.getReportById = function(req, res){

@@ -16,7 +16,7 @@ app.set('view engine', 'jade'); // 'view engine' - механизм визуал
 // маршруты страниц
 app.get('/', control.GeneralPage); // главная
 app.get('/main', control.GeneralPage); // главная (по ТЗ)
-app.get('/search', control.SearchPage); // поиск
+app.get('/search', api.Search); // поиск
 app.get('/stats', control.StatsPage); // страница статистики
 app.get('/register', control.RegistrPage); // страница добавления отчета
 app.get('/admin', control.AdminPage); // админка

@@ -279,10 +279,12 @@ html(lang='en')
                   a.showView4(href='#', title='Крупные значки')
                     i.fa.fa-picture-o.fa-3x(aria-hidden='true')
             // /change-view
+            - var companies = company
             .view
               #view1.list
+              for comps in companies
                 .element
-                  a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
+                  a(href='report', title='Перейти на страницу отчета') #{comps.name}: Название отчета - год
                 .element
                   a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
                 .element
@@ -367,14 +369,13 @@ html(lang='en')
                   a.o-showView4(href='#', title='Крупные значки')
                     i.fa.fa-picture-o.fa-3x(aria-hidden='true')
             // /change-view
+            - var companies = company
             .view
               #o-view1.list
-                .element
-                  img(src='img/rosatom-logo.jpg', alt='logo')
-                  a(href='company', title='Перейти на страницу профиля компании') Название компании
-                .element
-                  img(src='img/rosatom-logo.jpg', alt='logo')
-                  a(href='company', title='Перейти на страницу профиля компании') Название компании
+                for comp in companies 
+                  .element
+                    img(src!=comp.logo, alt='logo')
+                    a(href='/company/#{comp._id}', title='Перейти на страницу профиля компании') #{comp.name}
               #o-view2.table
                 table.table
                   thead
@@ -383,30 +384,22 @@ html(lang='en')
                       th Отрасль экономики
                       th Размер предприятия
                   tbody
+                  for comp in companies
                     tr
                       td
-                        a(href='#', title='Перейти на страницу компании') Название компании
-                      td Атомная промышленность
-                      td Крупное
-                    tr
-                      td
-                        a(href='#', title='Перейти на страницу компании') Название компании
-                      td Атомная промышленность
-                      td Крупное
+                        a(href='/company/#{comp._id}', title='Перейти на страницу компании') #{comp.name}
+                      td #{comp.sector}
+                      td #{comp.size_of_company}
               #o-view3.icon
-                .element
-                  a(href='company', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
-                .element
-                  a(href='company', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
+                for comp in companies
+                  .element
+                    a(href='/company/#{comp._id}', title='Перейти на страницу компании')
+                      img(src!=comp.logo, alt='icon')
               #o-view4.big-icon
-                .element
-                  a(href='company', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
-                .element
-                  a(href='company', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
+                for comp in companies
+                  .element
+                    a(href='/company/#{comp._id}', title='Перейти на страницу компании')
+                      img(src!=comp.logo, alt='icon')
           // /search-results-organization
         // /row
       .space
