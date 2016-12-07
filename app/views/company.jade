@@ -16,41 +16,41 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='#')
-                img(src='img/da-strateg-logo.png', alt='logo1')
+                img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
                 li
-                  a(href='main') На главную
+                  a(href='/main') На главную
                 li.active
-                  a(href='search') Поиск
+                  a(href='/search') Поиск
                 li
-                  a(href='stats') Интерактивная статистика
+                  a(href='/stats') Интерактивная статистика
                 li
-                  a(href='register') Регистрация отчета и компании
+                  a(href='/register') Регистрация отчета и компании
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
       main.container
         .row
           .col-md-10.col-md-offset-2.col-xs-12.col-sm-12.profile-company
-            h2 Государственная корпорация по атомной энергии "Росатом"
+            h2 #{company.name}
             .row
               .col-md-2.col-xs-12.col-sm-6.company-logo
-                img(src='img/rosatom-logo.jpg', alt='logo')
+                img(src='#{company.logo}', alt='logo')
               .col-md-10.col-xs-12.col-sm-12.company-info
                 table.table.table-hover
                   tbody
                     tr
                       td  Сокращенное название
-                      td  Госкорпорация «Росатом»
+                      td  #{company.short_name}
                     tr
                       td  Организационно-правовая форма
-                      td  Государственная корпорация
+                      td  #{company.opf}
                     tr
                       td  Описание компании
                       td
-                        | Государственная корпорация по атомной энергии «Росатом» объединяет около 400 предприятий и научных организаций, в числе которых все гражданские компании атомной отрасли России, предприятия ядерного оружейного комплекса, научно-исследовательские организации и единственный в мире атомный ледокольный флот. Госкорпорация «Росатом» является крупнейшей генерирующей компанией в России, которая обеспечивает 33% выработки электроэнергии в европейской части страны. Росатом занимает лидирующее положение на мировом рынке ядерных технологий, занимая 1 место в мире по количеству одновременно сооружаемых АЭС за рубежом; 2 место в мире по запасам урана и 3 место по объему его добычи; 2 место в мире по генерации атомной электроэнергии, обеспечивая 36% мирового рынка услуг по обогащению урана и 17% рынка ядерного топлива.
+                        | #{company.info}
             // /row
             .row
               .col-md-6.col-xs-12.col-sm-6
@@ -58,65 +58,52 @@ html(lang='en')
                   tbody
                     tr
                       td  Отрасль экономики
-                      td  Атомная промышленность
+                      td  #{company.sector}
                     tr
                       td  Расположение головного офиса
-                      td  Москва
+                      td  ?????
                     tr
                       td  Размер организации 
                       td
-                        | Крупная
-                        | Число сотрудников: 255.3 тыс. чел.
-                        | Выручка: 618.3 млрд. руб.
+                        | #{company.short_name}
+                        | #{company.employees}
+                        | #{company.revenue}
                     tr
                       td  Листинг (биржа)
-                      td  Нет
+                      td  #{company.listing}
                     tr
                       td  Форма собственности
-                      td  Государственная
+                      td  #{company.type_of_ownership}
               .col-md-6.col-xs-12.col-sm-6
                 table.table.table-hover
                   tbody
                     tr
                       td  Ф.И.О. директора организации
-                      td  Лихачев А.Е. 
+                      td  #{company.CEO}
                     tr
                       td  Адрес головного офиса
-                      td  119017, г. Москва, ул. Большая Ордынка, д. 24
+                      td  #{company.adress}
                     tr
                       td  Телефон приемной
-                      td  +4 399 939 45 35
+                      td  #{company.telephone}
                     tr
                       td  Факс приемной
-                      td  Не указан
+                      td  #{company.fax}
                     tr
                       td  Электронный адрес 
-                      td  press@rosatom.ru
+                      td  #{company.email}
                     tr
                       td  Сайт
                       td
-                        a(href='#', target='_blank') www.rosatom.ru
+                        a(href='#{company.link}', target='_blank') #{company.link}
             .row
               h3 Список отчетов организации
+              - var page_reports = reports 
               .col-md-10.col-md-offset-2.col-xs-12.col-sm-6.other-reports
-                .cover
-                  a(href='report', target='_blank', title='Годовой отчет 2009')
-                    img(src='img/2009.jpg', alt='')
-                .cover
-                  a(href='report', target='_blank', title='Годовой отчет 2010')
-                    img(src='img/2010.jpg', alt='')
-                .cover
-                  a(href='report', target='_blank', title='Годовой отчет 2011')
-                    img(src='img/2011.jpg', alt='')
-                .cover
-                  a(href='report', target='_blank', title='Годовой отчет 2012')
-                    img(src='img/2012.jpg', alt='')
-                .cover
-                  a(href='report', target='_blank', title='Годовой отчет 2013')
-                    img(src='img/2013.jpg', alt='')
-                .cover
-                  a(href='report', target='_blank', title='Годовой отчет 2014')
-                    img(src='img/2014.jpg', alt='')
+                for report in page_reports
+                  .cover
+                  a(href='/report/#{report._id}', target='_blank', title='Годовой отчет 2009')
+                    img(src!=report.logo, alt='')
               // /other-reports
             // /row
           // /profile-report

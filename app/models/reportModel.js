@@ -33,9 +33,7 @@ var ReportSchema = new mongoose.Schema({
     },
     manager: String
 
-}, {
-        collection: 'sector' //как выяснилось, это обязательно
-    });
+})
 
 var ReportModel = mongoose.model('report', ReportSchema);
-module.exports = ReportModel;
+module.exports.ReportModel = ReportModel;

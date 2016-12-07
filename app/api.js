@@ -8,6 +8,7 @@ var fs = require('fs');
 var Grid = require('gridfs-stream');
 Grid.mongo = mongoose.mongo;
 gfs=Grid(conn.db);
+var ObjectId = require('mongoose').Types.ObjectId; 
 
 //схемы данных
 var Report = require('./models/reportModel').ReportModel; // модель отчета
@@ -53,30 +54,41 @@ exports.addCompany = function(req,res){
 }
 
 exports.getFile = function(req, res){
-      // var readstream = gfs.createReadStream({filename: req.params.filename});
-      // readstream.on('error', function(err){
-      //   res.send('No image found with that title');
-      // });
-      // readstream.pipe(res);
+       var readstream = gfs.createReadStream({filename: req.params.filename});
+       readstream.on('error', function(err){
+        res.send('No image found with that title');
+       });
+       readstream.pipe(res);
   };
 
 exports.getCompanyById = function(req, res){
-    Company.findOne({_id:req.params.id}).then(function(document){
-		res.json(document);
+    var xx = Company.find({});
+
+    Company.findOne({_id:new ObjectId(req.params.id)}).then(function(company){
+        //заменить на поиск по отчетам
+        Report.find({
+            //по имени компании company:company.name
+        }).then(function(reports){
+        //проверка на 'accept'
+        if (company.accept==true)
+		    res.render('company', {company:company, reports:reports});
+        else
+            res.send('Компания не прошла проверку у администрации ресурса');
+        });
 	})
 };
 
 exports.getReportById = function(req, res){
-    report.findOne({_id:req.params.id}).then(function(document){
+    Report.findOne({_id:req.params.id}).then(function(document){
 		res.json(document);
 	})
 };
 
 exports.searchReports = function (req, res){
-    /*
+    /* 
         обработка параметров
     */
-    Reports.find({
+    Report.find({
         //параметры поиска
     }).then(function(document){
 		res.json(document);
@@ -86,12 +98,12 @@ exports.searchReports = function (req, res){
 exports.searchCompnaies = function (req, res){
     /*
         обработка параметров
-    */
-    Company.find({
+    */ 
+   Company.find({
         //параметры поиска
     }).then(function(document){
-		res.json(document);
-    })
+        res.json(document);
+    });
 };
 
 exports.getSectorByName = function(req, res){

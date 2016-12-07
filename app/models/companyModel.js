@@ -3,8 +3,11 @@ var mongoose = require('mongoose');
 //Схема данных компании. 
 var CompanySchema = new mongoose.Schema({
     //уникальный идентификатор
-    _id: String,
-    accept: Boolean,
+    _id: mongoose.Schema.Types.ObjectId,
+    accept: {
+        type: Boolean,
+        default: false
+    },
     date: {
         type: mongoose.Schema.Types.Date,
         default: mongoose.Schema.Types.Date.now
@@ -18,7 +21,7 @@ var CompanySchema = new mongoose.Schema({
     sector: {
         type: String,
     },
-    adress: String, //?
+    adress: String,
     size_of_company: {
         type: String,
     },
@@ -27,19 +30,13 @@ var CompanySchema = new mongoose.Schema({
     },
     employees: Number,
     revenue: Number,
-    //listing????
     listing: {
         type: String,
     },
     fax: String,
     CEO: String,
     link: String,
-    email: String,
-    reports: [{
-        report: {
-            type: String,
-        }
-    }]
+    email: String
 })
 
 var CompanyModel = mongoose.model('company', CompanySchema);
