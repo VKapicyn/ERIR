@@ -364,10 +364,29 @@
                </div>
             </div> <!--/row register-report-->
 
-            <div class="buttons center">
-              <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Загрузить отчет</button>
-              <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-file-image-o" aria-hidden="true"></i> Загрузить обложку отчета</button>             
-              <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-pied-piper" aria-hidden="true"></i> Загрузить логотип компании</button>
+            <div class="buttons center upload">
+              <div>
+              <label for="upload-report" class="btn btn-default  green-btn"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Загрузить отчет</label>
+			  <input style="opacity: 0; z-index: -1;" type="file" name="upload" id="upload-report">
+			  </div>
+
+			  <div>            
+              <label for="upload-cover" class="btn btn-default  green-btn"><i class="fa fa-file-image-o" aria-hidden="true"></i> Загрузить обложку отчета</label>
+			  <input style="opacity: 0; z-index: -1;" type="file" name="upload" id="upload-cover">
+			  </div>  
+
+			  <div>
+              <label for="upload-logo" class="btn btn-default  green-btn"><i class="fa fa-pied-piper" aria-hidden="true"></i> Загрузить логотип компании</label>
+			  <input style="opacity: 0; z-index: -1;" type="file" name="upload" id="upload-logo">
+			  </div>
+              <br/><br/>    
+            </div>
+
+            <div class="buttons center submit">
+              <div>
+              <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
+			  <input style="opacity: 0; z-index: -1;" type="submit" id="submit-reg-company">
+			  </div>
               <br/><br/>    
             </div>
 
