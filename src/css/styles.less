@@ -498,13 +498,18 @@ footer {
 
 /* ---Page Register-- */
 //Анкета регистрации профиля организации  
-
 .upload {
   div {
     display: inline-block;
   }
 } 
+.upload, .submit {
+  input { //если не применить, будет дефолтная кнопка "Выберите файл"
+    opacity: 0; 
+    z-index: -1;
+  }
 
+}
 .btn-reg-company, .btn-reg-report {
   margin-bottom: 10px;
   margin-right: 20px;
@@ -524,10 +529,12 @@ footer {
     }
 
     .register-left, .register-right {
+      margin-right: 15px; 
       div {
         margin: 5px;
         padding: 5px;
-        .right;       
+        .right;  
+            
       }
 
     }    
