@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реестр</title>
+
+    <!-- Styles -->
+    <link href="../../src/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../src/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/responsive.css">
+    <link href="../../src/css/styles.css" rel="stylesheet">
+ 
+    <!--LESS-->
+    <script src="../../src/js/less.js"></script>
+    <script>less = { env: 'development' };</script>
+    <script>less.watch();</script>
+
+    <!-- Scripts -->
+    <script src="../../src/js/jquery-3.1.1.min.js"></script>
+    <script src="../../src/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+   <div class="wrapper">
+    <div class="navigation"> 
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <p class="nav-description">Национальный реестр интегрированных отчетов</p>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              <a class="navbar-brand" href="#"><img src="../../src/img/da-strateg-logo.png" alt="logo1"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="main.html">На главную</a></li>
+                <li><a href="search.html">Поиск</a></li>
+                <li><a href="stats.html">Интерактивная статистика</a></li>
+                <li class="active"><a href="register.html">Регистрация отчета и компании</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>  
+    </div> <!--/container navigation-->
+
+    <main class="container">
+     <div class="row">
+     <h1 class="uppercase center">Регистрация отчета</h1>
+        <div class="col-md-11 col-md-offset-1  col-xs-12 col-sm-12 profile-company">
+            <br/>
+            <div class="row register-report">
+               <div class="col-md-12 col-xs-12 col-sm-12">
+                <h2 class="sea-green">Анкета регистрации профиля отчета</h2>
+                <div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12 register-left">
+                <div>
+                  <select name="report-year">
+                    <option value="0">Отчетный год</option>
+                    <option value="1">Все отчетные года</option>
+                    <option value="2">2009</option>
+                    <option value="3">2010</option>
+                    <option value="4">2011</option>
+                    <option value="5">2012</option>
+                    <option value="6">2013</option>
+                    <option value="7">2014</option>
+                    <option value="8">2015</option>
+                </select>    
+                </div>
+
+                <div>
+                Использование МСИО
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> 
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio3" value="option3" checked="" type="radio" > Частично
+                  </label> <br/>
+                </div>  
+
+                <div>
+                Использование Руководства GRI 
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Использование стандарта A1000SES
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>               
+
+                <div>
+                Использование стандарта A1000APS
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие в отчете бизнес-модели
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие в отчете информации о стратегии
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие в отчете информации о рисках
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Наличие Общественного заверения отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+                <div>
+                Участие Панели заинтересованных сторон в создании отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                </div>                
+
+            </div> <!--/register-report-left-->               
+
+            <div class="col-md-6 col-xs-12 col-sm-12 register-right">
+               <div>
+                Финансовый аудитор отчета 
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Юридическое название аудитора"><br/>
+                </div>                 
+
+                <div>
+                Аудитор нефинансовой информации отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Юридическое название аудитора"><br/>
+                </div>                 
+
+                <div>
+                Консультант подготовки отчета 
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Юридическое название компании"><br/>
+                </div> 
+                        
+                <div>
+                Менеджер процесса подготовки отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Фамилия и имя менеджера"><br/>
+                </div>                 
+
+                <div>
+               Дизайнер отчета
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Фамилия и имя дизайнера"><br/>
+                </div> 
+
+                <div>
+                  Количество страниц<input name="" class="change-w-number" type="number"><br/>
+                </div>
+
+                 <div>
+               Победы в национальных конкурсах отчетности
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="" class="change-w" placeholder="Конкурсы и занятые места"><br/>
+                </div> 
+
+                </div><!--/register-report-right-->   
+               </div>
+            </div> <!--/row register-report-->
+
+            <div class="buttons center upload">
+              <div>
+                <label for="upload-report" class="btn btn-default  green-btn"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Загрузить отчет</label>
+  			       <input style="opacity: 0; z-index: -1;" type="file" name="upload" id="upload-report">
+			        </div>
+
+			       <div>            
+                <label for="upload-cover" class="btn btn-default  green-btn"><i class="fa fa-file-image-o" aria-hidden="true"></i> Загрузить обложку отчета</label>
+			          <input style="opacity: 0; z-index: -1;" type="file" name="upload" id="upload-cover">
+			       </div>  
+              <br/><br/>    
+            </div>
+
+            <div class="buttons center submit">
+              <div>
+                <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
+        			  <input style="opacity: 0; z-index: -1;" type="submit" id="submit-reg-company">
+      			  </div>  
+            </div>
+
+        </div> <!--/profile-company-->
+
+     </div> <!--/container-->
+
+    </main>
+    <div class="space"></div><div class="space"></div>
+
+    <footer>
+    <div class="container">
+    <div class="row contacts">
+       <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  address">
+        <i class="fa fa-map-marker fa-2x" title=""></i>Правильный адрес
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  mail">
+        <i class="fa fa-envelope-o fa-2x" title=""></i>info@da-strateg.ru
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  phone">
+        <i class="fa fa-phone fa-2x" title=""></i>+7 499 400-56-39
+      </div>
+    </div>   
+    </div>
+  </footer>
+
+  <!--Slider etc-->
+  <script src="../../src/js/slides.min.jquery.js"></script>
+  <script src="../../src/js/elements.js"></script>
+
+
+
+    </div> <!--/wrapper-->
+  </body>
+</html>
