@@ -196,9 +196,9 @@ main {
           background-color: @gray;
           img 
            {
-              width: 80px;
+              height: 130px;
               display: inline-block;
-              margin: 40px 0;
+              margin: 40px 16px;
               .center;
            }
           
@@ -250,6 +250,11 @@ main {
         width: 120px;
         margin: 20px;
       }
+
+      div {
+        display: inline-block;
+      }
+
     }
 
 /* /---Page Main---*/
@@ -497,8 +502,24 @@ footer {
 /* ---/ Page Profile Company-- */
 
 /* ---Page Register-- */
-//Анкета регистрации профиля организации   
+//Анкета регистрации профиля организации  
+.upload {
+  div {
+    display: inline-block;
+  }
+} 
+.upload, .submit {
+  input { //если не применить, будет дефолтная кнопка "Выберите файл"
+    opacity: 0; 
+    z-index: -1;
+  }
 
+}
+.btn-reg-company, .btn-reg-report {
+  margin-bottom: 10px;
+  margin-right: 20px;
+
+}
   .register-company, .register-report {    
     @input-width: 220px; 
 
@@ -513,10 +534,12 @@ footer {
     }
 
     .register-left, .register-right {
+      margin-right: 15px; 
       div {
         margin: 5px;
         padding: 5px;
-        .right;       
+        .right;  
+            
       }
 
     }    

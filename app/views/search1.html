@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реестр</title>
+
+    <!-- Styles -->
+    <link href="../../src/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../src/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/responsive.css">
+    <link href="../../src/css/styles.css" rel="stylesheet">
+ 
+    <!--LESS-->
+    <script src="../../src/js/less.js"></script>
+    <script>less = { env: 'development' };</script>
+    <script>less.watch();</script>
+
+    <!-- Scripts -->
+    <script src="../../src/js/jquery-3.1.1.min.js"></script>
+    <script src="../../src/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+   <div class="wrapper">
+    <div class="navigation"> 
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <p class="nav-description">Национальный реестр интегрированных отчетов</p>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              <a class="navbar-brand" href="#"><img src="../../src/img/da-strateg-logo.png" alt="logo1"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="main.html">На главную</a></li>
+                <li class="active"><a href="search1.html">Поиск</a></li>
+                <li><a href="stats1.html">Интерактивная статистика</a></li>
+                <li><a href="register1.html">Регистрация отчета и компании</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>  
+    </div> <!--/container navigation-->
+
+    <main class="container">
+     <div class="row">
+      <div class="search-panel col-md-5 col-xs-12 col-sm-12">
+          <!-- Навигация -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#search-report" aria-controls="search-report" role="tab" data-toggle="tab">Поиск отчета</a></li>
+            <li><a href="#search-organization" aria-controls="search-organization" role="tab" data-toggle="tab">Поиск организации</a></li>
+          </ul>
+          <!-- Содержимое вкладок -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="search-report">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-search" aria-hidden="true"></i> Поиск</button><br/>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-times" aria-hidden="true"></i> Очистить</button>
+                <br/><br/>
+
+                <select name="report-year">
+                  <option value="0">Отчетный год</option>
+                  <option value="1">Все отчетные года</option>
+                  <option value="2">2009</option>
+                  <option value="3">2010</option>
+                  <option value="4">2011</option>
+                  <option value="5">2012</option>
+                  <option value="6">2013</option>
+                  <option value="7">2014</option>
+                  <option value="8">2015</option>
+                </select>                
+
+                <select name="economy">
+                  <option value="1">Отрасль экономики</option>
+                  <option value="2">Все отрасли</option>
+                  <option value="3">Агропромышленный комплекс</option>                  
+                  <option value="4"> Атомная промышленность</option>
+                  <option value="5"> Банки и др. инвестиционно-финансовые организации</option>
+                  <option value="6"> Жилищно-коммунальное хозяйство</option>
+                  <option value="7"> Здравоохранение и фармацевтическая промышленность</option>
+                  <option value="8"> Инжиниринг, промыш.-инфраструктурное строительство</option>
+                  <option value="7"> Информационные технологии</option>
+                  <option value="9"> Легкая промышленность</option>
+                  <option value="10"> Лесная и целлюлозно-бумажная промышленность</option>
+                  <option value="11"> Машиностроение</option>
+                  <option value="12"> Наука</option>
+                  <option value="13"> Нефтяная и нефтегазовая промышленность</option>
+                  <option value="14"> Общественное питание</option>
+                  <option value="15"> Оптовая торговля</option>
+                  <option value="16"> Пищевая промышленность</option>
+                  <option value="17"> Полиграфическая промышленность</option>
+                  <option value="18"> Промышленность драгоценных металлов и алмазов</option>
+                  <option value="19"> Промышленность строительных материалов</option>
+                  <option value="20"> Розничная торговля</option>
+                  <option value="21"> Сервисные компании</option>
+                  <option value="22"> СМИ</option>
+                  <option value="23"> Страхование</option>
+                  <option value="24"> Строительство</option>
+                  <option value="25"> Табачная промышленность</option>
+                  <option value="26"> Упаковка</option>
+                  <option value="27"> Химическая и нефтегазовая промышленность</option>
+                  <option value="28"> Цветная металлургия</option>
+                  <option value="29"> Черная металлургия</option>
+                  <option value="30"> Электроэнергетика</option>
+                </select> <br/>      
+
+                <select name="headquarters">
+                  <option value="0"> Местонахождение штаб-квартиры</option>
+                  <option value="1"> Местонахождение 1</option>
+                  <option value="2"> Местонахождение 2</option>
+                  <option value="3"> Местонахождение 3</option>
+                </select> <br/>
+
+                <select name="company-size">
+                  <option value="0">Размер предприятия</option>
+                  <option value="1">Все размеры</option>
+                  <option value="2" title="Оборот до 800 млн рублей, количество сотрудников до 100 человек"> Малое предприятие</option>
+                  <option value="3" title="Оборот до 2 млрд рублей, количество сотрудников до 250 человек">Среднее предприятие</option>
+                  <option value="4" title="Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек">Крупное предприятие</option>
+                </select> <br/> 
+
+                <select name="organization-form">
+                  <option value="0">Организационно-правовая форма</option>
+                  <option value="1">Все формы</option>
+                  <option value="2"> Публичное акционерное общество</option>
+                  <option value="3"> Непубличное акционерное общество</option>
+                  <option value="4"> Общество с ограниченной ответственностью</option>
+                  <option value="5"> Государственная корпорация</option>
+                  <option value="6"> Государственное или муниципальное унитарное предприятие</option>
+                  <option value="7"> Прочие</option>
+                </select> <br/>  
+
+                <select name="ownership">
+                  <option value="0"> Форма собственности</option>
+                  <option value="1" title="Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ">Государственная</option>
+                  <option value="2"> Частная</option>
+                </select> <br/> 
+
+                <strong>Наличие стандартов</strong><br>
+                <input type="checkbox"  value="0"> Все стандарты<br>
+                <input type="checkbox"  value="1"> Международный стандарт ИО<br>
+                <input type="checkbox"  value="2"> GRI – G1<br>
+                <input type="checkbox"  value="3"> GRI – G2<br>
+                <input type="checkbox"  value="4"> GRI – G3<br>
+                <input type="checkbox"  value="5"> GRI – G3.1<br>
+                <input type="checkbox"  value="6"> GRI – G4<br>
+                <input type="checkbox"  value="7"> AA1000 SES<br>
+                <input type="checkbox"  value="8"> AA1000 APS<br>
+                <input type="checkbox"  value="9"> Другие стандарты<br>
+
+                <br/>
+
+                <strong>Лучшая практика</strong><br>
+                <input type="checkbox"  value="0"> Лучшее раскрытие стратегии<br>
+                <input type="checkbox"  value="1"> Лучшее раскрытие бизнес-модели<br>
+                <input type="checkbox"  value="2"> Лучшее раскрытие информации о рисках<br>
+                <input type="checkbox"  value="3"> Лучшее раскрытие информации о корпоративном управлении<br>
+                <input type="checkbox"  value="4"> Лучшее раскрытие информации о деятельности в области УР<br>
+                <input type="checkbox"  value="5"> Лучшее раскрытие информации о системе публичной отчетности<br>
+                
+                <br/>
+
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-search" aria-hidden="true"></i> Поиск</button>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-times" aria-hidden="true"></i> Сброс</button>
+                <br/><br/>       
+
+              </form>
+            </div> <!--/поиск отчета #search-report-->
+
+            <div role="tabpanel" class="tab-pane" id="search-organization">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-search" aria-hidden="true"></i> Поиск</button><br/>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-times" aria-hidden="true"></i> Очистить</button>
+                <br/><br/>             
+
+                <select name="economy">
+                  <option value="0">Все отрасли</option>
+                  <option value="1">Агропромышленный комплекс</option>                  
+                  <option value="2"> Атомная промышленность</option>
+                  <option value="3"> Банки и др. инвестиционно-финансовые организации</option>
+                  <option value="4"> Жилищно-коммунальное хозяйство</option>
+                  <option value="5"> Здравоохранение и фармацевтическая промышленность</option>
+                  <option value="6"> Инжиниринг, промыш.-инфраструктурное строительств</option>
+                  <option value="7"> Информационные технологии</option>
+                  <option value="8"> Легкая промышленность</option>
+                  <option value="9"> Лесная и целлюлозно-бумажная промышленность</option>
+                  <option value="10"> Машиностроение</option>
+                  <option value="11"> Наука</option>
+                  <option value="12"> Нефтяная и нефтегазовая промышленность</option>
+                  <option value="13"> Общественное питание</option>
+                  <option value="14"> Оптовая торговля</option>
+                  <option value="15"> Пищевая промышленность</option>
+                  <option value="16"> Полиграфическая промышленность</option>
+                  <option value="17"> Промышленность драгоценных металлов и алмазов</option>
+                  <option value="18"> Промышленность строительных материалов</option>
+                  <option value="19"> Розничная торговля</option>
+                  <option value="20"> Сервисные компании</option>
+                  <option value="21"> СМИ</option>
+                  <option value="22"> Страхование</option>
+                  <option value="23"> Строительство</option>
+                  <option value="24"> Табачная промышленность</option>
+                  <option value="24"> Упаковка</option>
+                  <option value="25"> Химическая и нефтегазовая промышленность</option>
+                  <option value="26"> Цветная металлургия</option>
+                  <option value="27"> Черная металлургия</option>
+                  <option value="28"> Электроэнергетика</option>
+                </select> <br/>  
+
+                <select name="headquarters">
+                  <option value="0"> Местонахождение штаб-квартиры</option>
+                  <option value="1"> Местонахождение 1</option>
+                  <option value="2"> Местонахождение 2</option>
+                  <option value="3"> Местонахождение 3</option>
+                </select> <br/>
+
+                <select name="company-size">
+                  <option value="0">Размер предприятия</option>
+                  <option value="1">Все размеры</option>
+                  <option value="2" title="Оборот до 800 млн рублей, количество сотрудников до 100 человек"> Малое предприятие</option>
+                  <option value="3" title="Оборот до 2 млрд рублей, количество сотрудников до 250 человек">Среднее предприятие</option>
+                  <option value="4" title="Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек">Крупное предприятие</option>
+                </select> <br/> 
+
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-search" aria-hidden="true"></i> Поиск</button>
+                <button type="submit" class="btn btn-default  green-btn"><i class="fa fa-times" aria-hidden="true"></i> Сброс</button>
+                <br/><br/>
+
+              </form>
+
+            </div><!--/search-organization-->
+          </div> <!--/tab-content-->
+    
+      </div> <!--/search-panel-->     
+
+      <div class="search-results-report col-md-7 col-xs-8 col-sm-8">
+      <h3>Результаты поиска по отчету</h3>
+        <div class="sort">
+          <strong>Сортировка:</strong>
+          <div class="var-sort">
+            <span rel="name"><a href="#">Название компании</a></span>
+            <span rel="report-year"><a href="#">Отчетный год</a></span>
+            <span rel="economy"><a href="#">Отрасль экономики</a></span>
+            <span rel="company-size"><a href="#">Размер предприятия</a></span>
+          </div>
+        </div> <!--/sort-->
+
+        <div class="change-view">
+          <strong>Вид:</strong>
+          <div class="var-view">
+            <div class="view-list">
+              <a href="#" title="Список" class="showView1"><i class="fa fa-list fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-table">
+              <a href="#" title="Таблица" class="showView2"><i class="fa fa-table fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-icon">
+             <a href="#" title="Средние значки" class="showView3"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-big-icon">
+              <a href="#" title="Крупные значки" class="showView4"><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div> <!--/change-view-->
+
+        <div class="view" >
+          <div class="list" id="view1">
+            <div class="element">
+              <a href="report.html" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
+            </div>           
+            <div class="element">
+              <a href="report.html" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
+            </div>            
+            <div class="element">
+              <a href="report.html" title="Перейти на страницу отчета">Компания: Название отчета - год</a>
+            </div>
+          </div>
+
+          <div class="table" id="view2">
+            <table class="table">
+               <thead>
+                 <tr>
+                   <th>Компания</th>
+                   <th>Название отчета</th>
+                   <th>Год</th>
+                   <th>Стандарт</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td><a href="company" title="Перейти на страницу компании">Компания</a></td>
+                   <td><a href="report" title="Перейти на страницу отчета">Название отчета</a></td>
+                   <td>Год</td>
+                   <td>Стандарт</td>
+                 </tr>               
+                 <tr>
+                   <td><a href="company" title="Перейти на страницу компании">Компания</a></td>
+                   <td><a href="report" title="Перейти на страницу отчета">Название отчета</a></td>
+                   <td>Год</td>
+                   <td>Стандарт</td>
+                 </tr>                
+                 <tr>
+                   <td><a href="company" title="Перейти на страницу компании">Компания</a></td>
+                   <td><a href="report" title="Перейти на страницу отчета">Название отчета</a></td>
+                   <td>Год</td>
+                   <td>Стандарт</td>
+                 </tr>
+               </tbody>
+               </table>
+          </div>
+          <div class="icon" id="view3">
+            <div class="element">
+              <a href="report" title="Перейти на страницу отчета"><img src="../../src/img/2009.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="report" title="Перейти на страницу отчета"><img src="../../src/img/2010.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="report" title="Перейти на страницу отчета"><img src="../../src/img/2011.jpg" alt="icon"></a>
+            </div>
+          </div>
+          <div class="big-icon" id="view4">
+            <div class="element">
+              <a href="report" title="Перейти на страницу отчета"><img src="../../src/img/2009.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="report" title="Перейти на страницу отчета"><img src="../../src/img/2010.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="report" title="Перейти на страницу отчета"><img src="../../src/img/2011.jpg" alt="icon"></a>
+            </div>
+          </div>
+        </div>
+
+      </div> <!--/search-results-report-->
+
+<!--Результаты поиска по организации-->
+    <div class="search-results-organization col-md-7 col-xs-8 col-sm-8">
+    <h3>Результаты поиска по организации</h3>
+        <div class="sort">
+          <strong>Сортировка:</strong>
+          <div class="var-sort">
+            <span rel="name"><a href="#">Название компании</a></span>
+            <span rel="economy"><a href="#">Отрасль экономики</a></span>
+            <span rel="company-size"><a href="#">Размер предприятия</a></span>
+          </div>
+        </div> <!--/sort-->
+
+        <div class="change-view">
+          <strong>Вид:</strong>
+          <div class="var-view">
+            <div class="view-list">
+              <a href="#" title="Список" class="o-showView1"><i class="fa fa-list fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-table">
+              <a href="#" title="Таблица" class="o-showView2"><i class="fa fa-table fa-3x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-icon">
+             <a href="#" title="Средние значки" class="o-showView3"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a>
+            </div>
+            <div class="view-big-icon">
+              <a href="#" title="Крупные значки" class="o-showView4"><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div> <!--/change-view-->
+
+        <div class="view" >
+          <div class="list" id="o-view1">
+            <div class="element">
+              <img src="../../src/img/rosatom-logo.jpg" alt="logo">
+              <a href="#" title="Перейти на страницу профиля компании">Название компании</a>
+            </div>           
+            <div class="element">
+              <img src="../../src/img/rosatom-logo.jpg" alt="logo">
+              <a href="#" title="Перейти на страницу профиля компании">Название компании</a>
+            </div>            
+          </div>
+
+          <div class="table" id="o-view2">
+            <table class="table">
+               <thead>
+                 <tr>
+                   <th>Компания</th>
+                   <th>Отрасль экономики</th>
+                   <th>Размер предприятия</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td><a href="#" title="Перейти на страницу компании">Название компании</a></td>
+                   <td>Атомная промышленность</td>
+                   <td>Крупное</td>
+                 </tr>                    
+                 <tr>
+                   <td><a href="#" title="Перейти на страницу компании">Название компании</a></td>
+                   <td>Атомная промышленность</td>
+                   <td>Крупное</td>
+                 </tr>               
+               </tbody>
+               </table>
+          </div>
+          <div class="icon" id="o-view3">
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+          </div>
+          <div class="big-icon" id="o-view4">
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+            <div class="element">
+              <a href="#" title="Перейти на страницу компании"><img src="../../src/img/rosatom-logo.jpg" alt="icon"></a>
+            </div>            
+          </div>
+        </div>
+      </div> <!--/search-results-organization-->
+
+
+      </div> <!--/row-->
+    </main>
+    <div class="space"></div><div class="space"></div>
+
+
+    <footer>
+    <div class="container">
+    <div class="row contacts">
+       <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  address">
+        <i class="fa fa-map-marker fa-2x" title=""></i>Правильный адрес
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  mail">
+        <i class="fa fa-envelope-o fa-2x" title=""></i>info@da-strateg.ru
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  phone">
+        <i class="fa fa-phone fa-2x" title=""></i>+7 499 400-56-39
+      </div>
+    </div>   
+    </div>
+  </footer>
+
+
+  <!--Slider etc-->
+  <script src="../../src/js/slides.min.jquery.js"></script>
+  <script src="../../src/js/elements.js"></script>
+
+    </div> <!--/wrapper-->
+  </body>
+</html>

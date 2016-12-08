@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реестр</title>
+
+    <!-- Styles -->
+    <link href="../../src/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../src/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/responsive.css">
+    <link href="../../src/css/styles.css" rel="stylesheet">
+ 
+    <!--LESS-->
+    <script src="../../src/js/less.js"></script>
+    <script>less = { env: 'development' };</script>
+    <script>less.watch();</script>
+
+    <!-- Scripts -->
+    <script src="../../src/js/jquery-3.1.1.min.js"></script>
+    <script src="../../src/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+   <div class="wrapper">
+    <div class="navigation"> 
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <p class="nav-description">Национальный реестр интегрированных отчетов</p>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              <a class="navbar-brand" href="#"><img src="../../src/img/da-strateg-logo.png" alt="logo1"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="main.html">На главную</a></li>
+                <li><a href="search.html">Поиск</a></li>
+                <li><a href="stats.html">Интерактивная статистика</a></li>
+                <li class="active"><a href="register.html">Регистрация отчета и компании</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>  
+    </div> <!--/container navigation-->
+
+    <main class="container">
+     <div class="row">
+     <h1 class="uppercase center">Регистрация компании</h1>
+        <div class="col-md-11 col-md-offset-1  col-xs-12 col-sm-12 profile-company">
+            <br/>
+            <div class="row register-company">
+              <div class="col-md-12 col-xs-12 col-sm-12">
+              <h2 class="sea-green">Анкета регистрации профиля организации</h2>
+                <div class="col-md-6 col-xs-12 col-sm-10 register-left">
+                  <h3>Информация об организации</h3>
+                  <div> 
+                    <select name="organization-form">
+                      <option value="0">Организационно-правовая форма</option>
+                      <option value="1">Все формы</option>
+                      <option value="2"> Публичное акционерное общество</option>
+                      <option value="3"> Непубличное акционерное общество</option>
+                      <option value="4"> Общество с ограниченной ответственностью</option>
+                      <option value="5"> Государственная корпорация</option>
+                      <option value="6"> Государственное или муниципальное унитарное предприятие</option>
+                      <option value="7"> Прочие</option>
+                   </select> <br/>
+                 </div>
+
+                 <div>Название организации <input name="name" class="change-w"></div> <br/>
+                 <div>Адрес официального сайта <input name="adress" class="change-w"></div> <br/>
+
+                 <div>Листинг
+                   <label class="radio-inline">
+                    <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
+                  </label>
+                  <label class="radio-inline">
+                    <input name="radioGroup" id="radio2" value="option2" checked="" type="radio" > Нет
+                  </label> <br/>
+                  <input name="listing" class="change-w" placeholder="Если да, то на какой бирже"><br/>
+                 </div>
+
+                 <div>
+                  <select name="economy">
+                    <option value="1">Отрасль экономики</option>
+                    <option value="2">Все отрасли</option>
+                    <option value="3">Агропромышленный комплекс</option>                  
+                    <option value="4"> Атомная промышленность</option>
+                    <option value="5"> Банки и др. инвестиционно-финансовые организации</option>
+                    <option value="6"> Жилищно-коммунальное хозяйство</option>
+                    <option value="7"> Здравоохранение и фармацевтическая промышленность</option>
+                    <option value="8"> Инжиниринг, промыш.-инфраструктурное строительство</option>
+                    <option value="7"> Информационные технологии</option>
+                    <option value="9"> Легкая промышленность</option>
+                    <option value="10"> Лесная и целлюлозно-бумажная промышленность</option>
+                    <option value="11"> Машиностроение</option>
+                    <option value="12"> Наука</option>
+                    <option value="13"> Нефтяная и нефтегазовая промышленность</option>
+                    <option value="14"> Общественное питание</option>
+                    <option value="15"> Оптовая торговля</option>
+                    <option value="16"> Пищевая промышленность</option>
+                    <option value="17"> Полиграфическая промышленность</option>
+                    <option value="18"> Промышленность драгоценных металлов и алмазов</option>
+                    <option value="19"> Промышленность строительных материалов</option>
+                    <option value="20"> Розничная торговля</option>
+                    <option value="21"> Сервисные компании</option>
+                    <option value="22"> СМИ</option>
+                    <option value="23"> Страхование</option>
+                    <option value="24"> Строительство</option>
+                    <option value="25"> Табачная промышленность</option>
+                    <option value="26"> Упаковка</option>
+                    <option value="27"> Химическая и нефтегазовая промышленность</option>
+                    <option value="28"> Цветная металлургия</option>
+                    <option value="29"> Черная металлургия</option>
+                    <option value="30"> Электроэнергетика</option>
+                  </select> <br/>      
+                 </div>
+
+                 <div>
+                   <select name="company-size">
+                    <option value="0">Размер предприятия</option>
+                    <option value="1">Все размеры</option>
+                    <option value="2" title="Оборот до 800 млн рублей, количество сотрудников до 100 человек"> Малое предприятие</option>
+                    <option value="3" title="Оборот до 2 млрд рублей, количество сотрудников до 250 человек">Среднее предприятие</option>
+                    <option value="4" title="Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек">Крупное предприятие</option>
+                  </select> <br/> 
+                 </div>
+
+                 <div>
+                   <select name="ownership">
+                    <option value="0"> Форма собственности</option>
+                    <option value="1" title="Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ">Государственная</option>
+                    <option value="2"> Частная</option>
+                   </select> <br/> 
+                 </div>
+
+                 <div class="form-group">
+                    <span class="left">Краткое описание организации</span>
+                    <textarea class="form-control"></textarea>
+                 </div>
+
+                 <div>ФИО директора организации <input name="CEO" class="change-w"></div> <br/>
+                 <div>Юридический адрес головного офиса <input name="" class="change-w"></div> <br/>
+                </div> <!--/register-company-left-->               
+
+                <div class="col-md-5 col-xs-12 col-sm-10 register-right">
+                  <h3>Контактная информация</h3>
+                  <strong>Руководитель, ответственный за написание отчета</strong>
+                  <div>ФИО <input name="" class="change-w"></div> <br/>
+                  <div>Должность<input name="" class="change-w"></div> <br/>
+                  <div> Электронная почта<input name="" class="change-w"></div> <br/>
+                  <div>Телефон <input name="" class="change-w"></div> <br/>
+
+                  <strong>Пользователь, регистрирующий компанию/отчет</strong>
+                  <div>ФИО <input name="" class="change-w"></div> <br/>
+                  <div>Должность<input name="" class="change-w"></div> <br/>
+                  <div> Электронная почта<input name="" class="change-w"></div> <br/>
+                  <div>Телефон <input name="" class="change-w"></div> <br/>
+
+                </div><!--/register-company-right-->   
+  
+              </div>
+            </div> <!--/row register-company-->
+            
+
+            <div class="buttons center">
+      			  <div class="upload">
+                <label for="upload-logo" class="btn btn-default  green-btn"><i class="fa fa-pied-piper" aria-hidden="true"></i> Загрузить логотип компании</label>
+      			    <input type="file" name="upload" id="upload-logo">
+      			  </div>
+
+               <div class="submit">
+                 <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
+                 <input type="submit" id="submit-reg-company">
+               </div>
+              <br/><br/>    
+            </div>
+
+
+        </div> <!--/profile-company-->
+
+     </div> <!--/container-->
+
+    </main>
+    <div class="space"></div><div class="space"></div>
+
+    <footer>
+    <div class="container">
+    <div class="row contacts">
+       <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  address">
+        <i class="fa fa-map-marker fa-2x" title=""></i>Правильный адрес
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  mail">
+        <i class="fa fa-envelope-o fa-2x" title=""></i>info@da-strateg.ru
+      </div>       
+      <div class="col-md-3 col-md-offset-1  col-xs-4 col-sm-4  phone">
+        <i class="fa fa-phone fa-2x" title=""></i>+7 499 400-56-39
+      </div>
+    </div>   
+    </div>
+  </footer>
+
+  <!--Slider etc-->
+  <script src="../../src/js/slides.min.jquery.js"></script>
+  <script src="../../src/js/elements.js"></script>
+
+
+
+    </div> <!--/wrapper-->
+  </body>
+</html>
