@@ -2,6 +2,7 @@ doctype html
 html(lang='en')
   //подключение header
   include includes/head 
+
   body
     .wrapper
       .navigation
@@ -31,6 +32,7 @@ html(lang='en')
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
+
       main.container
         .row
           .col-md-10.col-md-offset-2.col-xs-12.col-sm-12.profile-company
@@ -61,7 +63,7 @@ html(lang='en')
                       td  #{company.sector}
                     tr
                       td  Расположение головного офиса
-                      td  ?????
+                      td  #{company.city}
                     tr
                       td  Размер организации 
                       td
@@ -102,8 +104,8 @@ html(lang='en')
               .col-md-10.col-md-offset-2.col-xs-12.col-sm-6.other-reports
                 for report in page_reports
                   .cover
-                  a(href='/report/#{report._id}', target='_blank', title='Годовой отчет 2009')
-                    img(src!=report.logo, alt='')
+                    a(href='/report/#{report._id}', target='_blank', title='Годовой отчет 2013')
+                      img(src=report.preview, alt='')
               // /other-reports
             // /row
           // /profile-report

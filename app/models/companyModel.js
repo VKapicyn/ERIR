@@ -22,6 +22,7 @@ var CompanySchema = new mongoose.Schema({
         type: String,
     },
     adress: String,
+    city: String,
     size_of_company: {
         type: String,
     },

@@ -3,7 +3,7 @@ html(lang='en')
   
   //подключение header
   include includes/head 
-
+- var companies = company
   body
     .wrapper
       .navigation
@@ -279,7 +279,7 @@ html(lang='en')
                   a.showView4(href='#', title='Крупные значки')
                     i.fa.fa-picture-o.fa-3x(aria-hidden='true')
             // /change-view
-            - var companies = company
+
             .view
               #view1.list
               for comps in companies
@@ -369,7 +369,6 @@ html(lang='en')
                   a.o-showView4(href='#', title='Крупные значки')
                     i.fa.fa-picture-o.fa-3x(aria-hidden='true')
             // /change-view
-            - var companies = company
             .view
               #o-view1.list
                 for comp in companies 

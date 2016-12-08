@@ -64,9 +64,7 @@ exports.getFile = function(req, res){
 exports.getCompanyById = function(req, res){
     Company.findOne({_id:new ObjectId(req.params.id)}).then(function(company){
         //заменить на поиск по отчетам
-        Report.find({
-            //по имени компании company:company.name
-        }).then(function(reports){
+        Report.find({company:company.name}).then(function(reports){
         //проверка на 'accept'
         if (company.accept==true)
 		    res.render('company', {company:company, reports:reports});
@@ -83,9 +81,22 @@ exports.Search = function(req, res){
 };
 
 exports.getReportById = function(req, res){
-    Report.findOne({_id:req.params.id}).then(function(document){
-		res.json(document);
-	})
+
+    Report.findOne({_id:new ObjectId(req.params.id)}).then(function(_report){
+        Report.find({company:_report.company}).then(function(reports){
+            //Company.findOne({name:report.company}).then(function(company){
+        
+        //исправить на true
+            if (!_report.accept)
+                res.render('report', {report:_report,  reports:reports});
+            else
+                res.send('Компания не прошла проверку у администрации ресурса');
+            });
+       // });
+	}); 
+    //Report.findOne({_id:req.params.id}).then(function(document){
+	//	res.json(document);
+	//})
 };
 
 exports.searchReports = function (req, res){
