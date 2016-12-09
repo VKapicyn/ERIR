@@ -113,26 +113,58 @@
 
 
 // Register-company. Проверка заполненности форм
-function validate(){
-   //Считаем значения из полей name и email в переменные x и y
-   var x=document.forms["form-register-company"]["company-name"].value;
-   var y=document.forms["form-register-company"]["company-site"].value;
-   //Если поле name пустое выведем сообщение и предотвратим отправку формы
-   if (x.length==0){
-      document.getElementById("company-nameF").innerHTML="*данное поле обязательно для заполнения";
-      return false;
-   }
-   //Если поле email пустое выведем сообщение и предотвратим отправку формы
-   if (y.length==0){
-      document.getElementById("company-siteF").innerHTML="*данное поле обязательно для заполнения";
-      return false;
-   }
-   //Проверим содержит ли значение введенное в поле email символы @ и .
-   // at=y.indexOf("@");
-   // dot=y.indexOf(".");
-   // //Если поле не содержит эти символы знач email введен не верно
-   // if (at<1 || dot <1){
-   //    document.getElementById("emailf").innerHTML="*email введен не верно";
-   //    return false;
-   // }
-}
+$(function(){
+
+        var field = new Array("company-name", "company-site");//поля обязательные 
+                
+        $("form").submit(function() {// обрабатываем отправку формы 
+            var error=0; // индекс ошибки
+            $("form").find(":input").each(function() {// проверяем каждое поле в форме
+                for(var i=0;i<field.length;i++){ // если поле присутствует в списке обязательных
+                    if($(this).attr("name")==field[i]){ //проверяем поле формы на пустоту
+                        
+                        if(!$(this).val()){// если в поле пустое
+                            $(this).css('border', '#9b322a 1px solid');// устанавливаем рамку красного цвета
+                            error=1;// определяем индекс ошибки                                              
+                        }
+                        else{
+                            $(this).css('border', 'gray 1px solid');// устанавливаем рамку обычного цвета
+                        }
+                        
+                    }                       
+                }               
+           })
+           
+           // //провека email адреса 
+           //  var email = $("#email").val();
+           //  if(!isValidEmailAddress(email)){
+           //      error=2;
+           //      $("#email").css('border', 'red 1px solid');// устанавливаем рамку красного цвета
+           //  }
+            
+            // //провека совпадения паролей 
+            // var pas1 = $("#pas1").val();
+            // var pas2 = $("#pas2").val();
+            // if(pas1!=pas2){
+            //     error=3;
+            //     $("#pas1").css('border', 'red 1px solid');// устанавливаем рамку красного цвета
+            //     $("#pas2").css('border', 'red 1px solid');// устанавливаем рамку красного цвета
+            // }
+            
+            if(error==0){ // если ошибок нет то отправляем данные
+                return true;
+            }
+            else{
+            var err_text = "";
+            if(error==1)  err_text="Не все обязательные поля заполнены!";
+            // if(error==2)  err_text="Введен не корректный e-mail!";
+            // if(error==3)  err_text="Пароли не совпадают";
+            
+            $("#messenger").html(err_text); 
+            $("#messenger").fadeIn("slow"); 
+            return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
+            }            
+                
+        })
+    });
+// /Register-company. Проверка заполненности форм

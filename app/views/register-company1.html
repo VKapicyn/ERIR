@@ -64,8 +64,9 @@
         <div class="col-md-11 col-md-offset-1  col-xs-12 col-sm-12 profile-company">
             <br/>
             <div class="row register-company form_box">
-             <form action="#" method="post" name="form-register-company" onsubmit="return validate()">
-              <div class="col-md-12 col-xs-12 col-sm-12">
+             <form action="#" method="post" name="form-register-company" class="edit_form">
+              <div class="col-md-12 col-xs-12 col-sm-12" >
+              <div id="messenger"></div>
               <h2 class="sea-green">Анкета регистрации профиля организации</h2>
                 <div class="col-md-6 col-xs-12 col-sm-10 register-left">
                   <h3>Информация об организации</h3>
@@ -83,14 +84,12 @@
                  </div>
 
                   <div>
-                    <label for="company-name">Название организации</label>
-                    <span style="color:red" id="company-nameF"></span>
+                    Название организации
                     <input type="text" name="company-name"/><br/>
                   </div>
 
                   <div>
-                    <label for="company-site">Адрес официального сайта</label>
-                    <span style="color:red" id="company-siteF"></span>
+                    Адрес официального сайта
                     <input type="text" name="company-site" /><br/>
                   </div>
 
@@ -196,7 +195,7 @@
 
                <div class="submit ">
                  <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
-                 <input type="submit" id="submit-reg-company" class="btn_submit disabled">
+                 <input type="submit" name="submit" id="submit-reg-company">
                </div> 
             </div>
 
