@@ -114,9 +114,11 @@
 
 // Register-company. Проверка заполненности форм
 $(function(){
-
-        var field = new Array("company-name", "company-site");//поля обязательные 
-                
+        var field = new Array("company-name", "company-site", "company-description", "CEO",
+        "company-law-address", 
+        "writer-fio", "writer-position", "writer-email", "writer-phone",
+        "registrator-fio", "registrator-position", "registrator-email", "registrator-phone"
+        );  //поля обязательные 
         $("form").submit(function() {// обрабатываем отправку формы 
             var error=0; // индекс ошибки
             $("form").find(":input").each(function() {// проверяем каждое поле в форме
@@ -134,31 +136,13 @@ $(function(){
                     }                       
                 }               
            })
-           
-           // //провека email адреса 
-           //  var email = $("#email").val();
-           //  if(!isValidEmailAddress(email)){
-           //      error=2;
-           //      $("#email").css('border', 'red 1px solid');// устанавливаем рамку красного цвета
-           //  }
-            
-            // //провека совпадения паролей 
-            // var pas1 = $("#pas1").val();
-            // var pas2 = $("#pas2").val();
-            // if(pas1!=pas2){
-            //     error=3;
-            //     $("#pas1").css('border', 'red 1px solid');// устанавливаем рамку красного цвета
-            //     $("#pas2").css('border', 'red 1px solid');// устанавливаем рамку красного цвета
-            // }
-            
+              
             if(error==0){ // если ошибок нет то отправляем данные
                 return true;
             }
             else{
             var err_text = "";
             if(error==1)  err_text="Не все обязательные поля заполнены!";
-            // if(error==2)  err_text="Введен не корректный e-mail!";
-            // if(error==3)  err_text="Пароли не совпадают";
             
             $("#messenger").html(err_text); 
             $("#messenger").fadeIn("slow"); 
