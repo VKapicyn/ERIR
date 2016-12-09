@@ -4,7 +4,7 @@ html(lang='en')
   //подключение header
   include includes/head 
 
-  body
+body
     .wrapper
       .navigation
         nav.navbar.navbar-default
@@ -23,13 +23,13 @@ html(lang='en')
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
                 li
-                  a(href='main') На главную
+                  a(href='main.html') На главную
                 li.active
-                  a(href='search') Поиск
+                  a(href='search1.html') Поиск
                 li
-                  a(href='stats') Интерактивная статистика
+                  a(href='stats1.html') Интерактивная статистика
                 li
-                  a(href='register') Регистрация отчета и компании
+                  a(href='register1.html') Регистрация отчета и компании
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
@@ -39,18 +39,18 @@ html(lang='en')
             // Навигация
             ul.nav.nav-tabs(role='tablist')
               li.active
-                a(href='#search-report-tab', aria-controls='search-report', role='tab', data-toggle='tab') Поиск отчета
+                a(href='#search-report', aria-controls='search-report', role='tab', data-toggle='tab') Поиск отчета
               li
-                a(href='#search-organization-tab', aria-controls='search-organization', role='tab', data-toggle='tab') Поиск организации
+                a(href='#search-organization', aria-controls='search-organization', role='tab', data-toggle='tab') Поиск организации
             // Содержимое вкладок
             .tab-content
               #search-report.tab-pane.active(role='tabpanel')
                 form.navbar-form.navbar-left(role='search')
                   .form-group
                     input.form-control(type='text', placeholder='Search')
-                  button.btn.btn-default.green-btn(type='submit')
+                  button.btn.btn-default.green-btn.btn-search-report(type='submit')
                     i.fa.fa-search(aria-hidden='true')
-                    |  Поиск
+                    |  Поиск отчета
                   br
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-times(aria-hidden='true')
@@ -182,9 +182,9 @@ html(lang='en')
                   |  Лучшее раскрытие информации о системе публичной отчетности
                   br
                   br
-                  button.btn.btn-default.green-btn(type='submit')
+                  button.btn.btn-default.green-btn.btn-search-report(type='submit')
                     i.fa.fa-search(aria-hidden='true')
-                    |  Поиск
+                    |  Поиск отчета
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-times(aria-hidden='true')
                     |  Сброс
@@ -195,9 +195,9 @@ html(lang='en')
                 form.navbar-form.navbar-left(role='search')
                   .form-group
                     input.form-control(type='text', placeholder='Search')
-                  button.btn.btn-default.green-btn(type='submit')
+                  button.btn.btn-default.green-btn.btn-search-organization(type='submit')
                     i.fa.fa-search(aria-hidden='true')
-                    |  Поиск
+                    |  Поиск компании
                   br
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-times(aria-hidden='true')
@@ -249,11 +249,9 @@ html(lang='en')
                     option(value='3', title='Оборот до 2 млрд рублей, количество сотрудников до 250 человек') Среднее предприятие
                     option(value='4', title='Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек') Крупное предприятие
                   br
-
-                  br
-                  button.btn.btn-default.green-btn(type='submit')
+                  button.btn.btn-default.green-btn.btn-search-organization(type='submit')
                     i.fa.fa-search(aria-hidden='true')
-                    |  Поиск
+                    |  Поиск компании
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-times(aria-hidden='true')
                     |  Сброс
@@ -295,11 +293,11 @@ html(lang='en')
             .view
               #view1.list
                 .element
-                  a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
+                  a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
                 .element
-                  a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
+                  a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
                 .element
-                  a(href='report', title='Перейти на страницу отчета') Компания: Название отчета - год
+                  a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
               #view2.table
                 table.table
                   thead
@@ -311,23 +309,23 @@ html(lang='en')
                   tbody
                     tr
                       td
-                        a(href='#', title='Перейти на страницу компании') Компания
+                        a(href='company', title='Перейти на страницу компании') Компания
                       td
-                        a(href='#', title='Перейти на страницу отчета') Название отчета
+                        a(href='report', title='Перейти на страницу отчета') Название отчета
                       td Год
                       td Стандарт
                     tr
                       td
-                        a(href='#', title='Перейти на страницу компании') Компания
+                        a(href='company', title='Перейти на страницу компании') Компания
                       td
-                        a(href='#', title='Перейти на страницу отчета') Название отчета
+                        a(href='report', title='Перейти на страницу отчета') Название отчета
                       td Год
                       td Стандарт
                     tr
                       td
-                        a(href='#', title='Перейти на страницу компании') Компания
+                        a(href='company', title='Перейти на страницу компании') Компания
                       td
-                        a(href='#', title='Перейти на страницу отчета') Название отчета
+                        a(href='report', title='Перейти на страницу отчета') Название отчета
                       td Год
                       td Стандарт
               #view3.icon
@@ -384,10 +382,10 @@ html(lang='en')
               #o-view1.list
                 .element
                   img(src='img/rosatom-logo.jpg', alt='logo')
-                  a(href='company', title='Перейти на страницу профиля компании') Название компании
+                  a(href='#', title='Перейти на страницу профиля компании') Название компании
                 .element
                   img(src='img/rosatom-logo.jpg', alt='logo')
-                  a(href='company', title='Перейти на страницу профиля компании') Название компании
+                  a(href='#', title='Перейти на страницу профиля компании') Название компании
               #o-view2.table
                 table.table
                   thead
@@ -408,17 +406,17 @@ html(lang='en')
                       td Крупное
               #o-view3.icon
                 .element
-                  a(href='company', title='Перейти на страницу компании')
+                  a(href='#', title='Перейти на страницу компании')
                     img(src='img/rosatom-logo.jpg', alt='icon')
                 .element
-                  a(href='company', title='Перейти на страницу компании')
+                  a(href='#', title='Перейти на страницу компании')
                     img(src='img/rosatom-logo.jpg', alt='icon')
               #o-view4.big-icon
                 .element
-                  a(href='company', title='Перейти на страницу компании')
+                  a(href='#', title='Перейти на страницу компании')
                     img(src='img/rosatom-logo.jpg', alt='icon')
                 .element
-                  a(href='company', title='Перейти на страницу компании')
+                  a(href='#', title='Перейти на страницу компании')
                     img(src='img/rosatom-logo.jpg', alt='icon')
           // /search-results-organization
         // /row
