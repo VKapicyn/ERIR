@@ -25,7 +25,7 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='#')
-                img(src=' img/da-strateg-logo.png', alt='logo1')
+                img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
@@ -44,10 +44,10 @@ html(lang='en')
         .row
           .col-md-10.col-md-offset-2.col-xs-12.col-sm-12.profile-report
             h2
-              | 2010 Публичный годовой отчет государственной корпорации по атомной энергии "Росатом"
+              | #{report.name}
             .row
               .col-md-3.col-xs-6.col-sm-6.cover-and-isBest
-                img(src='img/2010.jpg', alt='')
+                img(src='#{report.preview}', alt='')
                 br
                 span.isBest
                   | Отчет является лучшей практикой в раскрытии [элемент] в 2009 году, согласно исследованию 
@@ -55,6 +55,10 @@ html(lang='en')
               .col-md-7.col-xs-12.col-sm-12.report-info
                 table.table.table-hover
                   tbody
+                    tr
+                      td Компания
+                      td 
+                        a(href='/company/') #{report.company}
                     tr
                       td Отчетный год
                       td 2010
@@ -131,24 +135,15 @@ html(lang='en')
                   a(href='#', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
                 br
             // /row
+            // убрать из массива текущий отчет
+            - var page_reports = reports 
             .row
               h3 Другие отчеты компании
               .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
-                .cover
-                  a(href='#', target='_blank', title='')
-                    img(src='img/2009.jpg', alt='')
-                .cover
-                  a(href='#', target='_blank', title='')
-                    img(src='img/2011.jpg', alt='')
-                .cover
-                  a(href='#', target='_blank', title='')
-                    img(src='img/2012.jpg', alt='')
-                .cover
-                  a(href='#', target='_blank', title='')
-                    img(src='img/2013.jpg', alt='')
-                .cover
-                  a(href='#', target='_blank', title='')
-                    img(src='img/2014.jpg', alt='')
+                for report in page_reports
+                  .cover
+                    a(href='/report/#{report._id}', target='_blank', title='')
+                      img(src=report.preview, alt='')
               // /other-reports
             // /row
           // /profile-report

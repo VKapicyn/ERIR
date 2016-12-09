@@ -16,15 +16,23 @@ app.set('view engine', 'jade'); // 'view engine' - механизм визуал
 // маршруты страниц
 app.get('/', control.GeneralPage); // главная
 app.get('/main', control.GeneralPage); // главная (по ТЗ)
-app.get('/search', control.SearchPage); // поиск
+app.get('/search', api.Search); // поиск
 app.get('/stats', control.StatsPage); // страница статистики
 app.get('/register', control.RegistrPage); // страница добавления отчета
 app.get('/admin', control.AdminPage); // админка
+app.get('/report/:id', api.getReportById);
+app.get('/company/:id', api.getCompanyById);
+app.post('/company/create/', api.addCompany); // создаем компанию
+app.post('/report/create/', api.addReport); // создаем отчет
 
 //маршрутизация API запросов
-app.get('/report/:id', api.getReportById); // выводим отчет по id
-app.get('/company/:id', api.getCompanyById); // выводим компанию по id
-app.post('/company/create/', api.addCompany); //создаем компанию
+//app.post('/v1/report/:id', api.getReportById); // выводим отчет по id
+//app.post('/v1/company/:id', api.getCompanyById); // выводим компанию по id
+app.get('/v1/search/companies/', api.searchCompnaies); // поиск по компаниям
+app.get('/v1/search/reports/', api.searchReports); // поиск по отчетам
+
+
+//лишнее
 app.get('/sector/:name', api.getSectorByName); //ищем отрасль по имени
 app.get('/companies/sector/:name',api.getCompaniesBySectorName);//ищем компании по названию отрасли 
 

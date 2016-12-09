@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-// var db = mongoose.connect("mongodb://localhost:27017/ERIO")//конектимсся к БД
+var db = mongoose.connect("mongodb://80.93.177.208:27017/ERIO")//конектимсся к БД
 
 var multer = require("multer");
 var upload = multer({dest: './src/buffer'});
@@ -7,7 +7,8 @@ var conn = mongoose.connection;
 var fs = require('fs');
 var Grid = require('gridfs-stream');
 Grid.mongo = mongoose.mongo;
-// gfs=Grid(conn.db);
+gfs=Grid(conn.db);
+var ObjectId = require('mongoose').Types.ObjectId; 
 
 //схемы данных
 var Report = require('./models/reportModel').ReportModel; // модель отчета
@@ -21,7 +22,6 @@ exports.addReport = function(req,res){
 
 exports.addCompany = function(req,res){
     var new_comp = new Company;
-    //new_comp.id = new mongoose.Types.ObjectId;
     new_comp.name = req.body.name;
 
     //cохраняем лого в БД
@@ -39,8 +39,9 @@ exports.addCompany = function(req,res){
     writestream.on('close', function (file) {
         console.log(file.filename + ' Written To DB');
     });
-    new_comp.logo = '/'+new_comp._id+req.files.logo.name;
 
+    //переделать в связи со схемой
+    new_comp.logo = '/'+new_comp._id+req.files.logo.name;
     new_comp.info = req.body.info;
     new_comp.adress = req.body.adress; 
     new_comp.telephone = req.body.telephone;
@@ -53,26 +54,71 @@ exports.addCompany = function(req,res){
 }
 
 exports.getFile = function(req, res){
-      // var readstream = gfs.createReadStream({filename: req.params.filename});
-      // readstream.on('error', function(err){
-      //   res.send('No image found with that title');
-      // });
-      // readstream.pipe(res);
+       var readstream = gfs.createReadStream({filename: req.params.filename});
+       readstream.on('error', function(err){
+        res.send('No image found with that title');
+       });
+       readstream.pipe(res);
   };
 
-exports.getReportById = function(req, res){
-    /*
-        здесь будет работа со схемой данных
-    */
-    var _id = req.params.id;
-    res.render('report',{ report: 'Отчет №' + _id, id: _id});
+exports.getCompanyById = function(req, res){
+    Company.findOne({_id:new ObjectId(req.params.id)}).then(function(company){
+        //заменить на поиск по отчетам
+        Report.find({company:company.name}).then(function(reports){
+        //проверка на 'accept'
+        if (company.accept==true)
+		    res.render('company', {company:company, reports:reports});
+        else
+            res.send('Компания не прошла проверку у администрации ресурса');
+        });
+	});
 };
 
-exports.getCompanyById = function(req, res){
-    var name ='';
-    Company.findOne({_id:req.params.id}).then(function(document){
+exports.Search = function(req, res){
+    Company.find({}).then(function(company){
+        res.render('search',{company:company});
+    });
+};
+
+exports.getReportById = function(req, res){
+
+    Report.findOne({_id:new ObjectId(req.params.id)}).then(function(_report){
+        Report.find({company:_report.company}).then(function(reports){
+            //Company.findOne({name:report.company}).then(function(company){
+        
+        //исправить на true
+            if (!_report.accept)
+                res.render('report', {report:_report,  reports:reports});
+            else
+                res.send('Компания не прошла проверку у администрации ресурса');
+            });
+       // });
+	}); 
+    //Report.findOne({_id:req.params.id}).then(function(document){
+	//	res.json(document);
+	//})
+};
+
+exports.searchReports = function (req, res){
+    /* 
+        обработка параметров
+    */
+    Report.find({
+        //параметры поиска
+    }).then(function(document){
 		res.json(document);
-	})
+    })
+};
+
+exports.searchCompnaies = function (req, res){
+    /*
+        обработка параметров
+    */ 
+   Company.find({
+        //параметры поиска
+    }).then(function(document){
+        res.json(document);
+    });
 };
 
 exports.getSectorByName = function(req, res){

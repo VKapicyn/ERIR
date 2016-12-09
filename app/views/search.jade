@@ -4,7 +4,9 @@ html(lang='en')
   //подключение header
   include includes/head 
 
+
 body
+- var companies = company
     .wrapper
       .navigation
         nav.navbar.navbar-default
@@ -290,10 +292,16 @@ body
                   a.showView4(href='#', title='Крупные значки')
                     i.fa.fa-picture-o.fa-3x(aria-hidden='true')
             // /change-view
+
             .view
               #view1.list
+              for comps in companies
                 .element
+<<<<<<< HEAD
                   a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
+=======
+                  a(href='report', title='Перейти на страницу отчета') #{comps.name}: Название отчета - год
+>>>>>>> eec334abeb59f0bed1425bb9abd5a87ee6a0a035
                 .element
                   a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
                 .element
@@ -380,12 +388,19 @@ body
             // /change-view
             .view
               #o-view1.list
+<<<<<<< HEAD
                 .element
                   img(src='img/rosatom-logo.jpg', alt='logo')
                   a(href='#', title='Перейти на страницу профиля компании') Название компании
                 .element
                   img(src='img/rosatom-logo.jpg', alt='logo')
                   a(href='#', title='Перейти на страницу профиля компании') Название компании
+=======
+                for comp in companies 
+                  .element
+                    img(src!=comp.logo, alt='logo')
+                    a(href='/company/#{comp._id}', title='Перейти на страницу профиля компании') #{comp.name}
+>>>>>>> eec334abeb59f0bed1425bb9abd5a87ee6a0a035
               #o-view2.table
                 table.table
                   thead
@@ -394,17 +409,14 @@ body
                       th Отрасль экономики
                       th Размер предприятия
                   tbody
+                  for comp in companies
                     tr
                       td
-                        a(href='#', title='Перейти на страницу компании') Название компании
-                      td Атомная промышленность
-                      td Крупное
-                    tr
-                      td
-                        a(href='#', title='Перейти на страницу компании') Название компании
-                      td Атомная промышленность
-                      td Крупное
+                        a(href='/company/#{comp._id}', title='Перейти на страницу компании') #{comp.name}
+                      td #{comp.sector}
+                      td #{comp.size_of_company}
               #o-view3.icon
+<<<<<<< HEAD
                 .element
                   a(href='#', title='Перейти на страницу компании')
                     img(src='img/rosatom-logo.jpg', alt='icon')
@@ -418,6 +430,17 @@ body
                 .element
                   a(href='#', title='Перейти на страницу компании')
                     img(src='img/rosatom-logo.jpg', alt='icon')
+=======
+                for comp in companies
+                  .element
+                    a(href='/company/#{comp._id}', title='Перейти на страницу компании')
+                      img(src!=comp.logo, alt='icon')
+              #o-view4.big-icon
+                for comp in companies
+                  .element
+                    a(href='/company/#{comp._id}', title='Перейти на страницу компании')
+                      img(src!=comp.logo, alt='icon')
+>>>>>>> eec334abeb59f0bed1425bb9abd5a87ee6a0a035
           // /search-results-organization
         // /row
       .space
