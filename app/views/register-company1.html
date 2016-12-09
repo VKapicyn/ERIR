@@ -63,7 +63,8 @@
      <h1 class="uppercase center">Регистрация компании</h1>
         <div class="col-md-11 col-md-offset-1  col-xs-12 col-sm-12 profile-company">
             <br/>
-            <div class="row register-company">
+            <div class="row register-company form_box">
+             <form action="#" method="post" name="form-register-company" onsubmit="return validate()">
               <div class="col-md-12 col-xs-12 col-sm-12">
               <h2 class="sea-green">Анкета регистрации профиля организации</h2>
                 <div class="col-md-6 col-xs-12 col-sm-10 register-left">
@@ -81,8 +82,20 @@
                    </select> <br/>
                  </div>
 
-                 <div>Название организации <input name="name" class="change-w"></div> <br/>
-                 <div>Адрес официального сайта <input name="adress" class="change-w"></div> <br/>
+                  <div>
+                    <label for="company-name">Название организации</label>
+                    <span style="color:red" id="company-nameF"></span>
+                    <input type="text" name="company-name"/><br/>
+                  </div>
+
+                  <div>
+                    <label for="company-site">Адрес официального сайта</label>
+                    <span style="color:red" id="company-siteF"></span>
+                    <input type="text" name="company-site" /><br/>
+                  </div>
+
+                <!--  <div>Название организации <input name="name" class="change-w"></div> <br/>
+                 <div>Адрес официального сайта <input name="adress" class="change-w"></div> <br/> -->
 
                  <div>Листинг
                    <label class="radio-inline">
@@ -174,21 +187,24 @@
                 </div><!--/register-company-right-->   
   
               </div>
+
+              <div class="buttons center">
+              <div class="upload">
+                <label for="upload-logo" class="btn btn-default  green-btn"><i class="fa fa-pied-piper" aria-hidden="true"></i> Загрузить логотип компании</label>
+                <input type="file" name="upload" id="upload-logo">
+              </div>
+
+               <div class="submit ">
+                 <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
+                 <input type="submit" id="submit-reg-company" class="btn_submit disabled">
+               </div> 
+            </div>
+
+              </form>
             </div> <!--/row register-company-->
             
 
-            <div class="buttons center">
-      			  <div class="upload">
-                <label for="upload-logo" class="btn btn-default  green-btn"><i class="fa fa-pied-piper" aria-hidden="true"></i> Загрузить логотип компании</label>
-      			    <input type="file" name="upload" id="upload-logo">
-      			  </div>
-
-               <div class="submit">
-                 <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
-                 <input type="submit" id="submit-reg-company">
-               </div>
-              <br/><br/>    
-            </div>
+            
 
 
         </div> <!--/profile-company-->
@@ -217,6 +233,7 @@
   <!--Slider etc-->
   <script src="../../src/js/slides.min.jquery.js"></script>
   <script src="../../src/js/elements.js"></script>
+
 
 
 
