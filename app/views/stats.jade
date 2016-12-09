@@ -24,13 +24,15 @@ html(lang='en')
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
                 li
-                  a(href='main.html') На главную
+                  a(href='/main') На главную
                 li
-                  a(href='search.html') Поиск
+                  a(href='/search') Поиск
                 li.active
-                  a(href='stats.html') Интерактивная статистика
+                  a(href='/stats') Интерактивная статистика
                 li
-                  a(href='register.html') Регистрация отчета и компании
+                  a(href='/register-report') Регистрация отчета
+                li
+                  a(href='/register-company') Регистрация компании
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
@@ -48,6 +50,8 @@ html(lang='en')
                     option(value='2') Столбиковая (гистограмма)
                 div
                   select(name='economy')
+                    for val in sector.sector
+                      option(value='#{val}') #{val}
                     option(value='1') Отрасль экономики
                     option(value='2') Все отрасли
                     option(value='3') Агропромышленный комплекс

@@ -23,13 +23,15 @@ body
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
                 li
-                  a(href='main.html') На главную
+                  a(href='/main') На главную
                 li.active
-                  a(href='search1.html') Поиск
+                  a(href='/search') Поиск
                 li
-                  a(href='stats1.html') Интерактивная статистика
+                  a(href='/stats') Интерактивная статистика
                 li
-                  a(href='register1.html') Регистрация отчета и компании
+                  a(href='/register-report') Регистрация отчета
+                li
+                  a(href='/register-company') Регистрация компании
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
@@ -293,17 +295,9 @@ body
 
             .view
               #view1.list
-              for comps in companies
-                .element
-<<<<<<< HEAD
-                  a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
-=======
-                  a(href='report', title='Перейти на страницу отчета') #{comps.name}: Название отчета - год
->>>>>>> eec334abeb59f0bed1425bb9abd5a87ee6a0a035
-                .element
-                  a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
-                .element
-                  a(href='report.html', title='Перейти на страницу отчета') Компания: Название отчета - год
+                for rep in reports
+                  .element
+                    a(href='report', title='Перейти на страницу отчета') #{rep.name} - #{rep.year}
               #view2.table
                 table.table
                   thead
@@ -313,47 +307,24 @@ body
                       th Год
                       th Стандарт
                   tbody
-                    tr
-                      td
-                        a(href='company', title='Перейти на страницу компании') Компания
-                      td
-                        a(href='report', title='Перейти на страницу отчета') Название отчета
-                      td Год
-                      td Стандарт
-                    tr
-                      td
-                        a(href='company', title='Перейти на страницу компании') Компания
-                      td
-                        a(href='report', title='Перейти на страницу отчета') Название отчета
-                      td Год
-                      td Стандарт
-                    tr
-                      td
-                        a(href='company', title='Перейти на страницу компании') Компания
-                      td
-                        a(href='report', title='Перейти на страницу отчета') Название отчета
-                      td Год
-                      td Стандарт
+                    for rep in reports
+                      tr
+                        td
+                          a(href='/#{rep.company}', title='Перейти на страницу компании') #{rep.company}
+                        td
+                          a(href='/#{rep._id}', title='Перейти на страницу отчета') #{rep.name}
+                        td Год
+                        td Стандарт
               #view3.icon
-                .element
-                  a(href='report', title='Перейти на страницу отчета')
-                    img(src='img/2009.jpg', alt='icon')
-                .element
-                  a(href='report', title='Перейти на страницу отчета')
-                    img(src='img/2010.jpg', alt='icon')
-                .element
-                  a(href='report', title='Перейти на страницу отчета')
-                    img(src='img/2011.jpg', alt='icon')
+                for rep in reports
+                  .element
+                    a(href='/#{rep._id}', title='Перейти на страницу отчета')
+                      img(src='#{rep.preview}', alt='icon')
               #view4.big-icon
-                .element
-                  a(href='report', title='Перейти на страницу отчета')
-                    img(src='img/2009.jpg', alt='icon')
-                .element
-                  a(href='report', title='Перейти на страницу отчета')
-                    img(src='img/2010.jpg', alt='icon')
-                .element
-                  a(href='report', title='Перейти на страницу отчета')
-                    img(src='img/2011.jpg', alt='icon')
+                for rep in reports
+                  .element
+                    a(href='/#{rep._id}', title='Перейти на страницу отчета')
+                      img(src='#{rep.preview}', alt='icon')
           // /search-results-report
           // Результаты поиска по организации
           .search-results-organization.col-md-7.col-xs-8.col-sm-8
@@ -386,19 +357,10 @@ body
             // /change-view
             .view
               #o-view1.list
-<<<<<<< HEAD
-                .element
-                  img(src='img/rosatom-logo.jpg', alt='logo')
-                  a(href='#', title='Перейти на страницу профиля компании') Название компании
-                .element
-                  img(src='img/rosatom-logo.jpg', alt='logo')
-                  a(href='#', title='Перейти на страницу профиля компании') Название компании
-=======
                 for comp in companies 
                   .element
                     img(src!=comp.logo, alt='logo')
                     a(href='/company/#{comp._id}', title='Перейти на страницу профиля компании') #{comp.name}
->>>>>>> eec334abeb59f0bed1425bb9abd5a87ee6a0a035
               #o-view2.table
                 table.table
                   thead
@@ -414,21 +376,6 @@ body
                       td #{comp.sector}
                       td #{comp.size_of_company}
               #o-view3.icon
-<<<<<<< HEAD
-                .element
-                  a(href='#', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
-                .element
-                  a(href='#', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
-              #o-view4.big-icon
-                .element
-                  a(href='#', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
-                .element
-                  a(href='#', title='Перейти на страницу компании')
-                    img(src='img/rosatom-logo.jpg', alt='icon')
-=======
                 for comp in companies
                   .element
                     a(href='/company/#{comp._id}', title='Перейти на страницу компании')
@@ -438,7 +385,6 @@ body
                   .element
                     a(href='/company/#{comp._id}', title='Перейти на страницу компании')
                       img(src!=comp.logo, alt='icon')
->>>>>>> eec334abeb59f0bed1425bb9abd5a87ee6a0a035
           // /search-results-organization
         // /row
       .space

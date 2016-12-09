@@ -21,13 +21,15 @@ html(lang='en')
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
                 li
-                  a(href='main') На главную
+                  a(href='/main') На главную
                 li
-                  //- a(href='search') Поиск
+                  a(href='/search') Поиск
                 li
-                  a(href='stats') Интерактивная статистика
+                  a(href='/stats') Интерактивная статистика
+                li
+                  a(href='/register-report') Регистрация отчета
                 li.active
-                  a(href='register') Регистрация отчета и компании
+                  a(href='/register-company') Регистрация компании
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
@@ -73,37 +75,8 @@ html(lang='en')
                     br
                   div
                     select(name='economy')
-                      option(value='1') Отрасль экономики
-                      option(value='2') Все отрасли
-                      option(value='3') Агропромышленный комплекс
-                      option(value='4')  Атомная промышленность
-                      option(value='5')  Банки и др. инвестиционно-финансовые организации
-                      option(value='6')  Жилищно-коммунальное хозяйство
-                      option(value='7')  Здравоохранение и фармацевтическая промышленность
-                      option(value='8')  Инжиниринг, промыш.-инфраструктурное строительство
-                      option(value='7')  Информационные технологии
-                      option(value='9')  Легкая промышленность
-                      option(value='10')  Лесная и целлюлозно-бумажная промышленность
-                      option(value='11')  Машиностроение
-                      option(value='12')  Наука
-                      option(value='13')  Нефтяная и нефтегазовая промышленность
-                      option(value='14')  Общественное питание
-                      option(value='15')  Оптовая торговля
-                      option(value='16')  Пищевая промышленность
-                      option(value='17')  Полиграфическая промышленность
-                      option(value='18')  Промышленность драгоценных металлов и алмазов
-                      option(value='19')  Промышленность строительных материалов
-                      option(value='20')  Розничная торговля
-                      option(value='21')  Сервисные компании
-                      option(value='22')  СМИ
-                      option(value='23')  Страхование
-                      option(value='24')  Строительство
-                      option(value='25')  Табачная промышленность
-                      option(value='26')  Упаковка
-                      option(value='27')  Химическая и нефтегазовая промышленность
-                      option(value='28')  Цветная металлургия
-                      option(value='29')  Черная металлургия
-                      option(value='30')  Электроэнергетика
+                      for val in schema
+                        option(value='#{val}') #{val}
                     br
                   div
                     select(name='company-size')
