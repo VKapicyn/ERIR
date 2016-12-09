@@ -114,10 +114,11 @@
 
 // Register-company. Проверка заполненности форм
 $(function(){
-        var field = new Array("company-name", "company-site", "company-description", "CEO",
-        "company-law-address", 
+        var field = new Array
+        ("company-name", "company-site", "company-description", "CEO", "company-law-address", 
         "writer-fio", "writer-position", "writer-email", "writer-phone",
-        "registrator-fio", "registrator-position", "registrator-email", "registrator-phone"
+        "registrator-fio", "registrator-position", "registrator-email", "registrator-phone",
+        "count-page"
         );  //поля обязательные 
         $("form").submit(function() {// обрабатываем отправку формы 
             var error=0; // индекс ошибки
@@ -144,8 +145,11 @@ $(function(){
             var err_text = "";
             if(error==1)  err_text="Не все обязательные поля заполнены!";
             
-            $("#messenger").html(err_text); 
-            $("#messenger").fadeIn("slow"); 
+            $("#messenger-company").html(err_text); 
+            $("#messenger-company").fadeIn("slow");             
+
+            $("#messenger-report").html(err_text); 
+            $("#messenger-report").fadeIn("slow"); 
             return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.
             }            
                 

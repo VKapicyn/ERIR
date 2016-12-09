@@ -64,7 +64,9 @@
         <div class="col-md-11 col-md-offset-1  col-xs-12 col-sm-12 profile-company">
             <br/>
             <div class="row register-report">
+             <form action="#" method="post" name="form-register-company" class="edit_form">
                <div class="col-md-12 col-xs-12 col-sm-12">
+                <div id="messenger-report"></div>
                 <h2 class="sea-green">Анкета регистрации профиля отчета</h2>
                 <div class="col-md-5 col-md-offset-1 col-xs-11 col-sm-5 register-left">
                 <div>
@@ -231,13 +233,12 @@
                   </label> <br/>
                   <input name="" class="change-w" placeholder="Фамилия и имя дизайнера"><br/>
                 </div> 
-
                 <div>
-                  Количество страниц<input name="" class="change-w-number" type="number"><br/>
-                </div>
-
+                    Количество страниц <span class="red"> *</span>
+                    <input name="count-page"  class="change-w-number" type="number"/><br/>
+                </div> 
                  <div>
-               Победы в национальных конкурсах отчетности
+               Победы в национальных конкурсах отчетности<br/>
                    <label class="radio-inline">
                     <input name="radioGroup" id="radio1" value="option1" type="radio"> Да
                   </label>
@@ -249,26 +250,31 @@
 
                 </div><!--/register-report-right-->   
                </div>
-            </div> <!--/row register-report-->
 
-            <div class="buttons center upload">
+               <div class="buttons center upload">
               <div>
                 <label for="upload-report" class="btn btn-default  green-btn"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Загрузить отчет</label>
-  			       <input type="file" name="upload" id="upload-report">
-			        </div>
+               <input type="file" name="upload" id="upload-report">
+              </div>
 
-			       <div>            
+             <div>            
                 <label for="upload-cover" class="btn btn-default  green-btn"><i class="fa fa-file-image-o" aria-hidden="true"></i> Загрузить обложку отчета</label>
-			          <input type="file" name="upload" id="upload-cover">
-			       </div>  
+                <input type="file" name="upload" id="upload-cover">
+             </div>  
             </div>
 
             <div class="buttons center submit">
               <div>
                 <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
-        			  <input type="submit" id="submit-reg-company">
-      			  </div>  
+                <input type="submit" id="submit-reg-company">
+              </div>  
             </div>
+            
+               </form>
+            </div> <!--/row register-report-->
+            <div class="space"></div>
+
+            
 
         </div> <!--/profile-company-->
 
