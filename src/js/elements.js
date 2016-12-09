@@ -89,4 +89,24 @@
             });
         });
 
-        // /Search. Выбор вида. Поиск организации 
+        // /Search. Выбор вида. Поиск организации
+
+        //Search. При нажатии на кнопку поиска отобразить результаты поиска
+        $(document).ready(function(){
+            $(".btn-search-report").click(function(){       //при нажатии на вкладку "Поиск отчета"
+                $(".search-results-report").show();         //показать результы поиска по отчету
+                $(".search-results-organization").hide();   //скрыть результаты поиска по организации
+                console.log("1");
+                return false;
+            });
+        });        
+
+        $(document).ready(function(){
+            $(".btn-search-organization").click(function(){   //при нажатии на вкладку "Поиск организации"
+                $(".search-results-organization").show();     //показать результы поиска по организации
+                $(".search-results-report").hide();           //скрыть результаты поиска по отчету
+                console.log("2");
+                return false;
+            });
+        });
+        // /Search. При нажатии на кнопку поиска отобразить результаты поиска
