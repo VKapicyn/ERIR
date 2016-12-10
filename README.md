@@ -2,8 +2,6 @@
 
 Для запуска:
 * Установить [NodeJS](https://nodejs.org/en/download/)
-* Установить [MongoDB](https://www.mongodb.com/download-center?jmp=nav#community)
-* Настроить соединение с БД в файле ./app/api.js (вторая строка)
 * Запустить NodeJS Command prompt(Windows)
 
 >(перейти в папку ERIR)
