@@ -5,8 +5,8 @@ var CompanySchema = new mongoose.Schema({
     //уникальный идентификатор
     _id: mongoose.Schema.Types.ObjectId,
     accept: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
     },
     date: {
         type: mongoose.Schema.Types.Date,

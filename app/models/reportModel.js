@@ -5,7 +5,7 @@ var ReportSchema = new mongoose.Schema({
     //уникальный идентификатор
     _id: mongoose.Schema.Types.ObjectId,
     //0 - не проверен, 1 - одобрен, 2 - откланен
-    visible: Number,
+    accept: Number,
     //время добавления
     date: {
         type: mongoose.Schema.Types.Date,

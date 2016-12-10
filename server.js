@@ -18,10 +18,13 @@ app.get('/', control.GeneralPage); // главная
 app.get('/main', control.GeneralPage); // главная (по ТЗ)
 app.get('/search', api.Search); // поиск
 app.get('/stats', control.StatsPage); // страница статистики
-app.get('/register', control.RegistrPage); // страница добавления отчета
+app.get('/register-report', control.RegistrReport); // страница добавления отчета
+app.get('/register-company', api.RegistrCompany)
 app.get('/admin', control.AdminPage); // админка
+
+
 app.get('/report/:id', api.getReportById);
-app.get('/company/:id', api.getCompanyById);
+app.get('/company/:name', api.getCompanyByName);
 app.post('/company/create/', api.addCompany); // создаем компанию
 app.post('/report/create/', api.addReport); // создаем отчет
 

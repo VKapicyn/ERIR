@@ -10,8 +10,12 @@ exports.StatsPage = function (req, res) {
   res.render('stats')
 };
 
-exports.RegistrPage = function (req, res) {
-  res.render('register')
+//exports.RegistrCompany = function (req, res) {
+//  res.render('register-company')
+//};
+
+exports.RegistrReport = function (req, res) {
+  res.render('register-report')
 };
 
 exports.AdminPage = function (req, res) {
