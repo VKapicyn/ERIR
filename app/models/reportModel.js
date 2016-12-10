@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-//Схема данных отчета.
-var ReportSchema = new mongoose.Schema({
+
+var reportSchema = new mongoose.Schema({
     //уникальный идентификатор
     _id: mongoose.Schema.Types.ObjectId,
     //0 - не проверен, 1 - одобрен, 2 - откланен
@@ -57,5 +57,6 @@ var ReportSchema = new mongoose.Schema({
 
 })
 
-var ReportModel = mongoose.model('report', ReportSchema);
-module.exports.ReportModel = ReportModel;
+
+var reportModel = mongoose.model('report', reportSchema);
+module.exports.reportModel = reportModel;

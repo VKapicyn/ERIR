@@ -1,46 +1,41 @@
-var express = require('express');// берём Express
-var control = require('./app/controllers/pages'); //Общий контроллер страниц
-var api = require('./app/api'); //api для компаний и отчетов
-var app = express(); // создаём Express-приложение
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
+var babel_es6 = require('babel-core/register');
+var es6 = require('./server')
+var dbModel = require('./app/models/db-model');
 
-
+//app.use(bodyParser());
 app.use(fileUpload());
-app.use(bodyParser());
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/src'));//подключаем статику(изображения, стили, клиентский js)
-app.set('views', './app/views'); //указыываем папку с вьюшками
-app.set('view engine', 'jade'); // 'view engine' - механизм визуализации данного шаблонизатора
-
-// маршруты страниц
-app.get('/', control.GeneralPage); // главная
-app.get('/main', control.GeneralPage); // главная (по ТЗ)
-app.get('/search', api.Search); // поиск
-app.get('/stats', control.StatsPage); // страница статистики
-app.get('/register-report', control.RegistrReport); // страница добавления отчета
-app.get('/register-company', api.RegistrCompany)
-app.get('/admin', control.AdminPage); // админка
+app.use(express.static(__dirname + '/src'));
+app.set('views', './app/views');
+app.set('view engine', 'jade');
 
 
-app.get('/report/:id', api.getReportById);
-app.get('/company/:name', api.getCompanyByName);
-app.post('/company/create/', api.addCompany); // создаем компанию
-app.post('/report/create/', api.addReport); // создаем отчет
+app.get('/', require('./app/controllers/main').mainPage);
+app.get('/main', require('./app/controllers/main').mainPage);
+app.get('/search', require('./app/controllers/search').searchPage);
+app.get('/stats', require('./app/controllers/stats').statsPage);
+app.get('/register-report', require('./app/controllers/report').registerReportPage);
+app.get('/register-company', require('./app/controllers/company').registerCompanyPage);
+app.get('/admin', require('./app/controllers/admin').adminPage);
+
+
+app.get('/company/:name', require('./app/controllers/company').getCompanyByName);
+app.get('/report/:id', require('./app/controllers/report').getReportById);
+app.post('/company/create/', require('./app/controllers/company').addCompany);
+app.post('/report/create/', require('./app/controllers/report').addReport);
+app.get('/:filename', require('./app/controllers/db-files').getFile); 
+
 
 //маршрутизация API запросов
-//app.post('/v1/report/:id', api.getReportById); // выводим отчет по id
-//app.post('/v1/company/:id', api.getCompanyById); // выводим компанию по id
-app.get('/v1/search/companies/', api.searchCompnaies); // поиск по компаниям
-app.get('/v1/search/reports/', api.searchReports); // поиск по отчетам
+//app.get('/v1/report/:id', rest.getReportById);
+//app.get('/v1/company/:name', rest.getCompanyByName);
+//app.get('/v1/search/companies/', rest.searchCompnaies);
+//app.get('/v1/search/reports/', rest.searchReports);
 
 
-//лишнее
-app.get('/sector/:name', api.getSectorByName); //ищем отрасль по имени
-app.get('/companies/sector/:name',api.getCompaniesBySectorName);//ищем компании по названию отрасли 
-
-app.get('/:filename', api.getFile);//возвращаем файл из БД
-
-// запускаем сервер на порту 8080
 app.listen(8080);
 console.log('Server started!');

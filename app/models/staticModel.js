@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 
-//Схема данных компании. 
-var StaticSchema = new mongoose.Schema({
-    //уникальный идентификатор
+
+var staticSchema = new mongoose.Schema({
     id : mongoose.Schema.Types.ObjectId, 
     name : String,
     mass: [String]
 });
-var StaticModel = mongoose.model('static', StaticSchema);
-module.exports.StaticModel = StaticModel;
+
+
+var staticModel = mongoose.model('static', staticSchema);
+module.exports.staticModel = staticModel;

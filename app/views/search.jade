@@ -297,7 +297,7 @@ body
               #view1.list
                 for rep in reports
                   .element
-                    a(href='report', title='Перейти на страницу отчета') #{rep.name} - #{rep.year}
+                    a(href='/report/#{rep._id}', title='Перейти на страницу отчета') #{rep.name} - #{rep.year}
               #view2.table
                 table.table
                   thead
@@ -310,20 +310,20 @@ body
                     for rep in reports
                       tr
                         td
-                          a(href='/#{rep.company}', title='Перейти на страницу компании') #{rep.company}
+                          a(href='/company/#{rep.company}', title='Перейти на страницу компании') #{rep.company}
                         td
-                          a(href='/#{rep._id}', title='Перейти на страницу отчета') #{rep.name}
+                          a(href='/report/#{rep._id}', title='Перейти на страницу отчета') #{rep.name}
                         td Год
                         td Стандарт
               #view3.icon
                 for rep in reports
                   .element
-                    a(href='/#{rep._id}', title='Перейти на страницу отчета')
+                    a(href='/report/#{rep._id}', title='Перейти на страницу отчета')
                       img(src='#{rep.preview}', alt='icon')
               #view4.big-icon
                 for rep in reports
                   .element
-                    a(href='/#{rep._id}', title='Перейти на страницу отчета')
+                    a(href='/report/#{rep._id}', title='Перейти на страницу отчета')
                       img(src='#{rep.preview}', alt='icon')
           // /search-results-report
           // Результаты поиска по организации
@@ -360,7 +360,7 @@ body
                 for comp in companies 
                   .element
                     img(src!=comp.logo, alt='logo')
-                    a(href='/company/#{comp._id}', title='Перейти на страницу профиля компании') #{comp.name}
+                    a(href='/company/#{comp.name}', title='Перейти на страницу профиля компании') #{comp.name}
               #o-view2.table
                 table.table
                   thead
@@ -372,18 +372,18 @@ body
                   for comp in companies
                     tr
                       td
-                        a(href='/company/#{comp._id}', title='Перейти на страницу компании') #{comp.name}
+                        a(href='/company/#{comp.name}', title='Перейти на страницу компании') #{comp.name}
                       td #{comp.sector}
                       td #{comp.size_of_company}
               #o-view3.icon
                 for comp in companies
                   .element
-                    a(href='/company/#{comp._id}', title='Перейти на страницу компании')
+                    a(href='/company/#{comp.name}', title='Перейти на страницу компании')
                       img(src!=comp.logo, alt='icon')
               #o-view4.big-icon
                 for comp in companies
                   .element
-                    a(href='/company/#{comp._id}', title='Перейти на страницу компании')
+                    a(href='/company/#{comp.name}', title='Перейти на страницу компании')
                       img(src!=comp.logo, alt='icon')
           // /search-results-organization
         // /row

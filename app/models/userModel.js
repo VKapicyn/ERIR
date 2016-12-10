@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');
 
-//Схема данных пользователя (админ). 
-var UserSchema = new mongoose.Schema({
+
+var гserSchema = new mongoose.Schema({
     login: String,
     password: String
-},{
-    collection: 'sector' //как выяснилось, это обязательно
-})
+});
 
-var UserModel = mongoose.model('user', UserSchema);
-module.exports = UserModel;
+
+var userModel = mongoose.model('user', userSchema);
+module.exports.userModel = userModel;

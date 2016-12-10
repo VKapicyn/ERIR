@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 
-//Схема данных компании. 
-var CompanySchema = new mongoose.Schema({
-    //уникальный идентификатор
+
+var companySchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     accept: {
         type: Number,
@@ -40,5 +39,6 @@ var CompanySchema = new mongoose.Schema({
     email: String
 })
 
-var CompanyModel = mongoose.model('company', CompanySchema);
-module.exports.CompanyModel = CompanyModel;
+
+var companyModel = mongoose.model('company', companySchema);
+module.exports.companyModel = companyModel;
