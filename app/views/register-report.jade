@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
     //подключение header
     include includes/head 
-  body
+   body
     .wrapper
       .navigation
         nav.navbar.navbar-default
@@ -39,193 +39,198 @@ html(lang='en')
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-report
-              .col-md-12.col-xs-12.col-sm-12
-                h2.sea-green Анкета регистрации профиля отчета
-                .col-md-5.col-md-offset-1.col-xs-11.col-sm-5.register-left
+              form#register-report.edit_form(action='#', method='post', name='form-register-company')
+                .col-md-12.col-xs-12.col-sm-12
+                  #messenger-report
+                  h2.sea-green Анкета регистрации профиля отчета
+                  .col-md-5.col-md-offset-1.col-xs-11.col-sm-5.register-left
+                    div
+                      select(name='report-year')
+                        option(value='0') Отчетный год
+                        option(value='1') Все отчетные года
+                        option(value='2') 2009
+                        option(value='3') 2010
+                        option(value='4') 2011
+                        option(value='5') 2012
+                        option(value='6') 2013
+                        option(value='7') 2014
+                        option(value='8') 2015
+                    div
+                      | Использование МСИО
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      label.radio-inline
+                        input#radio3(name='radioGroup', value='option3', checked='', type='radio')
+                        |  Частично
+                      br
+                    div
+                      | Использование Руководства GRI 
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Использование стандарта A1000SES
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Использование стандарта A1000APS
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Наличие в отчете бизнес-модели
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Наличие в отчете информации о стратегии
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Наличие в отчете информации о рисках
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Наличие Общественного заверения отчета
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Участие Панели заинтересованных сторон в создании отчета
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                  // /register-report-left
+                  .col-md-5.col-xs-12.col-sm-6.register-right
+                    div
+                      | Финансовый аудитор отчета 
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                      input.change-w(name='', placeholder='Юридическое название аудитора')
+                      br
+                    div
+                      | Аудитор нефинансовой информации отчета
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                      input.change-w(name='', placeholder='Юридическое название аудитора')
+                      br
+                    div
+                      | Консультант подготовки отчета 
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                      input.change-w(name='', placeholder='Юридическое название компании')
+                      br
+                    div
+                      | Менеджер процесса подготовки отчета
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                      input.change-w(name='', placeholder='Фамилия и имя менеджера')
+                      br
+                    div
+                      | Дизайнер отчета
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                      input.change-w(name='', placeholder='Фамилия и имя дизайнера')
+                      br
+                    div
+                      | Количество страниц 
+                      span.red  *
+                      input.change-w-number(name='count-page', type='number')
+                      br
+                    div
+                      | Победы в национальных конкурсах отчетности
+                      br
+                      label.radio-inline
+                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        |  Нет
+                      br
+                      input.change-w(name='', placeholder='Конкурсы и занятые места')
+                      br
+                  // /register-report-right
+                .buttons.center.upload
                   div
-                    select(name='report-year')
-                      option(value='0') Отчетный год
-                      option(value='1') Все отчетные года
-                      option(value='2') 2009
-                      option(value='3') 2010
-                      option(value='4') 2011
-                      option(value='5') 2012
-                      option(value='6') 2013
-                      option(value='7') 2014
-                      option(value='8') 2015
+                    label.btn.btn-default.green-btn(for='upload-report')
+                      i.fa.fa-file-pdf-o(aria-hidden='true')
+                      |  Загрузить отчет (в формате PDF)
+                    input#upload-report(type='file', name='upload')
                   div
-                    | Использование МСИО
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    label.radio-inline
-                      input#radio3(name='radioGroup', value='option3', checked='', type='radio')
-                      |  Частично
-                    br
+                    label.btn.btn-default.green-btn(for='upload-cover')
+                      i.fa.fa-file-image-o(aria-hidden='true')
+                      |  Загрузить обложку отчета (в формате JPG или PNG)
+                    input#upload-cover(type='file', name='upload')
+                .buttons.center.submit
                   div
-                    | Использование Руководства GRI 
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                  div
-                    | Использование стандарта A1000SES
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                  div
-                    | Использование стандарта A1000APS
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                  div
-                    | Наличие в отчете бизнес-модели
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                  div
-                    | Наличие в отчете информации о стратегии
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                  div
-                    | Наличие в отчете информации о рисках
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                  div
-                    | Наличие Общественного заверения отчета
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                  div
-                    | Участие Панели заинтересованных сторон в создании отчета
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                // /register-report-left
-                .col-md-5.col-xs-12.col-sm-6.register-right
-                  div
-                    | Финансовый аудитор отчета 
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                    input.change-w(name='', placeholder='Юридическое название аудитора')
-                    br
-                  div
-                    | Аудитор нефинансовой информации отчета
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                    input.change-w(name='', placeholder='Юридическое название аудитора')
-                    br
-                  div
-                    | Консультант подготовки отчета 
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                    input.change-w(name='', placeholder='Юридическое название компании')
-                    br
-                  div
-                    | Менеджер процесса подготовки отчета
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                    input.change-w(name='', placeholder='Фамилия и имя менеджера')
-                    br
-                  div
-                    | Дизайнер отчета
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                    input.change-w(name='', placeholder='Фамилия и имя дизайнера')
-                    br
-                  div
-                    | Количество страниц
-                    input.change-w-number(name='', type='number')
-                    br
-                  div
-                    | Победы в национальных конкурсах отчетности
-                    label.radio-inline
-                      input#radio1(name='radioGroup', value='option1', type='radio')
-                      |  Да
-                    label.radio-inline
-                      input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                      |  Нет
-                    br
-                    input.change-w(name='', placeholder='Конкурсы и занятые места')
-                    br
-                // /register-report-right
+                    label.btn.btn-default.green-btn(for='submit-reg-company')  Отправить
+                    input#submit-reg-company(type='submit')
             // /row register-report
-            .buttons.center.upload
-              div
-                label.btn.btn-default.green-btn(for='upload-report')
-                  i.fa.fa-file-pdf-o(aria-hidden='true')
-                  |  Загрузить отчет
-                input#upload-report(type='file', name='upload')
-              div
-                label.btn.btn-default.green-btn(for='upload-cover')
-                  i.fa.fa-file-image-o(aria-hidden='true')
-                  |  Загрузить обложку отчета
-                input#upload-cover(type='file', name='upload')
-            .buttons.center.submit
-              div
-                label.btn.btn-default.green-btn(for='submit-reg-company')  Отправить
-                input#submit-reg-company(type='submit')
+            .space
           // /profile-company
         // /container
       .space
@@ -233,8 +238,3 @@ html(lang='en')
 
       //подключение footer
       include includes/footer
-
-      // Slider etc
-      script(src='js/slides.min.jquery.js')
-      script(src='js/elements.js')
-    // /wrapper

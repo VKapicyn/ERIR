@@ -64,7 +64,9 @@
         <div class="col-md-11 col-md-offset-1  col-xs-12 col-sm-12 profile-company">
             <br/>
             <div class="row register-company">
-              <div class="col-md-12 col-xs-12 col-sm-12">
+             <form action="#" method="post" name="form-register-company" id="register-company" class="edit_form">
+              <div class="col-md-12 col-xs-12 col-sm-12" >
+              <div id="messenger-company"></div>
               <h2 class="sea-green">Анкета регистрации профиля организации</h2>
                 <div class="col-md-6 col-xs-12 col-sm-10 register-left">
                   <h3>Информация об организации</h3>
@@ -81,8 +83,15 @@
                    </select> <br/>
                  </div>
 
-                 <div>Название организации <input name="name" class="change-w"></div> <br/>
-                 <div>Адрес официального сайта <input name="adress" class="change-w"></div> <br/>
+                  <div>
+                    Название организации <span class="red"> *</span>
+                    <input type="text" name="company-name"/><br/>
+                  </div>
+
+                  <div>
+                    Адрес официального сайта <span class="red"> *</span>
+                    <input type="text" name="company-site" /><br/>
+                  </div>
 
                  <div>Листинг
                    <label class="radio-inline">
@@ -147,48 +156,80 @@
                     <option value="2"> Частная</option>
                    </select> <br/> 
                  </div>
+                  <div class="form-group">
+                    Краткое описание организации <span class="red"> *</span>
+                    <input type="text" name="company-description" class="change-w"/><br/>
+                  </div>
+                  <div>
+                    ФИО директора организации <span class="red"> *</span>
+                    <input type="text" name="CEO"  class="change-w"/><br/>
+                  </div>                  
+                  <div>
+                   Юридич. адрес головного офиса <span class="red"> *</span>
+                    <input type="text" name="company-law-address"  class="change-w"/><br/>
+                  </div>
 
-                 <div class="form-group">
-                    <span class="left">Краткое описание организации</span>
-                    <textarea class="form-control"></textarea>
-                 </div>
-
-                 <div>ФИО директора организации <input name="CEO" class="change-w"></div> <br/>
-                 <div>Юридический адрес головного офиса <input name="" class="change-w"></div> <br/>
                 </div> <!--/register-company-left-->               
 
                 <div class="col-md-5 col-xs-12 col-sm-10 register-right">
                   <h3>Контактная информация</h3>
                   <strong>Руководитель, ответственный за написание отчета</strong>
-                  <div>ФИО <input name="" class="change-w"></div> <br/>
-                  <div>Должность<input name="" class="change-w"></div> <br/>
-                  <div> Электронная почта<input name="" class="change-w"></div> <br/>
-                  <div>Телефон <input name="" class="change-w"></div> <br/>
+                  <div>
+                   ФИО <span class="red"> *</span>
+                    <input type="text" name="writer-fio"  class="change-w"/><br/>
+                  </div>                  
+                  <div>
+                   Должность <span class="red"> *</span>
+                    <input type="text" name="writer-position"  class="change-w"/><br/>
+                  </div>                  
+                  <div>
+                   Электронная почта <span class="red"> *</span>
+                    <input type="text" name="writer-email"  class="change-w"/><br/>
+                  </div>                  
+                  <div>
+                   Телефон <span class="red"> *</span>
+                    <input type="text" name="writer-phone"  class="change-w" pattern="[0-9]"/><br/>
+                  </div>
 
                   <strong>Пользователь, регистрирующий компанию/отчет</strong>
-                  <div>ФИО <input name="" class="change-w"></div> <br/>
-                  <div>Должность<input name="" class="change-w"></div> <br/>
-                  <div> Электронная почта<input name="" class="change-w"></div> <br/>
-                  <div>Телефон <input name="" class="change-w"></div> <br/>
+                  <div>
+                   ФИО <span class="red"> *</span>
+                    <input type="text" name="registrator-fio"  class="change-w"/><br/>
+                  </div>                  
+                  <div>
+                   Должность <span class="red"> *</span>
+                    <input type="text" name="registrator-position"  class="change-w"/><br/>
+                  </div>                  
+                  <div>
+                   Электронная почта <span class="red"> *</span>
+                    <input type="text" name="registrator-email"  class="change-w"/><br/>
+                  </div>                  
+                  <div>
+                   Телефон <span class="red"> *</span>
+                    <input type="text" name="registrator-phone"  class="change-w"/><br/>
+                  </div>
 
                 </div><!--/register-company-right-->   
   
               </div>
+
+              <div class="buttons center">
+              <div class="upload">
+                <label for="upload-logo" class="btn btn-default  green-btn"><i class="fa fa-pied-piper" aria-hidden="true"></i> Загрузить логотип компании (в формате JPG или PNG)</label>
+                <input type="file" name="upload" id="upload-logo">
+              </div>
+
+               <div class="submit ">
+                 <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
+                 <input type="submit" name="submit" id="submit-reg-company">
+               </div> 
+            </div>
+
+              </form>
             </div> <!--/row register-company-->
             
 
-            <div class="buttons center">
-      			  <div class="upload">
-                <label for="upload-logo" class="btn btn-default  green-btn"><i class="fa fa-pied-piper" aria-hidden="true"></i> Загрузить логотип компании</label>
-      			    <input type="file" name="upload" id="upload-logo">
-      			  </div>
-
-               <div class="submit">
-                 <label for="submit-reg-company" class="btn btn-default  green-btn"> Отправить</label>
-                 <input type="submit" id="submit-reg-company">
-               </div>
-              <br/><br/>    
-            </div>
+            
 
 
         </div> <!--/profile-company-->
@@ -217,6 +258,8 @@
   <!--Slider etc-->
   <script src="../../src/js/slides.min.jquery.js"></script>
   <script src="../../src/js/elements.js"></script>
+  <script type="text/javascript" src="../../src/js/jquery.inputmask.js"></script>
+
 
 
 
