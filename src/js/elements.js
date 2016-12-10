@@ -5,7 +5,7 @@
         })
       });
 
- // Search. Выбор вида. Поиск отчета
+// Search. Выбор вида. Поиск отчета
        $(document).ready(function(){
         $(".showView1").click(function(){
             $("#view1").slideToggle("slow"); //показать view1 - список, остальные скрыть
@@ -46,9 +46,9 @@
         });
     });
 
-   // /Search. Выбор вида. Поиск отчета
+// /Search. Выбор вида. Поиск отчета
 
-   // /Search. Выбор вида. Поиск организации 
+// /Search. Выбор вида. Поиск организации 
        $(document).ready(function(){
             $(".o-showView1").click(function(){
                 $("#o-view1").slideToggle("slow"); //показать o-view1 - список, остальные скрыть
@@ -89,9 +89,9 @@
             });
         });
 
-        // /Search. Выбор вида. Поиск организации
+// /Search. Выбор вида. Поиск организации
 
-        //Search. При нажатии на кнопку поиска отобразить результаты поиска
+//Search. При нажатии на кнопку поиска отобразить результаты поиска
         $(document).ready(function(){
             $(".btn-search-report").click(function(){       //при нажатии на вкладку "Поиск отчета"
                 $(".search-results-report").show();         //показать результы поиска по отчету
@@ -109,10 +109,10 @@
                 return false;
             });
         });
-        // /Search. При нажатии на кнопку поиска отобразить результаты поиска
+// /Search. При нажатии на кнопку поиска отобразить результаты поиска
 
 
-// Register-company. Проверка заполненности форм
+//      Register-company. Проверка заполненности форм
 $(function(){
         var field = new Array
         ("company-name", "company-site", "company-description", "CEO", "company-law-address", 
@@ -155,4 +155,76 @@ $(function(){
                 
         })
     });
-// /Register-company. Проверка заполненности форм
+//      /Register-company. Проверка заполненности форм
+
+//      Register-company. Загрузка логотипа
+//Проверка загружен ли логотип
+$(document).ready(function(){
+     $("#register-company").submit(function(){
+          if($("#upload-logo").val() == ""){
+              alert("Загрузите логотип компании!");
+              return false;
+          }else{
+              return true;
+          }               
+     });
+});
+
+//Проверка формата логотипа
+var filesExtImages = ['jpg', 'png']; // массив расширений
+$('#upload-logo').change(function(){
+    var parts = $(this).val().split('.');
+    if(filesExtImages.join().search(parts[parts.length - 1]) != -1){
+        // alert('Good!');
+    } else {
+        alert('Логотип должен быть в формате JPG или PNG!');
+    }
+});
+// /Register-company. Загрузка логотипа
+
+//      Register-report. Загрузка отчета и обложки отчета
+//Проверка загружен ли отчет
+$(document).ready(function(){
+     $("#register-report").submit(function(){
+          if($("#upload-report").val() == ""){
+              alert("Загрузите отчет компании!");
+              return false;
+          }else{
+              return true;
+          }               
+     });
+});
+//Проверка загружена ли обложка
+$(document).ready(function(){
+     $("#register-report").submit(function(){
+          if($("#upload-cover").val() == ""){
+              alert("Загрузите обложку отчета!");
+              return false;
+          }else{
+              return true;
+          }               
+     });
+});
+
+//Провека формата обложки отчета
+var filesExtCover = ['jpg', 'png']; // массив расширений
+$('#upload-cover').change(function(){
+    var parts = $(this).val().split('.');
+    if(filesExtCover.join().search(parts[parts.length - 1]) != -1){
+        // alert('Good!');
+    } else {
+        alert('Обложка отчета должен быть в формате JPG или PNG!');
+    }
+});
+
+//Провека формата отчета
+var filesExtReport = ['pdf']; // массив расширений
+$('#upload-report').change(function(){
+    var parts = $(this).val().split('.');
+    if(filesExtReport.join().search(parts[parts.length - 1]) != -1){
+        // alert('Good!');
+    } else {
+        alert('Отчет должен быть в формате PDF!');
+    }
+});
+// /Register-report. Загрузка отчета и обложки отчета
