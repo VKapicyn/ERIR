@@ -39,13 +39,13 @@ html(lang='en')
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-report
-              form#register-report.edit_form(action='#', method='post', name='form-register-company')
+              form#register-report.edit_form(action='#', method='post', name='form_register_company')
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-report
                   h2.sea-green Анкета регистрации профиля отчета
                   .col-md-5.col-md-offset-1.col-xs-11.col-sm-5.register-left
                     div
-                      select(name='report-year')
+                      select(name='report_year')
                         option(value='0') Отчетный год
                         option(value='1') Все отчетные года
                         option(value='2') 2009
@@ -199,7 +199,7 @@ html(lang='en')
                     div
                       | Количество страниц 
                       span.red  *
-                      input.change-w-number(name='count-page', type='number')
+                      input.change-w-number(name='count_page', type='number')
                       br
                     div
                       | Победы в национальных конкурсах отчетности
