@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 
 var reportSchema = new mongoose.Schema({
     //уникальный идентификатор
-    _id: mongoose.Schema.Types.ObjectId,
     //0 - не проверен, 1 - одобрен, 2 - откланен
     accept: Number,
     //время добавления
