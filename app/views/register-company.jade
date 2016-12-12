@@ -39,14 +39,14 @@ html(lang='en')
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-company
-              form#register-company.edit_form(action='#', method='post', name='form-register-company')
+              form#register-company.edit_form(action='#', method='post', name='form_register_company')
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-company
                   h2.sea-green Анкета регистрации профиля организации
                   .col-md-6.col-xs-12.col-sm-10.register-left
                     h3 Информация об организации
                     div
-                      select(name='organization-form')
+                      select(name='organization_form')
                         option(value='0') Организационно-правовая форма
                         option(value='1') Все формы
                         option(value='2')  Публичное акционерное общество
@@ -58,16 +58,16 @@ html(lang='en')
                       br
                     div
                       | Название организации 
-                      span.red  *
-                      input(type='text', name='company-name')
+                      span.red  * 
+                      input(type='text', name='company_name')
                       br
                     div
                       | Адрес официального сайта 
-                      span.red  *
-                      input(type='text', name='company-site')
+                      span.red  * 
+                      input(type='text', name='company_site')
                       br
                     div
-                      | Листинг
+                      | Листинг 
                       label.radio-inline
                         input#radio1(name='radioGroup', value='option1', type='radio')
                         |  Да
@@ -99,7 +99,7 @@ html(lang='en')
                     .form-group
                       | Краткое описание организации 
                       span.red  *
-                      input.change-w(type='text', name='company-description')
+                      input.change-w(type='text', name='company_description')
                       br
                     div
                       | ФИО директора организации 
@@ -109,7 +109,7 @@ html(lang='en')
                     div
                       | Юридич. адрес головного офиса 
                       span.red  *
-                      input.change-w(type='text', name='company-law-address')
+                      input.change-w(type='text', name='company_law_address')
                       br
                   // /register-company-left
                   .col-md-5.col-xs-12.col-sm-10.register-right
@@ -118,49 +118,49 @@ html(lang='en')
                     div
                       | ФИО 
                       span.red  *
-                      input.change-w(type='text', name='writer-fio')
+                      input.change-w(type='text', name='writer_fio')
                       br
                     div
                       | Должность 
                       span.red  *
-                      input.change-w(type='text', name='writer-position')
+                      input.change-w(type='text', name='writer_position')
                       br
                     div
                       | Электронная почта 
                       span.red  *
-                      input.change-w(type='text', name='writer-email')
+                      input.change-w(type='text', name='writer_email')
                       br
                     div
                       | Телефон 
                       span.red  *
-                      input.change-w(type='text', name='writer-phone', pattern='[0-9]')
+                      input.change-w(type='text', name='writer_phone', pattern='[0-9]')
                       br
                     strong Пользователь, регистрирующий компанию/отчет
                     div
                       | ФИО 
                       span.red  *
-                      input.change-w(type='text', name='registrator-fio')
+                      input.change-w(type='text', name='registrator_fio')
                       br
                     div
                       | Должность 
                       span.red  *
-                      input.change-w(type='text', name='registrator-position')
+                      input.change-w(type='text', name='registrator_position')
                       br
                     div
                       | Электронная почта 
                       span.red  *
-                      input.change-w(type='text', name='registrator-email')
+                      input.change-w(type='text', name='registrator_email')
                       br
                     div
                       | Телефон 
                       span.red  *
-                      input.change-w(type='text', name='registrator-phone')
+                      input.change-w(type='text', name='registrator_phone')
                       br
                   // /register-company-right
                 .buttons.center
                   .upload
                     label.btn.btn-default.green-btn(for='upload-logo')
-                      i.fa.fa-pied-piper(aria-hidden='true')
+                      i.fa.fa-image(aria-hidden='true')
                       |  Загрузить логотип компании (в формате JPG или PNG)
                     input#upload-logo(type='file', name='upload')
                   .submit

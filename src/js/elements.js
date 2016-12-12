@@ -115,10 +115,10 @@
 //      Register-company. Проверка заполненности форм
 $(function(){
         var field = new Array
-        ("company-name", "company-site", "company-description", "CEO", "company-law-address", 
-        "writer-fio", "writer-position", "writer-email", "writer-phone",
-        "registrator-fio", "registrator-position", "registrator-email", "registrator-phone",
-        "count-page"
+        ("company_name", "company_site", "company_description", "CEO", "company_law_address", 
+        "writer_fio", "writer_position", "writer_email", "writer_phone",
+        "registrator_fio", "registrator_position", "registrator_email", "registrator_phone",
+        "count_page"
         );  //поля обязательные 
         $("form").submit(function() {// обрабатываем отправку формы 
             var error=0; // индекс ошибки
