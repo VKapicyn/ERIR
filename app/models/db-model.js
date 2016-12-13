@@ -9,7 +9,7 @@ var Grid = require('gridfs-stream');
 Grid.mongo = mongoose.mongo;
 var gfs = Grid(conn.db);
 
-
+module.exports.multer = multer;
 module.exports.db = db;
 module.exports.upload = upload;
 module.exports.fs = fs;

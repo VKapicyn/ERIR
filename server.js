@@ -1,12 +1,13 @@
 var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
+var bodyParser = require('body-parser');
 var babel_es6 = require('babel-core/register');
 var es6 = require('./server')
 var dbModel = require('./app/models/db-model');
+var app = express();
 
-//app.use(bodyParser());
+
+app.use(bodyParser());
 app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/src'));

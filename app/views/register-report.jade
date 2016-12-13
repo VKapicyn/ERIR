@@ -39,7 +39,7 @@ html(lang='en')
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-report
-              form#register-report.edit_form(action='#', method='post', name='form_register_company')
+              form#register-report.edit_form(action=' /report/create', method='post', name='form-register-company')
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-report
                   h2.sea-green Анкета регистрации профиля отчета
@@ -56,7 +56,10 @@ html(lang='en')
                         option(value='7') 2014
                         option(value='8') 2015
                     div
-                      | Использование МСИО 
+                      label.radio-inline
+                      input.change-w(name='report_name', placeholder='Название отчета')
+                    div
+                      | Использование МСИО
                       label.radio-inline
                         input#radio1(name='radioGroup', value='option1', type='radio')
                         |  Да

@@ -1,5 +1,6 @@
 doctype html
 html(lang='en')
+  //подключение header
   include includes/head 
   body
     .wrapper
@@ -29,13 +30,16 @@ html(lang='en')
                   a(href='/register-report') Регистрация отчета
                 li.active
                   a(href='/register-company') Регистрация компании
+            // /.navbar-collapse
+          // /.container-fluid
+      // /container navigation
       main.container
         .row
           h1.uppercase.center Регистрация компании
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-company
-              form#register-company.edit_form(method='post', action='/company/create', enctype="multipart/form-data")
+              form#register-company.edit_form(action='#', method='post', name='form_register_company')
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-company
                   h2.sea-green Анкета регистрации профиля организации
@@ -152,18 +156,21 @@ html(lang='en')
                       span.red  *
                       input.change-w(type='text', name='registrator_phone')
                       br
-    
-    
-    
-    
-    
-                    .buttons.center
-                            .upload
-                                label.btn.btn-default.green-btn(for='upload_logo')
-                                    i.fa.fa-image(aria-hidden='true')
-                                    |  Загрузить логотип компании (в формате        JPG или PNG)          
-                                input#upload_logo(type='file',      name='upload_logo')
-                            .submit
-                                label.btn.btn-default.green-btn(for='submit_reg_company')  Отправить
-                                input#submit_reg_company(type='submit',         name='submit_reg_company' value='Submit')
-  include includes/footer                    
+                  // /register-company-right
+                .buttons.center
+                  .upload
+                    label.btn.btn-default.green-btn(for='upload-logo')
+                      i.fa.fa-image(aria-hidden='true')
+                      |  Загрузить логотип компании (в формате JPG или PNG)
+                    input#upload-logo(type='file', name='upload')
+                  .submit
+                    label.btn.btn-default.green-btn(for='submit-reg-company')  Отправить
+                    input#submit-reg-company(type='submit', name='submit')
+            // /row register-company
+          // /profile-company
+        // /container
+      .space
+      .space
+
+      //подключение footer
+      include includes/footer
