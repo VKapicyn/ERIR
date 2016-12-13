@@ -12,7 +12,7 @@ var reportSchema = new mongoose.Schema({
     },
     name: String,
     type: String, //социальный, годовой, об устойчивом развитии и т.п.
-    year: Number,
+    year: String,
     standarts: [{
         G4:{
         type: Boolean

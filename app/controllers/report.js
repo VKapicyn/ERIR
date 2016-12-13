@@ -12,7 +12,11 @@ var Static = require('../models/staticModel').staticModel;
 
 
 exports.registerReportPage = function (req, res){
-  res.render('register-report');
+    var year;
+    Static.findOne({name:'year'},function(err, docs){
+        year = docs.mass; 
+        res.render('register-report',{year:year});
+    });
 };
 
 exports.addReport = function (req,res){

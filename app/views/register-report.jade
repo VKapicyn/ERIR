@@ -46,15 +46,8 @@ html(lang='en')
                   .col-md-5.col-md-offset-1.col-xs-11.col-sm-5.register-left
                     div
                       select(name='report_year')
-                        option(value='0') Отчетный год
-                        option(value='1') Все отчетные года
-                        option(value='2') 2009
-                        option(value='3') 2010
-                        option(value='4') 2011
-                        option(value='5') 2012
-                        option(value='6') 2013
-                        option(value='7') 2014
-                        option(value='8') 2015
+                        for val in year
+                          option(value='#{val}') #{val}
                     div
                       label.radio-inline
                       input.change-w(name='report_name', placeholder='Название отчета')
