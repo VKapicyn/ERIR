@@ -43,14 +43,8 @@ html(lang='en')
                     h3 Информация об организации
                     div
                       select(name='organization_form')
-                        option(value='0') Организационно-правовая форма
-                        option(value='1') Все формы
-                        option(value='2')  Публичное акционерное общество
-                        option(value='3')  Непубличное акционерное общество
-                        option(value='4')  Общество с ограниченной ответственностью
-                        option(value='5')  Государственная корпорация
-                        option(value='6')  Государственное или муниципальное унитарное предприятие
-                        option(value='7')  Прочие
+                        for val in opf
+                          option(value='#{val}') #{val}
                       br
                     div
                       | Название организации 
@@ -80,17 +74,13 @@ html(lang='en')
                       br
                     div
                       select(name='company-size')
-                        option(value='0') Размер предприятия
-                        option(value='1') Все размеры
-                        option(value='2', title='Оборот до 800 млн рублей, количество сотрудников до 100 человек')  Малое предприятие
-                        option(value='3', title='Оборот до 2 млрд рублей, количество сотрудников до 250 человек') Среднее предприятие
-                        option(value='4', title='Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек') Крупное предприятие
+                        for val in size_of_company
+                          option(value='#{val}') #{val}
                       br
                     div
                       select(name='ownership')
-                        option(value='0')  Форма собственности
-                        option(value='1', title='Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ') Государственная
-                        option(value='2')  Частная
+                        for val in type_of_ownership
+                          option(value='#{val}') #{val}
                       br
                     .form-group
                       | Краткое описание организации 
@@ -129,7 +119,7 @@ html(lang='en')
                     div
                       | Телефон 
                       span.red  *
-                      input.change-w(type='text', name='writer_phone', pattern='[0-9]')
+                      input.change-w(type='text', name='writer_phone')
                       br
                     strong Пользователь, регистрирующий компанию/отчет
                     div

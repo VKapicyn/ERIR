@@ -19,13 +19,24 @@ var Report = require('../models/reportModel').reportModel;
 
 exports.registerCompanyPage = function (req, res){  
     var sector;
+    var opf;
+    var size_of_company;
+    var type_of_ownership;
+
+//calback hell - переделать через async и вынести в модели
     Static.findOne({name:'sector'},function(err, docs){
-        if (err) return handleError(err);
-        if (docs) {
-            sector = docs.mass;      
-            res.render('register-company', {sector:sector});
-        }   
-    });  
+        sector = docs.mass;              
+        Static.findOne({name:'opf'},function(err, docs){
+            opf = docs.mass;
+            Static.findOne({name:'size_of_company'},function(err, docs){
+                size_of_company = docs.mass;
+                Static.findOne({name:'type_of_ownership'},function(err, docs){
+                    type_of_ownership = docs.mass;
+                    res.render('register-company', {sector:sector, opf:opf, size_of_company:size_of_company, type_of_ownership:type_of_ownership});
+                });
+            });
+        });
+    });
 };
 
 exports.addCompany = function (req,res){
@@ -64,6 +75,8 @@ exports.addCompany = function (req,res){
     writestream.on('close', function (file){
         console.log(file.filename + ' Written To DB');
     });
+
+    new_comp.logo = '/'+new_comp._id+req.files.upload_logo.name;
     new_comp.save();
     res.send('ok '+new_comp._id+' ');
 
