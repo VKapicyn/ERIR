@@ -95,6 +95,9 @@ main {
 .center {
   text-align: center;
 }
+.justify {
+  text-align: justify;
+}
 .right {
   text-align: right;
 }
@@ -239,6 +242,17 @@ main {
 
       .mainpage-news {
 
+      }
+
+      .mainpage-description{
+        p {
+          font-size: 16px;
+          .justify;
+          span {
+            color: @red;
+            .bold;
+          }
+       }
       }
     } /* /.stat-and-news*/
     

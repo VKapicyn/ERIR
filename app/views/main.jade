@@ -84,19 +84,23 @@ html(lang='en')
           // /mainpage-slider
           .space.col-md-12.col-xs-12.col-sm-12
           .row.stat-and-news
-            .col-md-6.col-xs-12.col-sm-12.mainpage-stat
-              .stat-caption
-                | В мире 10000 ИО, 3000 компаний, выпускающих ИО
-              .stat-content
-                img(src=' img/stat-bg.jpg', alt='')
-                center
+            .col-md-7.col-xs-12.col-sm-12.mainpage-description
+              p 
+                span Национальный реестр интегрированных отчетов 
+                является базой данных и включает в себя все интегрированные отчеты российских компаний (выпущенные с 2009 года), а также возможности поиска интегрированных отчетов по различным фильтрам и составления интерактивной статистики. Пользователи имеют возможность самостоятельно загружать данные об отчетах и компаниях. <br/>
+                Функциональные возможности 
+                span Национального реестра 
+                предназначены российским компаниям, а также консультантам в области корпоративной отчетности, аналитикам, инвесторам и другим заинтересованным сторонам компаний.<br/>
+              .space  
+              center
                   button.btn.btn-default.btn-lg.green-btn(type='button', title='Перейти на страницу поиска')
-                    a(href='search.jade', target='_blank', title='')
+                    a(href='/search', target='_blank', title='Перейти на страницу поиска')
                       span.glyphicon.glyphicon-search
-                      span.uppercase Поиск
+                      span.uppercase  Поиск
                       br
-                      |  Перейти на страницу поиска
-            .col-md-4.col-md-offset-1.col-xs-12.col-sm-12.mainpage-news
+                      |  Перейти на страницу поиска  
+
+            .col-md-4.col-xs-12.col-sm-12.mainpage-news
               .news-caption.uppercase
                 | Новости
               .news
