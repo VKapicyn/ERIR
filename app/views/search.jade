@@ -43,7 +43,7 @@ body
               li.active
                 a(href='#search-report', aria-controls='search-report', role='tab', data-toggle='tab') Поиск отчета
               li
-                a(href='#search-organization', aria-controls='search-organization', role='tab', data-toggle='tab') Поиск организации
+                a(href='/search-company') Поиск организации
             // Содержимое вкладок
             .tab-content
               #search-report.tab-pane.active(role='tabpanel')
@@ -193,75 +193,7 @@ body
                   br
                   br
               // /поиск отчета #search-report
-              #search-organization.tab-pane(role='tabpanel')
-                form.navbar-form.navbar-left(role='search')
-                  .form-group
-                    input.form-control(type='text', placeholder='Search')
-                  button.btn.btn-default.green-btn.btn-search-organization(type='submit')
-                    i.fa.fa-search(aria-hidden='true')
-                    |  Поиск компании
-                  br
-                  button.btn.btn-default.green-btn(type='submit')
-                    i.fa.fa-times(aria-hidden='true')
-                    |  Очистить
-                  br
-                  br
-                  select(name='economy')
-                    option(value='0') Все отрасли
-                    option(value='1') Агропромышленный комплекс
-                    option(value='2')  Атомная промышленность
-                    option(value='3')  Банки и др. инвестиционно-финансовые организации
-                    option(value='4')  Жилищно-коммунальное хозяйство
-                    option(value='5')  Здравоохранение и фармацевтическая промышленность
-                    option(value='6')  Инжиниринг, промыш.-инфраструктурное строительств
-                    option(value='7')  Информационные технологии
-                    option(value='8')  Легкая промышленность
-                    option(value='9')  Лесная и целлюлозно-бумажная промышленность
-                    option(value='10')  Машиностроение
-                    option(value='11')  Наука
-                    option(value='12')  Нефтяная и нефтегазовая промышленность
-                    option(value='13')  Общественное питание
-                    option(value='14')  Оптовая торговля
-                    option(value='15')  Пищевая промышленность
-                    option(value='16')  Полиграфическая промышленность
-                    option(value='17')  Промышленность драгоценных металлов и алмазов
-                    option(value='18')  Промышленность строительных материалов
-                    option(value='19')  Розничная торговля
-                    option(value='20')  Сервисные компании
-                    option(value='21')  СМИ
-                    option(value='22')  Страхование
-                    option(value='23')  Строительство
-                    option(value='24')  Табачная промышленность
-                    option(value='24')  Упаковка
-                    option(value='25')  Химическая и нефтегазовая промышленность
-                    option(value='26')  Цветная металлургия
-                    option(value='27')  Черная металлургия
-                    option(value='28')  Электроэнергетика
-                  br
-                  select(name='headquarters')
-                    option(value='0')  Местонахождение штаб-квартиры
-                    option(value='1')  Местонахождение 1
-                    option(value='2')  Местонахождение 2
-                    option(value='3')  Местонахождение 3
-                  br
-                  select(name='company_size')
-                    option(value='0') Размер предприятия
-                    option(value='1') Все размеры
-                    option(value='2', title='Оборот до 800 млн рублей, количество сотрудников до 100 человек')  Малое предприятие
-                    option(value='3', title='Оборот до 2 млрд рублей, количество сотрудников до 250 человек') Среднее предприятие
-                    option(value='4', title='Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек') Крупное предприятие
-                  br
-                  button.btn.btn-default.green-btn.btn-search-organization(type='submit')
-                    i.fa.fa-search(aria-hidden='true')
-                    |  Поиск компании
-                  button.btn.btn-default.green-btn(type='submit')
-                    i.fa.fa-times(aria-hidden='true')
-                    |  Сброс
-                  br
-                  br
-              // /search-organization
-            // /tab-content
-          // /search-panel
+
           .search-results-report.col-md-7.col-xs-8.col-sm-8
             h3 Результаты поиска по отчету
             .sort
@@ -326,66 +258,7 @@ body
                     a(href='/report/#{rep._id}', title='Перейти на страницу отчета')
                       img(src='#{rep.preview}', alt='icon')
           // /search-results-report
-          // Результаты поиска по организации
-          .search-results-organization.col-md-7.col-xs-8.col-sm-8
-            h3 Результаты поиска по организации
-            .sort
-              strong Сортировка:
-              .var-sort
-                span(rel='name')
-                  a(href='#') Название компании
-                span(rel='economy')
-                  a(href='#') Отрасль экономики
-                span(rel='company-size')
-                  a(href='#') Размер предприятия
-            // /sort
-            .change-view
-              strong Вид:
-              .var-view
-                .view-list
-                  a.o-showView1(href='#', title='Список')
-                    i.fa.fa-list.fa-3x(aria-hidden='true')
-                .view-table
-                  a.o-showView2(href='#', title='Таблица')
-                    i.fa.fa-table.fa-3x(aria-hidden='true')
-                .view-icon
-                  a.o-showView3(href='#', title='Средние значки')
-                    i.fa.fa-picture-o.fa-2x(aria-hidden='true')
-                .view-big-icon
-                  a.o-showView4(href='#', title='Крупные значки')
-                    i.fa.fa-picture-o.fa-3x(aria-hidden='true')
-            // /change-view
-            .view
-              #o-view1.list
-                for comp in companies 
-                  .element
-                    img(src!=comp.logo, alt='logo')
-                    a(href='/company/#{comp.name}', title='Перейти на страницу профиля компании') #{comp.name}
-              #o-view2.table
-                table.table
-                  thead
-                    tr
-                      th Компания
-                      th Отрасль экономики
-                      th Размер предприятия
-                  tbody
-                  for comp in companies
-                    tr
-                      td
-                        a(href='/company/#{comp.name}', title='Перейти на страницу компании') #{comp.name}
-                      td #{comp.sector}
-                      td #{comp.size_of_company}
-              #o-view3.icon
-                for comp in companies
-                  .element
-                    a(href='/company/#{comp.name}', title='Перейти на страницу компании')
-                      img(src!=comp.logo, alt='icon')
-              #o-view4.big-icon
-                for comp in companies
-                  .element
-                    a(href='/company/#{comp.name}', title='Перейти на страницу компании')
-                      img(src!=comp.logo, alt='icon')
-          // /search-results-organization
+          
         // /row
       .space
       .space

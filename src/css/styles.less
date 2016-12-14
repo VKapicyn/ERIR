@@ -95,6 +95,9 @@ main {
 .center {
   text-align: center;
 }
+.justify {
+  text-align: justify;
+}
 .right {
   text-align: right;
 }
@@ -220,27 +223,31 @@ main {
       
     } /* /.mainpage-slider */
     
-    .stat-and-news {
+    .description-and-news {
       background-color: @white;
       margin-top: 50px;
       
-      .stat-caption, .news-caption {
+      .news-caption {
         background-color: @red;
         color: @white;
         .center;
       }      
-      .stat-content {
-        .center;
-        img {
-          width: 90%;
-        }
-        padding-bottom: 20px;
-      }
-
+      
       .mainpage-news {
 
       }
-    } /* /.stat-and-news*/
+
+      .mainpage-description{
+        p {
+          font-size: 16px;
+          .justify;
+          span {
+            color: @red;
+            .bold;
+          }
+       }
+      }
+    } /* /.description-and-news*/
     
 
   } 
