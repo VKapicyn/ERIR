@@ -22,7 +22,6 @@ exports.registerCompanyPage = function (req, res){
         var i;
 
         for(i=0; i<docs.length-1; i++){
-            console.log(docs[i].name);
             switch(docs[i].name){
                 case 'sector': sector = docs[i].mass;
                     break;
