@@ -54,85 +54,85 @@ html(lang='en')
                     div
                       | Использование МСИО
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='IRRC', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='IRRC', value='0', checked='', type='radio')
                         |  Нет
                       label.radio-inline
-                        input#radio3(name='radioGroup', value='option3', checked='', type='radio')
+                        input#radio3(name='IRRC', value='2', checked='', type='radio')
                         |  Частично
                       br
                     div
                       | Использование Руководства GRI 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='GRI', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='GRI', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
                       | Использование стандарта A1000SES 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='A1000SES', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='A1000SES', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
                       | Использование стандарта A1000APS 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='A1000APS', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='A1000APS', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
                       | Наличие в отчете бизнес-модели 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='BUSMOD', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='BUSMOD', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
                       | Наличие в отчете информации о стратегии 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Strategy', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Strategy', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
                       | Наличие в отчете информации о рисках 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Risks', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Risks', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
                       | Наличие Общественного заверения отчета 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Assurance', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Assurance', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
                       | Участие Панели заинтересованных сторон в создании отчета 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Stakes', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Stakes', value='0', checked='', type='radio')
                         |  Нет
                       br
                   // /register-report-left
@@ -140,10 +140,10 @@ html(lang='en')
                     div
                       | Финансовый аудитор отчета 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='FinAud', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='FinAud', value='0', checked='', type='radio')
                         |  Нет
                       br
                       input.change-w(name='', placeholder='Юридическое название аудитора')
@@ -151,10 +151,10 @@ html(lang='en')
                     div
                       | Аудитор нефинансовой информации отчета 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='NonFinAud', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='NonFinAud', value='0', checked='', type='radio')
                         |  Нет
                       br
                       input.change-w(name='', placeholder='Юридическое название аудитора')
@@ -162,21 +162,21 @@ html(lang='en')
                     div
                       | Консультант подготовки отчета 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Consultant', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Consultant', value='0', checked='', type='radio')
                         |  Нет
                       br
-                      input.change-w(name='', placeholder='Юридическое название компании')
+                      input.change-w(name='', placeholder='Консультант подготовки отчета')
                       br
                     div
                       | Менеджер процесса подготовки отчета 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Manager', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Manager', value='0', checked='', type='radio')
                         |  Нет
                       br
                       input.change-w(name='', placeholder='Фамилия и имя менеджера')
@@ -184,13 +184,13 @@ html(lang='en')
                     div
                       | Дизайнер отчета 
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Design', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Design', value='0', checked='', type='radio')
                         |  Нет
                       br
-                      input.change-w(name='', placeholder='Фамилия и имя дизайнера')
+                      input.change-w(name='Design', placeholder='Фамилия и имя дизайнера')
                       br
                     div
                       | Количество страниц 
@@ -201,10 +201,10 @@ html(lang='en')
                       | Победы в национальных конкурсах отчетности 
                       br
                       label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
+                        input#radio1(name='Contests', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
+                        input#radio2(name='Contests', value='0', checked='', type='radio')
                         |  Нет
                       br
                       input.change-w(name='', placeholder='Конкурсы и занятые места')
