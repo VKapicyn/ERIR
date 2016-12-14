@@ -50,14 +50,9 @@ body
                 form.navbar-form.navbar-left(role='search')
                   .form-group
                     input.form-control(type='text', placeholder='Search')
-                  button.btn.btn-default.green-btn.btn-search-report(type='submit')
+                  button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск отчета
-                  br
-                  button.btn.btn-default.green-btn(type='submit')
-                    i.fa.fa-times(aria-hidden='true')
-                    |  Очистить
-                  br
                   br
                   select(name='report_year')
                     option(value='0') Отчетный год
@@ -183,14 +178,9 @@ body
                   input(type='checkbox', value='5')
                   |  Лучшее раскрытие информации о системе публичной отчетности
                   br
-                  br
-                  button.btn.btn-default.green-btn.btn-search-report(type='submit')
+                  button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск отчета
-                  button.btn.btn-default.green-btn(type='submit')
-                    i.fa.fa-times(aria-hidden='true')
-                    |  Сброс
-                  br
                   br
               // /поиск отчета #search-report
 
@@ -233,7 +223,7 @@ body
               #view2.table
                 table.table
                   thead
-                    tr
+                    trvar
                       th Компания
                       th Название отчета
                       th Год
