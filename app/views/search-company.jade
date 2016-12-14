@@ -18,7 +18,7 @@ body
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='#')
-                img(src='img/da-strateg-logo.png', alt='logo1')
+                img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
@@ -47,7 +47,7 @@ body
             // Содержимое вкладок
             .tab-content
               #search-organization.tab-pane.active(role='tabpanel')
-                form.navbar-form.navbar-left(role='search' action='/search-company/7777' method='get')
+                form.navbar-form.navbar-left(role='search' action='/search-company' method='get')
                   .form-group
                     input.form-control(type='text', placeholder='Search')
                   br
@@ -74,11 +74,11 @@ body
               strong Сортировка:
               .var-sort
                 span(rel='name')
-                  a(href='#') Название компании
+                  a(href='/search-company/name') Название компании
                 span(rel='economy')
-                  a(href='#') Отрасль экономики
+                  a(href='/search-company/sector') Отрасль экономики
                 span(rel='company-size')
-                  a(href='#') Размер предприятия
+                  a(href='/search-company/size_of_company') Размер предприятия
             // /sort
             .change-view
               strong Вид:
