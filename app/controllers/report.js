@@ -42,6 +42,7 @@ exports.addReport = function (req,res){
     writestream.on('close', function (file){
         console.log(file.filename + ' Written To DB');
     });*/
+    
     new_rep.save();
     res.send('ok '+new_rep._id+' ');
 };
