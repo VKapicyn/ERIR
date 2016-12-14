@@ -3,13 +3,8 @@ var ObjectId = mongoose.Types.ObjectId;
 var dbModel = require('../models/db-model');
 var db = dbModel.db;
 
-var multer = require("multer");
-var upload = multer({dest: './src/buffer'});
-var conn = mongoose.connection;
-var fs = require('fs');
-var Grid = require('gridfs-stream');
-Grid.mongo = mongoose.mongo;
-var gfs = Grid(conn.db);
+
+import {upload, fs, gfs} from '../models/db-model';
 
 
 var Static = require('../models/staticModel').staticModel;
@@ -23,19 +18,25 @@ exports.registerCompanyPage = function (req, res){
     var size_of_company;
     var type_of_ownership;
 
-//calback hell - переделать через async и вынести в модели
-    Static.findOne({name:'sector'},function(err, docs){
-        sector = docs.mass;              
-        Static.findOne({name:'opf'},function(err, docs){
-            opf = docs.mass;
-            Static.findOne({name:'size_of_company'},function(err, docs){
-                size_of_company = docs.mass;
-                Static.findOne({name:'type_of_ownership'},function(err, docs){
-                    type_of_ownership = docs.mass;
-                    res.render('register-company', {sector:sector, opf:opf, size_of_company:size_of_company, type_of_ownership:type_of_ownership});
-                });
-            });
-        });
+    Static.find({}, function (err, docs){
+        var i;
+
+        for(i=0; i<docs.length-1; i++){
+            console.log(docs[i].name);
+            switch(docs[i].name){
+                case 'sector': sector = docs[i].mass;
+                    break;
+                case 'opf': opf = docs[i].mass;
+                    break;
+                case 'size_of_company': size_of_company = docs[i].mass;
+                    break;
+                case 'type_of_ownership': type_of_ownership = docs[i].mass;
+                    break;
+                default : continue;
+            }
+        }
+
+        res.render('register-company', {sector:sector, opf:opf, size_of_company:size_of_company, type_of_ownership:type_of_ownership});
     });
 };
 
@@ -68,7 +69,7 @@ exports.addCompany = function (req,res){
     });
 
     fs.createReadStream('src/buffer/'+new_comp._id+req.files.upload_logo.name)
-      .on('end', function(){fs.unlink('src/buffer/'+new_comp._id+req.files.upload_logo.name, function(err){console.log("success")})})
+      .on('end', function(){fs.unlink('src/buffer/'+new_comp._id+req.files.upload_logo.name, function(err){console.log('success')})})
         .on('err', function(){ console.log('Error uploading image')})
           .pipe(writestream);
  
