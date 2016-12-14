@@ -17,7 +17,8 @@ app.set('view engine', 'jade');
 
 app.get('/', require('./app/controllers/main').mainPage);
 app.get('/main', require('./app/controllers/main').mainPage);
-app.get('/search', require('./app/controllers/search').searchPage);
+app.get('/search', require('./app/controllers/search').searchReportPage);
+app.get('/search-company', require('./app/controllers/search').searchCompanyPage);
 app.get('/stats', require('./app/controllers/stats').statsPage);
 app.get('/register-report', require('./app/controllers/report').registerReportPage);
 app.get('/register-company', require('./app/controllers/company').registerCompanyPage);
