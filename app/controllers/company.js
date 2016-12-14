@@ -44,7 +44,6 @@ exports.addCompany = function (req,res){
     new_comp.name = req.body.company_name;
     console.log(new_comp.name);
     console.log(req.body);
-
     new_comp.name = req.body.company_name;
     new_comp.info = req.body.company_description;
     new_comp.opf = req.body.organization_form;
@@ -78,7 +77,7 @@ exports.addCompany = function (req,res){
 
     new_comp.logo = '/'+new_comp._id+req.files.upload_logo.name;
     new_comp.save();
-    res.send('ok '+new_comp._id+' ');
+    res.send('ok '+new_comp._id+' '+new_comp.logo);
 
 };
 

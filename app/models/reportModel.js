@@ -13,17 +13,10 @@ var reportSchema = new mongoose.Schema({
     name: String,
     type: String, //социальный, годовой, об устойчивом развитии и т.п.
     year: String,
-    standarts: [{
-        G4:{
-        type: Boolean
-        },
-        G3:{
-        type: Boolean
-        },
-        IIRC:{
-            type: Boolean
-        } //и прочие страндарты сюда
-    }],
+    GRI: Boolean,
+    IIRC: Boolean,
+    A1000SES: Boolean,
+    A1000APS: Boolean,
     sector: String,
     HQAdress: String,
     Size: String,
