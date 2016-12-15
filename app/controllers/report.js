@@ -8,9 +8,7 @@ import {upload, fs, gfs} from '../models/db-model';
 
 
 var Report = require('../models/reportModel').reportModel;
-var Static = require('../models/staticModel').staticModel;
 var getStatic = require('../models/staticModel').getStatic;
-var getvarStatic = require('../models/staticModel').getvarStatic;
 
 
 exports.registerReportPage = function (req, res){

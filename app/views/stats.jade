@@ -45,42 +45,12 @@ html(lang='en')
               .stats-selection
                 div
                   select(name='diagram_type')
-                    option(value='0') Тип диаграммы
-                    option(value='1') Круговая
-                    option(value='2') Столбиковая (гистограмма)
+                    option(value='0') Круговая диаграмма
+                    option(value='1') Гистограмма
                 div
                   select(name='economy')
-                    option(value='1') Отрасль экономики
-                    option(value='2') Все отрасли
-                    option(value='3') Агропромышленный комплекс
-                    option(value='4')  Атомная промышленность
-                    option(value='5')  Банки и др. инвестиционно-финанс. организации
-                    option(value='6')  Жилищно-коммунальное хозяйство
-                    option(value='7')  Здравоохранение и фармацевтика
-                    option(value='8')  Промышленно-инфраструктурное строительство
-                    option(value='7')  Информационные технологии
-                    option(value='9')  Легкая промышленность
-                    option(value='10')  Лесная и целлюлозно-бумажная промышленность
-                    option(value='11')  Машиностроение
-                    option(value='12')  Наука
-                    option(value='13')  Нефтяная и нефтегазовая промышленность
-                    option(value='14')  Общественное питание
-                    option(value='15')  Оптовая торговля
-                    option(value='16')  Пищевая промышленность
-                    option(value='17')  Полиграфическая промышленность
-                    option(value='18')  Промышленность драгоценных металлов и алмазов
-                    option(value='19')  Промышленность строительных материалов
-                    option(value='20')  Розничная торговля
-                    option(value='21')  Сервисные компании
-                    option(value='22')  СМИ
-                    option(value='23')  Страхование
-                    option(value='24')  Строительство
-                    option(value='25')  Табачная промышленность
-                    option(value='26')  Упаковка
-                    option(value='27')  Химическая и нефтегазовая промышленность
-                    option(value='28')  Цветная металлургия
-                    option(value='29')  Черная металлургия
-                    option(value='30')  Электроэнергетика
+                    for val in sector
+                      option(value='#{val}') #{val}
                   br
                 div
                   select(name='standart')
@@ -96,20 +66,16 @@ html(lang='en')
                     option(value='9')  Другие стандарты
                 div
                   select(name='company_size')
-                    option(value='0') Размер предприятия
-                    option(value='1') Все размеры
-                    option(value='2', title='Оборот до 800 млн рублей, количество сотрудников до 100 человек')  Малое предприятие
-                    option(value='3', title='Оборот до 2 млрд рублей, количество сотрудников до 250 человек') Среднее предприятие
-                    option(value='4', title='Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек') Крупное предприятие
+                    for val in size_of_company
+                      option(value='#{val}') #{val}
                   br
                 div
                   select(name='ownership')
-                    option(value='0')  Форма собственности
-                    option(value='1', title='Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ') Государственная
-                    option(value='2')  Частная
+                    for val in type_of_ownership
+                      option(value='#{val}') #{val}
                   br
                 .buttons.center
-                  button.btn.btn-default.green-btn(type='submit') Создать
+                  button.btn.btn-default.green-btn(type='submit' onclick='create()') Создать
               // /stats-selection
             // /stats-left
             .stats-right.col-md-8.col-xs-12.col-sm-12
@@ -125,3 +91,4 @@ html(lang='en')
 
       //подключение footer
       include includes/footer
+      script(src='/js/graph.js')
