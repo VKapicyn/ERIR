@@ -4,6 +4,16 @@ var Company = require('../models/companyModel').companyModel;
 var Report = require('../models/reportModel').reportModel;
 var Static = require('../models/staticModel').staticModel;
 
+//вынести в модель к статике
+var sector;
+var opf;
+var size_of_company;
+var type_of_ownership; 
+
+//
+var company;
+var reports;
+
 exports.searchReportPage = function (req, res){
     Report.find({}).then(function (reports){
         res.render('search', {reports:reports});
@@ -11,36 +21,29 @@ exports.searchReportPage = function (req, res){
 };
 
 exports.searchCompanyPage = function (req, res){
-var sector;
-var opf;
-var size_of_company;
-var type_of_ownership; 
-var company;
-var reports;
-var sort = req.params.sort;
+    var sort = req.params.sort;
 
-//переделать индусский код через query
+//переделать индусский код через query или хотя бы switch
     if (sort == undefined)
-    //сделать по дате добавления
-    Company.find({}).sort({}).exec(function (err, _company){
+    Company.find({}).sort({date: 'asc'}).exec(function (err, _company){
         company = _company;
         rend();
     });
 
     if (sort == 'name')
-    Company.find({}).sort({name : 'asc'}).exec(function (err, _company){
+    Company.find({}).sort({name: 'asc'}).exec(function (err, _company){
         company = _company;
         rend();
     });
 
     if (sort == 'sector')
-    Company.find({}).sort({sector : 'asc'}).exec(function (err, _company){
+    Company.find({}).sort({sector: 'asc'}).exec(function (err, _company){
         company = _company;
         rend();
     });
 
     if (sort == 'size_of_company')
-    Company.find({}).sort({size_of_company : 'asc'}).exec(function (err, _company){
+    Company.find({}).sort({size_of_company: 'asc'}).exec(function (err, _company){
         company = _company;
         rend();
     });
