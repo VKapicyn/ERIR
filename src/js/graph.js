@@ -20,6 +20,16 @@ function create(){
 
     $.getJSON(url, function(data){
         for (var key in data){
+            console.log(data[key].name);
+            var tableContent = '';
+
+            //переделать оба пункат с учетом синхронности
+            $.each(data, function(){
+                tableContent += '<br>';
+                tableContent += '<td>' + data[key].name + '</td>';
+                tableContent += '</br>';
+            });
+            $('#test_rest').html(tableContent);
             switch(data[key].year){
                 case '2009': years.y2009++;
                     break;
@@ -48,8 +58,8 @@ function create(){
         select = select[0].options[select[0].selectedIndex].value;
 
         if(select=='0'){
-                // Реализация круговой диаграммы
-                console.log('0');
+            // Реализация круговой диаграммы
+            console.log('0');
         } 
         if(select=='1'){
                 // Реализация гистаграммы
