@@ -7,6 +7,7 @@ var staticSchema = new mongoose.Schema({
     mass: [String]
 });
 
+//На самом деле проще было бы сделать через prototype
 var getStatic = function (callback){
     staticModel.find({}, function (err, docs){}).then(function(result){
         function parse (result){
@@ -14,6 +15,8 @@ var getStatic = function (callback){
         var stat = {};
         for(i=0; i<result.length; i++){
             switch(result[i].name){
+                case 'standarts' : stat.standarts = result[i].mass;
+                    break;
                 case 'sector': stat.sector = result[i].mass;
                     break;
                 case 'opf': stat.opf = result[i].mass;
@@ -34,5 +37,4 @@ var getStatic = function (callback){
 
 
 var staticModel = mongoose.model('static', staticSchema);
-module.exports.staticModel = staticModel;
 module.exports.getStatic = getStatic;

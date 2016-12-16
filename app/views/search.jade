@@ -81,37 +81,10 @@ body
                   br
                   strong Наличие стандартов
                   br
-                  input(type='checkbox', value='0')
-                  |  Все стандарты
-                  br
-                  input(type='checkbox', value='1')
-                  |  Международный стандарт ИО
-                  br
-                  input(type='checkbox', value='2')
-                  |  GRI – G1
-                  br
-                  input(type='checkbox', value='3')
-                  |  GRI – G2
-                  br
-                  input(type='checkbox', value='4')
-                  |  GRI – G3
-                  br
-                  input(type='checkbox', value='5')
-                  |  GRI – G3.1
-                  br
-                  input(type='checkbox', value='6')
-                  |  GRI – G4
-                  br
-                  input(type='checkbox', value='7')
-                  |  AA1000 SES
-                  br
-                  input(type='checkbox', value='8')
-                  |  AA1000 APS
-                  br
-                  input(type='checkbox', value='9')
-                  |  Другие стандарты
-                  br
-                  br
+                  for val in standarts
+                    input(type='checkbox', value='#{val}')
+                    |  #{val}
+                    br
                   strong Лучшая практика
                   br
                   input(type='checkbox', value='0')

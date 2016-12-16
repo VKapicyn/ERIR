@@ -27,6 +27,7 @@ exports.searchReportPage = function (req, res){
                 opf: stat.opf,
                 type_of_ownership: stat.type_of_ownership,
                 sector: stat.sector, 
+                standarts: stat.standarts,
                 size_of_company: stat.size_of_company, 
                 reports: reports
             });

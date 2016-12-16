@@ -54,16 +54,8 @@ html(lang='en')
                   br
                 div
                   select(name='standart')
-                    option(value='1')  Все стандарты
-                    option(value='2')  Международный стандарт ИО
-                    option(value='3')  GRI – G1
-                    option(value='4')  GRI – G2
-                    option(value='5')  GRI – G3
-                    option(value='6')  GRI – G3.1
-                    option(value='7')  GRI – G4
-                    option(value='8')  AA1000 SES
-                    option(value='7')  AA1000 APS
-                    option(value='9')  Другие стандарты
+                    for val in standarts
+                      option(value='#{val}') #{val}
                 div
                   select(name='company_size')
                     for val in size_of_company

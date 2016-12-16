@@ -35,7 +35,7 @@ app.get('/:filename', require('./app/controllers/db-files').getFile);
 
 
 //маршрутизация API запросов
-app.get('/v1/stats', require('./app/controllers/stats').getStats);
+app.get('/v1/stats/:sector/:standart/:size_of_company/:type_of_ownership', require('./app/controllers/stats').getStats);
 //app.get('/v1/report/:id', rest.getReportById);
 //app.get('/v1/company/:name', rest.getCompanyByName);
 //app.get('/v1/search/companies/', rest.searchCompnaies);
