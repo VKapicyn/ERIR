@@ -77,8 +77,8 @@ html(lang='en')
               .stats-result
                 h3 Название диаграммы
                 .graph
-                  | Здесь диаграмма
-                  #container(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+                  //- | Здесь диаграмма
+                  #container(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
 
                   #test_rest.p.
                     
@@ -88,8 +88,7 @@ html(lang='en')
 
       //подключение footer
       include includes/footer
-      script(src='/js/graph.js')
-
+      script(src='/js/graph.js')  
       script(src='js/highchartsMyTheme.js')
-      script(src='https://code.highcharts.com/modules/exporting.js')
+      script(src='js/exporting.js')
 
