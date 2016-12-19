@@ -10,7 +10,6 @@ var company;
 var reports;
 
 //ВАЖНО!!! добавить проверку на accept
-
 exports.searchReportPage = function (req, res){
     var query = Report.find({});
 
@@ -36,12 +35,29 @@ exports.searchReportPage = function (req, res){
 };
 
 exports.searchCompanyPage = function (req, res){
-    var sort = req.params.sort;
-    var sector = req.query.economy;
-    var size_of_company = req.query.company_size;
-    var query = Company.find({});
+    getStatic(function(result, parse){
+        var stat = parse(result);
+        res.render('search-company', {
+            sector: stat.sector, 
+            size_of_company: stat.size_of_company, 
+        });
+    });
+};
 
-    //сортировку вынести на фронтенд и сделать на angular
+exports.searchCompanyPageREST = function (req, res){
+    var sort = req.params.sort;
+    var sector = req.params.sector;
+    var size_of_company = req.params.size_of_company;
+    var search = req.params.search;
+    var page = req.params.page;
+    var amount = req.params.amount;
+    var query;
+
+    if(search!='null')
+        query = Company.find({name:{$regex: search}})
+    else
+        query = Company.find({});
+
     switch (sort){
         case 'name' :
             query.sort({name: 'asc'});
@@ -57,24 +73,18 @@ exports.searchCompanyPage = function (req, res){
             break;
     };
 
-    if(size_of_company!='Размер предприятия' && size_of_company!=undefined)
+    if(size_of_company!='Размер предприятия')
         query.where('size_of_company',size_of_company);
-    if (sector!='Отрасль экономики' && sector!=undefined)
+    if (sector!='Отрасль экономики')
         query.where('sector',sector);
-
+    
+    var result = [];
     query.exec(function (err, _company){
-        company = _company;
-        company_rend();
-    });
-
-    function company_rend(){
-        getStatic(function(result, parse){
-            var stat = parse(result);
-            res.render('search-company', {
-                sector: stat.sector, 
-                size_of_company: stat.size_of_company, 
-                company: company
-            });
-        });
-    }; 
+        let start = amount * page - amount;
+        let finish = amount * page - 1;
+        for(let i=start; ((i<_company.length) && (i<=finish)); i++){
+            result.push(_company[i]);
+        }
+        res.json(result);
+    }); 
 };

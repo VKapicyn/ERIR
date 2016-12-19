@@ -32,7 +32,7 @@ body
                   a(href='/register-report') Регистрация отчета
                 li
                   a(href='/register-company') Регистрация компании
-            // /.navbar-collapse
+            // /.navbar-collapseName
           // /.container-fluid
       // /container navigation
       main.container
@@ -47,21 +47,25 @@ body
             // Содержимое вкладок
             .tab-content
               #search-organization.tab-pane.active(role='tabpanel')
-                form.navbar-form.navbar-left(role='search' action='/search-company' method='get')
+                div.navbar-form.navbar-left(role='search' method='post')
                   .form-group
-                    input.form-control(type='text', placeholder='Search')
+                    input.form-control#search-input(type='text', placeholder='Search')
                   br
-                  select(name='economy')
+                  select(name='economy', id='economy')
                     for sec in sector
                       option(value='#{sec}') #{sec}
                   br
-                  select(name='company_size')
+                  select(name='company_size', id='company_size')
                     for comp in size_of_company
                       option(value='#{comp}') #{comp}
                   br
-                  button.btn.btn-default.green-btn(type='submit')
+                  button.btn.btn-default.green-btn(type='button' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск компании
+                  //br
+                  button.btn.btn-default.green-btn(onclick='clear_params()')
+                    i.fa.fa-times(aria-hidden='true')
+                    |  Очистить
                   br
                   br
               // /search-organization
@@ -74,11 +78,11 @@ body
               strong Сортировка:
               .var-sort
                 span(rel='name')
-                  a(href='/search-company/name') Название компании
+                  a(href='#' onclick='sortName()') Название компании
                 span(rel='economy')
-                  a(href='/search-company/sector') Отрасль экономики
-                span(rel='company-size')
-                  a(href='/search-company/size_of_company') Размер предприятия
+                  a(href='#' onclick='sortSector()') Отрасль экономики
+                span(rel='company-size' onclick='sortSize()')
+                  a(href='#' onclick='') Размер предприятия
             // /sort
             .change-view
               strong Вид:
@@ -98,10 +102,10 @@ body
             // /change-view
             .view
               #o-view1.list
-                for comp in companies 
+                //for comp in companies 
                   .element
                     img(src!=comp.logo, alt='logo')
-                    a(href='/company/#{comp.name}', title='Перейти на страницу профиля компании') #{comp.name}
+                    a(href='/company/{comp.name}', title='Перейти на страницу профиля компании') {comp.name}
               #o-view2.table
                 table.table
                   thead
@@ -109,22 +113,24 @@ body
                       th Компания
                       th Отрасль экономики
                       th Размер предприятия
-                  tbody
-                  for comp in companies
+                  tbody#oo-view2
+                  tr
+                    td
+                  //for comp in companies
                     tr
                       td
-                        a(href='/company/#{comp.name}', title='Перейти на страницу компании') #{comp.name}
-                      td #{comp.sector}
-                      td #{comp.size_of_company}
+                        a(href='/company/{comp.name}', title='Перейти на страницу компании') {comp.name}
+                      td {comp.sector}
+                      td {comp.size_of_company}
               #o-view3.icon
-                for comp in companies
+                //for comp in companies
                   .element
-                    a(href='/company/#{comp.name}', title='Перейти на страницу компании')
+                    a(href='/company/{comp.name}', title='Перейти на страницу компании')
                       img(src!=comp.logo, alt='icon')
               #o-view4.big-icon
-                for comp in companies
+                //for comp in companies
                   .element
-                    a(href='/company/#{comp.name}', title='Перейти на страницу компании')
+                    a(href='/company/{comp.name}', title='Перейти на страницу компании')
                       img(src!=comp.logo, alt='icon')
           // /search-results-organization
         // /row
@@ -132,4 +138,5 @@ body
       .space
 
       //подключение footer
+      script(src='/js/frotnCompanySearch.js')
       include includes/footer
