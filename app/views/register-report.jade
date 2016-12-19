@@ -43,16 +43,56 @@ html(lang='en')
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-report
                   h2.sea-green Анкета регистрации профиля отчета
-                  .col-md-5.col-md-offset-1.col-xs-11.col-sm-5.register-left
+                  .col-md-6.col-xs-11.col-sm-5.register-left
                     div
-                      select(name='report_year')
+                      select(name='report_year1')
                         for val in year
-                          option(value='#{val}') #{val}
+                          option(value='#{val}') #{val}     
                     div
                       label.radio-inline
                       input.change-w(name='report_name', placeholder='Название отчета')
                     div
-                      | Использование МСИО
+                      select(name='company_size')
+                        for val in size_of_company
+                          option(value='#{val}') #{val}
+                    div
+                      select(name='organization_form')
+                        for val in opf
+                          option(value='#{val}') #{val}   
+                    div
+                      select(name='ownership')
+                        for val in type_of_ownership
+                          option(value='#{val}') #{val}  
+                    div
+                      p.left Наличие стандартов 
+                        br
+                        for val in standarts
+                          input(type='checkbox', value='#{val}')
+                          |  #{val}  
+                          br 
+                    div
+                      p.left Лучшая практика
+                        br
+                        input(type='checkbox', value='0')
+                        |  Лучшее раскрытие стратегии
+                        br
+                        input(type='checkbox', value='1')
+                        |  Лучшее раскрытие бизнес-модели
+                        br
+                        input(type='checkbox', value='2')
+                        |  Лучшее раскрытие информации о рисках
+                        br
+                        input(type='checkbox', value='3')
+                        |  Лучшее раскрытие информации о корпоративном управлении
+                        br
+                        input(type='checkbox', value='4')
+                        |  Лучшее раскрытие информации о деятельности в области УР
+                        br
+                        input(type='checkbox', value='5')
+                        |  Лучшее раскрытие информации о системе публичной отчетности
+                        br                 
+                    div
+                      | Использование МСИО 
                       label.radio-inline
                         input#radio1(name='IRRC', value='1', type='radio')
                         |  Да
@@ -63,33 +103,33 @@ html(lang='en')
                         input#radio3(name='IRRC', value='2', checked='', type='radio')
                         |  Частично
                       br
-                    div
-                      | Использование Руководства GRI 
-                      label.radio-inline
-                        input#radio1(name='GRI', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='GRI', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                    div
-                      | Использование стандарта A1000SES 
-                      label.radio-inline
-                        input#radio1(name='A1000SES', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='A1000SES', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                    div
-                      | Использование стандарта A1000APS 
-                      label.radio-inline
-                        input#radio1(name='A1000APS', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='A1000APS', value='0', checked='', type='radio')
-                        |  Нет
-                      br
+                    //- div
+                    //-   | Использование Руководства GRI 
+                    //-   label.radio-inline
+                    //-     input#radio1(name='GRI', value='1', type='radio')
+                    //-     |  Да
+                    //-   label.radio-inline
+                    //-     input#radio2(name='GRI', value='0', checked='', type='radio')
+                    //-     |  Нет
+                    //-   br
+                    //- div
+                    //-   | Использование стандарта A1000SES 
+                    //-   label.radio-inline
+                    //-     input#radio1(name='A1000SES', value='1', type='radio')
+                    //-     |  Да
+                    //-   label.radio-inline
+                    //-     input#radio2(name='A1000SES', value='0', checked='', type='radio')
+                    //-     |  Нет
+                    //-   br
+                    //- div
+                    //-   | Использование стандарта A1000APS 
+                    //-   label.radio-inline
+                    //-     input#radio1(name='A1000APS', value='1', type='radio')
+                    //-     |  Да
+                    //-   label.radio-inline
+                    //-     input#radio2(name='A1000APS', value='0', checked='', type='radio')
+                    //-     |  Нет
+                    //-   br
                     div
                       | Наличие в отчете бизнес-модели 
                       label.radio-inline
@@ -209,6 +249,30 @@ html(lang='en')
                       br
                       input.change-w(name='', placeholder='Конкурсы и занятые места')
                       br
+
+                    div
+                      h3 Контактная информация
+                      strong Пользователь, регистрирующий отчет
+                      div
+                        | ФИО 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_fio')
+                        br
+                      div
+                        | Должность 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_position')
+                        br
+                      div
+                        | Электронная почта 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_email')
+                        br
+                      div
+                        | Телефон 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_phone')
+                        br    
                   // /register-report-right
                 .buttons.center.upload
                   div
