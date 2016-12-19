@@ -14,7 +14,10 @@ var getStatic = require('../models/staticModel').getStatic;
 exports.registerReportPage = function (req, res){
     getStatic(function(result, parse){
         var stat = parse(result);
-        res.render('register-report',{year:stat.year});
+        // res.render('register-report',{year:stat.year});
+        // res.render('register-report',{year:stat.year, sector: stat.sector});
+        res.render('register-report',{year:stat.year, size_of_company: stat.size_of_company, opf: stat.opf, 
+            type_of_ownership: stat.type_of_ownership, standarts: stat.standarts});
     });
 };
 
