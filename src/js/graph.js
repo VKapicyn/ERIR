@@ -45,6 +45,8 @@ function create(){
         select = select[0].options[select[0].selectedIndex].value;
 
         if(select=='0'){
+            $( "#barchart" ).hide(); //скрыть гистограмму
+            $( "#piechart" ).show(); //показать круговую диаграмму
             // Реализация круговой диаграммы
             $(document).ready(function () {
                 // Build the chart
@@ -106,76 +108,78 @@ function create(){
             });
         } 
 
-        // if(select=='1'){
-        // Реализация гистаграммы
-        $(document).ready(function () {
-        // Create the chart
-        Highcharts.chart('barchart', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Количество отчетов по годам'
-            },
+        if(select=='1'){
+            $( "#piechart" ).hide(); //скрыть круговую диаграмму
+            $( "#barchart" ).show(); //показать гистограмму
+            // Реализация гистаграммы
+            $(document).ready(function () {
+            // Create the chart
+            Highcharts.chart('barchart', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Количество отчетов по годам'
+                },
 
-            yAxis: {
-            title: {
-                text: ' '
-            }
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                series: {
-                    borderWidth: 0,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.y:.1f}%'
-                    }
+                yAxis: {
+                title: {
+                    text: ' '
                 }
-            },
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    series: {
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.y:.1f}%'
+                        }
+                    }
+                },
 
-            tooltip: {
-                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                // pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
-            },
+                tooltip: {
+                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                    // pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
+                },
 
-            series: [{
-                name: 'Количество',
-                colorByPoint: true,
-                data: [{
-                    name: '2009',
-                    y: reports.y2009
-                }, {
-                    name: '2010',
-                    y: reports.y2010
-                }, {
-                    name: '2011',
-                    y: reports.y2011
-                }, {
-                    name: '2012',
-                    y: reports.y2012
-                }, {
-                    name: '2013',
-                    y: reports.y2013
-                }, {
-                    name: '2014',
-                    y: reports.y2014
-                }, {
-                    name: '2015',
-                    y: reports.y2015
-                }, {
-                    name: '2016',
-                    y: reports.y2016
-                }]
-            }],
+                series: [{
+                    name: 'Количество',
+                    colorByPoint: true,
+                    data: [{
+                        name: '2009',
+                        y: reports.y2009
+                    }, {
+                        name: '2010',
+                        y: reports.y2010
+                    }, {
+                        name: '2011',
+                        y: reports.y2011
+                    }, {
+                        name: '2012',
+                        y: reports.y2012
+                    }, {
+                        name: '2013',
+                        y: reports.y2013
+                    }, {
+                        name: '2014',
+                        y: reports.y2014
+                    }, {
+                        name: '2015',
+                        y: reports.y2015
+                    }, {
+                        name: '2016',
+                        y: reports.y2016
+                    }]
+                }],
 
-        });
+            });
     });
                 console.log('1');
-        // }
+        }
     });
 }
 
