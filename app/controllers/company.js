@@ -7,35 +7,20 @@ var db = dbModel.db;
 import {upload, fs, gfs} from '../models/db-model';
 
 
-var Static = require('../models/staticModel').staticModel;
+var getStatic = require('../models/staticModel').getStatic;
 var Company = require('../models/companyModel').companyModel;
 var Report = require('../models/reportModel').reportModel;
 
 
 exports.registerCompanyPage = function (req, res){  
-    var sector;
-    var opf;
-    var size_of_company;
-    var type_of_ownership;
-
-    Static.find({}, function (err, docs){
-        var i;
-
-        for(i=0; i<docs.length-1; i++){
-            switch(docs[i].name){
-                case 'sector': sector = docs[i].mass;
-                    break;
-                case 'opf': opf = docs[i].mass;
-                    break;
-                case 'size_of_company': size_of_company = docs[i].mass;
-                    break;
-                case 'type_of_ownership': type_of_ownership = docs[i].mass;
-                    break;
-                default : continue;
-            }
-        }
-
-        res.render('register-company', {sector:sector, opf:opf, size_of_company:size_of_company, type_of_ownership:type_of_ownership});
+    getStatic(function(result, parse){
+        var stat = parse(result);
+        res.render('register-company', {
+            sector: stat.sector, 
+            opf:stat.opf, 
+            size_of_company: stat.size_of_company, 
+            type_of_ownership: stat.type_of_ownership
+        });
     });
 };
 

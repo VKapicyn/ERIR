@@ -3,27 +3,18 @@ var ObjectId = mongoose.Types.ObjectId;
 var dbModel = require('../models/db-model');
 var db = dbModel.db;
 
-var multer = require("multer");
-var upload = multer({dest: './src/buffer'});
-var conn = mongoose.connection;
-var fs = require('fs');
-var Grid = require('gridfs-stream');
-Grid.mongo = mongoose.mongo;
-var gfs = Grid(conn.db);
 
-
-//import {upload, fs, gfs} from '../models/db-model';
+import {upload, fs, gfs} from '../models/db-model';
 
 
 var Report = require('../models/reportModel').reportModel;
-var Static = require('../models/staticModel').staticModel;
+var getStatic = require('../models/staticModel').getStatic;
 
 
 exports.registerReportPage = function (req, res){
-    var year;
-    Static.findOne({name:'year'},function(err, docs){
-        year = docs.mass; 
-        res.render('register-report',{year:year});
+    getStatic(function(result, parse){
+        var stat = parse(result);
+        res.render('register-report',{year:stat.year});
     });
 };
 

@@ -55,47 +55,11 @@ body
                     |  Поиск отчета
                   br
                   select(name='report_year')
-                    option(value='0') Отчетный год
-                    option(value='1') Все отчетные года
-                    option(value='2') 2009
-                    option(value='3') 2010
-                    option(value='4') 2011
-                    option(value='5') 2012
-                    option(value='6') 2013
-                    option(value='7') 2014
-                    option(value='8') 2015
+                    for val in year
+                      option(value='#{val}') #{val}
                   select(name='economy')
-                    option(value='1') Отрасль экономики
-                    option(value='2') Все отрасли
-                    option(value='3') Агропромышленный комплекс
-                    option(value='4')  Атомная промышленность
-                    option(value='5')  Банки и др. инвестиционно-финансовые организации
-                    option(value='6')  Жилищно-коммунальное хозяйство
-                    option(value='7')  Здравоохранение и фармацевтическая промышленность
-                    option(value='8')  Инжиниринг, промыш.-инфраструктурное строительство
-                    option(value='7')  Информационные технологии
-                    option(value='9')  Легкая промышленность
-                    option(value='10')  Лесная и целлюлозно-бумажная промышленность
-                    option(value='11')  Машиностроение
-                    option(value='12')  Наука
-                    option(value='13')  Нефтяная и нефтегазовая промышленность
-                    option(value='14')  Общественное питание
-                    option(value='15')  Оптовая торговля
-                    option(value='16')  Пищевая промышленность
-                    option(value='17')  Полиграфическая промышленность
-                    option(value='18')  Промышленность драгоценных металлов и алмазов
-                    option(value='19')  Промышленность строительных материалов
-                    option(value='20')  Розничная торговля
-                    option(value='21')  Сервисные компании
-                    option(value='22')  СМИ
-                    option(value='23')  Страхование
-                    option(value='24')  Строительство
-                    option(value='25')  Табачная промышленность
-                    option(value='26')  Упаковка
-                    option(value='27')  Химическая и нефтегазовая промышленность
-                    option(value='28')  Цветная металлургия
-                    option(value='29')  Черная металлургия
-                    option(value='30')  Электроэнергетика
+                    for val in sector
+                      option(value='#{val}') #{val}
                   br
                   select(name='headquarters')
                     option(value='0')  Местонахождение штаб-квартиры
@@ -104,60 +68,23 @@ body
                     option(value='3')  Местонахождение 3
                   br
                   select(name='company_size')
-                    option(value='0') Размер предприятия
-                    option(value='1') Все размеры
-                    option(value='2', title='Оборот до 800 млн рублей, количество сотрудников до 100 человек')  Малое предприятие
-                    option(value='3', title='Оборот до 2 млрд рублей, количество сотрудников до 250 человек') Среднее предприятие
-                    option(value='4', title='Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек') Крупное предприятие
+                    for val in size_of_company
+                      option(value='#{val}') #{val}
                   br
                   select(name='organization_form')
-                    option(value='0') Организационно-правовая форма
-                    option(value='1') Все формы
-                    option(value='2')  Публичное акционерное общество
-                    option(value='3')  Непубличное акционерное общество
-                    option(value='4')  Общество с ограниченной ответственностью
-                    option(value='5')  Государственная корпорация
-                    option(value='6')  Государственное или муниципальное унитарное предприятие
-                    option(value='7')  Прочие
+                    for val in opf
+                      option(value='#{val}') #{val}
                   br
                   select(name='ownership')
-                    option(value='0')  Форма собственности
-                    option(value='1', title='Условия отнесения: 1. Не менее 50 % +1 акция компании принадлежат государству/субъекту РФ; 2. Компания является дочерней (независимо от уровня) по отношению к компании, которая принадлежит государству/субъекту РФ; 3. Суммарные 50 % +1 акция принадлежат компаниям, которые принадлежат государству/субъекту РФ') Государственная
-                    option(value='2')  Частная
+                    for val in type_of_ownership
+                      option(value='#{val}') #{val}
                   br
                   strong Наличие стандартов
                   br
-                  input(type='checkbox', value='0')
-                  |  Все стандарты
-                  br
-                  input(type='checkbox', value='1')
-                  |  Международный стандарт ИО
-                  br
-                  input(type='checkbox', value='2')
-                  |  GRI – G1
-                  br
-                  input(type='checkbox', value='3')
-                  |  GRI – G2
-                  br
-                  input(type='checkbox', value='4')
-                  |  GRI – G3
-                  br
-                  input(type='checkbox', value='5')
-                  |  GRI – G3.1
-                  br
-                  input(type='checkbox', value='6')
-                  |  GRI – G4
-                  br
-                  input(type='checkbox', value='7')
-                  |  AA1000 SES
-                  br
-                  input(type='checkbox', value='8')
-                  |  AA1000 APS
-                  br
-                  input(type='checkbox', value='9')
-                  |  Другие стандарты
-                  br
-                  br
+                  for val in standarts
+                    input(type='checkbox', value='#{val}')
+                    |  #{val}
+                    br
                   strong Лучшая практика
                   br
                   input(type='checkbox', value='0')
