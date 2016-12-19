@@ -103,33 +103,33 @@ html(lang='en')
                         input#radio3(name='IRRC', value='2', checked='', type='radio')
                         |  Частично
                       br
-                    div
-                      | Использование Руководства GRI 
-                      label.radio-inline
-                        input#radio1(name='GRI', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='GRI', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                    div
-                      | Использование стандарта A1000SES 
-                      label.radio-inline
-                        input#radio1(name='A1000SES', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='A1000SES', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                    div
-                      | Использование стандарта A1000APS 
-                      label.radio-inline
-                        input#radio1(name='A1000APS', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='A1000APS', value='0', checked='', type='radio')
-                        |  Нет
-                      br
+                    //- div
+                    //-   | Использование Руководства GRI 
+                    //-   label.radio-inline
+                    //-     input#radio1(name='GRI', value='1', type='radio')
+                    //-     |  Да
+                    //-   label.radio-inline
+                    //-     input#radio2(name='GRI', value='0', checked='', type='radio')
+                    //-     |  Нет
+                    //-   br
+                    //- div
+                    //-   | Использование стандарта A1000SES 
+                    //-   label.radio-inline
+                    //-     input#radio1(name='A1000SES', value='1', type='radio')
+                    //-     |  Да
+                    //-   label.radio-inline
+                    //-     input#radio2(name='A1000SES', value='0', checked='', type='radio')
+                    //-     |  Нет
+                    //-   br
+                    //- div
+                    //-   | Использование стандарта A1000APS 
+                    //-   label.radio-inline
+                    //-     input#radio1(name='A1000APS', value='1', type='radio')
+                    //-     |  Да
+                    //-   label.radio-inline
+                    //-     input#radio2(name='A1000APS', value='0', checked='', type='radio')
+                    //-     |  Нет
+                    //-   br
                     div
                       | Наличие в отчете бизнес-модели 
                       label.radio-inline
@@ -249,6 +249,30 @@ html(lang='en')
                       br
                       input.change-w(name='', placeholder='Конкурсы и занятые места')
                       br
+
+                    div
+                      h3 Контактная информация
+                      strong Пользователь, регистрирующий отчет
+                      div
+                        | ФИО 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_fio')
+                        br
+                      div
+                        | Должность 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_position')
+                        br
+                      div
+                        | Электронная почта 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_email')
+                        br
+                      div
+                        | Телефон 
+                        span.red  *
+                        input.change-w(type='text', name='registrator_phone')
+                        br    
                   // /register-report-right
                 .buttons.center.upload
                   div
