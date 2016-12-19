@@ -15,51 +15,95 @@ function getURL(callback){
 
 function create(){
     // Статистика по годам
-    var years = {'y2009':0,'y2010':0, 'y2011':0, 'y2012':0, 'y2013':0, 'y2014':0, 'y2015':0, 'y2016':0};
+    var reports = {'y2009':0,'y2010':0, 'y2011':0, 'y2012':0, 'y2013':0, 'y2014':0, 'y2015':0, 'y2016':0};
     var url = getURL();
 
     $.getJSON(url, function(data){
         for (var key in data){
-            console.log(data[key].name);
-            var tableContent = '';
-
-            //переделать оба пункат с учетом синхронности
-            $.each(data, function(){
-                tableContent += '<br>';
-                tableContent += '<td>' + data[key].name + '</td>';
-                tableContent += '</br>';
-            });
-            $('#test_rest').html(tableContent);
+            console.log(data[key].year);
             switch(data[key].year){
-                case '2009': years.y2009++;
+                case '2009': reports.y2009++;
                     break;
-                case '2010': years.y2010++;
+                case '2010': reports.y2010++;
                     break;
-                case '2011': years.y2011++;
+                case '2011': reports.y2011++;
                     break;
-                case '2012': years.y2012++;
+                case '2012': reports.y2012++;
                     break;
-                case '2013': years.y2013++;
+                case '2013': reports.y2013++;
                     break;
-                case '2014': years.y2014++;
+                case '2014': reports.y2014++;
                     break;
-                case '2015': years.y2015++;
+                case '2015': reports.y2015++;
                     break;
-                case '2016': years.y2016++;
+                case '2016': reports.y2016++;
                     break;
             }
         }
     }).done(function(){
-        /*пример переобра значений по годам
-        for( var y in years)
-        console.log(years[y]);*/
-
         var select = document.getElementsByName('diagram_type');
         select = select[0].options[select[0].selectedIndex].value;
 
         if(select=='0'){
             // Реализация круговой диаграммы
-            console.log('0');
+            $(document).ready(function () {
+                // Build the chart
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Количество отчетов по годам'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.y:1.f}</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Количество',
+                        colorByPoint: true,
+                        data: [{
+                            name: '2009',
+                            y: reports.y2009
+                        }, {
+                            name: '2010',
+                            y: reports.y2010,
+                        }, {
+                            name: '2011',
+                            y: reports.y2011,
+                        }, {
+                            name: '2012',
+                            y: reports.y2012,
+                        }, {
+                            name: '2013',
+                            y: reports.y2013,
+                        }, {
+                            name: '2014',
+                            y: reports.y2014,
+                        },{
+                            name: '2015',
+                            y: reports.y2015,
+                        },{
+                            name: '2016',
+                            y: reports.y2016,
+                            sliced: true,
+                            selected: true
+                        }]
+                    }]
+                });
+            });
         } 
         if(select=='1'){
                 // Реализация гистаграммы
@@ -69,58 +113,5 @@ function create(){
 }
 
 $(function () {
-
-    $(document).ready(function () {
-
-        // Build the chart
-        Highcharts.chart('container', {
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: 'Browser market shares January, 2015 to May, 2015'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: 'Microsoft Internet Explorer',
-                    y: 56.33
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    sliced: true,
-                    selected: true
-                }, {
-                    name: 'Firefox',
-                    y: 10.38
-                }, {
-                    name: 'Safari',
-                    y: 4.77
-                }, {
-                    name: 'Opera',
-                    y: 0.91
-                }, {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2
-                }]
-            }]
-        });
-    });
+    create();
 });
