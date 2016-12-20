@@ -1,151 +1,173 @@
+if admin || report.accept==1
+  doctype html
+  html(lang='en')
 
-doctype html
-html(lang='en')
+    //подключение header
+    include includes/head 
 
-  //подключение header
-  include includes/head 
+    body
+      .wrapper
+        .navigation
+          nav.navbar.navbar-default
+            .container
+              // Brand and toggle get grouped for better mobile display
+              p.nav-description Национальный реестр интегрированных отчетов
+              .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                a.navbar-brand(href='#')
+                  img(src='/img/da-strateg-logo.png', alt='logo1')
+              // Collect the nav links, forms, and other content for toggling
+              #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li
+                    a(href='/main') На главную
+                  li.active
+                    a(href='/search') Поиск
+                  li
+                    a(href='/stats') Интерактивная статистика
+                  li
+                    a(href='/register-report') Регистрация отчета
+                  li
+                    a(href='/register-company') Регистрация компании
+              // /.navbar-collapse
+            // /.container-fluid
+        // /container navigation
+        main.container
+          .row
+            .col-md-10.col-md-offset-2.col-xs-12.col-sm-12.profile-report
+              h2
+                | #{report.name}
+              .row
+                .col-md-3.col-xs-6.col-sm-6.cover-and-isBest
+                  img(src='#{report.preview}', alt='')
+                  br
+                  span.isBest
+                    | Отчет является лучшей практикой в раскрытии [элемент] в 2009 году, согласно исследованию 
+                    a(href='#', target='_blank', title='Перейти к исследованию') РРС
+                .col-md-7.col-xs-12.col-sm-12.report-info
+                  table.table.table-hover
+                    tbody
+                      tr
+                        td Компания
+                        td 
+                          a(href='/company/') #{report.company}
+                      tr
+                        td Отчетный год
+                        td 2010
+                      tr
+                        td Отрасль экономики
+                        td Атомная промышленность
+                      tr
+                        td Международный стандарт по интегрированной отчетности
+                        td
+                          i.fa.fa-close(aria-hidden='true')
+                      tr
+                        td Руководство GRI
+                        td G3
+                      tr
+                        td AA1000SES
+                        td
+                          i.fa.fa-check(aria-hidden='true')
+                      tr
+                        td AA1000APS 
+                        td
+                          i.fa.fa-close(aria-hidden='true')
+                      tr
+                        td  Рейтинг прозрачности РРС
+                        td  - 
+                      tr
+                        td  Наличие в отчете бизнес-модели 
+                        td  - 
+                      tr
+                        td  Наличие в отчете информации о стратегии 
+                        td  - 
+                      tr
+                        td  Наличие в отчете информации об управлении рисками
+                        td  - 
+                      tr
+                        td  Лучшее раскрытие стратегии 
+                        td  - 
+                      tr
+                        td  Лучшее раскрытие бизнес-модели 
+                        td  - 
+                      tr
+                        td  Лучшее раскрытие информации об управлении рисками
+                        td  - 
+                      tr
+                        td  Лучшее раскрытие информации о корпоративном управлении
+                        td  - 
+                      tr
+                        td  Лучшее раскрытие информации о деятельности в области УР
+                        td  - 
+                      tr
+                        td  Лучшее раскрытие информации о системе публичной отчетности
+                        td  - 
+                      tr
+                        td  Компания-консультант
+                        td  Группа компаний «Да-Стратегия»
+                      tr
+                        td  Менеджер отчета
+                        td  - 
+                      tr
+                        td  Дизайн отчета
+                        td  - 
+                      tr
+                        td  Аудитор отчета
+                        td  ЗАО «ПрайсвотерхаусКуперс Аудит»
+                .col-md-2.col-xs-12.col-sm-12.report-buttons
+                  button.btn.btn-default.green-btn(type='submit')
+                    i.fa.fa-download(aria-hidden='true')
+                    |  Скачать отчет (RU)
+                  br
+                  button.btn.btn-default.green-btn(type='submit')
+                    i.fa.fa-download(aria-hidden='true')
+                    |  Скачать отчет (ENG)
+                  br
+                  button.btn.btn-default.green-btn(type='submit')
+                    a(href='#', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
+                  br
+              // /row
+              // убрать из массива текущий отчет
+              - var page_reports = reports 
+              .row
+                h3 Другие отчеты компании
+                .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
+                  for report in page_reports
+                    .cover
+                      a(href='/report/#{report._id}', target='_blank', title='')
+                        img(src=report.preview, alt='')
+              .row
+                if admin
+                  p.
+                  | Это видит только администратор
+                  br
+                  if (report.accept==0)
+                    | Отчет не проверен
+                    br
+                    | 0000
+                  if (report.accept==1)
+                    | Отчет проверен
+                    br
+                    | 1111
+                  if (report.accept==2)
+                    | Отчет отклонен
+                    br
+                    | 222
+                  p
+                    b
+                      Здесь будет возможность отметить как лучшую практику
+                // /other-reports
+              // /row
+            // /profile-report
+          // /row
+        .space
+        .space
 
-  body
-    .wrapper
-      .navigation
-        nav.navbar.navbar-default
-          .container
-            // Brand and toggle get grouped for better mobile display
-            p.nav-description Национальный реестр интегрированных отчетов
-            .navbar-header
-              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='#')
-                img(src='/img/da-strateg-logo.png', alt='logo1')
-            // Collect the nav links, forms, and other content for toggling
-            #bs-example-navbar-collapse-1.collapse.navbar-collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/main') На главную
-                li.active
-                  a(href='/search') Поиск
-                li
-                  a(href='/stats') Интерактивная статистика
-                li
-                  a(href='/register-report') Регистрация отчета
-                li
-                  a(href='/register-company') Регистрация компании
-            // /.navbar-collapse
-          // /.container-fluid
-      // /container navigation
-      main.container
-        .row
-          .col-md-10.col-md-offset-2.col-xs-12.col-sm-12.profile-report
-            h2
-              | #{report.name}
-            .row
-              .col-md-3.col-xs-6.col-sm-6.cover-and-isBest
-                img(src='#{report.preview}', alt='')
-                br
-                span.isBest
-                  | Отчет является лучшей практикой в раскрытии [элемент] в 2009 году, согласно исследованию 
-                  a(href='#', target='_blank', title='Перейти к исследованию') РРС
-              .col-md-7.col-xs-12.col-sm-12.report-info
-                table.table.table-hover
-                  tbody
-                    tr
-                      td Компания
-                      td 
-                        a(href='/company/') #{report.company}
-                    tr
-                      td Отчетный год
-                      td 2010
-                    tr
-                      td Отрасль экономики
-                      td Атомная промышленность
-                    tr
-                      td Международный стандарт по интегрированной отчетности
-                      td
-                        i.fa.fa-close(aria-hidden='true')
-                    tr
-                      td Руководство GRI
-                      td G3
-                    tr
-                      td AA1000SES
-                      td
-                        i.fa.fa-check(aria-hidden='true')
-                    tr
-                      td AA1000APS 
-                      td
-                        i.fa.fa-close(aria-hidden='true')
-                    tr
-                      td  Рейтинг прозрачности РРС
-                      td  - 
-                    tr
-                      td  Наличие в отчете бизнес-модели 
-                      td  - 
-                    tr
-                      td  Наличие в отчете информации о стратегии 
-                      td  - 
-                    tr
-                      td  Наличие в отчете информации об управлении рисками
-                      td  - 
-                    tr
-                      td  Лучшее раскрытие стратегии 
-                      td  - 
-                    tr
-                      td  Лучшее раскрытие бизнес-модели 
-                      td  - 
-                    tr
-                      td  Лучшее раскрытие информации об управлении рисками
-                      td  - 
-                    tr
-                      td  Лучшее раскрытие информации о корпоративном управлении
-                      td  - 
-                    tr
-                      td  Лучшее раскрытие информации о деятельности в области УР
-                      td  - 
-                    tr
-                      td  Лучшее раскрытие информации о системе публичной отчетности
-                      td  - 
-                    tr
-                      td  Компания-консультант
-                      td  Группа компаний «Да-Стратегия»
-                    tr
-                      td  Менеджер отчета
-                      td  - 
-                    tr
-                      td  Дизайн отчета
-                      td  - 
-                    tr
-                      td  Аудитор отчета
-                      td  ЗАО «ПрайсвотерхаусКуперс Аудит»
-              .col-md-2.col-xs-12.col-sm-12.report-buttons
-                button.btn.btn-default.green-btn(type='submit')
-                  i.fa.fa-download(aria-hidden='true')
-                  |  Скачать отчет (RU)
-                br
-                button.btn.btn-default.green-btn(type='submit')
-                  i.fa.fa-download(aria-hidden='true')
-                  |  Скачать отчет (ENG)
-                br
-                button.btn.btn-default.green-btn(type='submit')
-                  a(href='#', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
-                br
-            // /row
-            // убрать из массива текущий отчет
-            - var page_reports = reports 
-            .row
-              h3 Другие отчеты компании
-              .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
-                for report in page_reports
-                  .cover
-                    a(href='/report/#{report._id}', target='_blank', title='')
-                      img(src=report.preview, alt='')
-              // /other-reports
-            // /row
-          // /profile-report
-        // /row
-      .space
-      .space
-
-       //подключение footer
-      include includes/footer
+        //подключение footer
+        include includes/footer
+else
+  | Отчет не прошел проверку администрации

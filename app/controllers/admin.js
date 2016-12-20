@@ -1,17 +1,26 @@
+var mongoose = require('mongoose');
+var dbModel = require('../models/db-model');
+var db = dbModel.db;
+
+
 var auth = require('../models/authModel');
+var Company = require('../models/companyModel').companyModel;
+var Report = require('../models/reportModel').reportModel;
+
 
 exports.adminPage = function (req, res) {
-  	if(req.session.user){
-		var data = {
-			title: 'Express',
-			user : req.session.user
-		}
-		res.render('admin', data);
+  if(req.session.user){
+    Company.find({}).then(function(companies){
+      Report.find({}).then(function(reports){
+        res.render('admin',{
+          user : req.session.user,
+          companies: companies,
+          reports: reports
+        });
+      });
+    });
 	} else {
-		var data = {
-		  	title: 'Express',
-		}
-		res.render('login', data);
+		res.render('login');
 	}
 };
 

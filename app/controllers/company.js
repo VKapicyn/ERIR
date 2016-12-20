@@ -45,7 +45,7 @@ exports.addCompany = function (req,res){
 
 
      //cохраняем лого в БД
-    req.files.upload_logo.mv('src/buffer/'+new_comp._id+req.files.upload_logo.name, function (err) {console.log('ttts')});
+    req.files.upload_logo.mv('src/buffer/'+new_comp._id+req.files.upload_logo.name, function (err) {console.log('ttts '+err)});
 
     var writestream = gfs.createWriteStream({
       filename: new_comp._id+req.files.upload_logo.name
@@ -69,10 +69,7 @@ exports.addCompany = function (req,res){
 exports.getCompanyByName = function (req, res) {
     Company.findOne({name:req.params.name}).then(function (company){
         Report.find({company:company.name}).then(function (reports){
-        if (company.accept==1)
-		    res.render('company', {company:company, reports:reports});
-        else
-            res.send('Компания не прошла проверку у администрации ресурса');
+		    res.render('company', {company:company, reports:reports, admin: req.session.user});
         });
 	});
 };

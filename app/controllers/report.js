@@ -85,10 +85,7 @@ exports.getReportById = function (req, res){
 
     Report.findOne({_id:new ObjectId(req.params.id)}).then(function (_report){
         Report.find({company:_report.company}).then(function (reports){
-            if (_report.accept==1)
-                res.render('report', {report:_report,  reports:reports});
-            else
-                res.send('Отчет не прошел проверку у администрации ресурса');
+            res.render('report', {report:_report, reports:reports, admin: req.session.user});
         });
 	}); 
 };
