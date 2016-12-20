@@ -1,5 +1,8 @@
-html
-    body
-        p.
-         не забыть
-          ограничить доступ
+if user
+    h2 Вы зашли как "#{user.name}"
+    p you are logged)
+    hr
+    a(href='/search') search
+    br
+    a(href='/logout') Exit if you wish
+else

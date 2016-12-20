@@ -105,6 +105,7 @@ function setPage(_page){
 
 function setAmount(_amount){
     amount = _amount;
+    page = 1
     getSearchCompany();
 }
 

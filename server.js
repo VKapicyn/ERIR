@@ -5,8 +5,19 @@ var babel_es6 = require('babel-core/register');
 var es6 = require('./server')
 var dbModel = require('./app/models/db-model');
 var app = express();
+var mongoose = require("mongoose")
+var session = require('express-session')
+var MongoStore = require('connect-mongo')(session);
 
 
+app.use(session({
+  secret: 'ERIO da-strateg',
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ 
+    url: 'mongodb://80.93.177.208:27017/ERIO',
+  })
+}));
 app.use(bodyParser());
 app.use(fileUpload());
 app.use(bodyParser.json());
@@ -23,6 +34,7 @@ app.get('/stats', require('./app/controllers/stats').statsPage);
 app.get('/register-report', require('./app/controllers/report').registerReportPage);
 app.get('/register-company', require('./app/controllers/company').registerCompanyPage);
 app.get('/admin', require('./app/controllers/admin').adminPage);
+app.get('/logout', require('./app/controllers/admin').adminLogout)
 
 
 app.get('/search/:sort', require('./app/controllers/search').searchReportPage);
@@ -31,6 +43,8 @@ app.get('/report/:id', require('./app/controllers/report').getReportById);
 app.post('/company/create/', require('./app/controllers/company').addCompany);
 app.post('/report/create/', require('./app/controllers/report').addReport);
 app.get('/:filename', require('./app/controllers/db-files').getFile); 
+app.post('/create/user', require('./app/controllers/admin').adminCreate);
+app.post('/user/login', require('./app/controllers/admin').adminLogin);
 
 
 //маршрутизация API запросов
