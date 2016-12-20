@@ -78,9 +78,10 @@ html(lang='en')
                 //h3 Название диаграммы
                 .graph
                   //- | Здесь диаграмма
-                  #container(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
+                  #piechart(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
+                  #barchart(style='min-width: 310px; height: 400px; margin: 0 auto') 
 
-                  #test_rest.p.
+                  //- #test_rest.p.
                     
             // /stats-right
           // /row
@@ -91,4 +92,7 @@ html(lang='en')
       script(src='/js/graph.js')  
       script(src='js/highchartsMyTheme.js')
       script(src='js/exporting.js')
+      script(src='https://code.highcharts.com/modules/data.js')
+      script(src='https://code.highcharts.com/modules/drilldown.js')
+
 
