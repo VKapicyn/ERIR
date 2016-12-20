@@ -54,7 +54,7 @@ exports.searchCompanyPageREST = function (req, res){
     var query;
 
     if(search!='null')
-        query = Company.find({name:{$regex: search}})
+        query = Company.find({name:{$regex: search, $options:'i'}})
     else
         query = Company.find({});
 
@@ -85,6 +85,8 @@ exports.searchCompanyPageREST = function (req, res){
         for(let i=start; ((i<_company.length) && (i<=finish)); i++){
             result.push(_company[i]);
         }
+        let size = {'key':'size', 'size':_company.length};
+        result.push(size);
         res.json(result);
     }); 
 };

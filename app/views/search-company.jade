@@ -81,8 +81,8 @@ body
                   a(href='#' onclick='sortName()') Название компании
                 span(rel='economy')
                   a(href='#' onclick='sortSector()') Отрасль экономики
-                span(rel='company-size' onclick='sortSize()')
-                  a(href='#' onclick='') Размер предприятия
+                span(rel='company-size')
+                  a(href='#' onclick='sortSize()') Размер предприятия
             // /sort
             .change-view
               strong Вид:
@@ -128,14 +128,27 @@ body
                     a(href='/company/{comp.name}', title='Перейти на страницу компании')
                       img(src!=comp.logo, alt='icon')
               #o-view4.big-icon
-                //for comp in companies
-                  .element
-                    a(href='/company/{comp.name}', title='Перейти на страницу компании')
-                      img(src!=comp.logo, alt='icon')
-          // /search-results-organization
-        // /row
+            .sort
+              .div
+                span(rel='')
+                  | Компаний на странице:&nbsp;
+                a#amount10(href='#') 10&nbsp;&nbsp;
+                a#amount20(href='#') 20&nbsp;&nbsp;
+                a#amount50(href='#') 50&nbsp;&nbsp;
+                #pagination.p
       .space
       .space
+
+      script.
+        $("#amount10").click( function () {
+          setAmount(10);
+        } );
+        $("#amount20").click( function () {
+          setAmount(20);
+        } );
+        $("#amount50").click( function () {
+          setAmount(50);
+        } );
 
       //подключение footer
       script(src='/js/frotnCompanySearch.js')
