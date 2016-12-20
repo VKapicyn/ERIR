@@ -49,8 +49,10 @@ html(lang='en')
                         for val in year
                           option(value='#{val}') #{val}     
                     div
-                      label.radio-inline
-                      input.change-w(name='report_name', placeholder='Название отчета')
+                      select(name='company')
+                        option(value='Компания') Компания
+                        for val in companies
+                          option(value='#{val.name}') #{val.name}
                     div
                       select(name='company_size')
                         for val in size_of_company

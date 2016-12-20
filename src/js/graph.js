@@ -135,7 +135,7 @@ function create(){
                         borderWidth: 0,
                         dataLabels: {
                             enabled: true,
-                            format: '{point.y:.1f}%'
+                            format: '{point.y:.1f}'
                         }
                     }
                 },
@@ -151,28 +151,36 @@ function create(){
                     colorByPoint: true,
                     data: [{
                         name: '2009',
-                        y: reports.y2009
+                        y: reports.y2009,
+                        x: 2009
                     }, {
                         name: '2010',
-                        y: reports.y2010
+                        y: reports.y2010,
+                        x: 2010
                     }, {
                         name: '2011',
-                        y: reports.y2011
+                        y: reports.y2011,
+                        x: 2011
                     }, {
                         name: '2012',
-                        y: reports.y2012
+                        y: reports.y2012,
+                        x: 2012
                     }, {
                         name: '2013',
-                        y: reports.y2013
+                        y: reports.y2013,
+                        x: 2013,
                     }, {
                         name: '2014',
-                        y: reports.y2014
+                        y: reports.y2014,
+                        x: 2014
                     }, {
                         name: '2015',
-                        y: reports.y2015
+                        y: reports.y2015,
+                        x: 2015
                     }, {
                         name: '2016',
-                        y: reports.y2016
+                        y: reports.y2016,
+                        x: 2016
                     }]
                 }],
 

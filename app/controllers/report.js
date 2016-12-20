@@ -7,6 +7,7 @@ var db = dbModel.db;
 import {upload, fs, gfs} from '../models/db-model';
 
 
+var Company = require('../models/companyModel').companyModel;
 var Report = require('../models/reportModel').reportModel;
 var getStatic = require('../models/staticModel').getStatic;
 
@@ -16,8 +17,10 @@ exports.registerReportPage = function (req, res){
         var stat = parse(result);
         // res.render('register-report',{year:stat.year});
         // res.render('register-report',{year:stat.year, sector: stat.sector});
-        res.render('register-report',{year:stat.year, size_of_company: stat.size_of_company, opf: stat.opf, 
-            type_of_ownership: stat.type_of_ownership, standarts: stat.standarts});
+        Company.find({}).then(function (_company){
+            res.render('register-report',{year:stat.year, size_of_company: stat.size_of_company, opf: stat.opf, 
+                type_of_ownership: stat.type_of_ownership, standarts: stat.standarts, companies:_company});
+        });
     });
 };
 
