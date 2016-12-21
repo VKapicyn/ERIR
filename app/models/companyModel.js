@@ -3,40 +3,68 @@ var mongoose = require('mongoose');
 
 var companySchema = new mongoose.Schema({
     //_id: mongoose.Schema.Types.ObjectId,
-    accept: {
-        type: Number,
-        default: 0
-    },
-    date: {
-        type: mongoose.Schema.Types.Date,
-        default: mongoose.Schema.Types.Date.now
-    },
+    accept: Number,
+    date: String,
     logo: String,
-    name: String,
+
+    //учесть возможность поиска по обоим
+    name: String, //добавить в профиль
+    short_name: String, 
+
     info: String,
-    short_name: String,
     opf: String,
-    telephone: String,
-    sector: {
-        type: String,
-    },
+    sector: String,
     adress: String,
     city: String,
-    size_of_company: {
-        type: String,
-    },
-    type_of_ownership: {
-        type: String,
-    },
-    employees: Number,
-    revenue: Number,
-    listing: {
-        type: String,
-    },
-    fax: String,
+    size_of_company: String,
+    type_of_ownership: String,
+    listing: String,
     CEO: String,
     link: String,
-    email: String
+
+    employees: String,//количество сотруд
+    revenue: String,//годовой доход
+
+    comp_phone: String,
+    comp_fax: String,
+    comp_email: String,
+
+    user_FIO: String,
+    user_position: String,
+    user_telphone: String,
+    user_email: String,
+
+    reports: [{
+        accept: Number,
+        date: {
+            type: mongoose.Schema.Types.Date,
+            default: mongoose.Schema.Types.Date.now
+        },
+        name: String,
+        year: String,
+        company: String,
+        standarts: [String],
+
+        BusinessModel: Boolean,
+        Strategy: Boolean,
+        RiskMap: Boolean,
+        ZaverReport: Boolean, // Общественное заверение отчета
+        PanelZS: Boolean, // Участие в панели заинтересованных сторон
+        Best: [String], //админ
+        RRS: String, //админ
+        interactive: String, //добавить поле 
+
+        auditor: String,
+        consultant: String,
+        manager: String,
+        designer: String,
+        pages: String,
+        wins: String,
+
+        doc_rus: String, 
+        doc_en: String,
+        preview: String
+    }]
 })
 
 

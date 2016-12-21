@@ -96,7 +96,7 @@ if admin || company.accept==1
                         td  Факс приемной
                         td  #{company.fax}
                       tr
-                        td  Электронный адрес 
+                        td  Адрес электронной почты
                         td  #{company.email}
                       tr
                         td  Сайт
@@ -106,7 +106,7 @@ if admin || company.accept==1
               .row
                 h3 Список отчетов организации
                 .col-md-10.col-md-offset-2.col-xs-12.col-sm-6.other-reports
-                  for report in page_reports
+                  for report in company.reports
                     .cover
                       a(href='/report/#{report._id}', target='_blank', title='Годовой отчет 2013')
                         img(src=report.preview, alt='')
@@ -154,7 +154,6 @@ if admin || company.accept==1
                     br
                     button.btn.btn-default.green-btn(type='submit')
                       | Сохранить
-                    &nbsp;
                 // /other-reports
               // /row
             // /profile-report

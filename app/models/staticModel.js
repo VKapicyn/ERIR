@@ -28,6 +28,9 @@ var getStatic = function (callback){
                 case 'year': stat.year = result[i].mass;
                     break;
                 case 'best': stat.best = result[i].mass;
+                    break;
+                case 'city': stat.city = result[i].mass;
+                    break;
                 }
             }
         return stat;

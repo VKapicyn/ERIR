@@ -36,20 +36,20 @@ html(lang='en')
             br
             .row.register-company
               form#register-company.edit_form(method='post', action='/company/create', enctype="multipart/form-data")
+                
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-company
-                  h2.sea-green Анкета регистрации профиля организации
                   .col-md-6.col-xs-12.col-sm-10.register-left
                     h3 Информация об организации
                     div
-                      select(name='organization_form')
-                        for val in opf
-                          option(value='#{val}') #{val}
-                      br
-                    div
-                      | Название организации 
+                      | Полное название организации 
                       span.red  * 
                       input(type='text', name='company_name')
+                      br
+                    div
+                      | Сокращенное название организации 
+                      span.red  * 
+                      input(type='text', name='company_short_name')
                       br
                     div
                       | Адрес официального сайта 
@@ -57,29 +57,49 @@ html(lang='en')
                       input(type='text', name='company_site')
                       br
                     div
-                      | Листинг 
-                      label.radio-inline
-                        input#radio1(name='radioGroup', value='option1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='radioGroup', value='option2', checked='', type='radio')
-                        |  Нет
+                      | Количество сотрудников 
+                      span.red  * 
+                      input(type='text', name='employees')
                       br
+                    div
+                      | Годовой доход компании 
+                      span.red  * 
+                      input(type='text', name='revenue')
+                      br
+                    div
+                      | Листинг 
+                      span.red  
                       input.change-w(name='listing', placeholder='Если да, то на какой бирже')
                       br
                     div
+                      span.red  * 
                       select(name='economy')
                         for val in sector
                           option(value='#{val}') #{val}
                       br
                     div
+                      span.red  * 
+                      select(name='organization_form')
+                        for val in opf
+                          option(value='#{val}') #{val}
+                      br
+                    div
+                      span.red  * 
                       select(name='company-size')
                         for val in size_of_company
                           option(value='#{val}') #{val}
                       br
                     div
+                      span.red  * 
                       select(name='ownership')
                         for val in type_of_ownership
+                          option(value='#{val}') #{val}
+                      br
+                    div
+                      span.red  * 
+                      | Головной офис 
+                      select(name='city')
+                        for val in city
                           option(value='#{val}') #{val}
                       br
                     .form-group
@@ -97,30 +117,24 @@ html(lang='en')
                       span.red  *
                       input.change-w(type='text', name='company_law_address')
                       br
+                    div
+                      | Телефон приемной 
+                      span.red  *
+                      input.change-w(type='text', name='comp_phone')
+                      br
+                    div
+                      | Факс приемной 
+                      span.red  *
+                      input.change-w(type='text', name='comp_fax')
+                      br
+                    div
+                      | Адрес электронной почты 
+                      span.red  *
+                      input.change-w(type='text', name='comp_email')
+                      br
                   // /register-company-left
                   .col-md-5.col-xs-12.col-sm-10.register-right
                     h3 Контактная информация
-                    strong Руководитель, ответственный за написание отчета
-                    div
-                      | ФИО 
-                      span.red  *
-                      input.change-w(type='text', name='writer_fio')
-                      br
-                    div
-                      | Должность 
-                      span.red  *
-                      input.change-w(type='text', name='writer_position')
-                      br
-                    div
-                      | Электронная почта 
-                      span.red  *
-                      input.change-w(type='text', name='writer_email')
-                      br
-                    div
-                      | Телефон 
-                      span.red  *
-                      input.change-w(type='text', name='writer_phone')
-                      br
                     strong Пользователь, регистрирующий компанию
                     div
                       | ФИО 
@@ -142,18 +156,16 @@ html(lang='en')
                       span.red  *
                       input.change-w(type='text', name='registrator_phone')
                       br
-    
-    
-    
-    
-    
-                    .buttons.center
-                            .upload
-                                label.btn.btn-default.green-btn(for='upload_logo')
-                                    i.fa.fa-image(aria-hidden='true')
-                                    |  Загрузить логотип компании (в формате        JPG или PNG)          
-                                input#upload_logo(type='file',      name='upload_logo')
-                            .submit
-                                label.btn.btn-default.green-btn(for='submit_reg_company')  Отправить
-                                input#submit_reg_company(type='submit',         name='submit_reg_company' value='Submit')
+                      br
+                .buttons.center
+                  .upload
+                    label.btn.btn-default.green-btn(for='upload_logo')
+                      i.fa.fa-image(aria-hidden='true')
+                      | Загрузить логотип компании (в формате JPG или PNG)          
+                    input#upload_logo(type='file', name='upload_logo')
+                  .submit
+                    label.btn.btn-default.green-btn(for='submit_reg_company')  Отправить
+                    input#submit_reg_company(type='submit',         name='submit_reg_company' value='Submit')
+                  br
+                  br
   include includes/footer                    

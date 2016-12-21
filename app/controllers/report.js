@@ -15,70 +15,74 @@ var getStatic = require('../models/staticModel').getStatic;
 exports.registerReportPage = function (req, res){
     getStatic(function(result, parse){
         var stat = parse(result);
-        // res.render('register-report',{year:stat.year});
-        // res.render('register-report',{year:stat.year, sector: stat.sector});
         Company.find({}).then(function (_company){
-            res.render('register-report',{year:stat.year, size_of_company: stat.size_of_company, opf: stat.opf, 
-                type_of_ownership: stat.type_of_ownership, standarts: stat.standarts, companies:_company});
+            res.render('register-report',{
+                year:stat.year, 
+                size_of_company: stat.size_of_company, 
+                opf: stat.opf, 
+                type_of_ownership: stat.type_of_ownership, 
+                standarts: stat.standarts, companies:_company});
         });
     });
 };
 
-exports.addReport = function (req,res){
-    var new_rep = new Report;
-    new_rep.name = req.body.report_name;
-    new_rep.comapny = req.body.Company;
-    new_rep.IRRC = req.body.IRRC;
-    new_rep.GRI = req.body.GRI;
-    new_rep.A1000SES = req.body.A1000SES;
-    new_rep.A1000APS = req.body.A1000APS;
-    new_rep.BUSMOD = req.body.BUSMOD;
-    new_rep.Strategy = req.body.Strategy;
-    new_rep.Risks = req.body.Risks;
-    new_rep.Assurance = req.body.Assurance;
-    new_rep.Stakes = req.body.Stakes;
-    new_rep.FinAud = req.body.FinAud;
-    new_rep.NonFinAud = req.body.NonFinAud;
-    new_rep.Consultant = req.body.Consultant;
+exports.addReport = function (req, res){
+    var new_rep = {};
 
-    console.log(new_rep.name);
-    console.log(req.body);
-    console.log(req.files);
+    Company.findOne({name: req.body.company}).then(function(result){
+        new_rep.name = req.body.report_name;
+        new_rep.comapny = req.body.Company;
+        new_rep.IRRC = req.body.IRRC;
+        new_rep.GRI = req.body.GRI;
+        new_rep.A1000SES = req.body.A1000SES;
+        new_rep.A1000APS = req.body.A1000APS;
+        new_rep.BUSMOD = req.body.BUSMOD;
+        new_rep.Strategy = req.body.Strategy;
+        new_rep.Risks = req.body.Risks;
+        new_rep.Assurance = req.body.Assurance;
+        new_rep.Stakes = req.body.Stakes;
+        new_rep.FinAud = req.body.FinAud;
+        new_rep.NonFinAud = req.body.NonFinAud;
+        new_rep.Consultant = req.body.Consultant;
 
+        console.log(new_rep.name);
+        console.log(req.body);
+        console.log(req.files);
 
-     //cохраняем лого в БД
-    req.files.upload[0].mv('src/buffer/'+new_rep._id+req.files.upload[0].name, function (err) {console.log('ttts')});
+        console.log('okeyushki 1');
+        //лого
+//        req.files.upload[0].mv('src/buffer/' + new_rep._id + req.files.upload[0].name, function (err) { console.log('ttts') });
+//        var writestream = gfs.createWriteStream({
+//            filename: new_rep._id + req.files.upload[0].name
+//        });
+//        fs.createReadStream('src/buffer/' + new_rep._id + req.files.upload[0].name)
+//            .on('end', function () { fs.unlink('src/buffer/' + new_rep._id + req.files.upload[0].name, function (err) { console.log("success") }) })
+//            .on('err', function () { console.log('Error uploading image') })
+//            .pipe(writestream);
+//        writestream.on('close', function (file) {
+//            console.log(file.filename + ' Written To DB');
+//        });
 
-    var writestream = gfs.createWriteStream({
-      filename: new_rep._id+req.files.upload[0].name
+        console.log('okeyushki 2');
+        //отчет ru
+//        req.files.upload[1].mv('src/buffer/'+new_comp._id+req.files.upload[1].name, function (err) {console.log('ttts')});
+//        writestream = gfs.createWriteStream({
+//        filename: new_rep._id+req.files.upload[1].name
+//        });
+//        fs.createReadStream('src/buffer/'+new_rep._id+req.files.upload[1].name)
+//        .on('end', function(){fs.unlink('src/buffer/'+new_rep._id+req.files.upload[1].name, function(err){console.log("success")})})
+//            .on('err', function(){ console.log('Error uploading image')})
+//            .pipe(writestream);
+//        writestream.on('close', function (file){
+//            console.log(file.filename + ' Written To DB');
+//        });
+
+        console.log('okeyushki 3');
+       
+        result.reports.unshift(new_rep);
+        result.save();
+        res.redirect('/');
     });
-
-    fs.createReadStream('src/buffer/'+new_rep._id+req.files.upload[0].name)
-      .on('end', function(){fs.unlink('src/buffer/'+new_rep._id+req.files.upload[0].name, function(err){console.log("success")})})
-        .on('err', function(){ console.log('Error uploading image')})
-          .pipe(writestream);
-
-    writestream.on('close', function (file){
-        console.log(file.filename + ' Written To DB');
-    });
-
-    req.files.upload[1].mv('src/buffer/'+new_comp._id+req.files.upload[0].name, function (err) {console.log('ttts')});
-
-    var writestream = gfs.createWriteStream({
-      filename: new_rep._id+req.files.upload[1].name
-    });
-
-    fs.createReadStream('src/buffer/'+new_rep._id+req.files.upload[1].name)
-      .on('end', function(){fs.unlink('src/buffer/'+new_rep._id+req.files.upload[1].name, function(err){console.log("success")})})
-        .on('err', function(){ console.log('Error uploading image')})
-          .pipe(writestream);
-
-    writestream.on('close', function (file){
-        console.log(file.filename + ' Written To DB');
-    });
-
-    new_rep.save();
-    res.send('ok '+new_rep._id+' ');
 };
 
 exports.getReportById = function (req, res){
