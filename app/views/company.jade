@@ -112,21 +112,49 @@ if admin || company.accept==1
                         img(src=report.preview, alt='')
               .row
                 if admin
-                  p.
-                  | Это видит только администратор
                   br
+                  p(style="color:brown;font-size:16pt") 
+                    b
+                      |Это видит только администратор
+                  form(method='post', action='/company/correct/single/#{company._id}')
+                    button.btn.btn-default.green-btn(type='submit')
+                      | Редактировать содержание
+                    br
+                    br
+                  span
+                    b
+                      | Текущий статус: 
                   if (company.accept==0)
-                    | Компания не проверенна
-                    br
-                    | 0000
+                    span(style="color:blue;font-size:14pt")
+                      | Непроверен
                   if (company.accept==1)
-                    | Компания проверенна
-                    br
-                    | 1111
+                    span(style="color:green;font-sisearchze:14pt")
+                      | Проверен
                   if (company.accept==2)
-                    | Компания отклонена
+                    span(style="color:red;font-size:14pt")
+                      | Отклонен
+                  br
+                  form(method='post', action='/company/accept/single/#{company._id}')
+                    label.radio-inline 
+                      input(name='accept', value='7', type='radio', checked='')
+                      | Не менять статус
                     br
-                    | 222
+                    label.radio-inline
+                      input(name='accept', value='0', type='radio')
+                      | Непроверен
+                    br
+                    label.radio-inline
+                      input(name='accept', value='1', type='radio')
+                      | Проверен
+                    br
+                    label.radio-inline
+                      input(name='accept', value='2', type='radio')
+                      | Отклонен
+                    br
+                    br
+                    button.btn.btn-default.green-btn(type='submit')
+                      | Сохранить
+                    &nbsp;
                 // /other-reports
               // /row
             // /profile-report

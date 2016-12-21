@@ -142,24 +142,56 @@ if admin || report.accept==1
                         img(src=report.preview, alt='')
               .row
                 if admin
-                  p.
-                  | Это видит только администратор
                   br
-                  if (report.accept==0)
-                    | Отчет не проверен
-                    br
-                    | 0000
-                  if (report.accept==1)
-                    | Отчет проверен
-                    br
-                    | 1111
-                  if (report.accept==2)
-                    | Отчет отклонен
-                    br
-                    | 222
-                  p
+                  p(style="color:brown;font-size:16pt") 
                     b
-                      Здесь будет возможность отметить как лучшую практику
+                      |Это видит только администратор
+                  form(method='post', action='/report/correct/single/#{report._id}')
+                    button.btn.btn-default.green-btn(type='submit')
+                      | Редактировать содержание
+                    br
+                    br
+                  span
+                    b
+                      | Текущий статус: 
+                  if (report.accept==0)
+                    span(style="color:blue;font-size:14pt")
+                      | Непроверен
+                  if (report.accept==1)
+                    span(style="color:green;font-size:14pt")
+                      | Проверен
+                  if (report.accept==2)
+                    span(style="color:red;font-size:14pt")
+                      | Отклонен
+                  br
+                  br
+                  form(method='post', action='/report/accept/single/#{report._id}')
+                    label.radio-inline 
+                      input(name='accept', value='7', type='radio', checked='')
+                      | Не менять статус
+                    br
+                    label.radio-inline
+                      input(name='accept', value='0', type='radio')
+                      | Непроверен
+                    br
+                    label.radio-inline
+                      input(name='accept', value='1', type='radio')
+                      | Проверен
+                    br
+                    label.radio-inline
+                      input(name='accept', value='2', type='radio')
+                      | Отклонен
+                    br
+                    br
+                    strong Лучшая практика
+                      br
+                      for val in best
+                        input(type='checkbox', value='#{val}')
+                        |  #{val}
+                        br
+                      br
+                    button.btn.btn-default.green-btn(type='submit')
+                      | Сохранить
                 // /other-reports
               // /row
             // /profile-report

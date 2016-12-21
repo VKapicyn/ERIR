@@ -27,6 +27,7 @@ var getStatic = function (callback){
                     break;
                 case 'year': stat.year = result[i].mass;
                     break;
+                case 'best': stat.best = result[i].mass;
                 }
             }
         return stat;

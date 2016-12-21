@@ -35,6 +35,7 @@ app.get('/register-report', require('./app/controllers/report').registerReportPa
 app.get('/register-company', require('./app/controllers/company').registerCompanyPage);
 app.get('/admin', require('./app/controllers/admin').adminPage);
 app.get('/logout', require('./app/controllers/admin').adminLogout)
+app.post('/user/login', require('./app/controllers/admin').adminLogin);
 
 
 app.get('/search/:sort', require('./app/controllers/search').searchReportPage);
@@ -42,9 +43,9 @@ app.get('/company/:name', require('./app/controllers/company').getCompanyByName)
 app.get('/report/:id', require('./app/controllers/report').getReportById);
 app.post('/company/create/', require('./app/controllers/company').addCompany);
 app.post('/report/create/', require('./app/controllers/report').addReport);
-app.get('/:filename', require('./app/controllers/db-files').getFile); 
-app.post('/create/user', require('./app/controllers/admin').adminCreate);
-app.post('/user/login', require('./app/controllers/admin').adminLogin);
+app.get('/:filename', require('./app/controllers/db-files').getFile);
+// 4 маршрута для редактирования
+//app.post('/create/user', require('./app/controllers/admin').adminCreate);
 
 
 //маршрутизация API запросов

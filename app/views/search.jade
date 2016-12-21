@@ -79,35 +79,27 @@ body
                     for val in type_of_ownership
                       option(value='#{val}') #{val}
                   br
+                  br
                   strong Наличие стандартов
                   br
                   for val in standarts
                     input(type='checkbox', value='#{val}')
                     |  #{val}
                     br
+                  br
                   strong Лучшая практика
                   br
-                  input(type='checkbox', value='0')
-                  |  Лучшее раскрытие стратегии
-                  br
-                  input(type='checkbox', value='1')
-                  |  Лучшее раскрытие бизнес-модели
-                  br
-                  input(type='checkbox', value='2')
-                  |  Лучшее раскрытие информации о рисках
-                  br
-                  input(type='checkbox', value='3')
-                  |  Лучшее раскрытие информации о корпоративном управлении
-                  br
-                  input(type='checkbox', value='4')
-                  |  Лучшее раскрытие информации о деятельности в области УР
-                  br
-                  input(type='checkbox', value='5')
-                  |  Лучшее раскрытие информации о системе публичной отчетности
+                  for val in best
+                    input(type='checkbox', value='#{val}')
+                    |  #{val}
+                    br
                   br
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск отчета
+                  button.btn.btn-default.green-btn(type='submit')
+                    i.fa.fa-times(aria-hidden='true')
+                    |  Сброс
                   br
               // /поиск отчета #search-report
 

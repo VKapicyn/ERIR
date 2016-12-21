@@ -27,7 +27,8 @@ exports.searchReportPage = function (req, res){
                 type_of_ownership: stat.type_of_ownership,
                 sector: stat.sector, 
                 standarts: stat.standarts,
-                size_of_company: stat.size_of_company, 
+                size_of_company: stat.size_of_company,
+                best: stat.best, 
                 reports: reports
             });
         });

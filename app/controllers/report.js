@@ -82,11 +82,13 @@ exports.addReport = function (req,res){
 };
 
 exports.getReportById = function (req, res){
-
-    Report.findOne({_id:new ObjectId(req.params.id)}).then(function (_report){
-        Report.find({company:_report.company}).then(function (reports){
-            res.render('report', {report:_report, reports:reports, admin: req.session.user});
-        });
-	}); 
+    getStatic(function(result, parse){
+        var stat = parse(result);
+        Report.findOne({_id:new ObjectId(req.params.id)}).then(function (_report){
+            Report.find({company:_report.company}).then(function (reports){
+                res.render('report', {report:_report, reports:reports, admin: req.session.user, best: stat.best});
+            });
+	    });
+    }); 
 };
 

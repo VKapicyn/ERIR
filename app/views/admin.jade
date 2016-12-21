@@ -22,6 +22,8 @@ if user
             br
             | Заголовок - дата - статус
         br
+    br
+    br
     details
         summary Непровернные компании
         input(type='checkbox', value='Выбрать все')
@@ -55,6 +57,8 @@ if user
                 | #{val.name} (Добавлено: #{val.date}) - 
                 a(href='/company/#{val.name}') Просмотреть
                 br
+    br
+    br
     details
         summary Непровернные отчеты
         input(type='checkbox', value='Выбрать все')
@@ -70,7 +74,7 @@ if user
             if val.accept == '0'
                 input(type='checkbox', value='#{val.name}') 
                 | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/company/#{val._id}') Просмотреть
+                a(href='/report/#{val._id}') Просмотреть
                 br
         
     details
@@ -86,6 +90,22 @@ if user
             if val.accept == '2'
                 input(type='checkbox', value='#{val.name}') 
                 | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/company/#{val._id}') Просмотреть
+                a(href='/report/#{val._id}') Просмотреть
+                br
+    details
+        summary Проверенные отчеты
+        input(type='checkbox', value='Выбрать все')
+        | Выбрать все 
+        button(type='submit') Откланить
+        | &nbsp;
+        button(type='submit') Удалить
+        hr
+        br
+        for val in reports 
+            if val.accept == '1'
+                input(type='checkbox', value='#{val.name}') 
+                | #{val.name} (Добавлено: #{val.date}) - 
+                a(href='/report/#{val._id}') Просмотреть
                 br
 else
+    | У Вас нет прав для просмотра данной страницы
