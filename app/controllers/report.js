@@ -27,7 +27,7 @@ exports.registerReportPage = function (req, res){
 };
 
 exports.addReport = function (req, res){
-    var new_rep = {};
+    var new_rep = new Report;
 
     Company.findOne({name: req.body.company}).then(function(result){
         new_rep.name = req.body.report_name;
@@ -44,6 +44,8 @@ exports.addReport = function (req, res){
         new_rep.FinAud = req.body.FinAud;
         new_rep.NonFinAud = req.body.NonFinAud;
         new_rep.Consultant = req.body.Consultant;
+        new_rep.date = new Date();
+        new_rep.accept = '0';
 
         console.log(new_rep.name);
         console.log(req.body);
@@ -63,7 +65,7 @@ exports.addReport = function (req, res){
 //            console.log(file.filename + ' Written To DB');
 //        });
 
-        console.log('okeyushki 2');
+
         //отчет ru
 //        req.files.upload[1].mv('src/buffer/'+new_comp._id+req.files.upload[1].name, function (err) {console.log('ttts')});
 //        writestream = gfs.createWriteStream({
@@ -77,10 +79,12 @@ exports.addReport = function (req, res){
 //            console.log(file.filename + ' Written To DB');
 //        });
 
-        console.log('okeyushki 3');
-       
-        result.reports.unshift(new_rep);
+        new_rep.company_id = result._id;
+        new_rep.save();
+        console.log('okeyushki 2');
+        result.reports.unshift(new_rep._id);
         result.save();
+        console.log('okeyushki 3');
         res.redirect('/');
     });
 };

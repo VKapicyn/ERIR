@@ -2,13 +2,13 @@ var mongoose = require('mongoose');
 
 
 var companySchema = new mongoose.Schema({
-    //_id: mongoose.Schema.Types.ObjectId,
+
     accept: Number,
-    date: String,
+    date: mongoose.Schema.Types.Date,
     logo: String,
 
     //учесть возможность поиска по обоим
-    name: String, //добавить в профиль
+    name: String, 
     short_name: String, 
 
     info: String,
@@ -34,37 +34,7 @@ var companySchema = new mongoose.Schema({
     user_telphone: String,
     user_email: String,
 
-    reports: [{
-        accept: Number,
-        date: {
-            type: mongoose.Schema.Types.Date,
-            default: mongoose.Schema.Types.Date.now
-        },
-        name: String,
-        year: String,
-        company: String,
-        standarts: [String],
-
-        BusinessModel: Boolean,
-        Strategy: Boolean,
-        RiskMap: Boolean,
-        ZaverReport: Boolean, // Общественное заверение отчета
-        PanelZS: Boolean, // Участие в панели заинтересованных сторон
-        Best: [String], //админ
-        RRS: String, //админ
-        interactive: String, //добавить поле 
-
-        auditor: String,
-        consultant: String,
-        manager: String,
-        designer: String,
-        pages: String,
-        wins: String,
-
-        doc_rus: String, 
-        doc_en: String,
-        preview: String
-    }]
+    reports: [String]
 })
 
 

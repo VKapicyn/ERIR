@@ -106,7 +106,7 @@ if admin || company.accept==1
               .row
                 h3 Список отчетов организации
                 .col-md-10.col-md-offset-2.col-xs-12.col-sm-6.other-reports
-                  for report in company.reports
+                  for report in reports
                     .cover
                       a(href='/report/#{report._id}', target='_blank', title='Годовой отчет 2013')
                         img(src=report.preview, alt='')

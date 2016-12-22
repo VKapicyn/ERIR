@@ -56,7 +56,8 @@ html(lang='en')
                       select(name='company')
                         option(value='Компания') Компания
                         for val in companies
-                          option(value='#{val.name}') #{val.name}
+                          if val.accept == '1'
+                            option(value='#{val.name}') #{val.name}
                     div
                       p.right Наличие стандартов 
                         br

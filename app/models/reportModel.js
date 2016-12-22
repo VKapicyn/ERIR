@@ -2,37 +2,33 @@ var mongoose = require('mongoose');
 
 
 var reportSchema = new mongoose.Schema({
-    accept: Number,
-    date: {
-        type: mongoose.Schema.Types.Date,
-        default: mongoose.Schema.Types.Date.now
-    },
-    name: String,
-    year: String,
-    company: String,
-    standarts: [String],
+        accept: Number,
+        date: mongoose.Schema.Types.Date,
+        name: String,
+        year: String,
+        company: String,
+        company_id: String,
+        standarts: [String],
 
-    BusinessModel: Boolean,
-    Strategy: Boolean,
-    RiskMap: Boolean,
-    //Общественное заверение отчета
-    //Участие в панели заинтересованных сторон
+        BusinessModel: Boolean,
+        Strategy: Boolean,
+        RiskMap: Boolean,
+        ZaverReport: Boolean, // Общественное заверение отчета
+        PanelZS: Boolean, // Участие в панели заинтересованных сторон
+        Best: [String], //админ
+        RRS: String, //админ
+        interactive: String, //добавить поле 
 
-    Best: [String], //админ
-    RRS: String, //админ
-    interactive: String, //добавить поле 
+        auditor: String,
+        consultant: String,
+        manager: String,
+        designer: String,
+        pages: String,
+        wins: String,
 
-    auditor: String,
-    consultant: String,
-    manager: String,
-    designer: String,
-    pages: String,
-    wins: String,
-
-    doc_rus: String, 
-    doc_en: String,
-    preview: String
-
+        doc_rus: String, 
+        doc_en: String,
+        preview: String
 })
 
 
