@@ -13,12 +13,13 @@ var reportSchema = new mongoose.Schema({
         BusinessModel: Boolean,
         Strategy: Boolean,
         RiskMap: Boolean,
-        ZaverReport: Boolean, // Общественное заверение отчета
-        PanelZS: Boolean, // Участие в панели заинтересованных сторон
+        Assurance: Boolean, // Общественное заверение отчета
+        Stakes: Boolean, // Участие в панели заинтересованных сторон
         Best: [String], //админ
         RRS: String, //админ
-        interactive: String, //добавить поле 
+        interactive: String,
 
+        fin_auditor: String,
         auditor: String,
         consultant: String,
         manager: String,
@@ -28,7 +29,12 @@ var reportSchema = new mongoose.Schema({
 
         doc_rus: String, 
         doc_en: String,
-        preview: String
+        preview: String,
+
+        user_FIO: String,
+        user_position: String,
+        user_telphone: String,
+        user_email: String
 })
 
 

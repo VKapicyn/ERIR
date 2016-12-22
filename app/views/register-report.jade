@@ -46,7 +46,7 @@ html(lang='en')
                     div
                       | Название отчета 
                       span.red  *
-                      input.change-w-number(name='report_name', type='number')
+                      input.change-w-number(name='report_name', type='text')
                       br
                     div
                       select(name='report_year')
@@ -68,15 +68,15 @@ html(lang='en')
                     div
                       | Количество страниц 
                       span.red  *
-                      input.change-w-number(name='count_page', type='number')
+                      input.change-w-number(name='pages', type='number')
                       br                
                     div
                       | Наличие в отчете бизнес-модели 
                       label.radio-inline
-                        input#radio1(name='BUSMOD', value='1', type='radio')
+                        input#radio1(name='BusinessModel', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='BUSMOD', value='0', checked='', type='radio')
+                        input#radio2(name='BusinessModel', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
@@ -91,10 +91,10 @@ html(lang='en')
                     div
                       | Наличие в отчете информации о рисках 
                       label.radio-inline
-                        input#radio1(name='Risks', value='1', type='radio')
+                        input#radio1(name='RiskMap', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='Risks', value='0', checked='', type='radio')
+                        input#radio2(name='RiskMap', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
@@ -118,28 +118,32 @@ html(lang='en')
                   // /register-report-left
                   .col-md-5.col-xs-12.col-sm-6.register-right
                     div
+                      | Ссылка на HTML версию отчета 
+                      input.change-w-number(name='interactive', type='text', placeholder='Интерактивный отчет')
+                      br
+                    div
                       | Финансовый аудитор отчета 
-                      input.change-w(name='', placeholder='Юридическое название аудитора')
+                      input.change-w(name='fin_auditor', placeholder='Юридическое название аудитора')
                       br
                     div
                       | Аудитор нефинансовой информации отчета 
-                      input.change-w(name='', placeholder='Юридическое название аудитора')
+                      input.change-w(name='auditor', placeholder='Юридическое название аудитора')
                       br
                     div
                       | Консультант подготовки отчета 
-                      input.change-w(name='', placeholder='Консультант подготовки отчета')
+                      input.change-w(name='consultant', placeholder='Консультант подготовки отчета')
                       br
                     div
                       | Менеджер процесса подготовки отчета 
-                      input.change-w(name='', placeholder='Фамилия и имя менеджера')
+                      input.change-w(name='manager', placeholder='Фамилия и имя менеджера')
                       br
                     div
                       | Дизайнер отчета 
-                      input.change-w(name='Design', placeholder='Фамилия и имя дизайнера')
+                      input.change-w(name='designer', placeholder='Фамилия и имя дизайнера')
                       br
                     div
                       | Победы в национальных конкурсах отчетности 
-                      input.change-w(name='', placeholder='Конкурсы и занятые места')
+                      input.change-w(name='wins', placeholder='Конкурсы и занятые места')
                       br
 
                     div

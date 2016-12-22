@@ -39,7 +39,7 @@ app.post('/user/login', require('./app/controllers/admin').adminLogin);
 
 
 app.get('/search/:sort', require('./app/controllers/search').searchReportPage);
-app.get('/company/:name', require('./app/controllers/company').getCompanyByName);
+app.get('/company/:id', require('./app/controllers/company').getCompanyById);
 app.get('/report/:id', require('./app/controllers/report').getReportById);
 app.post('/company/create/', require('./app/controllers/company').addCompany);
 app.post('/report/create/', require('./app/controllers/report').addReport);

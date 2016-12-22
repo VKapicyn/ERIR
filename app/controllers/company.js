@@ -80,9 +80,9 @@ exports.addCompany = function (req,res){
     res.redirect('/'); // Добавить страницу об успешной регистрации
 };
 
-exports.getCompanyByName = function (req, res) {
-    Company.findOne({name:req.params.name}).then(function (company){
-        Report.find({company:company.name}).then(function (reports){
+exports.getCompanyById = function (req, res) {
+    Company.findOne({_id:req.params.id}).then(function (company){
+        Report.find({company_id: company._id}).then(function (reports){
 		    res.render('company', {company:company, reports:reports, admin: req.session.user});
         });
 	});

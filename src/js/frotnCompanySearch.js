@@ -26,14 +26,14 @@ function getSearchCompany(){
             }
             let tableContent = '';         
             tableContent += '<div class="element output">';
-            tableContent += '<a href="/company/'+data[key].name+'" title="Перейти на страницу компании">';
+            tableContent += '<a href="/company/'+data[key]._id+'" title="Перейти на страницу компании">';
             tableContent += '<img src="'+data[key].logo+'" alt="logo">'+'&nbsp;'+data[key].name+'</a>';
             tableContent += '</div>';
             $('#o-view1').append(tableContent);
 
             tableContent = '';
             tableContent += '<tr class="output">';
-            tableContent += '<td><a href="/company/'+data[key].name+'" title="Перейти на страницу компании">'+data[key].name+'</a></td>';
+            tableContent += '<td><a href="/company/'+data[key]._id+'" title="Перейти на страницу компании">'+data[key].name+'</a></td>';
             tableContent += '<td>'+data[key].sector+'</td>';
             tableContent += '<td>'+data[key].size_of_company+'</td>';
             tableContent += '</tr>';
@@ -41,7 +41,7 @@ function getSearchCompany(){
 
             tableContent = '';
             tableContent += '<div class="element output">';
-            tableContent += '<a href="/company/'+data[key].name+'" title="Перейти на страницу компании">';
+            tableContent += '<a href="/company/'+data[key]._id+'" title="Перейти на страницу компании">';
             tableContent += '<img src="'+data[key].logo+'" alt="icon"></a>';
             tableContent += '</div>';
             $('#o-view3').append(tableContent);

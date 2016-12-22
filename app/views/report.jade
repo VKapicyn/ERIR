@@ -54,7 +54,7 @@ if admin || report.accept==1
                       tr
                         td Компания
                         td 
-                          a(href='/company/') #{report.company}
+                          a(href='/company/#{report.company_id}') #{report.company}
                       tr
                         td Отчетный год
                         td 2010
@@ -62,23 +62,16 @@ if admin || report.accept==1
                         td Отрасль экономики
                         td Атомная промышленность
                       tr
-                        td Международный стандарт по интегрированной отчетности
-                        td
-                          i.fa.fa-close(aria-hidden='true')
-                      tr
                         td Руководство GRI
-                        td G3
-                      tr
-                        td AA1000SES
-                        td
-                          i.fa.fa-check(aria-hidden='true')
-                      tr
-                        td AA1000APS 
-                        td
-                          i.fa.fa-close(aria-hidden='true')
-                      tr
-                        td  Рейтинг прозрачности РРС
-                        td  - 
+                        td 
+                          for val in standarts
+                            | #{val}
+                            br
+                      if (report.RRS != undefined)
+                        tr
+                          td  Рейтинг прозрачности РРС
+                          td 
+                            | #{report.RRS}
                       tr
                         td  Наличие в отчете бизнес-модели 
                         td  - 
@@ -88,47 +81,41 @@ if admin || report.accept==1
                       tr
                         td  Наличие в отчете информации об управлении рисками
                         td  - 
-                      tr
-                        td  Лучшее раскрытие стратегии 
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие бизнес-модели 
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации об управлении рисками
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации о корпоративном управлении
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации о деятельности в области УР
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации о системе публичной отчетности
-                        td  - 
-                      tr
-                        td  Компания-консультант
-                        td  Группа компаний «Да-Стратегия»
-                      tr
-                        td  Менеджер отчета
-                        td  - 
-                      tr
-                        td  Дизайн отчета
-                        td  - 
-                      tr
-                        td  Аудитор отчета
-                        td  ЗАО «ПрайсвотерхаусКуперс Аудит»
+                      if (report.best != undefined)
+                        tr
+                          td  Является лучшей практикой в: 
+                          td
+                            for val in best
+                              | #{val}
+                              br
+                      if (report.consultant != undefined)
+                        tr
+                          td  Компания-консультант
+                          td  #{report.consultant}
+                      if (report.manager != undefined)
+                        tr
+                          td  Менеджер отчета
+                          td  #{report.manager}
+                      if (report.designer!=undefined)
+                        tr
+                          td  Дизайн отчета
+                          td  #{report.report} 
+                      if (report.auditor!=undefined)
+                        tr
+                          td  Аудитор отчета
+                          td  #{report.auditor}
                 .col-md-2.col-xs-12.col-sm-12.report-buttons
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-download(aria-hidden='true')
-                    |  Скачать отчет (RU)
+                      a(href='#{report.doc_rus}') Скачать отчет (RU)
+                  if (doc_en!=undefined)
+                    br
+                    button.btn.btn-default.green-btn(type='submit')
+                      i.fa.fa-download(aria-hidden='true')
+                        a(href='#{report.doc_en}') Скачать отчет (ENG)
                   br
                   button.btn.btn-default.green-btn(type='submit')
-                    i.fa.fa-download(aria-hidden='true')
-                    |  Скачать отчет (ENG)
-                  br
-                  button.btn.btn-default.green-btn(type='submit')
-                    a(href='#', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
+                    a(href='#{report.interactive}', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
                   br
               // /row
               // убрать из массива текущий отчет
