@@ -4,7 +4,7 @@ var dbModel = require('../models/db-model');
 var db = dbModel.db;
 
 
-import {upload, fs, gfs} from '../models/db-model';
+import {fs, gfs} from '../models/db-model';
 
 
 var getStatic = require('../models/staticModel').getStatic;
@@ -53,18 +53,13 @@ exports.addCompany = function (req,res){
     new_comp.comp_email = req.body.comp_email;
 
     new_comp.date = new Date();
-    
-    console.log(req.files);
-
-     //cохраняем лого в БД
-    req.files.upload_logo.mv('src/buffer/'+new_comp._id+req.files.upload_logo.name, function (err) {console.log('ttts '+err)});
 
     var writestream = gfs.createWriteStream({
-      filename: new_comp._id+req.files.upload_logo.name
+      filename: req.file.filename
     });
 
-    fs.createReadStream('src/buffer/'+new_comp._id+req.files.upload_logo.name)
-      .on('end', function(){fs.unlink('src/buffer/'+new_comp._id+req.files.upload_logo.name, function(err){console.log('success')})})
+    fs.createReadStream(req.file.path)
+      .on('end', function(){fs.unlink(req.file.path, function(err){console.log('success')})})
         .on('err', function(){ console.log('Error uploading image')})
           .pipe(writestream);
  
@@ -72,7 +67,7 @@ exports.addCompany = function (req,res){
         console.log(file.filename + ' Written To DB');
     });
 
-    new_comp.logo = '/'+new_comp._id+req.files.upload_logo.name;
+    new_comp.logo = '/'+req.file.filename;
     new_comp.save();
 
     // добавить отправку писем

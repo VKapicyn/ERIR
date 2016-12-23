@@ -3,7 +3,6 @@ var ObjectId = mongoose.Types.ObjectId;
 var dbModel = require('../models/db-model');
 var db = dbModel.db;
 
-
 import {upload, fs, gfs} from '../models/db-model';
 
 
@@ -28,10 +27,13 @@ exports.registerReportPage = function (req, res){
 
 exports.addReport = function (req, res){
     var new_rep = new Report;
+    console.log(req.file);
+    //console.log('files '+req.file);
 
-    Company.findOne({name: req.body.company}).then(function(result){   
-        getStatic(function(res, parse){
-        let stat = parse(res);
+    Company.findOne({name: 'test0005'/*req.body.company*/}).then(function(result){  
+        console.log(req.file); 
+        getStatic(function(resul, parse){
+        let stat = parse(resul);
         new_rep.accept = '0';
         new_rep.date = new Date();
         new_rep.name = req.body.report_name;
@@ -70,23 +72,22 @@ exports.addReport = function (req, res){
         new_rep.user_email = req.body.registrator_phone;
 
         console.log(req.body);
-        console.log('files '+req.files);
+        console.log(req.file);
 
-        
 
         //лого
         //req.files.upload_preview.mv('src/buffer/' + new_rep._id + req.files.upload_preview.name, function (err) { console.log('ttts') });
         //var writestream = gfs.createWriteStream({
-        //    filename: new_rep._id + req.files.upload_preview.name
+        //    filename: new_rep._id + req.body.upload
         //});
-        //fs.createReadStream('src/buffer/' + new_rep._id + req.files.upload_preview.name)
-        //    .on('end', function () { fs.unlink('src/buffer/' + new_rep._id + req.files.upload_preview.name, function (err) { console.log("success") }) })
+        //fs.createReadStream('src/buffer/' + new_rep._id + req.body.upload)
+        //    .on('end', function () { fs.unlink('src/buffer/' + new_rep._id + req.body.upload, function (err) { console.log("success") }) })
         //    .on('err', function () { console.log('Error uploading image') })
         //    .pipe(writestream);
         //writestream.on('close', function (file) {
         //    console.log(file.filename + ' Written To DB');
         //});
-        //new_rep.preview = '/' + new_rep.id + req.files.upload_preview.name;
+        //new_rep.preview = '/' + new_rep.id + req.body.upload;
 //
         //console.log('okeyushki 1');
         //console.log(new_rep);
@@ -102,8 +103,6 @@ exports.addReport = function (req, res){
 //        writestream.on('close', function (file){
 //            console.log(file.filename + ' Written To DB');
 //        });
-
-        
         new_rep.save();
         result.reports.unshift(new_rep._id);
         result.save();
