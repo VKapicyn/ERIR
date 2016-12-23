@@ -8,6 +8,7 @@ var reportSchema = new mongoose.Schema({
         year: String,
         company: String,
         company_id: String,
+        sector: String,
         standarts: [String],
 
         BusinessModel: Boolean,

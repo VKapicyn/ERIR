@@ -39,7 +39,7 @@ html(lang='en')
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-report
-              form#register-report.edit_form(action=' /report/create', method='post', name='form-register-company')
+              form#register-report.edit_form(action='/report/create', method='post', name='form-register-company')
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-report
                   .col-md-6.col-xs-11.col-sm-5.register-left
@@ -56,13 +56,13 @@ html(lang='en')
                       select(name='company')
                         option(value='Компания') Компания
                         for val in companies
-                          if val.accept == '1'
-                            option(value='#{val.name}') #{val.name}
+                          //if val.accept == '1'
+                          option(value='#{val.name}') #{val.name}
                     div
                       p.right Наличие стандартов 
                         br
                         for val in standarts
-                          input(type='checkbox', value='#{val}')
+                          input(type='checkbox', name='#{val}', value='#{val}')
                           |  #{val}  
                           br 
                     div
@@ -119,7 +119,7 @@ html(lang='en')
                   .col-md-5.col-xs-12.col-sm-6.register-right
                     div
                       | Ссылка на HTML версию отчета 
-                      input.change-w-number(name='interactive', type='text', placeholder='Интерактивный отчет')
+                      input.change-w-number(name='interactive', type='text', placeholder='http://')
                       br
                     div
                       | Финансовый аудитор отчета 
@@ -181,7 +181,7 @@ html(lang='en')
                     label.btn.btn-default.green-btn(for='upload-cover')
                       i.fa.fa-file-image-o(aria-hidden='true')
                       |  Загрузить обложку отчета (в формате JPG или PNG)
-                    input#upload-cover(type='file', name='upload')
+                    input#upload-cover(type='file', name='upload_preview')
                 .buttons.center.submit
                     div
                       label.btn.btn-default.green-btn(for='submit-reg-company')  Отправить

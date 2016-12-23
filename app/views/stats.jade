@@ -54,8 +54,9 @@ html(lang='en')
                   br
                 div
                   select(name='standart')
-                    for val in standarts
-                      option(value='#{val}') #{val}
+                    option(value='Все стандарты') Все стандарты
+                      for val in standarts
+                        option(value='#{val}') #{val}
                 div
                   select(name='company_size')
                     for val in size_of_company

@@ -29,43 +29,67 @@ exports.registerReportPage = function (req, res){
 exports.addReport = function (req, res){
     var new_rep = new Report;
 
-    Company.findOne({name: req.body.company}).then(function(result){
+    Company.findOne({name: req.body.company}).then(function(result){   
+        getStatic(function(res, parse){
+        let stat = parse(res);
+        new_rep.accept = '0';
+        new_rep.date = new Date();
         new_rep.name = req.body.report_name;
-        new_rep.comapny = req.body.Company;
-        new_rep.IRRC = req.body.IRRC;
-        new_rep.GRI = req.body.GRI;
-        new_rep.A1000SES = req.body.A1000SES;
-        new_rep.A1000APS = req.body.A1000APS;
-        new_rep.BUSMOD = req.body.BUSMOD;
+        new_rep.year = req.body.report_year;
+        new_rep.comapny = result.company;
+        new_rep.sector = result.sector;
+        new_rep.company_id = result._id;
+
+        var standarts = [];
+        for(let i=0; i<stat.standarts.length; i++){
+            if (req.body[stat.standarts[i]] != undefined)
+                {
+                    standarts.push(req.body[stat.standarts[i]]);
+                }
+        }
+        new_rep.standarts = standarts;
+
+        new_rep.BusinessModel = req.body.BusinessModel;
         new_rep.Strategy = req.body.Strategy;
-        new_rep.Risks = req.body.Risks;
+        new_rep.RiskMap = req.body.RiskMap;
         new_rep.Assurance = req.body.Assurance;
         new_rep.Stakes = req.body.Stakes;
-        new_rep.FinAud = req.body.FinAud;
-        new_rep.NonFinAud = req.body.NonFinAud;
-        new_rep.Consultant = req.body.Consultant;
-        new_rep.date = new Date();
-        new_rep.accept = '0';
+        new_rep.interactive = req.body.interactive;
 
-        console.log(new_rep.name);
+        new_rep.fin_auditor = req.body.fin_auditor != '' ? req.body.fin_auditor : undefined;
+        new_rep.auditor = req.body.auditor != '' ? req.body.auditor : undefined;
+        new_rep.consultant = req.body.consultant != '' ? req.body.consultant : undefined;
+        new_rep.manager = req.body.manager != '' ? req.body.manager : undefined;
+        new_rep.designer = req.body.designer != '' ? req.body.designer : undefined;
+        new_rep.pages = req.body.pages != '' ? req.body.pages : undefined;
+        new_rep.wins = req.body.wins != '' ? req.body.wins : undefined;
+
+        new_rep.user_FIO = req.body.registrator_fio;
+        new_rep.user_position = req.body.registrator_position;
+        new_rep.user_telphone = req.body.registrator_email;
+        new_rep.user_email = req.body.registrator_phone;
+
         console.log(req.body);
-        console.log(req.files);
+        console.log('files '+req.files);
 
-        console.log('okeyushki 1');
+        
+
         //лого
-//        req.files.upload[0].mv('src/buffer/' + new_rep._id + req.files.upload[0].name, function (err) { console.log('ttts') });
-//        var writestream = gfs.createWriteStream({
-//            filename: new_rep._id + req.files.upload[0].name
-//        });
-//        fs.createReadStream('src/buffer/' + new_rep._id + req.files.upload[0].name)
-//            .on('end', function () { fs.unlink('src/buffer/' + new_rep._id + req.files.upload[0].name, function (err) { console.log("success") }) })
-//            .on('err', function () { console.log('Error uploading image') })
-//            .pipe(writestream);
-//        writestream.on('close', function (file) {
-//            console.log(file.filename + ' Written To DB');
-//        });
-
-
+        //req.files.upload_preview.mv('src/buffer/' + new_rep._id + req.files.upload_preview.name, function (err) { console.log('ttts') });
+        //var writestream = gfs.createWriteStream({
+        //    filename: new_rep._id + req.files.upload_preview.name
+        //});
+        //fs.createReadStream('src/buffer/' + new_rep._id + req.files.upload_preview.name)
+        //    .on('end', function () { fs.unlink('src/buffer/' + new_rep._id + req.files.upload_preview.name, function (err) { console.log("success") }) })
+        //    .on('err', function () { console.log('Error uploading image') })
+        //    .pipe(writestream);
+        //writestream.on('close', function (file) {
+        //    console.log(file.filename + ' Written To DB');
+        //});
+        //new_rep.preview = '/' + new_rep.id + req.files.upload_preview.name;
+//
+        //console.log('okeyushki 1');
+        //console.log(new_rep);
         //отчет ru
 //        req.files.upload[1].mv('src/buffer/'+new_comp._id+req.files.upload[1].name, function (err) {console.log('ttts')});
 //        writestream = gfs.createWriteStream({
@@ -79,13 +103,13 @@ exports.addReport = function (req, res){
 //            console.log(file.filename + ' Written To DB');
 //        });
 
-        new_rep.company_id = result._id;
+        
         new_rep.save();
-        console.log('okeyushki 2');
         result.reports.unshift(new_rep._id);
         result.save();
-        console.log('okeyushki 3');
+
         res.redirect('/');
+        });
     });
 };
 
@@ -93,13 +117,12 @@ exports.getReportById = function (req, res){
     getStatic(function(result, parse){
         var stat = parse(result);
         Report.findOne({_id:new ObjectId(req.params.id)}).then(function (_report){
-            Report.find({company:_report.company}).then(function (reports){
+            Report.find({_id:_report.company_id}).then(function (reports, err){
                 res.render('report', {
                     report:_report, 
                     reports:reports, 
                     admin: req.session.user, 
-                    best: stat.best, 
-                    standarts: stat.standarts //заменить на стандарты отчета во view
+                    best: stat.best
                 });
             });
 	    });

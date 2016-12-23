@@ -57,14 +57,15 @@ if admin || report.accept==1
                           a(href='/company/#{report.company_id}') #{report.company}
                       tr
                         td Отчетный год
-                        td 2010
+                        td #{report.year}
                       tr
                         td Отрасль экономики
-                        td Атомная промышленность
+                        td 
+                          | #{report.sector}
                       tr
                         td Руководство GRI
                         td 
-                          for val in standarts
+                          for val in report.standarts
                             | #{val}
                             br
                       if (report.RRS != undefined)
@@ -74,20 +75,47 @@ if admin || report.accept==1
                             | #{report.RRS}
                       tr
                         td  Наличие в отчете бизнес-модели 
-                        td  - 
+                        td  
+                          if report.BusinessModel == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
                       tr
                         td  Наличие в отчете информации о стратегии 
-                        td  - 
+                        td 
+                          if report.Strategy == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
                       tr
                         td  Наличие в отчете информации об управлении рисками
-                        td  - 
+                        td  
+                          if report.RiskMap == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
+                      tr
+                        td  Общественное заверение отчета
+                        td  
+                          if report.Assurance == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
+                      tr
+                        td  Участие в панели заинтересованных сторон
+                        td  
+                          if report.Stakes == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
                       if (report.best != undefined)
                         tr
                           td  Является лучшей практикой в: 
                           td
-                            for val in best
-                              | #{val}
-                              br
+                            //if report.best.length!=0
+                              for val in best
+                                | #{val}
+                                br
                       if (report.consultant != undefined)
                         tr
                           td  Компания-консультант
@@ -99,7 +127,7 @@ if admin || report.accept==1
                       if (report.designer!=undefined)
                         tr
                           td  Дизайн отчета
-                          td  #{report.report} 
+                          td  #{report.designer} 
                       if (report.auditor!=undefined)
                         tr
                           td  Аудитор отчета
@@ -115,7 +143,7 @@ if admin || report.accept==1
                         a(href='#{report.doc_en}') Скачать отчет (ENG)
                   br
                   button.btn.btn-default.green-btn(type='submit')
-                    a(href='#{report.interactive}', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
+                    a(href='http://#{report.interactive}', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
                   br
               // /row
               // убрать из массива текущий отчет
@@ -125,7 +153,7 @@ if admin || report.accept==1
                 .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
                   for report in page_reports
                     .cover
-                      a(href='/report/#{report._id}', target='_blank', title='')
+                      a(href='/report/#{report._id}', target='_blank', title='#{report.name}')
                         img(src=report.preview, alt='')
               .row
                 if admin
@@ -168,6 +196,11 @@ if admin || report.accept==1
                     label.radio-inline
                       input(name='accept', value='2', type='radio')
                       | Отклонен
+                    br
+                    br
+                    strong Рейтинг RRS
+                      br
+                      input(name='RRS_correct', type='text', placeholder='Ссылка')
                     br
                     br
                     strong Лучшая практика
