@@ -1,6 +1,7 @@
 var express = require('express');
-var fileUpload = require('express-fileupload');
+
 var bodyParser = require('body-parser');
+//var fileUpload = require('express-fileupload');
 var babel_es6 = require('babel-core/register');
 var es6 = require('./server')
 var dbModel = require('./app/models/db-model');
@@ -8,6 +9,16 @@ var app = express();
 var mongoose = require("mongoose")
 var session = require('express-session')
 var MongoStore = require('connect-mongo')(session);
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './src/buffer')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname)
+  }
+})
+var upload = multer({storage: storage});
 
 
 app.use(session({
@@ -18,10 +29,13 @@ app.use(session({
     url: 'mongodb://80.93.177.208:27017/ERIO',
   })
 }));
+//app.use(multer({dest: '../src/buffer'}).single('upload_logo'));
+//app.use(require('skipper')());
 app.use(bodyParser());
-app.use(fileUpload());
+app.use(express.static('./src/buffer'));                                                                
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/src'));
+//app.use(fileUpload());
+app.use(express.static(__dirname + '/src'));                                                                                                    
 app.set('views', './app/views');
 app.set('view engine', 'jade');
 
@@ -39,10 +53,10 @@ app.post('/user/login', require('./app/controllers/admin').adminLogin);
 
 
 app.get('/search/:sort', require('./app/controllers/search').searchReportPage);
-app.get('/company/:name', require('./app/controllers/company').getCompanyByName);
+app.get('/company/:id', require('./app/controllers/company').getCompanyById);
 app.get('/report/:id', require('./app/controllers/report').getReportById);
-app.post('/company/create/', require('./app/controllers/company').addCompany);
-app.post('/report/create/', require('./app/controllers/report').addReport);
+app.post('/report/create/', upload.fields([{name:'upload'},{name:'ru_PDF'},{name:'en_PDF'}]), require('./app/controllers/report').addReport);
+app.post('/company/create/', upload.single('upload_logo'), require('./app/controllers/company').addCompany);
 app.get('/:filename', require('./app/controllers/db-files').getFile);
 // 4 маршрута для редактирования
 //app.post('/create/user', require('./app/controllers/admin').adminCreate);
@@ -58,4 +72,4 @@ app.get('/v1/stats/:sector/:standart/:size_of_company/:type_of_ownership', requi
 
 
 app.listen(8080);
-console.log('Server started!');
+console.log('Server started!');                                                                                                                                                              

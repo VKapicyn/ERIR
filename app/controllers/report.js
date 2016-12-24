@@ -3,7 +3,6 @@ var ObjectId = mongoose.Types.ObjectId;
 var dbModel = require('../models/db-model');
 var db = dbModel.db;
 
-
 import {upload, fs, gfs} from '../models/db-model';
 
 
@@ -15,78 +14,127 @@ var getStatic = require('../models/staticModel').getStatic;
 exports.registerReportPage = function (req, res){
     getStatic(function(result, parse){
         var stat = parse(result);
-        // res.render('register-report',{year:stat.year});
-        // res.render('register-report',{year:stat.year, sector: stat.sector});
         Company.find({}).then(function (_company){
-            res.render('register-report',{year:stat.year, size_of_company: stat.size_of_company, opf: stat.opf, 
-                type_of_ownership: stat.type_of_ownership, standarts: stat.standarts, companies:_company});
+            res.render('register-report',{
+                year:stat.year, 
+                size_of_company: stat.size_of_company, 
+                opf: stat.opf, 
+                type_of_ownership: stat.type_of_ownership, 
+                standarts: stat.standarts, companies:_company});
         });
     });
 };
 
-exports.addReport = function (req,res){
+exports.addReport = function (req, res){
     var new_rep = new Report;
-    new_rep.name = req.body.report_name;
-    new_rep.comapny = req.body.Company;
-    new_rep.IRRC = req.body.IRRC;
-    new_rep.GRI = req.body.GRI;
-    new_rep.A1000SES = req.body.A1000SES;
-    new_rep.A1000APS = req.body.A1000APS;
-    new_rep.BUSMOD = req.body.BUSMOD;
-    new_rep.Strategy = req.body.Strategy;
-    new_rep.Risks = req.body.Risks;
-    new_rep.Assurance = req.body.Assurance;
-    new_rep.Stakes = req.body.Stakes;
-    new_rep.FinAud = req.body.FinAud;
-    new_rep.NonFinAud = req.body.NonFinAud;
-    new_rep.Consultant = req.body.Consultant;
+    Company.findOne({name: req.body.company}).then(function(result){  
+        getStatic(function(resul, parse){
+        let stat = parse(resul);
+        new_rep.accept = '0';
+        new_rep.date = new Date();
+        new_rep.name = req.body.report_name;
+        new_rep.year = req.body.report_year;
+        new_rep.company = req.body.company;
+        new_rep.sector = result.sector;
+        new_rep.company_id = result._id;
 
-    console.log(new_rep.name);
-    console.log(req.body);
-    console.log(req.files);
+        var standarts = [];
+        for(let i=0; i<stat.standarts.length; i++){
+            if (req.body[stat.standarts[i]] != undefined)
+                {
+                    standarts.push(req.body[stat.standarts[i]]);
+                }
+        }
+        new_rep.standarts = standarts;
+
+        new_rep.BusinessModel = req.body.BusinessModel;
+        new_rep.Strategy = req.body.Strategy;
+        new_rep.RiskMap = req.body.RiskMap;
+        new_rep.Assurance = req.body.Assurance;
+        new_rep.Stakes = req.body.Stakes;
+        new_rep.interactive = req.body.interactive;
+
+        new_rep.fin_auditor = req.body.fin_auditor != '' ? req.body.fin_auditor : undefined;
+        new_rep.auditor = req.body.auditor != '' ? req.body.auditor : undefined;
+        new_rep.consultant = req.body.consultant != '' ? req.body.consultant : undefined;
+        new_rep.manager = req.body.manager != '' ? req.body.manager : undefined;
+        new_rep.designer = req.body.designer != '' ? req.body.designer : undefined;
+        new_rep.pages = req.body.pages != '' ? req.body.pages : undefined;
+        new_rep.wins = req.body.wins != '' ? req.body.wins : undefined;
+
+        new_rep.user_FIO = req.body.registrator_fio;
+        new_rep.user_position = req.body.registrator_position;
+        new_rep.user_telphone = req.body.registrator_email;
+        new_rep.user_email = req.body.registrator_phone;
+
+        //console.log(req.body);
+        //console.log(req.files);
+        console.log(req.files);
+
+        //лого
+        var writestream = gfs.createWriteStream({
+            filename: req.files['upload'][0].filename
+        });
+        fs.createReadStream(req.files['upload'][0].path)
+            .on('end', function () { fs.unlink(req.files['upload'][0].path, function (err) { console.log("success") }) })
+            .on('err', function () { console.log('Error uploading image') })
+            .pipe(writestream);
+        writestream.on('close', function (file) {
+            console.log(file.filename + ' Written To DB');
+        });
+        new_rep.preview = '/' + req.files['upload'][0].filename;
 
 
-     //cохраняем лого в БД
-    req.files.upload[0].mv('src/buffer/'+new_rep._id+req.files.upload[0].name, function (err) {console.log('ttts')});
+        //отчет ru
+        writestream = gfs.createWriteStream({
+            filename: req.files['ru_PDF'][0].filename
+        });
+        fs.createReadStream(req.files['ru_PDF'][0].path)
+            .on('end', function () { fs.unlink(req.files['ru_PDF'][0].path, function (err) { console.log("success") }) })
+            .on('err', function () { console.log('Error uploading pdf_ru') })
+            .pipe(writestream);
+        writestream.on('close', function (file) {
+            console.log(file.filename + ' Written To DB');
+        });
+        new_rep.doc_rus = '/' + req.files['ru_PDF'][0].filename;
 
-    var writestream = gfs.createWriteStream({
-      filename: new_rep._id+req.files.upload[0].name
+
+        //отчет en
+        if (req.files['en_PDF']!=undefined){
+            writestream = gfs.createWriteStream({
+                filename: req.files['en_PDF'][0].filename
+            });
+            fs.createReadStream(req.files['en_PDF'][0].path)
+                .on('end', function () { fs.unlink(req.files['en_PDF'][0].path, function (err) { console.log("success") }) })
+                .on('err', function () { console.log('Error uploading pdf_en') })
+                .pipe(writestream);
+            writestream.on('close', function (file) {
+                console.log(file.filename + ' Written To DB');
+            });
+            new_rep.doc_en = '/' + req.files['en_PDF'][0].filename;
+        }
+
+
+        new_rep.save();
+        result.reports.unshift(new_rep._id);
+        result.save();
+
+        res.redirect('/');
+        });
     });
-
-    fs.createReadStream('src/buffer/'+new_rep._id+req.files.upload[0].name)
-      .on('end', function(){fs.unlink('src/buffer/'+new_rep._id+req.files.upload[0].name, function(err){console.log("success")})})
-        .on('err', function(){ console.log('Error uploading image')})
-          .pipe(writestream);
-
-    writestream.on('close', function (file){
-        console.log(file.filename + ' Written To DB');
-    });
-
-    req.files.upload[1].mv('src/buffer/'+new_comp._id+req.files.upload[0].name, function (err) {console.log('ttts')});
-
-    var writestream = gfs.createWriteStream({
-      filename: new_rep._id+req.files.upload[1].name
-    });
-
-    fs.createReadStream('src/buffer/'+new_rep._id+req.files.upload[1].name)
-      .on('end', function(){fs.unlink('src/buffer/'+new_rep._id+req.files.upload[1].name, function(err){console.log("success")})})
-        .on('err', function(){ console.log('Error uploading image')})
-          .pipe(writestream);
-
-    writestream.on('close', function (file){
-        console.log(file.filename + ' Written To DB');
-    });
-
-    new_rep.save();
-    res.send('ok '+new_rep._id+' ');
 };
 
 exports.getReportById = function (req, res){
     getStatic(function(result, parse){
         var stat = parse(result);
         Report.findOne({_id:new ObjectId(req.params.id)}).then(function (_report){
-            Report.find({company:_report.company}).then(function (reports){
-                res.render('report', {report:_report, reports:reports, admin: req.session.user, best: stat.best});
+            Report.find({company_id:_report.company_id}).then(function (reports, err){
+                res.render('report', {
+                    report:_report, 
+                    reports:reports, 
+                    admin: req.session.user, 
+                    best: stat.best
+                });
             });
 	    });
     }); 

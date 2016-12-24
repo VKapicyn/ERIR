@@ -54,92 +54,106 @@ if admin || report.accept==1
                       tr
                         td Компания
                         td 
-                          a(href='/company/') #{report.company}
+                          a(href='/company/#{report.company_id}') #{report.company}
                       tr
                         td Отчетный год
-                        td 2010
+                        td #{report.year}
                       tr
                         td Отрасль экономики
-                        td Атомная промышленность
-                      tr
-                        td Международный стандарт по интегрированной отчетности
-                        td
-                          i.fa.fa-close(aria-hidden='true')
+                        td 
+                          | #{report.sector}
                       tr
                         td Руководство GRI
-                        td G3
-                      tr
-                        td AA1000SES
-                        td
-                          i.fa.fa-check(aria-hidden='true')
-                      tr
-                        td AA1000APS 
-                        td
-                          i.fa.fa-close(aria-hidden='true')
-                      tr
-                        td  Рейтинг прозрачности РРС
-                        td  - 
+                        td 
+                          for val in report.standarts
+                            | #{val}
+                            br
+                      if (report.RRS != undefined)
+                        tr
+                          td  Рейтинг прозрачности РРС
+                          td 
+                            | #{report.RRS}
                       tr
                         td  Наличие в отчете бизнес-модели 
-                        td  - 
+                        td  
+                          if report.BusinessModel == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
                       tr
                         td  Наличие в отчете информации о стратегии 
-                        td  - 
+                        td 
+                          if report.Strategy == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
                       tr
                         td  Наличие в отчете информации об управлении рисками
-                        td  - 
+                        td  
+                          if report.RiskMap == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
                       tr
-                        td  Лучшее раскрытие стратегии 
-                        td  - 
+                        td  Общественное заверение отчета
+                        td  
+                          if report.Assurance == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
                       tr
-                        td  Лучшее раскрытие бизнес-модели 
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации об управлении рисками
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации о корпоративном управлении
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации о деятельности в области УР
-                        td  - 
-                      tr
-                        td  Лучшее раскрытие информации о системе публичной отчетности
-                        td  - 
-                      tr
-                        td  Компания-консультант
-                        td  Группа компаний «Да-Стратегия»
-                      tr
-                        td  Менеджер отчета
-                        td  - 
-                      tr
-                        td  Дизайн отчета
-                        td  - 
-                      tr
-                        td  Аудитор отчета
-                        td  ЗАО «ПрайсвотерхаусКуперс Аудит»
+                        td  Участие в панели заинтересованных сторон
+                        td  
+                          if report.Stakes == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
+                      if (report.best != undefined)
+                        tr
+                          td  Является лучшей практикой в: 
+                          td
+                            //if report.best.length!=0
+                              for val in best
+                                | #{val}
+                                br
+                      if (report.consultant != undefined)
+                        tr
+                          td  Компания-консультант
+                          td  #{report.consultant}
+                      if (report.manager != undefined)
+                        tr
+                          td  Менеджер отчета
+                          td  #{report.manager}
+                      if (report.designer!=undefined)
+                        tr
+                          td  Дизайн отчета
+                          td  #{report.designer} 
+                      if (report.auditor!=undefined)
+                        tr
+                          td  Аудитор отчета
+                          td  #{report.auditor}
                 .col-md-2.col-xs-12.col-sm-12.report-buttons
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-download(aria-hidden='true')
-                    |  Скачать отчет (RU)
+                      a(href='#{report.doc_rus}') Скачать отчет (RU)
+                  if (report.doc_en!=undefined)
+                    br
+                    button.btn.btn-default.green-btn(type='submit')
+                      i.fa.fa-download(aria-hidden='true')
+                        a(href='#{report.doc_en}') Скачать отчет (ENG)
                   br
                   button.btn.btn-default.green-btn(type='submit')
-                    i.fa.fa-download(aria-hidden='true')
-                    |  Скачать отчет (ENG)
-                  br
-                  button.btn.btn-default.green-btn(type='submit')
-                    a(href='#', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
+                    a(href='http://#{report.interactive}', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
                   br
               // /row
               // убрать из массива текущий отчет
-              - var page_reports = reports 
               .row
                 h3 Другие отчеты компании
                 .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
-                  for report in page_reports
+                  for rep in reports
                     .cover
-                      a(href='/report/#{report._id}', target='_blank', title='')
-                        img(src=report.preview, alt='')
+                      a(href='/report/#{rep._id}', target='_blank', title='#{rep.name}')
+                        img(src='#{rep.preview}', alt='')
               .row
                 if admin
                   br
@@ -181,6 +195,11 @@ if admin || report.accept==1
                     label.radio-inline
                       input(name='accept', value='2', type='radio')
                       | Отклонен
+                    br
+                    br
+                    strong Рейтинг RRS
+                      br
+                      input(name='RRS_correct', type='text', placeholder='Ссылка')
                     br
                     br
                     strong Лучшая практика

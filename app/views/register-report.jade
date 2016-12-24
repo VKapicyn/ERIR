@@ -1,3 +1,9 @@
+//doctype html
+//html(lang='en')
+  //body
+    //form(method='post', action='/report/create', enctype="multipart/form-data")
+      //input(type="file", multiple, name="upload")
+      //input(type='submit', value='Submit')
 doctype html
 html(lang='en')
     //подключение header
@@ -39,46 +45,44 @@ html(lang='en')
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-report
-              form#register-report.edit_form(action=' /report/create', method='post', name='form-register-company')
+              form(method='post', action='/report/create', enctype="multipart/form-data")
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-report
-                  h2.sea-green Анкета регистрации профиля отчета
                   .col-md-6.col-xs-11.col-sm-5.register-left
                     div
-                      select(name='report_year1')
+                      | Название отчета 
+                      span.red  *
+                      input.change-w-number(name='report_name', type='text')
+                      br
+                    div
+                      select(name='report_year')
                         for val in year
                           option(value='#{val}') #{val}     
                     div
                       select(name='company')
                         option(value='Компания') Компания
                         for val in companies
+                          if val.accept == '1'
                           option(value='#{val.name}') #{val.name}
                     div
                       p.right Наличие стандартов 
                         br
                         for val in standarts
-                          input(type='checkbox', value='#{val}')
+                          input(type='checkbox', name='#{val}', value='#{val}')
                           |  #{val}  
-                          br                 
+                          br 
                     div
-                      | Использование МСИО 
-                      label.radio-inline
-                        input#radio1(name='IRRC', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='IRRC', value='0', checked='', type='radio')
-                        |  Нет
-                      label.radio-inline
-                        input#radio3(name='IRRC', value='2', checked='', type='radio')
-                        |  Частично
-                      br
+                      | Количество страниц 
+                      span.red  *
+                      input.change-w-number(name='pages', type='number')
+                      br                
                     div
                       | Наличие в отчете бизнес-модели 
                       label.radio-inline
-                        input#radio1(name='BUSMOD', value='1', type='radio')
+                        input#radio1(name='BusinessModel', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='BUSMOD', value='0', checked='', type='radio')
+                        input#radio2(name='BusinessModel', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
@@ -93,10 +97,10 @@ html(lang='en')
                     div
                       | Наличие в отчете информации о рисках 
                       label.radio-inline
-                        input#radio1(name='Risks', value='1', type='radio')
+                        input#radio1(name='RiskMap', value='1', type='radio')
                         |  Да
                       label.radio-inline
-                        input#radio2(name='Risks', value='0', checked='', type='radio')
+                        input#radio2(name='RiskMap', value='0', checked='', type='radio')
                         |  Нет
                       br
                     div
@@ -120,76 +124,32 @@ html(lang='en')
                   // /register-report-left
                   .col-md-5.col-xs-12.col-sm-6.register-right
                     div
-                      | Финансовый аудитор отчета 
-                      label.radio-inline
-                        input#radio1(name='FinAud', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='FinAud', value='0', checked='', type='radio')
-                        |  Нет
+                      | Ссылка на HTML версию отчета 
+                      input.change-w-number(name='interactive', type='text', placeholder='http://')
                       br
-                      input.change-w(name='', placeholder='Юридическое название аудитора')
+                    div
+                      | Финансовый аудитор отчета 
+                      input.change-w(name='fin_auditor', placeholder='Юридическое название аудитора')
                       br
                     div
                       | Аудитор нефинансовой информации отчета 
-                      label.radio-inline
-                        input#radio1(name='NonFinAud', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='NonFinAud', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                      input.change-w(name='', placeholder='Юридическое название аудитора')
+                      input.change-w(name='auditor', placeholder='Юридическое название аудитора')
                       br
                     div
                       | Консультант подготовки отчета 
-                      label.radio-inline
-                        input#radio1(name='Consultant', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='Consultant', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                      input.change-w(name='', placeholder='Консультант подготовки отчета')
+                      input.change-w(name='consultant', placeholder='Консультант подготовки отчета')
                       br
                     div
                       | Менеджер процесса подготовки отчета 
-                      label.radio-inline
-                        input#radio1(name='Manager', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='Manager', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                      input.change-w(name='', placeholder='Фамилия и имя менеджера')
+                      input.change-w(name='manager', placeholder='Фамилия и имя менеджера')
                       br
                     div
                       | Дизайнер отчета 
-                      label.radio-inline
-                        input#radio1(name='Design', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='Design', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                      input.change-w(name='Design', placeholder='Фамилия и имя дизайнера')
-                      br
-                    div
-                      | Количество страниц 
-                      span.red  *
-                      input.change-w-number(name='count_page', type='number')
+                      input.change-w(name='designer', placeholder='Фамилия и имя дизайнера')
                       br
                     div
                       | Победы в национальных конкурсах отчетности 
-                      br
-                      label.radio-inline
-                        input#radio1(name='Contests', value='1', type='radio')
-                        |  Да
-                      label.radio-inline
-                        input#radio2(name='Contests', value='0', checked='', type='radio')
-                        |  Нет
-                      br
-                      input.change-w(name='', placeholder='Конкурсы и занятые места')
+                      input.change-w(name='wins', placeholder='Конкурсы и занятые места')
                       br
 
                     div
@@ -218,25 +178,23 @@ html(lang='en')
                   // /register-report-right
                 .buttons.center.upload
                   div
-                    label.btn.btn-default.green-btn(for='upload-report')
-                      i.fa.fa-file-pdf-o(aria-hidden='true')
-                      |  Загрузить отчет (в формате PDF)
-                    input#upload-report(type='file', name='upload')
-                  div
                     label.btn.btn-default.green-btn(for='upload-cover')
                       i.fa.fa-file-image-o(aria-hidden='true')
                       |  Загрузить обложку отчета (в формате JPG или PNG)
-                    input#upload-cover(type='file', name='upload')
-                .buttons.center.submit
+                    input#upload-cover(type="file", name="upload")
                   div
-                    label.btn.btn-default.green-btn(for='submit-reg-company')  Отправить
-                    input#submit-reg-company(type='submit')
-            // /row register-report
-            .space
-          // /profile-company
-        // /container
-      .space
-      .space
-
+                    label.btn.btn-default.green-btn(for='upload-report')
+                      i.fa.fa-file-pdf-o(aria-hidden='true')
+                      |  Загрузить отчет RU (в формате PDF)
+                    input#upload-report(type='file', name='ru_PDF')
+                  div
+                    label.btn.btn-default.green-btn(for='upload-report')
+                      i.fa.fa-file-pdf-o(aria-hidden='true')
+                      |  Загрузить отчет EN (в формате PDF)
+                    input#upload-report(type='file', name='en_PDF')
+                .buttons.center.submit
+                    div
+                      label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
+                      input#submit-reg-company(type='submit', value='Submit')
       //подключение footer
       include includes/footer

@@ -31,7 +31,7 @@ if admin || company.accept==1
                   li
                     a(href='/register-report') Регистрация отчета
                   li
-                    a(href='register-company') Регистрация компании
+                    a(href='/register-company') Регистрация компании
               // /.navbar-collapse
             // /.container-fluid
         // /container navigation
@@ -70,8 +70,14 @@ if admin || company.accept==1
                       tr
                         td  Размер организации 
                         td
-                          | #{company.short_name}
+                          | #{company.size_of_company}
+                      tr
+                        td Количество сотрудников
+                        td
                           | #{company.employees}
+                      tr
+                        td Годовой доход
+                        td
                           | #{company.revenue}
                       tr
                         td  Листинг (биржа)
@@ -91,13 +97,13 @@ if admin || company.accept==1
                         td  #{company.adress}
                       tr
                         td  Телефон приемной
-                        td  #{company.telephone}
+                        td  #{company.comp_phone}
                       tr
                         td  Факс приемной
-                        td  #{company.fax}
+                        td  #{company.comp_fax}
                       tr
-                        td  Электронный адрес 
-                        td  #{company.email}
+                        td  Адрес электронной почты
+                        td  #{company.comp_email}
                       tr
                         td  Сайт
                         td
@@ -106,9 +112,9 @@ if admin || company.accept==1
               .row
                 h3 Список отчетов организации
                 .col-md-10.col-md-offset-2.col-xs-12.col-sm-6.other-reports
-                  for report in page_reports
+                  for report in reports
                     .cover
-                      a(href='/report/#{report._id}', target='_blank', title='Годовой отчет 2013')
+                      a(href='/report/#{report._id}', target='_blank', title='#{report.name}')
                         img(src=report.preview, alt='')
               .row
                 if admin
@@ -154,7 +160,6 @@ if admin || company.accept==1
                     br
                     button.btn.btn-default.green-btn(type='submit')
                       | Сохранить
-                    &nbsp;
                 // /other-reports
               // /row
             // /profile-report

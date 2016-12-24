@@ -4,7 +4,7 @@ var dbModel = require('../models/db-model');
 var db = dbModel.db;
 
 
-import {upload, fs, gfs} from '../models/db-model';
+import {fs, gfs} from '../models/db-model';
 
 
 var getStatic = require('../models/staticModel').getStatic;
@@ -19,7 +19,8 @@ exports.registerCompanyPage = function (req, res){
             sector: stat.sector, 
             opf:stat.opf, 
             size_of_company: stat.size_of_company, 
-            type_of_ownership: stat.type_of_ownership
+            type_of_ownership: stat.type_of_ownership,
+            city: stat.city
         });
     });
 };
@@ -27,12 +28,10 @@ exports.registerCompanyPage = function (req, res){
 exports.addCompany = function (req,res){
     var new_comp = new Company;
     new_comp.name = req.body.company_name;
-    console.log(new_comp.name);
-    console.log(req.body);
-    new_comp.name = req.body.company_name;
+    new_comp.short_name = req.body.company_short_name;
     new_comp.info = req.body.company_description;
     new_comp.opf = req.body.organization_form;
-    new_comp.telephone = req.body.writer_phone;
+    new_comp.user_telphone = req.body.registrator_phone;
     new_comp.sector = req.body.economy;
     new_comp.adress = req.body.company_law_address;
     new_comp.size_of_company = req.body.company_size;
@@ -40,19 +39,25 @@ exports.addCompany = function (req,res){
     new_comp.listing = req.body.listing;
     new_comp.CEO = req.body.CEO;
     new_comp.link = req.body.company_site;
-    new_comp.email = req.body.writer_email;
-    console.log(req.files);
+    new_comp.user_email = req.body.registrator_email;
+    new_comp.user_FIO = req.body.registrator_fio
+    new_comp.user_position = req.body.registrator_position;
+    new_comp.employees = req.body.employees;
+    new_comp.revenue = req.body.revenue;
+    new_comp.city = req.body.city;
+    new_comp.comp_phone = req.body.comp_phone;
+    new_comp.comp_fax = req.body.comp_fax;
+    new_comp.comp_email = req.body.comp_email;
+    new_comp.accept = '0';
 
-
-     //cохраняем лого в БД
-    req.files.upload_logo.mv('src/buffer/'+new_comp._id+req.files.upload_logo.name, function (err) {console.log('ttts '+err)});
+    new_comp.date = new Date();
 
     var writestream = gfs.createWriteStream({
-      filename: new_comp._id+req.files.upload_logo.name
+      filename: req.file.filename
     });
 
-    fs.createReadStream('src/buffer/'+new_comp._id+req.files.upload_logo.name)
-      .on('end', function(){fs.unlink('src/buffer/'+new_comp._id+req.files.upload_logo.name, function(err){console.log('success')})})
+    fs.createReadStream(req.file.path)
+      .on('end', function(){fs.unlink(req.file.path, function(err){console.log('success')})})
         .on('err', function(){ console.log('Error uploading image')})
           .pipe(writestream);
  
@@ -60,15 +65,17 @@ exports.addCompany = function (req,res){
         console.log(file.filename + ' Written To DB');
     });
 
-    new_comp.logo = '/'+new_comp._id+req.files.upload_logo.name;
+    new_comp.logo = '/'+req.file.filename;
     new_comp.save();
-    res.send('ok '+new_comp._id+' '+new_comp.logo);
 
+    // добавить отправку писем
+
+    res.redirect('/'); // Добавить страницу об успешной регистрации
 };
 
-exports.getCompanyByName = function (req, res) {
-    Company.findOne({name:req.params.name}).then(function (company){
-        Report.find({company:company.name}).then(function (reports){
+exports.getCompanyById = function (req, res) {
+    Company.findOne({_id:req.params.id}).then(function (company){
+        Report.find({company_id: company._id}).then(function (reports){
 		    res.render('company', {company:company, reports:reports, admin: req.session.user});
         });
 	});

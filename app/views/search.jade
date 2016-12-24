@@ -151,7 +151,7 @@ body
                     for rep in reports
                       tr
                         td
-                          a(href='/company/#{rep.company}', title='Перейти на страницу компании') #{rep.company}
+                          a(href='/company/#{rep.company_id}', title='Перейти на страницу компании') #{rep.company}
                         td
                           a(href='/report/#{rep._id}', title='Перейти на страницу отчета') #{rep.name}
                         td Год

@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var db = mongoose.connect("mongodb://80.93.177.208:27017/ERIO")//конектимсся к БД
-var multer = require("multer");
-var upload = multer({dest: './src/buffer'});
+var multer = require('multer');
+var upload = multer({dest: '../src/buffer'});
 var conn = mongoose.connection;
 var fs = require('fs');
 var Grid = require('gridfs-stream');

@@ -207,13 +207,13 @@ $(document).ready(function(){
 });
 
 //Провека формата обложки отчета
-var filesExtCover = ['jpg', 'png']; // массив расширений
+var filesExtCover = ['jpg', 'png', 'jpeg']; // массив расширений
 $('#upload-cover').change(function(){
     var parts = $(this).val().split('.');
     if(filesExtCover.join().search(parts[parts.length - 1]) != -1){
         // alert('Good!');
     } else {
-        alert('Обложка отчета должен быть в формате JPG или PNG!');
+        alert('Обложка отчета должен быть в формате JPG, JPEG или PNG!');
     }
 });
 
@@ -226,5 +226,27 @@ $('#upload-report').change(function(){
     } else {
         alert('Отчет должен быть в формате PDF!');
     }
+});
+
+//Провека формата отчета
+var filesExtReport = ['pdf']; // массив расширений
+$('#upload-report2').change(function(){
+    var parts = $(this).val().split('.');
+    if(filesExtReport.join().search(parts[parts.length - 1]) != -1){
+        // alert('Good!');
+    } else {
+        alert('Отчет должен быть в формате PDF!');
+    }
+});
+//Проверка загружена ли обложка
+$(document).ready(function(){
+     $("#register-report").submit(function(){
+          if($("#upload-cover2").val() == ""){
+              alert("Загрузите обложку отчета!");
+              return false;
+          }else{
+              return true;
+          }               
+     });
 });
 // /Register-report. Загрузка отчета и обложки отчета
