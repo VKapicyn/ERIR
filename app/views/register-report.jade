@@ -1,3 +1,9 @@
+//doctype html
+//html(lang='en')
+  //body
+    //form(method='post', action='/report/create', enctype="multipart/form-data")
+      //input(type="file", multiple, name="upload")
+      //input(type='submit', value='Submit')
 doctype html
 html(lang='en')
     //подключение header
@@ -39,7 +45,7 @@ html(lang='en')
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-report
-              form#register-report.edit_form(action='/report/create', method='post', name='form-register-company')
+              form(method='post', action='/report/create', enctype="multipart/form-data")
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-report
                   .col-md-6.col-xs-11.col-sm-5.register-left
@@ -170,22 +176,20 @@ html(lang='en')
                         input.change-w(type='text', name='registrator_phone')
                         br    
                   // /register-report-right
-              
                 .buttons.center.upload
-                  div
-                    label.btn.btn-default.green-btn(for='upload-report')
-                      i.fa.fa-file-pdf-o(aria-hidden='true')
-                      |  Загрузить отчет (в формате PDF)
-                    input#upload-report(type='file', name='upload_')
                   div
                     label.btn.btn-default.green-btn(for='upload-cover')
                       i.fa.fa-file-image-o(aria-hidden='true')
                       |  Загрузить обложку отчета (в формате JPG или PNG)
-                    input#upload-cover(type='file', name='upload')
+                    input#upload-cover(type="file", name="upload")
+                  div
+                    label.btn.btn-default.green-btn(for='upload-report')
+                      i.fa.fa-file-pdf-o(aria-hidden='true')
+                      |  Загрузить отчет (в формате PDF)
+                    input#upload-report(type='file', name='upload')
                 .buttons.center.submit
                     div
-                      label.btn.btn-default.green-btn(for='submit-reg-company')  Отправить
-                      input#submit-reg-company(type='submit')
-
+                      label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
+                      input#submit-reg-company(type='submit', value='Submit')
       //подключение footer
       include includes/footer

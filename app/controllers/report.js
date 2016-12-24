@@ -27,11 +27,11 @@ exports.registerReportPage = function (req, res){
 
 exports.addReport = function (req, res){
     var new_rep = new Report;
+    console.log(req.files);
     console.log(req.file);
     //console.log('files '+req.file);
 
     Company.findOne({name: 'test0005'/*req.body.company*/}).then(function(result){  
-        console.log(req.file); 
         getStatic(function(resul, parse){
         let stat = parse(resul);
         new_rep.accept = '0';
@@ -72,6 +72,7 @@ exports.addReport = function (req, res){
         new_rep.user_email = req.body.registrator_phone;
 
         console.log(req.body);
+        console.log(req.files);
         console.log(req.file);
 
 
