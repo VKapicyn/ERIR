@@ -128,7 +128,6 @@ function startPage(){
 function endPage(){
     page = Math.ceil(size/amount);
     getSearchCompany();
-    //придумать
 }
 
 function clear_params(){

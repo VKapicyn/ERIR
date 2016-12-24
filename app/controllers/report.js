@@ -36,6 +36,10 @@ exports.addReport = function (req, res){
         new_rep.year = req.body.report_year;
         new_rep.company = req.body.company;
         new_rep.sector = result.sector;
+        size_of_company = result.size_of_company;
+        opf = result.opf;
+        city = result.city;
+        type_of_ownership = result.type_of_ownership;
         new_rep.company_id = result._id;
 
         var standarts = [];
@@ -67,9 +71,6 @@ exports.addReport = function (req, res){
         new_rep.user_telphone = req.body.registrator_email;
         new_rep.user_email = req.body.registrator_phone;
 
-        //console.log(req.body);
-        //console.log(req.files);
-        console.log(req.files);
 
         //лого
         var writestream = gfs.createWriteStream({
