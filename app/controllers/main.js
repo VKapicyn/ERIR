@@ -11,9 +11,8 @@ var Report = require('../models/reportModel').reportModel;
 
 
 exports.mainPage = function (req, res){
-  //заменить сортировку по accept на сортировку по date
-  // desc и asc - по убыванию и по возрастанию
-  Report.find({}).sort({accept : 'desc'}).exec(function (err, docs){ 
+  //заменить сортировку по accept .where('accept','1')
+  Report.find({}).sort({date : 'desc'}).exec(function (err, docs){ 
     res.render('main', {new_reports: docs});
   });
 };

@@ -47,10 +47,10 @@ body
             // Содержимое вкладок
             .tab-content
               #search-report.tab-pane.active(role='tabpanel')
-                form.navbar-form.navbar-left(role='search')
+                div.navbar-form.navbar-left(role='search')
                   .form-group
-                    input.form-control(type='text', placeholder='Search')
-                  button.btn.btn-default.green-btn(type='submit')
+                    input.form-control#search-input(type='text', placeholder='Search')
+                  button.btn.btn-default.green-btn(type='button' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск отчета
                   br
@@ -61,11 +61,9 @@ body
                     for val in sector
                       option(value='#{val}') #{val}
                   br
-                  select(name='headquarters')
-                    option(value='0')  Местонахождение штаб-квартиры
-                    option(value='1')  Местонахождение 1
-                    option(value='2')  Местонахождение 2
-                    option(value='3')  Местонахождение 3
+                  select(name='city')
+                    for val in city
+                      option(value='#{val}') #{val}
                   br
                   select(name='company_size')
                     for val in size_of_company
@@ -94,10 +92,10 @@ body
                     |  #{val}
                     br
                   br
-                  button.btn.btn-default.green-btn(type='submit')
+                  button.btn.btn-default.green-btn(type='submit' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск отчета
-                  button.btn.btn-default.green-btn(type='submit')
+                  button.btn.btn-default.green-btn(type='submit' onclick='clear_params()')
                     i.fa.fa-times(aria-hidden='true')
                     |  Сброс
                   br
@@ -136,9 +134,9 @@ body
 
             .view
               #view1.list
-                for rep in reports
-                  .element
-                    a(href='/report/#{rep._id}', title='Перейти на страницу отчета') #{rep.name} - #{rep.year}
+                //for rep in reports
+                  //.element
+                   // a(href='/report/{rep._id}', title='Перейти на страницу отчета') {rep.name} - {rep.year}
               #view2.table
                 table.table
                   thead
@@ -148,24 +146,24 @@ body
                       th Год
                       th Стандарт
                   tbody
-                    for rep in reports
+                    //for rep in reports
                       tr
                         td
-                          a(href='/company/#{rep.company_id}', title='Перейти на страницу компании') #{rep.company}
+                          a(href='/company/{rep.company_id}', title='Перейти на страницу компании') {rep.company}
                         td
-                          a(href='/report/#{rep._id}', title='Перейти на страницу отчета') #{rep.name}
+                          a(href='/report/{rep._id}', title='Перейти на страницу отчета') {rep.name}
                         td Год
                         td Стандарт
               #view3.icon
-                for rep in reports
+                //for rep in reports
                   .element
-                    a(href='/report/#{rep._id}', title='Перейти на страницу отчета')
-                      img(src='#{rep.preview}', alt='icon')
+                    a(href='/report/{rep._id}', title='Перейти на страницу отчета')
+                      img(src='{rep.preview}', alt='icon')
               #view4.big-icon
-                for rep in reports
+                //for rep in reports
                   .element
-                    a(href='/report/#{rep._id}', title='Перейти на страницу отчета')
-                      img(src='#{rep.preview}', alt='icon')
+                    a(href='/report/{rep._id}', title='Перейти на страницу отчета')
+                      img(src='{rep.preview}', alt='icon')
           // /search-results-report
           
         // /row
@@ -173,4 +171,5 @@ body
       .space
 
       //подключение footer
+      script(src='/js/frontReportSearch.js')
       include includes/footer

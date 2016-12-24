@@ -10,6 +10,12 @@ var reportSchema = new mongoose.Schema({
         company_id: String,
         sector: String,
         standarts: [String],
+//для упрощения сортировки и поиска (надо было использовать реляционку ¯\_(ツ)_/¯)
+        size_of_company: String, 
+        opf: String,
+        city: String,
+        type_of_ownership: String,
+
 
         BusinessModel: Boolean,
         Strategy: Boolean,
@@ -35,7 +41,7 @@ var reportSchema = new mongoose.Schema({
         user_FIO: String,
         user_position: String,
         user_telphone: String,
-        user_email: String
+        user_email: String,
 })
 
 
