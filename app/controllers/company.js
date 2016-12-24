@@ -27,10 +27,7 @@ exports.registerCompanyPage = function (req, res){
 
 exports.addCompany = function (req,res){
     var new_comp = new Company;
-    //new_comp.reports = {};
     new_comp.name = req.body.company_name;
-    //console.log(new_comp.name);
-    //console.log(req.body);
     new_comp.short_name = req.body.company_short_name;
     new_comp.info = req.body.company_description;
     new_comp.opf = req.body.organization_form;
@@ -51,6 +48,7 @@ exports.addCompany = function (req,res){
     new_comp.comp_phone = req.body.comp_phone;
     new_comp.comp_fax = req.body.comp_fax;
     new_comp.comp_email = req.body.comp_email;
+    new_comp.accept = '0';
 
     new_comp.date = new Date();
 

@@ -31,7 +31,7 @@ if admin || company.accept==1
                   li
                     a(href='/register-report') Регистрация отчета
                   li
-                    a(href='register-company') Регистрация компании
+                    a(href='/register-company') Регистрация компании
               // /.navbar-collapse
             // /.container-fluid
         // /container navigation
@@ -70,8 +70,14 @@ if admin || company.accept==1
                       tr
                         td  Размер организации 
                         td
-                          | #{company.short_name}
+                          | #{company.size_of_company}
+                      tr
+                        td Количество сотрудников
+                        td
                           | #{company.employees}
+                      tr
+                        td Годовой доход
+                        td
                           | #{company.revenue}
                       tr
                         td  Листинг (биржа)

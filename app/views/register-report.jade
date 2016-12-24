@@ -62,7 +62,7 @@ html(lang='en')
                       select(name='company')
                         option(value='Компания') Компания
                         for val in companies
-                          //if val.accept == '1'
+                          if val.accept == '1'
                           option(value='#{val.name}') #{val.name}
                     div
                       p.right Наличие стандартов 
@@ -185,8 +185,13 @@ html(lang='en')
                   div
                     label.btn.btn-default.green-btn(for='upload-report')
                       i.fa.fa-file-pdf-o(aria-hidden='true')
-                      |  Загрузить отчет (в формате PDF)
-                    input#upload-report(type='file', name='upload')
+                      |  Загрузить отчет RU (в формате PDF)
+                    input#upload-report(type='file', name='ru_PDF')
+                  div
+                    label.btn.btn-default.green-btn(for='upload-report')
+                      i.fa.fa-file-pdf-o(aria-hidden='true')
+                      |  Загрузить отчет EN (в формате PDF)
+                    input#upload-report(type='file', name='en_PDF')
                 .buttons.center.submit
                     div
                       label.btn.btn-default.green-btn(for='submit-reg-company') Отправить

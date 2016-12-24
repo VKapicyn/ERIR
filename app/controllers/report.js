@@ -27,18 +27,14 @@ exports.registerReportPage = function (req, res){
 
 exports.addReport = function (req, res){
     var new_rep = new Report;
-    console.log(req.files);
-    console.log(req.file);
-    //console.log('files '+req.file);
-
-    Company.findOne({name: 'test0005'/*req.body.company*/}).then(function(result){  
+    Company.findOne({name: req.body.company}).then(function(result){  
         getStatic(function(resul, parse){
         let stat = parse(resul);
         new_rep.accept = '0';
         new_rep.date = new Date();
         new_rep.name = req.body.report_name;
         new_rep.year = req.body.report_year;
-        new_rep.comapny = result.company;
+        new_rep.company = req.body.company;
         new_rep.sector = result.sector;
         new_rep.company_id = result._id;
 
@@ -71,39 +67,54 @@ exports.addReport = function (req, res){
         new_rep.user_telphone = req.body.registrator_email;
         new_rep.user_email = req.body.registrator_phone;
 
-        console.log(req.body);
+        //console.log(req.body);
+        //console.log(req.files);
         console.log(req.files);
-        console.log(req.file);
-
 
         //лого
-        //req.files.upload_preview.mv('src/buffer/' + new_rep._id + req.files.upload_preview.name, function (err) { console.log('ttts') });
-        //var writestream = gfs.createWriteStream({
-        //    filename: new_rep._id + req.body.upload
-        //});
-        //fs.createReadStream('src/buffer/' + new_rep._id + req.body.upload)
-        //    .on('end', function () { fs.unlink('src/buffer/' + new_rep._id + req.body.upload, function (err) { console.log("success") }) })
-        //    .on('err', function () { console.log('Error uploading image') })
-        //    .pipe(writestream);
-        //writestream.on('close', function (file) {
-        //    console.log(file.filename + ' Written To DB');
-        //});
-        //new_rep.preview = '/' + new_rep.id + req.body.upload;
-//
-        //console.log('okeyushki 1');
-        //console.log(new_rep);
+        var writestream = gfs.createWriteStream({
+            filename: req.files['upload'][0].filename
+        });
+        fs.createReadStream(req.files['upload'][0].path)
+            .on('end', function () { fs.unlink(req.files['upload'][0].path, function (err) { console.log("success") }) })
+            .on('err', function () { console.log('Error uploading image') })
+            .pipe(writestream);
+        writestream.on('close', function (file) {
+            console.log(file.filename + ' Written To DB');
+        });
+        new_rep.preview = '/' + req.files['upload'][0].filename;
+
+
         //отчет ru
-//        req.files.upload[1].mv('src/buffer/'+new_comp._id+req.files.upload[1].name, function (err) {console.log('ttts')});
-//        writestream = gfs.createWriteStream({
-//        filename: new_rep._id+req.files.upload[1].name
-//        });
-//        fs.createReadStream('src/buffer/'+new_rep._id+req.files.upload[1].name)
-//        .on('end', function(){fs.unlink('src/buffer/'+new_rep._id+req.files.upload[1].name, function(err){console.log("success")})})
-//            .on('err', function(){ console.log('Error uploading image')})
-//            .pipe(writestream);
-//        writestream.on('close', function (file){
-//            console.log(file.filename + ' Written To DB');
-//        });
+        writestream = gfs.createWriteStream({
+            filename: req.files['ru_PDF'][0].filename
+        });
+        fs.createReadStream(req.files['ru_PDF'][0].path)
+            .on('end', function () { fs.unlink(req.files['ru_PDF'][0].path, function (err) { console.log("success") }) })
+            .on('err', function () { console.log('Error uploading pdf_ru') })
+            .pipe(writestream);
+        writestream.on('close', function (file) {
+            console.log(file.filename + ' Written To DB');
+        });
+        new_rep.doc_rus = '/' + req.files['ru_PDF'][0].filename;
+
+
+        //отчет en
+        if (req.files['en_PDF']!=undefined){
+            writestream = gfs.createWriteStream({
+                filename: req.files['en_PDF'][0].filename
+            });
+            fs.createReadStream(req.files['en_PDF'][0].path)
+                .on('end', function () { fs.unlink(req.files['en_PDF'][0].path, function (err) { console.log("success") }) })
+                .on('err', function () { console.log('Error uploading pdf_en') })
+                .pipe(writestream);
+            writestream.on('close', function (file) {
+                console.log(file.filename + ' Written To DB');
+            });
+            new_rep.doc_en = '/' + req.files['en_PDF'][0].filename;
+        }
+
+
         new_rep.save();
         result.reports.unshift(new_rep._id);
         result.save();
@@ -117,7 +128,7 @@ exports.getReportById = function (req, res){
     getStatic(function(result, parse){
         var stat = parse(result);
         Report.findOne({_id:new ObjectId(req.params.id)}).then(function (_report){
-            Report.find({_id:_report.company_id}).then(function (reports, err){
+            Report.find({company_id:_report.company_id}).then(function (reports, err){
                 res.render('report', {
                     report:_report, 
                     reports:reports, 

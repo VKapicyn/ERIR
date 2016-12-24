@@ -136,7 +136,7 @@ if admin || report.accept==1
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-download(aria-hidden='true')
                       a(href='#{report.doc_rus}') Скачать отчет (RU)
-                  if (doc_en!=undefined)
+                  if (report.doc_en!=undefined)
                     br
                     button.btn.btn-default.green-btn(type='submit')
                       i.fa.fa-download(aria-hidden='true')
@@ -147,14 +147,13 @@ if admin || report.accept==1
                   br
               // /row
               // убрать из массива текущий отчет
-              - var page_reports = reports 
               .row
                 h3 Другие отчеты компании
                 .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
-                  for report in page_reports
+                  for rep in reports
                     .cover
-                      a(href='/report/#{report._id}', target='_blank', title='#{report.name}')
-                        img(src=report.preview, alt='')
+                      a(href='/report/#{rep._id}', target='_blank', title='#{rep.name}')
+                        img(src='#{rep.preview}', alt='')
               .row
                 if admin
                   br

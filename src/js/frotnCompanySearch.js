@@ -80,6 +80,7 @@ function getURL(){
 
 function sortDefault(){
     sort = 'default';
+    page = 1;
     getSearchCompany();
 }
 
