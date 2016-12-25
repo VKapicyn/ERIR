@@ -76,17 +76,27 @@ exports.addCompany = function (req,res){
 exports.getCompanyById = function (req, res) {
     Company.findOne({_id:req.params.id}).then(function (company){
         Report.find({company_id: company._id}).then(function (reports){
-		    res.render('company', {company:company, reports:reports, admin: req.session.user});
+		    res.render('company', {
+                company:company, 
+                reports:reports, 
+                admin: req.session.user
+            });
         });
 	});
 };
 
 exports.acceptCompany = function (req, res) {
-    if (req.body.accept!=7){
-        Company.findOne({_id:req.params.company_id}).then(function (company){
-            company.accept = req.body.accept;
-            company.save();
-        });
+    if (req.session.user){
+        if (req.body.accept!=7){
+            Company.findOne({_id:req.params.company_id}).then(function (company){
+                company.accept = req.body.accept;
+                company.save();
+            });
+        }
+        res.redirect('/company/'+req.params.company_id);
     }
-    res.redirect('/company/'+req.params.company_id);
+    else
+    {
+        res.send('У Вас нет прав для данной операции');
+    }
 }

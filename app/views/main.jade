@@ -87,21 +87,12 @@ html(lang='en')
               .news-caption.uppercase
                 | Новости
               .news
-                .new
-                  h3 Заголовок новости 1
-                  p 1 ноября 2016, 10:38
-                  a.underline(href='#', target='_blank', title='') Читать далее >>> 
-                  hr
-                .new
-                  h3 Заголовок новости 2
-                  p 1 ноября 2016, 10:38
-                  a.underline(href='#', target='_blank', title='') Читать далее >>> 
-                  hr
-                .new
-                  h3 Заголовок новости 3
-                  p 1 ноября 2016, 10:38
-                  a.underline(href='#', target='_blank', title='') Читать далее >>> 
-                  hr
+                for nw in news
+                  .new
+                    h3 #{nw.header}
+                    p #{nw.date}
+                    a.underline(href='#{nw.link}', target='_blank', title='') Читать далее >>> 
+                    hr
             // /.mainpage-news
           // / row stat & news
           .col-md-12.col-xs-12.col-sm-12.partners

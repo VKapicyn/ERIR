@@ -1,125 +1,132 @@
 if user
-    h2 Вы зашли как "#{user.name}"
-    a(href='/logout') Выйти
-    hr
-    br
-    details
-        summary Новости
-        h3 Добавить:
-        input(type='text', name='header', placeholder='Заголовок')
-        br
-        br
-        input(type='text', name='link', placeholder='Ссылка')
-        br
-        br
-        button(type='submit') Отправить
-        hr
-        h3 Редактирование новостей
-        span
-            | Заголовок - дата - статус
-            br
-            | Заголовок - дата - статус
-            br
-            | Заголовок - дата - статус
-        br
-    br
-    br
-    details
-        summary Непровернные компании
-        input(type='checkbox', value='Выбрать все')
-        | Выбрать все 
-        button(type='submit') Добавить
-        | &nbsp;
-        button(type='submit') Отклонить
-        | &nbsp;
-        button(type='submit') Удалить
-        hr
-        br
-        for val in companies 
-            if val.accept == '0'
-                input(type='checkbox', value='#{val.name}') 
-                | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/company/#{val._id}') Просмотреть
+    html(lang='ru')
+    //подключение header
+    include includes/head 
+    main.container
+        .row
+                h2 Вы зашли как "#{user.name}"
+                a(href='/logout') Выйти
+                hr
                 br
-    details
-        summary Отклоненные компании
-        input(type='checkbox', value='Выбрать все')
-        | Выбрать все 
-        button(type='submit') Добавить
-        | &nbsp;
-        button(type='submit') Удалить
-        hr
-        br
-        for val in companies 
-            if val.accept == '2'
-                input(type='checkbox', value='#{val.name}') 
-                | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/company/#{val._id}') Просмотреть
+                details
+                    summary 
+                        b Новости
+                    h3 Добавить:
+                    form(method='POST', action='/news/add')
+                        input(type='text', name='header', placeholder='Заголовок')
+                        br
+                        br
+                        input(type='text', name='link', placeholder='Ссылка')
+                        br
+                        br
+                        button(type='submit') Отправить
+                    hr
+                    h3 Редактирование новостей
+                    span
+                        input(type='checkbox', value='Выбрать все')
+                        | Выбрать все 
+                        button(type='submit') Удалить
+                        hr
+                        - var i = 0;
+                        for nw in news
+                            - i++;
+                            input(type='checkbox', value='#{nw._id}')
+                            | #{nw.header} - #{nw.date} 
+                            if i<=3
+                                b
+                                    | - На главной
+                            else
+                                | - Cкрыта
+                            br
+                    br
                 br
-    details
-        summary Проверенные компании
-        input(type='checkbox', value='Выбрать все')
-        | Выбрать все 
-        button(type='submit') Откланить
-        | &nbsp;
-        button(type='submit') Удалить
-        hr
-        br
-        for val in companies
-            if val.accept == '1'
-                input(type='checkbox', value='#{val.name}') 
-                | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/company/#{val._id}') Просмотреть
                 br
-    br
-    br
-    details
-        summary Непровернные отчеты
-        input(type='checkbox', value='Выбрать все')
-        | Выбрать все 
-        button(type='submit') Добавить
-        | &nbsp;
-        button(type='submit') Отклонить
-        | &nbsp;
-        button(type='submit') Удалить
-        hr
-        br
-        for val in reports 
-            if val.accept == '0'
-                input(type='checkbox', value='#{val.name}') 
-                | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/report/#{val._id}') Просмотреть
+                details
+                    summary Непровернные 
+                        b Компании
+                    input(type='checkbox', value='Выбрать все')
+                    | Выбрать все 
+                    button(type='submit') Добавить
+                    | &nbsp;
+                    button(type='submit') Отклонить
+                    hr
+                    for val in companies 
+                        if val.accept == '0'
+                            input(type='checkbox', value='#{val.name}') 
+                            | #{val.name} (Добавлено: #{val.date}) - 
+                            a(href='/company/#{val._id}') Просмотреть
+                            br
+                            br
+                details
+                    summary Отклоненные 
+                        b Компании
+                    input(type='checkbox', value='Выбрать все')
+                    | Выбрать все 
+                    button(type='submit') Добавить
+                    hr
+                    for val in companies 
+                        if val.accept == '2'
+                            input(type='checkbox', value='#{val.name}') 
+                            | #{val.name} (Добавлено: #{val.date}) - 
+                            a(href='/company/#{val._id}') Просмотреть
+                            br
+                            br
+                details
+                    summary Проверенные 
+                        b Компании
+                    input(type='checkbox', value='Выбрать все')
+                    | Выбрать все 
+                    button(type='submit') Отклонить
+                    hr
+                    for val in companies
+                        if val.accept == '1'
+                            input(type='checkbox', value='#{val.name}') 
+                            | #{val.name} (Добавлено: #{val.date}) - 
+                            a(href='/company/#{val._id}') Просмотреть
+                            br
                 br
-        
-    details
-        summary Отклоненные отчеты
-        input(type='checkbox', value='Выбрать все')
-        | Выбрать все 
-        button(type='submit') Добавить
-        | &nbsp;
-        button(type='submit') Удалить
-        hr
-        br
-        for val in reports 
-            if val.accept == '2'
-                input(type='checkbox', value='#{val.name}') 
-                | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/report/#{val._id}') Просмотреть
                 br
-    details
-        summary Проверенные отчеты
-        input(type='checkbox', value='Выбрать все')
-        | Выбрать все 
-        button(type='submit') Откланить
-        | &nbsp;
-        button(type='submit') Удалить
-        hr
-        br
-        for val in reports 
-            if val.accept == '1'
-                input(type='checkbox', value='#{val.name}') 
-                | #{val.name} (Добавлено: #{val.date}) - 
-                a(href='/report/#{val._id}') Просмотреть
-                br
+                details
+                    summary Непровернные 
+                        b Отчеты
+                    input(type='checkbox', value='Выбрать все')
+                    | Выбрать все 
+                    button(type='submit') Добавить
+                    | &nbsp;
+                    button(type='submit') Отклонить
+                    hr
+                    for val in reports 
+                        if val.accept == '0'
+                            input(type='checkbox', value='#{val.name}') 
+                            | #{val.name} (Добавлено: #{val.date}) - 
+                            a(href='/report/#{val._id}') Просмотреть
+                            br
+                    
+                details
+                    summary Отклоненные 
+                        b Отчеты
+                    input(type='checkbox', value='Выбрать все')
+                    | Выбрать все 
+                    button(type='submit') Добавить
+                    hr
+                    for val in reports 
+                        if val.accept == '2'
+                            input(type='checkbox', value='#{val.name}') 
+                            | #{val.name} (Добавлено: #{val.date}) - 
+                            a(href='/report/#{val._id}') Просмотреть
+                            br
+                details
+                    summary Проверенные 
+                        b Отчеты
+                    input(type='checkbox', value='Выбрать все')
+                    | Выбрать все 
+                    button(type='submit') Отклонить
+                    hr
+                    for val in reports 
+                        if val.accept == '1'
+                            input(type='checkbox', value='#{val.name}') 
+                            | #{val.name} (Добавлено: #{val.date}) - 
+                            a(href='/report/#{val._id}') Просмотреть
+                            br
 else
     | У Вас нет прав для просмотра данной страницы

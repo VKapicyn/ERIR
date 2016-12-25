@@ -59,6 +59,7 @@ app.post('/report/create/', upload.fields([{name:'upload'},{name:'ru_PDF'},{name
 app.post('/company/create/', upload.single('upload_logo'), require('./app/controllers/company').addCompany);
 app.post('/company/accept/single/:company_id', require('./app/controllers/company').acceptCompany);
 app.post('/report/accept/single/:report_id', require('./app/controllers/report').acceptReport);
+app.post('/news/add', require('./app/models/newsModel').addNews)
 app.get('/:filename', require('./app/controllers/db-files').getFile);
 // 4 маршрута для редактирования
 //app.post('/create/user', require('./app/controllers/admin').adminCreate);

@@ -142,12 +142,18 @@ exports.getReportById = function (req, res){
 };
 
 exports.acceptReport = function (req, res){
+    if (req.session.user){
         if (req.body.accept!=7){
-        Report.findOne({_id:req.params.report_id}).then(function (report){
-            report.accept = req.body.accept;
-            report.save();
-        });
+            Report.findOne({_id:req.params.report_id}).then(function (report){
+                report.accept = req.body.accept;
+                report.save();
+            });
+        }
+        res.redirect('/report/'+req.params.report_id);
     }
-    res.redirect('/report/'+req.params.report_id);
+    else
+    {
+        res.send('У Вас нет прав для данной операции');
+    }
 }
 

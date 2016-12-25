@@ -4,18 +4,23 @@ var db = dbModel.db;
 
 
 var auth = require('../models/authModel');
+var newsModel = require('../models/newsModel').newsModel;
 var Company = require('../models/companyModel').companyModel;
 var Report = require('../models/reportModel').reportModel;
+
 
 
 exports.adminPage = function (req, res) {
   if(req.session.user){
     Company.find({}).then(function(companies){
       Report.find({}).then(function(reports){
-        res.render('admin',{
-          user : req.session.user,
-          companies: companies,
-          reports: reports
+				newsModel.find({}).sort({date:'desc'}).then(function(news){
+					res.render('admin',{
+						user : req.session.user,
+						companies: companies,
+						reports: reports,
+						news: news
+					});
         });
       });
     });
