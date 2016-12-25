@@ -70,10 +70,12 @@ function getSearchCompany(){
 function getURL(){
     let sector = document.getElementsByName('economy');
         sector = sector[0].options[sector[0].selectedIndex].value;
+    let city = document.getElementsByName('city');
+        city = city[0].options[city[0].selectedIndex].value;
     let size_of_company = document.getElementsByName('company_size');
         size_of_company = size_of_company[0].options[size_of_company[0].selectedIndex].value;
     let search = document.getElementById('search-input').value==''?'null':document.getElementById('search-input').value;
-    let url = '/v1/search/company/'+amount+'/'+page+'/'+sort+'/'+sector+'/'+size_of_company+'/'+search;  
+    let url = '/v1/search/company/'+amount+'/'+page+'/'+sort+'/'+sector+'/'+size_of_company+'/'+city+'/'+search;  
 
     return url;
 }
@@ -133,6 +135,7 @@ function endPage(){
 function clear_params(){
     $("#economy option:contains('Отрасль экономики')").prop('selected', true);
     $("#company_size option:contains('Размер предприятия')").prop('selected', true);
+    $("#city option:contains('Местонахождение штаб-квартиры')").prop('selected', true);
     document.getElementById('search-input').value = '';
     sortDefault();
 }

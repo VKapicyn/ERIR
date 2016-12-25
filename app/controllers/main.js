@@ -12,7 +12,7 @@ var Report = require('../models/reportModel').reportModel;
 
 exports.mainPage = function (req, res){
   //заменить сортировку по accept .where('accept','1')
-  Report.find({}).sort({date : 'desc'}).exec(function (err, docs){ 
+  Report.find({accept: 1}).sort({date : 'desc'}).limit(14).exec(function (err, docs){ 
     res.render('main', {new_reports: docs});
   });
 };

@@ -67,8 +67,19 @@ exports.searchReportPageREST = function(req, res){
             break;
     };
 
-    //parse && query standarts
-    //parse && query best
+    if (standarts != 'standarts'){
+        let m_standarts = standarts.split(';');
+        for(let i=0; i< m_standarts.length-1; i++){
+            query.where('standarts', m_standarts[i]);
+        }
+    }
+    
+    if (best != 'best'){
+        let m_best = best.split(';');
+        for(let i=0; i< m_best.length-1; i++){
+            query.where('best', best[i]);
+        }
+    }
 
 
     if (size_of_company != 'Размер предприятия')
@@ -87,14 +98,16 @@ exports.searchReportPageREST = function(req, res){
 
     var result = [];
     query.exec(function (err, _report){
-        let start = amount * page - amount;
-        let finish = amount * page - 1;
-        for(let i=start; ((i<_report.length) && (i<=finish)); i++){
-            result.push(_report[i]);
+        if (_report!=undefined){
+            let start = amount * page - amount;
+            let finish = amount * page - 1;
+            for(let i=start; ((i<_report.length) && (i<=finish)); i++){
+                result.push(_report[i]);
+            }
+            let size = {'key':'size', 'size':_report.length};
+            result.push(size);
+            res.json(result);
         }
-        let size = {'key':'size', 'size':_report.length};
-        result.push(size);
-        res.json(result);
     });
 }
 
@@ -104,6 +117,7 @@ exports.searchCompanyPage = function (req, res){
         res.render('search-company', {
             sector: stat.sector, 
             size_of_company: stat.size_of_company, 
+            city: stat.city
         });
     });
 };
@@ -111,6 +125,7 @@ exports.searchCompanyPage = function (req, res){
 exports.searchCompanyPageREST = function (req, res){
     var sort = req.params.sort;
     var sector = req.params.sector;
+    var city = req.params.city;
     var size_of_company = req.params.size_of_company;
     var search = req.params.search;
     var page = req.params.page;
@@ -118,12 +133,13 @@ exports.searchCompanyPageREST = function (req, res){
     var query;
 
     if(search!='null')
-        query = Company.find({$or: [
+        query = Company.find({accept:'1'},{$or: [
             {name: {$regex: search, $options:'i'}},
             {short_name: {$regex: search, $options:'i'}}
         ]});
     else
-        query = Company.find({});
+        query = Company.find({accept:'1'});
+
 
     switch (sort){
         case 'name' :
@@ -144,16 +160,21 @@ exports.searchCompanyPageREST = function (req, res){
         query.where('size_of_company',size_of_company);
     if (sector!='Отрасль экономики')
         query.where('sector',sector);
+    if (city != 'Местонахождение штаб-квартиры')
+        query.where('city', city);
     
+
     var result = [];
     query.exec(function (err, _company){
-        let start = amount * page - amount;
-        let finish = amount * page - 1;
-        for(let i=start; ((i<_company.length) && (i<=finish)); i++){
-            result.push(_company[i]);
+        if (company!=undefined){
+            let start = amount * page - amount;
+            let finish = amount * page - 1;
+            for(let i=start; ((i<_company.length) && (i<=finish)); i++){
+                result.push(_company[i]);
+            }
+            let size = {'key':'size', 'size':_company.length};
+            result.push(size);
+            res.json(result);
         }
-        let size = {'key':'size', 'size':_company.length};
-        result.push(size);
-        res.json(result);
     }); 
 };

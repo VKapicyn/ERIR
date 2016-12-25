@@ -41,7 +41,21 @@ if user
                 | #{val.name} (Добавлено: #{val.date}) - 
                 a(href='/company/#{val.name}') Просмотреть
                 br
-        
+    details
+        summary Проверенные компании
+        input(type='checkbox', value='Выбрать все')
+        | Выбрать все 
+        button(type='submit') Откланить
+        | &nbsp;
+        button(type='submit') Удалить
+        hr
+        br
+        for val in companies
+            if val.accept == '1'
+                input(type='checkbox', value='#{val.name}') 
+                | #{val.name} (Добавлено: #{val.date}) - 
+                a(href='/company/#{val._id}') Просмотреть
+                br
     details
         summary Отклоненные компании
         input(type='checkbox', value='Выбрать все')

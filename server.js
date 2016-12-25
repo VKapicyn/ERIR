@@ -63,10 +63,12 @@ app.get('/:filename', require('./app/controllers/db-files').getFile);
 
 
 //маршрутизация API запросов
-app.get('/v1/search/company/:amount/:page/:sort/:sector/:size_of_company/:search',require('./app/controllers/search').searchCompanyPageREST);
+app.get('/v1/search/company/:amount/:page/:sort/:sector/:size_of_company/:city/:search',require('./app/controllers/search').searchCompanyPageREST);
 app.get('/v1/stats/:sector/:standart/:size_of_company/:type_of_ownership', require('./app/controllers/stats').getStats);
 app.get('/v1/search/report/:amount/:page/:sort/:sector/:size_of_company/:city/:year/:opf/:type_of_ownership/:standarts/:best/:search', 
 require('./app/controllers/search').searchReportPageREST);
+app.get('/v1/static/standarts', require('./app/models/staticModel').standartsREST);
+app.get('/v1/static/best', require('./app/models/staticModel').bestREST);
 //app.get('/v1/report/:id', rest.getReportById);
 //app.get('/v1/company/:name', rest.getCompanyByName);
 //app.get('/v1/search/companies/', rest.searchCompnaies);

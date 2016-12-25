@@ -55,6 +55,10 @@ body
                     for sec in sector
                       option(value='#{sec}') #{sec}
                   br
+                  select(name='city', id='city')
+                    for val in city
+                      option(value='#{val}') #{val}
+                  br
                   select(name='company_size', id='company_size')
                     for comp in size_of_company
                       option(value='#{comp}') #{comp}

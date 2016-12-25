@@ -151,9 +151,10 @@ if admin || report.accept==1
                 h3 Другие отчеты компании
                 .col-md-10.col-md-offset-2.col-xs-6.col-sm-6.other-reports
                   for rep in reports
-                    .cover
-                      a(href='/report/#{rep._id}', target='_blank', title='#{rep.name}')
-                        img(src='#{rep.preview}', alt='')
+                    if rep.accept == 1
+                      .cover
+                        a(href='/report/#{rep._id}', target='_blank', title='#{rep.name}')
+                          img(src='#{rep.preview}', alt='')
               .row
                 if admin
                   br

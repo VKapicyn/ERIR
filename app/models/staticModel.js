@@ -39,6 +39,17 @@ var getStatic = function (callback){
     });
 };
 
+exports.standartsREST = function (req, res){
+    staticModel.findOne({name: 'standarts'}).then(function(result){
+        res.json(result.mass);
+    })
+}
+
+exports.bestREST = function (req, res){
+    staticModel.findOne({name: 'best'}).then(function(result){
+        res.json(result.mass);
+    })
+}
 
 var staticModel = mongoose.model('static', staticSchema);
 module.exports.getStatic = getStatic;

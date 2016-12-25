@@ -54,26 +54,26 @@ body
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск отчета
                   br
-                  select(name='report_year')
+                  select(name='report_year' id='report_year')
                     for val in year
                       option(value='#{val}') #{val}
-                  select(name='economy')
+                  select(name='economy', id='economy')
                     for val in sector
                       option(value='#{val}') #{val}
                   br
-                  select(name='city')
+                  select(name='city', id='city')
                     for val in city
                       option(value='#{val}') #{val}
                   br
-                  select(name='company_size')
+                  select(name='company_size', id='company_size')
                     for val in size_of_company
                       option(value='#{val}') #{val}
                   br
-                  select(name='organization_form')
+                  select(name='organization_form', id='organization_form')
                     for val in opf
                       option(value='#{val}') #{val}
                   br
-                  select(name='ownership')
+                  select(name='ownership', id='ownership')
                     for val in type_of_ownership
                       option(value='#{val}') #{val}
                   br
@@ -81,14 +81,14 @@ body
                   strong Наличие стандартов
                   br
                   for val in standarts
-                    input(type='checkbox', value='#{val}')
+                    input(type='checkbox', value='#{val}', id='#{val}')
                     |  #{val}
                     br
                   br
                   strong Лучшая практика
                   br
                   for val in best
-                    input(type='checkbox', value='#{val}')
+                    input(type='checkbox', value='#{val}', id='#{val}')
                     |  #{val}
                     br
                   br
@@ -107,13 +107,13 @@ body
               strong Сортировка:
               .var-sort
                 span(rel='name')
-                  a(href='#') Название компании
+                  a(href='#' onclick='sortName()') Название компании
                 span(rel='report-year')
-                  a(href='#') Отчетный год
+                  a(href='#' onclick='sortYear()') Отчетный год
                 span(rel='economy')
-                  a(href='#') Отрасль экономики
+                  a(href='#' onclick='sortSector()') Отрасль экономики
                 span(rel='company-size')
-                  a(href='#') Размер предприятия
+                  a(href='#' onclick='sortSize()') Размер предприятия
             // /sort
             .change-view
               strong Вид:
@@ -145,7 +145,9 @@ body
                       th Название отчета
                       th Год
                       th Стандарт
-                  tbody
+                  tbody#r-view2
+                  tr
+                    td
                     //for rep in reports
                       tr
                         td
@@ -164,11 +166,28 @@ body
                   .element
                     a(href='/report/{rep._id}', title='Перейти на страницу отчета')
                       img(src='{rep.preview}', alt='icon')
-          // /search-results-report
-          
+            .sort
+              .div
+                span(rel='')
+                  | Компаний на странице:&nbsp;
+                a#amount10(href='#') 10&nbsp;&nbsp;
+                a#amount20(href='#') 20&nbsp;&nbsp;
+                a#amount50(href='#') 50&nbsp;&nbsp;
+                #pagination.p
         // /row
       .space
       .space
+
+      script.
+        $("#amount10").click( function () {
+          setAmount(10);
+        } );
+        $("#amount20").click( function () {
+          setAmount(20);
+        } );
+        $("#amount50").click( function () {
+          setAmount(50);
+        } );
 
       //подключение footer
       script(src='/js/frontReportSearch.js')
