@@ -80,3 +80,13 @@ exports.getCompanyById = function (req, res) {
         });
 	});
 };
+
+exports.acceptCompany = function (req, res) {
+    if (req.body.accept!=7){
+        Company.findOne({_id:req.params.company_id}).then(function (company){
+            company.accept = req.body.accept;
+            company.save();
+        });
+    }
+    res.redirect('/company/'+req.params.company_id);
+}

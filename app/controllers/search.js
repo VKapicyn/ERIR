@@ -42,12 +42,11 @@ exports.searchReportPageREST = function(req, res){
     var search = req.params.search;
     var page = req.params.page;
     var amount = req.params.amount;
-    var query;
+    var query = query = Report.find({accept:'1'});
 
     if(search!='null')
-        query = Report.find({name:{$regex: search, $options:'i'}});
-    else
-        query = Report.find({});
+        query.where({name:{$regex: search, $options:'i'}});
+        
 
     switch (sort){
         case 'name' :
@@ -130,15 +129,14 @@ exports.searchCompanyPageREST = function (req, res){
     var search = req.params.search;
     var page = req.params.page;
     var amount = req.params.amount;
-    var query;
+    var query = Company.find({accept:'1'});
 
     if(search!='null')
-        query = Company.find({accept:'1'},{$or: [
+        query.where({$or: [
             {name: {$regex: search, $options:'i'}},
             {short_name: {$regex: search, $options:'i'}}
         ]});
-    else
-        query = Company.find({accept:'1'});
+
 
 
     switch (sort){
@@ -163,10 +161,9 @@ exports.searchCompanyPageREST = function (req, res){
     if (city != 'Местонахождение штаб-квартиры')
         query.where('city', city);
     
-
     var result = [];
     query.exec(function (err, _company){
-        if (company!=undefined){
+        if (_company!=undefined){
             let start = amount * page - amount;
             let finish = amount * page - 1;
             for(let i=start; ((i<_company.length) && (i<=finish)); i++){

@@ -57,6 +57,8 @@ app.get('/company/:id', require('./app/controllers/company').getCompanyById);
 app.get('/report/:id', require('./app/controllers/report').getReportById);
 app.post('/report/create/', upload.fields([{name:'upload'},{name:'ru_PDF'},{name:'en_PDF'}]), require('./app/controllers/report').addReport);
 app.post('/company/create/', upload.single('upload_logo'), require('./app/controllers/company').addCompany);
+app.post('/company/accept/single/:company_id', require('./app/controllers/company').acceptCompany);
+app.post('/report/accept/single/:report_id', require('./app/controllers/report').acceptReport);
 app.get('/:filename', require('./app/controllers/db-files').getFile);
 // 4 маршрута для редактирования
 //app.post('/create/user', require('./app/controllers/admin').adminCreate);
