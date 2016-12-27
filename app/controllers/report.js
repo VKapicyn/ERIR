@@ -36,10 +36,10 @@ exports.addReport = function (req, res){
         new_rep.year = req.body.report_year;
         new_rep.company = req.body.company;
         new_rep.sector = result.sector;
-        size_of_company = result.size_of_company;
-        opf = result.opf;
-        city = result.city;
-        type_of_ownership = result.type_of_ownership;
+        new_rep.size_of_company = result.size_of_company;
+        new_rep.opf = result.opf;
+        new_rep.city = result.city;
+        new_rep.type_of_ownership = result.type_of_ownership;
         new_rep.company_id = result._id;
 
         var standarts = [];
