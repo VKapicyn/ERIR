@@ -108,14 +108,13 @@ if admin || report.accept==1
                             i.fa.fa-check(aria-hidden='true')
                           else
                             i.fa.fa-close(aria-hidden='true') 
-                      if (report.best != undefined)
+                      if (report.Best != 0)
                         tr
                           td  Является лучшей практикой в: 
                           td
-                            //if report.best.length!=0
-                              for val in best
-                                | #{val}
-                                br
+                            for val in report.Best
+                              | #{val}
+                              br
                       if (report.consultant != undefined)
                         tr
                           td  Компания-консультант
@@ -206,7 +205,7 @@ if admin || report.accept==1
                     strong Лучшая практика
                       br
                       for val in best
-                        input(type='checkbox', value='#{val}')
+                        input(type='checkbox', value='#{val}', name='#{val}')
                         |  #{val}
                         br
                       br

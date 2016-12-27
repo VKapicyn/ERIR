@@ -143,12 +143,28 @@ exports.getReportById = function (req, res){
 
 exports.acceptReport = function (req, res){
     if (req.session.user){
-        if (req.body.accept!=7){
-            Report.findOne({_id:req.params.report_id}).then(function (report){
-                report.accept = req.body.accept;
+        Report.findOne({_id:req.params.report_id}).then(function (report){
+            if (req.body.accept!=7){
+                    report.accept = req.body.accept;
+            }
+
+            if (req.body.RRS_correct != undefined && req.body.RRS_correct!='')
+                report.RRS = req.body.RRS_correct;
+
+            getStatic(function(resul, parse){
+                var stat = parse(resul);
+                var best = [];
+                for(let i=0; i<stat.best.length; i++)
+                    if (req.body[stat.best[i]] != undefined)
+                        best.push(req.body[stat.best[i]]);
+                if (best.length != 0)
+                    report.Best = best;
                 report.save();
+                console.log(report.Best);
             });
-        }
+
+            report.save();
+        });
         res.redirect('/report/'+req.params.report_id);
     }
     else
