@@ -2,7 +2,6 @@ doctype html
 html(lang='en')
   //подключение header
   include includes/head 
-
   body
     .wrapper
       .navigation
@@ -90,7 +89,8 @@ html(lang='en')
                 for nw in news
                   .new
                     h3 #{nw.header}
-                    p #{nw.date}
+                    - var test = nw.date.toLocaleString("ru", options);
+                    p #{test}
                     a.underline(href='#{nw.link}', target='_blank', title='') Читать далее >>> 
                     hr
             // /.mainpage-news
