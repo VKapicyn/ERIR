@@ -120,7 +120,7 @@ exports.addReport = function (req, res){
         result.reports.unshift(new_rep._id);
         result.save();
 
-        res.render('ok',{user: new_comp.user_FIO, object: 'отчета'});
+        res.render('ok',{user: new_rep.user_FIO, object: 'отчета'});
         });
     });
 };

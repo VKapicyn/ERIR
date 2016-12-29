@@ -44,10 +44,6 @@ if admin || report.accept==1
               .row
                 .col-md-3.col-xs-6.col-sm-6.cover-and-isBest
                   img(src='#{report.preview}', alt='')
-                  br
-                  span.isBest
-                    | Отчет является лучшей практикой в раскрытии [элемент] в 2009 году, согласно исследованию 
-                    a(href='#', target='_blank', title='Перейти к исследованию') РРС
                 .col-md-7.col-xs-12.col-sm-12.report-info
                   table.table.table-hover
                     tbody
@@ -131,6 +127,10 @@ if admin || report.accept==1
                         tr
                           td  Аудитор отчета
                           td  #{report.auditor}
+                      if (report.fin_auditor!=undefined)
+                        tr
+                          td  Финансовый аудитор отчета
+                          td  #{report.auditor}
                 .col-md-2.col-xs-12.col-sm-12.report-buttons
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-download(aria-hidden='true')
@@ -141,9 +141,10 @@ if admin || report.accept==1
                       i.fa.fa-download(aria-hidden='true')
                         a(href='#{report.doc_en}') Скачать отчет (ENG)
                   br
-                  button.btn.btn-default.green-btn(type='submit')
-                    a(href='http://#{report.interactive}', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
-                  br
+                  if (report.interactive!=undefined && report.interactive.length!=0)
+                    button.btn.btn-default.green-btn(type='submit')
+                      a(href='#{report.interactive}', target='_blank', title='Перейти к интерактивной версии') Интерактивная версия
+                    br
               // /row
               // убрать из массива текущий отчет
               .row
