@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+  //подключение header
+  include includes/head 
+  
+  body
+    .wrapper
+      .navigation
+        nav.navbar.navbar-default
+          .container
+            // Brand and toggle get grouped for better mobile display
+            // <h1>Национальный реестр интегрированных отчетов</h1>
+            p.nav-description Национальный реестр интегрированных отчетов
+            // <h5>Краткое пояснение, что это</h5>
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              //- a.navbar-brand(href='#')
+              //-   img(src='/img/da-strateg-logo.png', alt='logo1')
+            // Collect the nav links, forms, and other content for toggling
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='/main') На главную
+                li
+                  a(href='/search') Поиск
+                li
+                  a(href='/stats') Интерактивная статистика
+                li
+                  a(href='/register-report') Регистрация отчета
+                li
+                  a(href='/register-company') Регистрация компании
+            // /.navbar-collapse
+          // /.container-fluid
+      // /container navigation
+      .container.mainpage
+        main.container
+          .row
+            Контактная информация
+
+          // /row
+      // /mainpage
+
+      //подключение footer
+      include includes/footer
+      script(src='/js/graph.js')  
+      script(src='js/highchartsMyTheme.js')
+      script(src='js/exporting.js')
+      script(src='https://code.highcharts.com/modules/data.js')
+      script(src='https://code.highcharts.com/modules/drilldown.js')
+
+
