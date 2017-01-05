@@ -158,11 +158,24 @@ html(lang='en')
                       br
                       br
                 .buttons.center
+                  //- .upload
+                  //-   label.btn.btn-default.green-btn(for='upload_logo')
+                  //-     i.fa.fa-image(aria-hidden='true')
+                  //-     |  Загрузить логотип компании (в формате JPG или PNG)          
+                  //-   input#upload_logo(type='file', name='upload_logo')
+                  //-   .success-download
+                  //-     span Файл загружен
+
                   .upload
-                    label.btn.btn-default.green-btn(for='upload_logo')
-                      i.fa.fa-image(aria-hidden='true')
-                      | Загрузить логотип компании (в формате JPG или PNG)          
-                    input#upload_logo(type='file', name='upload_logo')
+                      label.btn.btn-default.green-btn(for='upload_logo')
+                        i.fa.fa-image(aria-hidden='true')
+                        |  Выбрать логотип компании (в формате JPG или PNG)   
+                      input#upload_logo(type='file', name='upload_logo', multiple='', accept='image/*,image/jpeg')                        
+                  input#filename.filename(type='text', disabled='')
+
+                  br  
+                  br  
+
                   .submit
                     label.btn.btn-default.green-btn(for='submit_reg_company')  Отправить
                     input#submit_reg_company(type='submit',         name='submit_reg_company' value='Submit')

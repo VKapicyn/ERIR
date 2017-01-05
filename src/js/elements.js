@@ -114,7 +114,6 @@
 //  Seacrh. Выпадающий список с селекторами. Наличие стандартов
 $(".dropdown1 dt a").on('click', function() { //нажат заголовок
   $(".dropdown1 dd ul").slideToggle('fast');  //раскрыть варианты
-  // $(".dropdown2 dt a").hide();
 });
 
 $(".dropdown1 dd ul li a").on('click', function() {
@@ -232,6 +231,18 @@ $(function(){
 //      /Register-company. Проверка заполненности форм
 
 //      Register-company. Загрузка логотипа
+
+// Показать имя загруженного файла
+$(document).ready( function() {
+    $(".upload input[type=file]").change(function(){
+         var filename = $(this).val().replace(/.*\\/, "");
+         $("#filename").val(filename);
+    });
+});
+// /Показать имя загруженного файла
+
+
+
 //Проверка загружен ли логотип
 $(document).ready(function(){
      $("#register-company").submit(function(){
