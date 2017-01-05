@@ -76,42 +76,53 @@ body
                   select(name='ownership', id='ownership')
                     for val in type_of_ownership
                       option(value='#{val}') #{val}
-                  br
-                  br
                   .space 
-                  //- strong Наличие стандартов
-                  //- br
-                  //- for val in standarts
-                  //-   input(type='checkbox', value='#{val}', id='#{val}')
-                  //-   |  #{val}
-                  //-   br
 
-                  dl.dropdown
-                    dt
-                      a(href='#', title='Нажмите для отображения вариантов')
-                        span.hida Наличие стандартов
-                        p.multiSel
+                  dl.dropdown1
+                    dt.simple-border
+                      a(href='#', title='Нажмите для отображения стандартов')
+                        span.hida1 Наличие стандартов
+                        p.multiSel1
                     dd
-                      .mutliSelect
+                      .mutliSelect1
                         ul
                           li
                             for val in standarts
                               input(type='checkbox', value='#{val}', id='#{val}')
                               |   #{val}
-                              br
-                          
-                    //- button Filter
-
+                              br             
 
                   br
                   br
-                  strong Лучшая практика
                   br
-                  for val in best
-                    input(type='checkbox', value='#{val}', id='#{val}')
-                    |  #{val}
-                    br
                   br
+                  br
+                  br
+
+
+
+                  dl.dropdown2
+                    dt.simple-border
+                      a(href='#', title='Нажмите для отображения списка лучших практик')
+                        span.hida2 Лучшая практика
+                        p.multiSel2
+                    dd
+                      .mutliSelect2
+                        ul
+                          li
+                            for val in best
+                              input(type='checkbox', value='#{val}', id='#{val}')
+                              |   #{val}
+                              br              
+                  br
+                  br
+                  br
+                  br
+                  br
+                  br                  
+                  br
+                  br
+
                   button.btn.btn-default.green-btn(type='submit' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
                     |  Поиск отчета

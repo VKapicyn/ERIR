@@ -149,9 +149,12 @@ main {
   color: @sea-green;
 }
 
-
+@normal-margin-top: 20px;
 .space {
-  margin-top: 20px;
+  margin-top: @normal-margin-top;
+}
+.space2 {
+  margin-top: @normal-margin-top*3;
 }
 
 .simple-border {
@@ -472,9 +475,15 @@ footer {
 
 //  Выпадающий список с селекторами "Наличие стандартов"
 
-.dropdown {
+.dropdown1, .dropdown2 {
+    margin-top: 50px;
+    // margin-bottom: 100px; //не работает. вместо него br br br...
     position: absolute;
     transform: translateY(-50%);
+    
+    dt {
+      font-weight: normal;
+    }
 
     a {
       font-size: 14px !important;
@@ -510,17 +519,17 @@ footer {
     line-height: 24px;
     overflow: hidden;
     border: 0;
-    width: 272px;
+    width: 400px;
   }
 
    dt a span,
-  .multiSel span {
+  .multiSel1 span {
     cursor: pointer;
     display: inline-block;
     padding: 0 3px 2px 0;
   }
-  
-  dd ul {
+
+  dd ul { //выпадающий список
     background-color: @dark-gray;
     color: @black;
     border: 0;
@@ -530,9 +539,9 @@ footer {
     padding: 2px 15px 2px 5px;
     position: absolute;
     top: 2px;
-    width: 280px;
+    width: 380px;
     list-style: none;
-    height: 100px;
+    height: 90px;
     overflow: auto;
   }
 
@@ -549,7 +558,7 @@ footer {
     background-color: @gray;
   }
 
- .mutliSelect {
+ .mutliSelect1,  .mutliSelect2 {
   ul {
       li
         {
@@ -557,17 +566,6 @@ footer {
         }
       }
 } 
-
-  // button {
-  //   background-color: #6BBE92;
-  //   width: 302px;
-  //   border: 0;
-  //   padding: 10px 0;
-  //   margin: 5px 0;
-  //   text-align: center;
-  //   color: #fff;
-  //   font-weight: bold;
-  // }
 
 } // /.dropdown
 
