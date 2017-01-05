@@ -78,12 +78,32 @@ body
                       option(value='#{val}') #{val}
                   br
                   br
-                  strong Наличие стандартов
+                  .space 
+                  //- strong Наличие стандартов
+                  //- br
+                  //- for val in standarts
+                  //-   input(type='checkbox', value='#{val}', id='#{val}')
+                  //-   |  #{val}
+                  //-   br
+
+                  dl.dropdown
+                    dt
+                      a(href='#', title='Нажмите для отображения вариантов')
+                        span.hida Наличие стандартов
+                        p.multiSel
+                    dd
+                      .mutliSelect
+                        ul
+                          li
+                            for val in standarts
+                              input(type='checkbox', value='#{val}', id='#{val}')
+                              |   #{val}
+                              br
+                          
+                    //- button Filter
+
+
                   br
-                  for val in standarts
-                    input(type='checkbox', value='#{val}', id='#{val}')
-                    |  #{val}
-                    br
                   br
                   strong Лучшая практика
                   br

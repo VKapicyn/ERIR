@@ -470,6 +470,125 @@ footer {
   } /* /view */
 }/* /search-results */
 
+//  Выпадающий список с селекторами "Наличие стандартов"
+
+.dropdown {
+    position: absolute;
+    transform: translateY(-50%);
+
+    a {
+      font-size: 14px !important;
+    }
+
+   dd, dt {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  ul {
+    margin: -1px 0 0 0;
+  }
+
+  dd {
+    position: relative;
+  }
+
+
+   a,
+   a:visited {
+    color: @black;
+    text-decoration: none;
+    outline: none;
+    font-size: 12px;
+  }
+
+  dt a {
+    background-color: @white;
+    display: block;
+    padding: 8px 5px 0 10px;
+    min-height: 25px;
+    line-height: 24px;
+    overflow: hidden;
+    border: 0;
+    width: 272px;
+  }
+
+   dt a span,
+  .multiSel span {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 3px 2px 0;
+  }
+  
+  dd ul {
+    background-color: @dark-gray;
+    color: @black;
+    border: 0;
+    color: #fff;
+    display: none;
+    left: 0px;
+    padding: 2px 15px 2px 5px;
+    position: absolute;
+    top: 2px;
+    width: 280px;
+    list-style: none;
+    height: 100px;
+    overflow: auto;
+  }
+
+   span.value {
+    display: none;
+  }
+
+  dd ul li a {
+    padding: 5px;
+    display: block;
+  }
+
+   dd ul li a:hover {
+    background-color: @gray;
+  }
+
+ .mutliSelect {
+  ul {
+      li
+        {
+          color: @black;
+        }
+      }
+} 
+
+  // button {
+  //   background-color: #6BBE92;
+  //   width: 302px;
+  //   border: 0;
+  //   padding: 10px 0;
+  //   margin: 5px 0;
+  //   text-align: center;
+  //   color: #fff;
+  //   font-weight: bold;
+  // }
+
+} // /.dropdown
+
+
+
+
+
+
+
+
+
+
+
+//  /Выпадающий список с селекторами "Наличие стандартов"
+
+
+
+
+
+
+
 /* /---Page Search--- */
 
 /* --- Page Profile Report-- */
