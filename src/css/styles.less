@@ -668,13 +668,19 @@ footer {
     display: inline-block;
   }
 } 
-.upload, .submit {
+.upload, .upload_cover, .upload_ru_pdf, .upload_en_pdf, .submit {
   input { //если не применить, будет дефолтная кнопка "Выберите файл"
     opacity: 0; 
     z-index: -1;
   }
 
 }
+
+#submit-reg-company { //если не применить, будет дефолтная кнопка "submit"
+    opacity: 0; 
+    z-index: -1;
+}
+
 .btn-reg-company, .btn-reg-report {
   margin-bottom: 10px;
   margin-right: 20px;

@@ -176,27 +176,39 @@ html(lang='en')
                         input.change-w(type='text', name='registrator_phone')
                         br    
                   // /register-report-right
-                .buttons.center.upload
-                  div
-                    label.btn.btn-default.green-btn(for='upload-cover')
-                      i.fa.fa-file-image-o(aria-hidden='true')
-                      |  Загрузить обложку отчета (в формате JPG или PNG)
-                    input#upload-cover(type="file", name="upload")
-                  div
-                    label.btn.btn-default.green-btn(for='upload-report')
-                      i.fa.fa-file-pdf-o(aria-hidden='true')
-                      |  Загрузить отчет RU (в формате PDF)
-                    input#upload-report(type='file', name='ru_PDF')
-                  div
-                    label.btn.btn-default.green-btn(for='upload-report')
-                      i.fa.fa-file-pdf-o(aria-hidden='true')
-                      |  Загрузить отчет EN (в формате PDF)
-                    input#upload-report(type='file', name='en_PDF')
-                .buttons.center.submit
+                .buttons.center
                     div
-                      label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
-                      input#submit-reg-company(type='submit', value='Submit')
-                br
-                br
+                      .upload_cover
+                          label.btn.btn-default.green-btn(for='upl_cover')
+                            i.fa.fa-image(aria-hidden='true')
+                            |  Загрузить обложку отчета 
+                            br
+                            |(в формате JPG или PNG)   
+                          input#upl_cover(type='file', name='upl_cover', multiple='', accept='image/*,image/jpeg, ,image/png')
+                      input#covername.covername(type='text', disabled='')                  
+                    br
+
+                    div  
+                      .upload_ru_pdf
+                          label.btn.btn-default.green-btn(for='upload-report-ru')
+                            i.fa.fa-file-pdf-o(aria-hidden='true')
+                            |  Загрузить отчет RU (в формате PDF) 
+                          input#upload-report-ru(type='file', name='ru_PDF', multiple='', accept='.pdf') 
+                      input#ru_pdf.ru_pdf(type='text', disabled='')                
+                    br 
+
+                    div 
+                      .upload_en_pdf           
+                          label.btn.btn-default.green-btn(for='upload-report-en')
+                            i.fa.fa-file-pdf-o(aria-hidden='true')
+                            |   Загрузить отчет EN (в формате PDF)
+                          input#upload-report-en(type='file', name='en_PDF', multiple='', accept='.pdf')
+                      input#en_pdf.en_pdf(type='text', disabled='')                 
+                    br
+
+                    div
+                        label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
+                        input#submit-reg-company(type='submit', value='Submit')
+                    .space
       //подключение footer
       include includes/footer

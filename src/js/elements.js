@@ -232,17 +232,6 @@ $(function(){
 
 //      Register-company. Загрузка логотипа
 
-// Показать имя загруженного файла
-$(document).ready( function() {
-    $(".upload input[type=file]").change(function(){
-         var filename = $(this).val().replace(/.*\\/, "");
-         $("#filename").val(filename);
-    });
-});
-// /Показать имя загруженного файла
-
-
-
 //Проверка загружен ли логотип
 $(document).ready(function(){
      $("#register-company").submit(function(){
@@ -265,9 +254,45 @@ $('#upload-logo').change(function(){
         alert('Логотип должен быть в формате JPG или PNG!');
     }
 });
+
+// Показать имя загруженного файла
+$(document).ready( function() {
+    $(".upload input[type=file]").change(function(){
+         var filename = $(this).val().replace(/.*\\/, "");
+         $("#filename").val(filename);
+    });
+});
+// /Показать имя загруженного файла
 // /Register-company. Загрузка логотипа
 
+
+
+
 //      Register-report. Загрузка отчета и обложки отчета
+// Показать имя обложки
+$(document).ready( function() {
+    $(".upload_cover input[type=file]").change(function(){
+         var covername = $(this).val().replace(/.*\\/, "");
+         $("#covername").val(covername);
+    });
+});
+
+// Показать имя отчета на русском
+$(document).ready( function() {
+    $(".upload_ru_pdf input[type=file]").change(function(){
+         var ru_pdf = $(this).val().replace(/.*\\/, "");
+         $("#ru_pdf").val(ru_pdf);
+    });
+});
+
+// Показать имя отчета на англ
+$(document).ready( function() {
+    $(".upload_en_pdf input[type=file]").change(function(){
+         var en_pdf = $(this).val().replace(/.*\\/, "");
+         $("#en_pdf").val(en_pdf);
+    });
+});
+
 //Проверка загружен ли отчет
 $(document).ready(function(){
      $("#register-report").submit(function(){
