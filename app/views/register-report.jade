@@ -15,8 +15,10 @@ html(lang='en' ng-app="livesearch")
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
+
               //- a.navbar-brand(href='#')
               //-   img(src='img/da-strateg-logo.png', alt='logo1')
+
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
@@ -135,7 +137,8 @@ html(lang='en' ng-app="livesearch")
                   .col-md-5.col-xs-12.col-sm-6.register-right
                     div
                       | Ссылка на HTML версию отчета 
-                      input.change-w(name='interactive', type='text', placeholder='http://')
+
+                      input.change-w(name='interactive', type='text', placeholder='Полная ссылка с http://')
                       br
                     div
                       | Финансовый аудитор отчета 
@@ -186,6 +189,7 @@ html(lang='en' ng-app="livesearch")
                         input.change-w(type='text', name='registrator_phone')
                         br    
                   // /register-report-right
+
                 .buttons.center
                     div
                       .upload_cover
@@ -219,6 +223,15 @@ html(lang='en' ng-app="livesearch")
                     div
                         label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
                         input#submit-reg-company(type='submit', value='Submit')
+                    br
+                    span(style='font-size:12pt')
+                      | Если у вас остались вопросы или пожелания, свяжитесь с администратором сайта по адресу 
+                    span(style='font-size:12pt')
+                      a(href='mailto:lasarenko91@mail.ru')
+                        | lasarenko91@mail.ru
+                    br
+                    br
                     .space
+
       //подключение footer
       include includes/footer

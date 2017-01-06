@@ -20,7 +20,7 @@ exports.statsPage = function (req, res){
 };
 
 exports.getStats = function (req, res){
-  var query = Report.find({});
+  var query = Report.find({accept:'1'});
 
   if(req.params.sector != 'Отрасль экономики')
     query.where('sector', req.params.sector);
