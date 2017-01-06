@@ -15,6 +15,7 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
+
               //- a.navbar-brand(href='#')
               //-   img(src='img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
@@ -89,7 +90,8 @@ html(lang='en')
                 for nw in news
                   .new
                     h3 #{nw.header}
-                    p #{nw.date}
+                    - var test = nw.date.toLocaleString("ru", options);
+                    p #{test}
                     a.underline(href='#{nw.link}', target='_blank', title='') Читать далее >>> 
                     hr
             // /.mainpage-news

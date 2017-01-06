@@ -76,7 +76,7 @@ exports.searchReportPageREST = function(req, res){
     if (best != 'best'){
         let m_best = best.split(';');
         for(let i=0; i< m_best.length-1; i++){
-            query.where('best', best[i]);
+            query.where('Best', m_best[i]);
         }
     }
 

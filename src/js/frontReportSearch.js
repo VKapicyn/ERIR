@@ -26,7 +26,7 @@ function getSearchCompany(){
             let tableContent = '';         
             tableContent += '<div class="element output">';
             tableContent += '<a href="/report/'+data[key]._id+'" title="Перейти на страницу отчета">';
-            tableContent += data[key].name +' - '+data[key].year+'</a>';
+            tableContent += '<img src="'+data[key].preview+'" alt="logo">'+'&nbsp;'+data[key].name +' - '+data[key].year+'</a>';
             tableContent += '</div>';
             $('#view1').append(tableContent);
 

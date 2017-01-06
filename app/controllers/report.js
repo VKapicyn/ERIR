@@ -36,10 +36,10 @@ exports.addReport = function (req, res){
         new_rep.year = req.body.report_year;
         new_rep.company = req.body.company;
         new_rep.sector = result.sector;
-        size_of_company = result.size_of_company;
-        opf = result.opf;
-        city = result.city;
-        type_of_ownership = result.type_of_ownership;
+        new_rep.size_of_company = result.size_of_company;
+        new_rep.opf = result.opf;
+        new_rep.city = result.city;
+        new_rep.type_of_ownership = result.type_of_ownership;
         new_rep.company_id = result._id;
 
         var standarts = [];
@@ -120,7 +120,7 @@ exports.addReport = function (req, res){
         result.reports.unshift(new_rep._id);
         result.save();
 
-        res.redirect('/');
+        res.render('ok',{user: new_rep.user_FIO, object: 'отчета'});
         });
     });
 };
@@ -143,12 +143,28 @@ exports.getReportById = function (req, res){
 
 exports.acceptReport = function (req, res){
     if (req.session.user){
-        if (req.body.accept!=7){
-            Report.findOne({_id:req.params.report_id}).then(function (report){
-                report.accept = req.body.accept;
+        Report.findOne({_id:req.params.report_id}).then(function (report){
+            if (req.body.accept!=7){
+                    report.accept = req.body.accept;
+            }
+
+            if (req.body.RRS_correct != undefined && req.body.RRS_correct!='')
+                report.RRS = req.body.RRS_correct;
+
+            getStatic(function(resul, parse){
+                var stat = parse(resul);
+                var best = [];
+                for(let i=0; i<stat.best.length; i++)
+                    if (req.body[stat.best[i]] != undefined)
+                        best.push(req.body[stat.best[i]]);
+                if (best.length != 0)
+                    report.Best = best;
                 report.save();
+                console.log(report.Best);
             });
-        }
+
+            report.save();
+        });
         res.redirect('/report/'+req.params.report_id);
     }
     else

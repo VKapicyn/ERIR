@@ -69,8 +69,8 @@ exports.addCompany = function (req,res){
     new_comp.save();
 
     // добавить отправку писем
-
-    res.redirect('/'); // Добавить страницу об успешной регистрации
+    res.render('ok',{user: new_comp.user_FIO, object: 'компании'});
+    //res.redirect('/'); // Добавить страницу об успешной регистрации
 };
 
 exports.getCompanyById = function (req, res) {
