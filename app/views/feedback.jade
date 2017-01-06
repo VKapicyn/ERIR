@@ -18,7 +18,6 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-
               //- a.navbar-brand(href='#')
               //-   img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
@@ -28,7 +27,7 @@ html(lang='en')
                   a(href='/main') На главную
                 li
                   a(href='/search') Поиск
-                li.active
+                li
                   a(href='/stats') Интерактивная статистика
                 li
                   a(href='/register-report') Регистрация отчета
@@ -40,52 +39,8 @@ html(lang='en')
       .container.mainpage
         main.container
           .row
-            .stats-left.col-md-4.col-xs-12.col-sm-12
-              .stats-caption.uppercase
-                | Формирование диаграммы
-              .stats-selection
-                div
-                  select(name='diagram_type')
-                    option(value='0') Круговая диаграмма
-                    option(value='1') Гистограмма
-                div
-                  select(name='economy')
-                    for val in sector
-                      option(value='#{val}') #{val}
-                  br
-                div
-                  select(name='standart')
-                    option(value='Все стандарты') Все стандарты
-                      for val in standarts
-                        option(value='#{val}') #{val}
-                div
-                  select(name='company_size')
-                    for val in size_of_company
-                      option(value='#{val}') #{val}
-                  br
-                div
-                  select(name='ownership')
-                    for val in type_of_ownership
-                      option(value='#{val}') #{val}
-                  br
-                .buttons.center
-                  button.btn.btn-default.green-btn(type='submit' onclick='create()') Создать
-              // /stats-selection
-            // /stats-left
-            - var ttt
-            .stats-right.col-md-8.col-xs-12.col-sm-12
-              .stats-caption.uppercase
-                | Окно статистики
-              .stats-result
-                //h3 Название диаграммы
-                .graph
-                  //- | Здесь диаграмма
-                  #piechart(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
-                  #barchart(style='min-width: 310px; height: 400px; margin: 0 auto') 
+            Контактная информация
 
-                  //- #test_rest.p.
-                    
-            // /stats-right
           // /row
       // /mainpage
 

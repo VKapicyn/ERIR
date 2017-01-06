@@ -14,8 +14,10 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='http://da-strateg.ru/')
-                img(src='/img/da-strateg-logo.png', alt='logo1')
+
+              //- a.navbar-brand(href='#')
+              //-   img(src='img/da-strateg-logo.png', alt='logo1')
+
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
@@ -159,10 +161,15 @@ html(lang='en')
                       br
                 .buttons.center
                   .upload
-                    label.btn.btn-default.green-btn(for='upload_logo')
-                      i.fa.fa-image(aria-hidden='true')
-                      | Загрузить логотип компании (в формате JPG или PNG)          
-                    input#upload_logo(type='file', name='upload_logo')
+                      label.btn.btn-default.green-btn(for='upload_logo')
+                        i.fa.fa-image(aria-hidden='true')
+                        |  Загрузить логотип компании (в формате JPG или PNG)   
+                      input#upload_logo(type='file', name='upload_logo', multiple='', accept='image/*,image/jpeg, image/png')                        
+                  input#filename.filename(type='text', disabled='')
+
+                  br  
+                  br  
+
                   .submit
                     label.btn.btn-default.green-btn(for='submit_reg_company')  Отправить
                     input#submit_reg_company(type='submit',         name='submit_reg_company' value='Submit')

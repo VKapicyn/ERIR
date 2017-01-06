@@ -21,8 +21,10 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='http://da-strateg.ru/')
-                img(src='/img/da-strateg-logo.png', alt='logo1')
+
+              //- a.navbar-brand(href='#')
+              //-   img(src='img/da-strateg-logo.png', alt='logo1')
+
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
@@ -176,33 +178,49 @@ html(lang='en')
                         input.change-w(type='text', name='registrator_phone')
                         br    
                   // /register-report-right
-                .buttons.center.upload
-                  div
-                    label.btn.btn-default.green-btn(for='upload-cover')
-                      i.fa.fa-file-image-o(aria-hidden='true')
-                      |  Загрузить обложку отчета (в формате JPG или PNG)
-                    input#upload-cover(type="file", name="upload")
-                  div
-                    label.btn.btn-default.green-btn(for='upload-report')
-                      i.fa.fa-file-pdf-o(aria-hidden='true')
-                      |  Загрузить отчет RU (в формате PDF)
-                    input#upload-report(type='file', name='ru_PDF')
-                  div
-                    label.btn.btn-default.green-btn(for='upload-report')
-                      i.fa.fa-file-pdf-o(aria-hidden='true')
-                      |  Загрузить отчет EN (в формате PDF)
-                    input#upload-report(type='file', name='en_PDF')
-                .buttons.center.submit
+
+                .buttons.center
                     div
-                      label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
-                      input#submit-reg-company(type='submit', value='Submit')
-                br
-                span(style='font-size:12pt')
-                  | Если у вас остались вопросы или пожелания, свяжитесь с администратором сайта по адресу 
-                span(style='font-size:12pt')
-                  a(href='mailto:lasarenko91@mail.ru')
-                    | lasarenko91@mail.ru
-                br
-                br
+                      .upload_cover
+                          label.btn.btn-default.green-btn(for='upl_cover')
+                            i.fa.fa-image(aria-hidden='true')
+                            |  Загрузить обложку отчета 
+                            br
+                            |(в формате JPG или PNG)   
+                          input#upl_cover(type='file', name='upl_cover', multiple='', accept='image/*,image/jpeg, ,image/png')
+                      input#covername.covername(type='text', disabled='')                  
+                    br
+
+                    div  
+                      .upload_ru_pdf
+                          label.btn.btn-default.green-btn(for='upload-report-ru')
+                            i.fa.fa-file-pdf-o(aria-hidden='true')
+                            |  Загрузить отчет RU (в формате PDF) 
+                          input#upload-report-ru(type='file', name='ru_PDF', multiple='', accept='.pdf') 
+                      input#ru_pdf.ru_pdf(type='text', disabled='')                
+                    br 
+
+                    div 
+                      .upload_en_pdf           
+                          label.btn.btn-default.green-btn(for='upload-report-en')
+                            i.fa.fa-file-pdf-o(aria-hidden='true')
+                            |   Загрузить отчет EN (в формате PDF)
+                          input#upload-report-en(type='file', name='en_PDF', multiple='', accept='.pdf')
+                      input#en_pdf.en_pdf(type='text', disabled='')                 
+                    br
+
+                    div
+                        label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
+                        input#submit-reg-company(type='submit', value='Submit')
+                                    br
+                    span(style='font-size:12pt')
+                      | Если у вас остались вопросы или пожелания, свяжитесь с администратором сайта по адресу 
+                    span(style='font-size:12pt')
+                      a(href='mailto:lasarenko91@mail.ru')
+                        | lasarenko91@mail.ru
+                    br
+                    br
+                    .space
+
       //подключение footer
       include includes/footer

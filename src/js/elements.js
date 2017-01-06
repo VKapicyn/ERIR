@@ -111,6 +111,79 @@
         });
 // /Search. При нажатии на кнопку поиска отобразить результаты поиска
 
+//  Seacrh. Выпадающий список с селекторами. Наличие стандартов
+$(".dropdown1 dt a").on('click', function() { //нажат заголовок
+  $(".dropdown1 dd ul").slideToggle('fast');  //раскрыть варианты
+});
+
+$(".dropdown1 dd ul li a").on('click', function() {
+  $(".dropdown1 dd ul").hide();
+});
+
+function getSelectedValue(id) {
+  return $("#" + id).find("dt a span.value").html();
+}
+
+$(document).bind('click', function(e) {
+  var $clicked = $(e.target);
+  if (!$clicked.parents().hasClass("dropdown1")) $(".dropdown1 dd ul").hide();
+});
+
+$('.mutliSelect1 input[type="checkbox"]').on('click', function() {
+
+  var title = $(this).closest('.mutliSelect1').find('input[type="checkbox"]').val(),
+    title = $(this).val() + ",";
+
+  if ($(this).is(':checked')) {
+    var html = '<span title="' + title + '">' + title + '</span>';
+    $('.multiSel1').append(html);
+    $(".hida1").hide();
+  } else {
+    $('span[title="' + title + '"]').remove();
+    var ret = $(".hida1");
+    $('.dropdown1 dt a').append(ret);
+
+  }
+});
+//  /Seacrh. Выпадающий список с селекторами. Наличие стандартов
+
+//  Seacrh. Выпадающий список с селекторами. Лучшие практики
+$(".dropdown2 dt a").on('click', function() {
+  $(".dropdown2 dd ul").slideToggle('fast');
+});
+
+$(".dropdown2 dd ul li a").on('click', function() {
+  $(".dropdown2 dd ul").hide();
+});
+
+function getSelectedValue(id) {
+  return $("#" + id).find("dt a span.value").html();
+}
+
+$(document).bind('click', function(e) {
+  var $clicked = $(e.target);
+  if (!$clicked.parents().hasClass("dropdown2")) $(".dropdown2 dd ul").hide();
+});
+
+$('.mutliSelect2 input[type="checkbox"]').on('click', function() {
+
+  var title = $(this).closest('.mutliSelect2').find('input[type="checkbox"]').val(),
+    title = $(this).val() + " ";
+
+  if ($(this).is(':checked')) {
+    var html = '<span title="' + title + '">' + title + '</span>';
+    $('.multiSel2').append(html);
+    $(".hida2").hide();
+  } else {
+    $('span[title="' + title + '"]').remove();
+    var ret = $(".hida2");
+    $('.dropdown2 dt a').append(ret);
+
+  }
+});
+//  /Seacrh. Выпадающий список с селекторами. Лучшие практики
+
+
 
 //      Register-company. Проверка заполненности форм
 $(function(){
@@ -158,6 +231,7 @@ $(function(){
 //      /Register-company. Проверка заполненности форм
 
 //      Register-company. Загрузка логотипа
+
 //Проверка загружен ли логотип
 $(document).ready(function(){
      $("#register-company").submit(function(){
@@ -180,9 +254,45 @@ $('#upload-logo').change(function(){
         alert('Логотип должен быть в формате JPG или PNG!');
     }
 });
+
+// Показать имя загруженного файла
+$(document).ready( function() {
+    $(".upload input[type=file]").change(function(){
+         var filename = $(this).val().replace(/.*\\/, "");
+         $("#filename").val(filename);
+    });
+});
+// /Показать имя загруженного файла
 // /Register-company. Загрузка логотипа
 
+
+
+
 //      Register-report. Загрузка отчета и обложки отчета
+// Показать имя обложки
+$(document).ready( function() {
+    $(".upload_cover input[type=file]").change(function(){
+         var covername = $(this).val().replace(/.*\\/, "");
+         $("#covername").val(covername);
+    });
+});
+
+// Показать имя отчета на русском
+$(document).ready( function() {
+    $(".upload_ru_pdf input[type=file]").change(function(){
+         var ru_pdf = $(this).val().replace(/.*\\/, "");
+         $("#ru_pdf").val(ru_pdf);
+    });
+});
+
+// Показать имя отчета на англ
+$(document).ready( function() {
+    $(".upload_en_pdf input[type=file]").change(function(){
+         var en_pdf = $(this).val().replace(/.*\\/, "");
+         $("#en_pdf").val(en_pdf);
+    });
+});
+
 //Проверка загружен ли отчет
 $(document).ready(function(){
      $("#register-report").submit(function(){
