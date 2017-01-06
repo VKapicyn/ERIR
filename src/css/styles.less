@@ -303,7 +303,7 @@ footer {
     }
 
     span {
-      font-size: 17px;
+      font-size: 14px;
       margin: 3px;
     }
   }
@@ -476,7 +476,7 @@ footer {
 //  Выпадающий список с селекторами "Наличие стандартов"
 
 .dropdown1, .dropdown2 {
-    margin-top: 50px;
+    margin-top: 25px;
     // margin-bottom: 100px; //не работает. вместо него br br br...
     position: absolute;
     transform: translateY(-50%);
@@ -514,23 +514,23 @@ footer {
   dt a {
     background-color: @white;
     display: block;
-    padding: 8px 5px 0 10px;
-    min-height: 25px;
-    line-height: 24px;
+    padding: 0 5px 0 5px;
     overflow: hidden;
     border: 0;
-    width: 400px;
+    width: 350px;
+    height: 20px; //высота зафиксирована, при выборе кучи лучших практик они не закроют dropdown со стандартами
   }
 
    dt a span,
   .multiSel1 span {
     cursor: pointer;
     display: inline-block;
-    padding: 0 3px 2px 0;
+    // padding: 0 3px 2px 0;
+    padding: 0;
   }
 
   dd ul { //выпадающий список
-    background-color: @dark-gray;
+    background-color: @gray;
     color: @black;
     border: 0;
     color: #fff;
@@ -539,10 +539,11 @@ footer {
     padding: 2px 15px 2px 5px;
     position: absolute;
     top: 2px;
-    width: 380px;
+    width: 350px;
     list-style: none;
     height: 90px;
     overflow: auto;
+    font-size: 12px;
   }
 
    span.value {
@@ -569,17 +570,23 @@ footer {
 
 } // /.dropdown
 
+.dropdown1 .hida1 p, .dropdown2 .hida2 p { //имитация обычной стрелочки для dropdown (p &#9660;)
+    position: absolute;
+    right: 5px;
+    top: 20%;
+    font-size: 9px;
+}
 
 
+.dropdown1   {
+  dd ul { //выпадающий список
+      height: 80px;
+    }
+
+}
 
 
-
-
-
-
-
-
-//  /Выпадающий список с селекторами "Наличие стандартов"
+//  /Выпадающий список с селекторами "Наличие стандартов", "Лучшая практика"
 
 
 
