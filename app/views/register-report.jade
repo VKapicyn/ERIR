@@ -1,14 +1,8 @@
-//doctype html
-//html(lang='en')
-  //body
-    //form(method='post', action='/report/create', enctype="multipart/form-data")
-      //input(type="file", multiple, name="upload")
-      //input(type='submit', value='Submit')
 doctype html
-html(lang='en')
+html(lang='en' ng-app="livesearch")
     //подключение header
     include includes/head 
-   body
+   body.ng-cloak(ng-controller='LivesearchCtrl as ctrl')
     .wrapper
       .navigation
         nav.navbar.navbar-default
@@ -52,18 +46,25 @@ html(lang='en')
                     div
                       | Название отчета 
                       span.red  *
-                      input.change-w-number(name='report_name', type='text')
+                      input.change-w(name='report_name', type='text')
                       br
                     div
                       select(name='report_year')
                         for val in year
                           option(value='#{val}') #{val}     
-                    div
-                      select(name='company')
-                        option(value='Компания') Компания
-                        for val in companies
-                          if val.accept == '1'
-                            option(value='#{val.name}') #{val.name}
+                    //- div
+                    //-   select(name='company')
+                    //-     option(value='Компания') Компания
+                    //-     for val in companies
+                    //-       if val.accept == '1'
+                    //-         option(value='#{val.name}') #{val.name}
+                    div.livesearch
+                      | Компания
+                      ui-select(ng-model='ctrl.company.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Выберите компанию')
+                        ui-select-match(placeholder='Введите название компании или выберите компанию из списка...') {{$select.selected.name}}
+                        ui-select-choices(repeat='company in ctrl.companies | filter: $select.search')
+                          span(ng-bind-html='company.name | highlight: $select.search')
+                    
                     div
                       p.right Наличие стандартов 
                         br
@@ -125,7 +126,7 @@ html(lang='en')
                   .col-md-5.col-xs-12.col-sm-6.register-right
                     div
                       | Ссылка на HTML версию отчета 
-                      input.change-w-number(name='interactive', type='text', placeholder='http://')
+                      input.change-w(name='interactive', type='text', placeholder='http://')
                       br
                     div
                       | Финансовый аудитор отчета 
