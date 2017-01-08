@@ -83,5 +83,11 @@ app.controller('LivesearchCtrl', function ($scope, $http, $timeout, $interval) {
     {val: '2014'},
     {val: '2015'},
     {val: '2016'},
+  ]; 
+
+  vm.city = {};
+  vm.cities = [ 
+    {name: 'Moscow'},
+    {name: 'St. Petersburg'},
   ];
 });

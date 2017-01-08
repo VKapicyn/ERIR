@@ -1,10 +1,10 @@
 doctype html
-html(lang='en')
+html(lang='en' ng-app="livesearch")
   
   //подключение header
   include includes/head 
 - var companies = company
-body
+body.ng-cloak(ng-controller='LivesearchCtrl as ctrl')
     .wrapper
       .navigation
         nav.navbar.navbar-default
@@ -55,9 +55,17 @@ body
                     for sec in sector
                       option(value='#{sec}') #{sec}
                   br
-                  select(name='city', id='city')
-                    for val in city
-                      option(value='#{val}') #{val}
+                  //- select(name='city', id='city')
+                  //-   for val in city
+                  //-     option(value='#{val}') #{val}
+                  
+                  div.livesearch
+                      | Местонахождение штаб-квартиры
+                      ui-select(ng-model='ctrl.city.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Местонахождение штаб-квартиры')
+                        ui-select-match(placeholder='Местонахождение штаб-квартиры') {{$select.selected.val}}
+                        ui-select-choices(repeat='city in ctrl.cities | filter: $select.search')
+                          span(ng-bind-html='city.name | highlight: $select.search')   
+
                   br
                   select(name='company_size', id='company_size')
                     for comp in size_of_company
