@@ -45,7 +45,7 @@ body
               li.active
                 a(href='#search-report', aria-controls='search-report', role='tab', data-toggle='tab') Поиск отчета
               li
-                a(href='/search-company') Поиск организации
+                a(href='/search-company') Поиск компании
             // Содержимое вкладок
             .tab-content
               #search-report.tab-pane.active(role='tabpanel')
@@ -92,7 +92,8 @@ body
                           li
                             for val in standarts
                               input(type='checkbox', value='#{val}', id='#{val}')
-                              |   #{val}
+                              label(for='#{val}')
+                                |   #{val}
                               br             
 
                   br
@@ -115,7 +116,8 @@ body
                           li
                             for val in best
                               input(type='checkbox', value='#{val}', id='#{val}')
-                              |   #{val}
+                              label(for='#{val}')
+                                | #{val}
                               br              
                   br
                   br
@@ -147,7 +149,7 @@ body
                 span(rel='economy')
                   a(href='#' onclick='sortSector()') Отрасль экономики
                 span(rel='company-size')
-                  a(href='#' onclick='sortSize()') Размер предприятия
+                  a(href='#' onclick='sortSize()') Размер компании
             // /sort
             .change-view
               strong Вид:

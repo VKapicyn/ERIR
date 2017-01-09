@@ -112,7 +112,7 @@ if admin || company.accept==1
                           a(href='#{company.link}', target='_blank') #{company.link}
               - var page_reports = reports 
               .row
-                h3 Список отчетов организации
+                h3 Список отчетов компании
                 .col-md-10.col-md-offset-2.col-xs-12.col-sm-6.other-reports
                   for report in reports
                     if report.accept == 1

@@ -125,12 +125,21 @@ html(lang='en' ng-app="livesearch")
                         |  Нет
                       br
                     div
-                      | Участие Панели заинтересованных сторон в создании отчета 
+                      | Наличие Панели/комиссии заинтересованных сторон
                       label.radio-inline
                         input#radio1(name='Stakes', value='1', type='radio')
                         |  Да
                       label.radio-inline
                         input#radio2(name='Stakes', value='0', checked='', type='radio')
+                        |  Нет
+                      br
+                    div
+                      | Проведение диалогов с заинтересованными сторонами.
+                      label.radio-inline
+                        input#radio1(name='ZS', value='1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='ZS', value='0', checked='', type='radio')
                         |  Нет
                       br
                   // /register-report-left
@@ -141,33 +150,37 @@ html(lang='en' ng-app="livesearch")
                       input.change-w(name='interactive', type='text', placeholder='Полная ссылка с http://')
                       br
                     div
+                      | Ответственный за подготовку отчета 
+                      input.change-w(name='manager', placeholder='ФИО, должность')
+                      br
+                    div
                       | Финансовый аудитор отчета 
-                      input.change-w(name='fin_auditor', placeholder='Юридическое название аудитора')
+                      input.change-w(name='fin_auditor', placeholder='Название компании')
                       br
                     div
                       | Аудитор нефинансовой информации отчета 
-                      input.change-w(name='auditor', placeholder='Юридическое название аудитора')
+                      input.change-w(name='auditor', placeholder='Название компании')
                       br
                     div
                       | Консультант подготовки отчета 
                       input.change-w(name='consultant', placeholder='Консультант подготовки отчета')
                       br
                     div
-                      | Менеджер процесса подготовки отчета 
-                      input.change-w(name='manager', placeholder='Фамилия и имя менеджера')
-                      br
-                    div
                       | Дизайнер отчета 
-                      input.change-w(name='designer', placeholder='Фамилия и имя дизайнера')
+                      input.change-w(name='designer', placeholder='Название компании')
                       br
                     div
                       | Победы в национальных конкурсах отчетности 
                       input.change-w(name='wins', placeholder='Конкурсы и занятые места')
                       br
+                    div
+                      | Победы в зарубежных конкурсах отчетности 
+                      input.change-w(name='world_wins', placeholder='Конкурсы и занятые места')
+                      br
 
                     div
                       h3 Контактная информация
-                      strong Пользователь, регистрирующий отчет
+                      strong Лицо, регистрирующее отчет
                       div
                         | ФИО 
                         span.red  *

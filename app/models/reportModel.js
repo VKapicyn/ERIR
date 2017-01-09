@@ -22,8 +22,10 @@ var reportSchema = new mongoose.Schema({
         RiskMap: Boolean,
         Assurance: Boolean, // Общественное заверение отчета
         Stakes: Boolean, // Участие в панели заинтересованных сторон
+        ZS: Boolean,
         Best: [String], //админ
         RRS: String, //админ
+        RRSlink: String, //админ
         interactive: String,
 
         fin_auditor: String,
@@ -33,6 +35,7 @@ var reportSchema = new mongoose.Schema({
         designer: String,
         pages: String,
         wins: String,
+        world_wins: String,
 
         doc_rus: String, 
         doc_en: String,

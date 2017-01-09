@@ -56,6 +56,7 @@ exports.addReport = function (req, res){
         new_rep.RiskMap = req.body.RiskMap;
         new_rep.Assurance = req.body.Assurance;
         new_rep.Stakes = req.body.Stakes;
+        new_rep.ZS = req.body.ZS;
         new_rep.interactive = req.body.interactive;
 
         new_rep.fin_auditor = req.body.fin_auditor != '' ? req.body.fin_auditor : undefined;
@@ -65,6 +66,7 @@ exports.addReport = function (req, res){
         new_rep.designer = req.body.designer != '' ? req.body.designer : undefined;
         new_rep.pages = req.body.pages != '' ? req.body.pages : undefined;
         new_rep.wins = req.body.wins != '' ? req.body.wins : undefined;
+        new_rep.world_wins = req.body.world_wins != '' ? req.body.world_wins : undefined;
 
         new_rep.user_FIO = req.body.registrator_fio;
         new_rep.user_position = req.body.registrator_position;
@@ -150,6 +152,9 @@ exports.acceptReport = function (req, res){
 
             if (req.body.RRS_correct != undefined && req.body.RRS_correct!='')
                 report.RRS = req.body.RRS_correct;
+
+            if (req.body.RRSlink_correct != undefined && req.body.RRSlink_correct!='')
+                report.RRSlink = req.body.RRSlink_correct;
 
             getStatic(function(resul, parse){
                 var stat = parse(resul);

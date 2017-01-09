@@ -42,14 +42,14 @@ html(lang='en')
                 .col-md-12.col-xs-12.col-sm-12
                   #messenger-company
                   .col-md-6.col-xs-12.col-sm-10.register-left
-                    h3 Информация об организации
+                    h3 Информация о компании
                     div
-                      | Полное название организации 
+                      | Полное название компании
                       span.red  * 
                       input(type='text', name='company_name')
                       br
                     div
-                      | Сокращенное название организации 
+                      | Сокращенное название компании
                       span.red  * 
                       input(type='text', name='company_short_name')
                       br
@@ -59,12 +59,12 @@ html(lang='en')
                       input(type='text', name='company_site')
                       br
                     div
-                      | Количество сотрудников 
+                      | Количество сотрудников (за последний отчетный год)
                       span.red  * 
                       input(type='text', name='employees')
                       br
                     div
-                      | Годовой доход компании 
+                      | Годовой доход компании (за последний отчетный год)
                       span.red  * 
                       input(type='text', name='revenue', placeholder='млн руб')
                       br
@@ -105,12 +105,12 @@ html(lang='en')
                           option(value='#{val}') #{val}
                       br
                     .form-group
-                      | Краткое описание организации 
+                      | Краткое описание компании
                       span.red  *
                       input.change-w(type='text', name='company_description')
                       br
                     div
-                      | ФИО директора организации 
+                      | ФИО директора компании 
                       span.red  *
                       input.change-w(type='text', name='CEO')
                       br

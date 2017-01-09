@@ -90,7 +90,7 @@ html(lang='en')
                 for nw in news
                   .new
                     h3 #{nw.header}
-                    - var test = nw.date.toLocaleString("ru", options);
+                    - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
                     p #{test}
                     a.underline(href='#{nw.link}', target='_blank', title='') Читать далее >>> 
                     hr
