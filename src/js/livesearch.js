@@ -84,23 +84,4 @@ app.controller('LivesearchCtrl', function ($scope, $http, $timeout, $interval) {
     {val: '2015'},
     {val: '2016'},
   ]; 
-
-  vm.city = {};
-  vm.cities = [ 
-    {name: 'Moscow'},
-    {name: 'St. Petersburg'},
-  ];  
-
-  vm.sector = {};
-  vm.sectors = [ 
-    {name: 'Агропромышленный комплекс'},
-    {name: 'Атомная промышленность'},
-  ];  
-
-  vm.size = {};
-  vm.sizes = [ 
-    {name: 'Малое предприятие'},
-    {name: 'Среднее предприятие'},
-    {name: 'Крупное предприятие'},
-  ];
 });
