@@ -372,4 +372,18 @@ $(document).ready(function(){
           }               
      });
 });
+
+//Ограничение ввода символов
+function quotesBan(input) { 
+    var value = input.value; 
+    var rep = /[<>]/; //запрещенные символы
+    if (rep.test(value)) { 
+        value = value.replace(rep, ''); 
+        input.value = value; 
+    } 
+} 
+
+
 // /Register-report. Загрузка отчета и обложки отчета
+
+

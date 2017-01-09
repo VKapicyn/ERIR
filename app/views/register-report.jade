@@ -48,7 +48,7 @@ html(lang='en' ng-app="livesearch")
                     div
                       | Название отчета 
                       span.red  *
-                      input.change-w(name='report_name', type='text')
+                      input.change-w(name='report_name', type='text', onkeyup="return quotesBan(this);")
                       br
                     //- div
                     //-   select(name='report_year')
@@ -146,31 +146,31 @@ html(lang='en' ng-app="livesearch")
                     div
                       | Ссылка на HTML версию отчета 
 
-                      input.change-w(name='interactive', type='text', placeholder='Полная ссылка с http://')
+                      input.change-w(name='interactive', type='text', placeholder='Полная ссылка с http://', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Финансовый аудитор отчета 
-                      input.change-w(name='fin_auditor', placeholder='Юридическое название аудитора')
+                      input.change-w(name='fin_auditor', placeholder='Юридическое название аудитора', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Аудитор нефинансовой информации отчета 
-                      input.change-w(name='auditor', placeholder='Юридическое название аудитора')
+                      input.change-w(name='auditor', placeholder='Юридическое название аудитора', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Консультант подготовки отчета 
-                      input.change-w(name='consultant', placeholder='Консультант подготовки отчета')
+                      input.change-w(name='consultant', placeholder='Консультант подготовки отчета', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Менеджер процесса подготовки отчета 
-                      input.change-w(name='manager', placeholder='Фамилия и имя менеджера')
+                      input.change-w(name='manager', placeholder='Фамилия и имя менеджера', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Дизайнер отчета 
-                      input.change-w(name='designer', placeholder='Фамилия и имя дизайнера')
+                      input.change-w(name='designer', placeholder='Фамилия и имя дизайнера', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Победы в национальных конкурсах отчетности 
-                      input.change-w(name='wins', placeholder='Конкурсы и занятые места')
+                      input.change-w(name='wins', placeholder='Конкурсы и занятые места', onkeyup="return quotesBan(this);")
                       br
 
                     div
@@ -179,22 +179,22 @@ html(lang='en' ng-app="livesearch")
                       div
                         | ФИО 
                         span.red  *
-                        input.change-w(type='text', name='registrator_fio')
+                        input.change-w(type='text', name='registrator_fio', onkeyup="return quotesBan(this);")
                         br
                       div
                         | Должность 
                         span.red  *
-                        input.change-w(type='text', name='registrator_position')
+                        input.change-w(type='text', name='registrator_position', onkeyup="return quotesBan(this);")
                         br
                       div
                         | Электронная почта 
                         span.red  *
-                        input.change-w(type='text', name='registrator_email')
+                        input.change-w(type='text', name='registrator_email', onkeyup="return quotesBan(this);")
                         br
                       div
                         | Телефон 
                         span.red  *
-                        input.change-w(type='text', name='registrator_phone')
+                        input.change-w(type='text', name='registrator_phone', onkeyup="return quotesBan(this);")
                         br    
                   // /register-report-right
 
