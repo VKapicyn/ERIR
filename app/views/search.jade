@@ -78,12 +78,13 @@ body
                   select(name='ownership', id='ownership')
                     for val in type_of_ownership
                       option(value='#{val}') #{val}
-                  .space 
+                  //- .space 
 
                   dl.dropdown1
                     dt.simple-border
                       a(href='#', title='Нажмите для отображения стандартов')
-                        span.hida1 Наличие стандартов
+                        .hida1 Наличие стандартов 
+                          p &#9660;
                         p.multiSel1
                     dd
                       .mutliSelect1
@@ -102,11 +103,11 @@ body
                   br
 
 
-
                   dl.dropdown2
                     dt.simple-border
                       a(href='#', title='Нажмите для отображения списка лучших практик')
-                        span.hida2 Лучшая практика
+                        .hida2 Лучшая практика 
+                          p &#9660;
                         p.multiSel2
                     dd
                       .mutliSelect2
@@ -121,9 +122,9 @@ body
                   br
                   br
                   br
-                  br                  
-                  br
-                  br
+                  //- br                  
+                  //- br
+                  //- br
 
                   button.btn.btn-default.green-btn(type='submit' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
