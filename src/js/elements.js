@@ -200,6 +200,10 @@ $('.mutliSelect2 input[type="checkbox"]').on('click', function() {
 $(document).ready(function() {
   $(".js-example-basic-single").select2();
 });
+
+$(document).ready(function() {
+  $(".js-example-basic-multiple").select2();
+});
 // /Search. Интерактивный поиск
 
 
