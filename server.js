@@ -26,7 +26,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({ 
-    url: 'mongodb://80.93.177.208:27017/ERIO',
+    url: require('./app/models/db-model').url
+    //url: 'mongodb://80.93.177.208:27017/ERIO',
   })
 }));
 //app.use(multer({dest: '../src/buffer'}).single('upload_logo'));
@@ -42,6 +43,7 @@ app.set('view engine', 'jade');
 
 app.get('/', require('./app/controllers/main').mainPage);
 app.get('/main', require('./app/controllers/main').mainPage);
+app.get('/feedback', require('./app/controllers/main').feedbackPage)
 app.get('/search', require('./app/controllers/search').searchReportPage);
 app.get('/search-company', require('./app/controllers/search').searchCompanyPage);
 app.get('/stats', require('./app/controllers/stats').statsPage);
@@ -70,8 +72,8 @@ app.get('/v1/search/company/:amount/:page/:sort/:sector/:size_of_company/:city/:
 app.get('/v1/stats/:sector/:standart/:size_of_company/:type_of_ownership', require('./app/controllers/stats').getStats);
 app.get('/v1/search/report/:amount/:page/:sort/:sector/:size_of_company/:city/:year/:opf/:type_of_ownership/:standarts/:best/:search', 
 require('./app/controllers/search').searchReportPageREST);
-app.get('/v1/static/standarts', require('./app/models/staticModel').standartsREST);
-app.get('/v1/static/best', require('./app/models/staticModel').bestREST);
+//app.get('/v1/static/standarts', require('./app/models/staticModel').standartsREST);
+app.get('/v1/static/:name', require('./app/models/staticModel').staticREST);
 //app.get('/v1/report/:id', rest.getReportById);
 //app.get('/v1/company/:name', rest.getCompanyByName);
 //app.get('/v1/search/companies/', rest.searchCompnaies);
