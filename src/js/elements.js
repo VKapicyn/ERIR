@@ -196,6 +196,11 @@ $('.mutliSelect2 input[type="checkbox"]').on('click', function() {
 });
 //  /Seacrh. Выпадающий список с селекторами. Лучшие практики
 
+// Search. Интерактивный поиск
+$(document).ready(function() {
+  $(".js-example-basic-single").select2();
+});
+// /Search. Интерактивный поиск
 
 
 //      Register-company. Проверка заполненности форм
