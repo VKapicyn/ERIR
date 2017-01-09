@@ -1,11 +1,9 @@
 doctype html
-//- html(lang='en' ng-app="livesearch")
 html(lang='en')
   
   //подключение header
   include includes/head 
 - var companies = company
-//- body.ng-cloak(ng-controller='LivesearchCtrl as ctrl')
 body
     .wrapper
       .navigation
@@ -68,17 +66,7 @@ body
                     for val in sector
                       option(value='#{val}') #{val}
                   br
-                  br
-                  //- select(name='city', id='city')
-                  //-   for val in city
-                  //-     option(value='#{val}') #{val}
-
-                  //- div.livesearch
-                  //-     | Местонахождение штаб-квартиры
-                  //-     ui-select(ng-model='ctrl.city.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Местонахождение штаб-квартиры')
-                  //-       ui-select-match(placeholder='Местонахождение штаб-квартиры') {{$select.selected.val}}
-                  //-       ui-select-choices(repeat='city in ctrl.cities | filter: $select.search')
-                  //-         span(ng-bind-html='city.name | highlight: $select.search')    
+                  br 
                   select.js-example-basic-single
                     for val in city
                       option(value='#{val}') #{val}
@@ -101,25 +89,6 @@ body
                   br 
                   br 
 
-                  //- dl.dropdown1
-                  //-   dt.simple-border
-                  //-     a(href='#', title='Нажмите для отображения стандартов')
-                  //-       .hida1 Наличие стандартов 
-                  //-         p &#9660;
-                  //-       p.multiSel1
-                  //-   dd
-                  //-     .mutliSelect1
-                  //-       ul
-                  //-         li
-                  //-           for val in standarts
-                  //-             input(type='checkbox', value='#{val}', id='#{val}')
-                  //-             |   #{val}
-                  //-             br             
-
-                  //- br
-                  //- br
-                  //- br
-
                   | Наличие стандартов
                   br
                   select.js-example-basic-multiple(multiple='multiple')
@@ -135,26 +104,6 @@ body
                       option(value='#{val}') #{val}
                   br 
                   br 
-
-                  //- dl.dropdown2
-                  //-   dt.simple-border
-                  //-     a(href='#', title='Нажмите для отображения списка лучших практик')
-                  //-       .hida2 Лучшая практика 
-                  //-         p &#9660;
-                  //-       p.multiSel2
-                  //-   dd
-                  //-     .mutliSelect2
-                  //-       ul
-                  //-         li
-                  //-           for val in best
-                  //-             input(type='checkbox', value='#{val}', id='#{val}')
-                  //-             |   #{val}
-                  //-             br              
-                  //- br
-                  //- br
-                  //- br
-                  //- br
-                  //- br
 
                   button.btn.btn-default.green-btn(type='submit' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
