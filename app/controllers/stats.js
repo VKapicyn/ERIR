@@ -26,7 +26,7 @@ exports.getStats = function (req, res){
     query.where('sector', req.params.sector);
   if(req.params.standart != 'Все стандарты')
     query.where('standarts', req.params.standart);
-  if(req.params.size_of_company != 'Размер предприятия')
+  if(req.params.size_of_company != 'Размер компании')
     query.where('size_of_company', req.params.size_of_company);
   if(req.params.type_of_ownership != 'Форма собственности')
     query.where('type_of_ownership', req.params.type_of_ownership);

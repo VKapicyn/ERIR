@@ -182,7 +182,7 @@ function endPage(){
 
 function clear_params(){
     $("#economy option:contains('Отрасль экономики')").prop('selected', true);
-    $("#company_size option:contains('Размер предприятия')").prop('selected', true);
+    $("#company_size option:contains('Размер компании')").prop('selected', true);
     $("#report_year option:contains('Отчетный год')").prop('selected', true);
     $("#city option:contains('Местонахождение штаб-квартиры')").prop('selected', true);
     $("#organization_form option:contains('Организационно-правовая форма')").prop('selected', true);

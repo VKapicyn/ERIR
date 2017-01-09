@@ -90,17 +90,14 @@ html(lang='en')
                 for nw in news
                   .new
                     h3 #{nw.header}
-                    - var test = nw.date.toLocaleString("ru", options);
+                    - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
                     p #{test}
                     a.underline(href='#{nw.link}', target='_blank', title='') Читать далее >>> 
                     hr
             // /.mainpage-news
           // / row stat & news
           .col-md-12.col-xs-12.col-sm-12.partners
-            h2 Проект подготовлен в сотрудничестве с
-            .logo
-              a(href='http://da-strateg.ru/', target='_blank', title='Перейти на сайт компании')
-                img(src='img/da-strateg-logo.png', alt='logo1')
+            h2 «Национальный реестр подготовлен Группой компаний «Да-Стратегия» в сотрудничестве с Российской сетью по интегрированной отчетности».
             .logo
               a(href='http://ir.org.ru/', target='_blank', title='Перейти на сайт компании')
                 img(src=' img/rrc-logo.png', alt='logo2')
