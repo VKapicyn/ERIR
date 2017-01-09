@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en')     
   include includes/head 
   body
     .wrapper
@@ -103,7 +103,15 @@ html(lang='en')
                       select(name='city')
                         for val in city
                           option(value='#{val}') #{val}
-                      br
+
+                    //- div.livesearch  
+                    //-   | Местонахождение штаб-квартиры
+                    //-   ui-select(ng-model='ctrl.city.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Выберите компанию')
+                    //-     ui-select-match(placeholder='Местонахождение штаб-квартиры') {{$select.selected.name}}
+                    //-     ui-select-choices(repeat='city in ctrl.cities | filter: $select.search')
+                    //-       span(ng-bind-html='city.name | highlight: $select.search')  
+
+                    br
                     .form-group
                       | Краткое описание компании
                       span.red  *

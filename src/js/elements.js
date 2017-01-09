@@ -112,9 +112,22 @@
 // /Search. При нажатии на кнопку поиска отобразить результаты поиска
 
 //  Seacrh. Выпадающий список с селекторами. Наличие стандартов
-$(".dropdown1 dt a").on('click', function() { //нажат заголовок
+$(".dropdown1 dt a").on('click', function() { //нажат заголовок dropdown1
   $(".dropdown1 dd ul").slideToggle('fast');  //раскрыть варианты
+   $(".dropdown2 dt a").hide(); //скрыть заголовок у dropdown2
 });
+
+$(".dropdown1 dt a").on('mousedown', function() { //нажатие на заголовок dropdown1
+   $(".dropdown2 dt a").hide(); //скрыть заголовок у dropdown2
+});
+
+
+$(".dropdown1 dd ul").on('mouseleave', function() { //покинули выпадающий список
+   $(".dropdown2 dt a").show(); //показать заголовок у dropdown2
+   $(".dropdown1 dd ul").hide();  //скрыть варианты
+});
+
+
 
 $(".dropdown1 dd ul li a").on('click', function() {
   $(".dropdown1 dd ul").hide();
@@ -359,4 +372,18 @@ $(document).ready(function(){
           }               
      });
 });
+
+//Ограничение ввода символов
+function quotesBan(input) { 
+    var value = input.value; 
+    var rep = /[<>]/; //запрещенные символы
+    if (rep.test(value)) { 
+        value = value.replace(rep, ''); 
+        input.value = value; 
+    } 
+} 
+
+
 // /Register-report. Загрузка отчета и обложки отчета
+
+
