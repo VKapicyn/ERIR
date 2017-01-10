@@ -46,32 +46,32 @@ html(lang='en')
                     div
                       | Полное название компании
                       span.red  * 
-                      input(type='text', name='company_name')
+                      input(type='text', name='company_name', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Сокращенное название компании
                       span.red  * 
-                      input(type='text', name='company_short_name')
+                      input(type='text', name='company_short_name', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Адрес официального сайта 
                       span.red  * 
-                      input(type='text', name='company_site')
+                      input(type='text', name='company_site', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Количество сотрудников (за последний отчетный год)
                       span.red  * 
-                      input(type='text', name='employees')
+                      input(type='number', name='employees')
                       br
                     div
                       | Годовой доход компании (за последний отчетный год)
                       span.red  * 
-                      input(type='text', name='revenue', placeholder='млн руб')
+                      input(type='text', name='revenue', placeholder='млн руб', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Листинг 
                       span.red  
-                      input.change-w(name='listing', placeholder='Если да, то на какой бирже')
+                      input.change-w(name='listing', placeholder='Если да, то на какой бирже', onkeyup="return quotesBan(this);")
                       br
                     div
                       span.red  * 
@@ -115,32 +115,32 @@ html(lang='en')
                     .form-group
                       | Краткое описание компании
                       span.red  *
-                      input.change-w(type='text', name='company_description')
+                      input.change-w(type='text', name='company_description', onkeyup="return quotesBan(this);")
                       br
                     div
                       | ФИО директора компании 
                       span.red  *
-                      input.change-w(type='text', name='CEO')
+                      input.change-w(type='text', name='CEO', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Юридич. адрес головного офиса 
                       span.red  *
-                      input.change-w(type='text', name='company_law_address')
+                      input.change-w(type='text', name='company_law_address', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Телефон приемной 
                       span.red  *
-                      input.change-w(type='text', name='comp_phone')
+                      input.change-w(type='text', name='comp_phone', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Факс приемной 
                       span.red  *
-                      input.change-w(type='text', name='comp_fax')
+                      input.change-w(type='text', name='comp_fax', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Адрес электронной почты 
                       span.red  *
-                      input.change-w(type='text', name='comp_email')
+                      input.change-w(type='text', name='comp_email', onkeyup="return quotesBan(this);")
                       br
                   // /register-company-left
                   .col-md-5.col-xs-12.col-sm-10.register-right
@@ -149,22 +149,22 @@ html(lang='en')
                     div
                       | ФИО 
                       span.red  *
-                      input.change-w(type='text', name='registrator_fio')
+                      input.change-w(type='text', name='registrator_fio', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Должность 
                       span.red  *
-                      input.change-w(type='text', name='registrator_position')
+                      input.change-w(type='text', name='registrator_position', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Электронная почта 
                       span.red  *
-                      input.change-w(type='text', name='registrator_email')
+                      input.change-w(type='text', name='registrator_email', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Телефон 
                       span.red  *
-                      input.change-w(type='text', name='registrator_phone')
+                      input.change-w(type='text', name='registrator_phone', onkeyup="return quotesBan(this);")
                       br
                       br
                 .buttons.center
