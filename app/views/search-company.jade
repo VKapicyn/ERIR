@@ -43,7 +43,7 @@ body
               li
                 a(href='/search') Поиск отчета
               li.active
-                a(href='#search-organization', aria-controls='search-organization', role='tab', data-toggle='tab') Поиск организации
+                a(href='#search-organization', aria-controls='search-organization', role='tab', data-toggle='tab') Поиск компании
             // Содержимое вкладок
             .tab-content
               #search-organization.tab-pane.active(role='tabpanel')
@@ -84,7 +84,7 @@ body
           // /search-panel
           // Результаты поиска по организации
           .search-results-organization.col-md-7.col-xs-8.col-sm-8
-            h3 Результаты поиска по организации
+            h3 Результаты поиска по компании
             .sort
               strong Сортировка:
               .var-sort
@@ -93,7 +93,7 @@ body
                 span(rel='economy')
                   a(href='#' onclick='sortSector()') Отрасль экономики
                 span(rel='company-size')
-                  a(href='#' onclick='sortSize()') Размер предприятия
+                  a(href='#' onclick='sortSize()') Размер компании
             // /sort
             .change-view
               strong Вид:
