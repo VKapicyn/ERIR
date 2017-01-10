@@ -50,39 +50,25 @@ html(lang='en' ng-app="livesearch")
                       span.red  *
                       input.change-w(name='report_name', type='text', onkeyup="return quotesBan(this);")
                       br
-                    //- div
-                    //-   select(name='report_year')
-                    //-     for val in year
-                    //-       option(value='#{val}') #{val}
 
-
-                    div.livesearch.short-w
-                      | Отчетный год
-                      ui-select(ng-model='ctrl.year.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Выберите отчетный год')
-                        ui-select-match(placeholder='Выберите отчетный год') {{$select.selected.val}}
-                        ui-select-choices(repeat='year in ctrl.years | filter: $select.search')
-                          span(ng-bind-html='year.val | highlight: $select.search')            
-                    //- div
-                    //-   select(name='company')
-                    //-     option(value='Компания') Компания
-                    //-     for val in companies
-                    //-       if val.accept == '1'
-                    //-         option(value='#{val.name}') #{val.name}
-
-                    //- для тестовых данных vm.companies в livesearch.js
-                    div.livesearch  
-                      | Компания
-                      ui-select(ng-model='ctrl.company.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Выберите компанию')
-                        ui-select-match(placeholder='Введите название компании или выберите из списка') {{$select.selected.name}}
-                        ui-select-choices(repeat='company in ctrl.companies | filter: $select.search')
-                          span(ng-bind-html='company.name | highlight: $select.search')                                         
+                    div
+                      p.right Отчетный год
+                        br
+                        select.js-example-basic-single(name='report_year', style='padding-right:5%')
+                          for val in year
+                            option(value='#{val}') #{val}               
+                    div
+                      p.right Компания 
+                        br
+                        select.js-example-basic-single(name='company' style='padding-right:5%')
+                          for val in companies
+                            option(value='#{val.name}') #{val.name}                                
                     div
                       p.right Наличие стандартов 
-                        br
-                        for val in standarts
-                          input(type='checkbox', name='#{val}', value='#{val}')
-                          |  #{val}  
-                          br 
+                      for val in standarts
+                        label(for='#{val}') #{val} &nbsp;
+                        input(type='checkbox', name='#{val}', value='#{val}', id='#{val}')  
+                        br 
                     div
                       | Количество страниц 
                       span.red  *
@@ -211,7 +197,7 @@ html(lang='en' ng-app="livesearch")
                             |  Загрузить обложку отчета 
                             br
                             |(в формате JPG или PNG)   
-                          input#upl_cover(type='file', name='upl_cover', multiple='', accept='image/*,image/jpeg, ,image/png')
+                          input#upl_cover(type='file', name='upload', accept='image/*,image/jpeg, ,image/png')
                       input#covername.covername(type='text', disabled='')                  
                     br
 
@@ -220,7 +206,7 @@ html(lang='en' ng-app="livesearch")
                           label.btn.btn-default.green-btn(for='upload-report-ru')
                             i.fa.fa-file-pdf-o(aria-hidden='true')
                             |  Загрузить отчет RU (в формате PDF) 
-                          input#upload-report-ru(type='file', name='ru_PDF', multiple='', accept='.pdf') 
+                          input#upload-report-ru(type='file', name='ru_PDF', accept='.pdf') 
                       input#ru_pdf.ru_pdf(type='text', disabled='')                
                     br 
 
@@ -229,7 +215,7 @@ html(lang='en' ng-app="livesearch")
                           label.btn.btn-default.green-btn(for='upload-report-en')
                             i.fa.fa-file-pdf-o(aria-hidden='true')
                             |   Загрузить отчет EN (в формате PDF)
-                          input#upload-report-en(type='file', name='en_PDF', multiple='', accept='.pdf')
+                          input#upload-report-en(type='file', name='en_PDF', accept='.pdf')
                       input#en_pdf.en_pdf(type='text', disabled='')                 
                     br
 

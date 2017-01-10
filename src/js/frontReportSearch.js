@@ -98,8 +98,8 @@ function getStandarts(){
     $.ajax({url:'/v1/static/standarts', async:false, type: 'GET', 
         success: function(result){
             for(let i in result){
-                if (document.getElementById(result[i]).value==result[i] &&
-                document.getElementById(result[i]).checked == true)
+                if (document.getElementById(result[i]).value == result[i] &&
+                document.getElementById(result[i]).selected == true)
                     mass += result[i] + ';';
             }
         }
@@ -117,7 +117,7 @@ function getBest(){
         success: function(result){
             for(let i in result){
                 if (document.getElementById(result[i]).value==result[i] &&
-                document.getElementById(result[i]).checked == true)
+                document.getElementById(result[i]).selected == true)
                     mass += result[i] + ';';
             }
         }
@@ -181,7 +181,7 @@ function endPage(){
 }
 
 function clear_params(){
-    $("#economy option:contains('Отрасль экономики')").prop('selected', true);
+    /*$("#economy option:contains('Отрасль экономики')").prop('selected', true);
     $("#company_size option:contains('Размер компании')").prop('selected', true);
     $("#report_year option:contains('Отчетный год')").prop('selected', true);
     $("#city option:contains('Местонахождение штаб-квартиры')").prop('selected', true);
@@ -191,14 +191,15 @@ function clear_params(){
     $.ajax({url:'/v1/static/best', async:false, type: 'GET', 
         success: function(result){
             for(let i in result)
-                document.getElementById(result[i]).checked = false
+                document.getElementById(result[i]).selected = false
         }
     });
         $.ajax({url:'/v1/static/standarts', async:false, type: 'GET', 
         success: function(result){
             for(let i in result)
-                document.getElementById(result[i]).checked = false
+                document.getElementById(result[i]).selected = false
         }
     });
-    sortDefault();
+    sortDefault();*/
+    window.location.reload();
 }

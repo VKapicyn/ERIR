@@ -67,7 +67,7 @@ body
                       option(value='#{val}') #{val}
                   br
                   br 
-                  select.js-example-basic-single
+                  select.js-example-basic-single(name='city', id='city')
                     for val in city
                       option(value='#{val}') #{val}
 
@@ -93,7 +93,7 @@ body
                   br
                   select.js-example-basic-multiple(multiple='multiple')
                     for val in standarts
-                      option(value='#{val}') #{val}
+                      option(value='#{val}' name='#{val}' id='#{val}') #{val}
                   br                   
                   br 
 
@@ -101,7 +101,7 @@ body
                   br                 
                   select.js-example-basic-multiple(multiple='multiple')
                     for val in best
-                      option(value='#{val}') #{val}
+                      option(value='#{val}' name='#{val}' id='#{val}') #{val}
                   br 
                   br 
 

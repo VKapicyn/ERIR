@@ -74,8 +74,7 @@ if admin || report.accept==1
                         tr
                           td  Является лучшей практикой исследовании РРС корпоративной прозрачности российских компаний
                           td 
-                            a(href='#{report.RRSlink}')
-                              #{report.RRSlink}
+                            a(href='#{report.RRSlink}') #{report.RRSlink}
                       tr
                         td  Наличие в отчете бизнес-модели 
                         td  
@@ -107,12 +106,20 @@ if admin || report.accept==1
                           else
                             i.fa.fa-close(aria-hidden='true') 
                       tr
-                        td  Участие в панели заинтересованных сторон
+                        td  Наличие Панели/комиссии заинтересованных сторон
                         td  
                           if report.Stakes == true
                             i.fa.fa-check(aria-hidden='true')
                           else
                             i.fa.fa-close(aria-hidden='true') 
+                      tr
+                        td Проведение диалогов с заинтересованными сторонами.
+                        td
+                          if report.ZS == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
+                        
                       if (report.Best != 0)
                         tr
                           td  Является лучшей практикой в: 

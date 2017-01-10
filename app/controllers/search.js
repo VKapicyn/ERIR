@@ -81,7 +81,7 @@ exports.searchReportPageREST = function(req, res){
     }
 
 
-    if (size_of_company != 'Размер предприятия')
+    if (size_of_company != 'Размер компании')
         query.where('size_of_company', size_of_company);
     if (sector != 'Отрасль экономики')
         query.where('sector', sector);
@@ -154,7 +154,7 @@ exports.searchCompanyPageREST = function (req, res){
             break;
     };
 
-    if(size_of_company!='Размер предприятия')
+    if(size_of_company!='Размер компании')
         query.where('size_of_company',size_of_company);
     if (sector!='Отрасль экономики')
         query.where('sector',sector);

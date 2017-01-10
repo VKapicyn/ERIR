@@ -133,9 +133,10 @@ function endPage(){
 }
 
 function clear_params(){
-    $("#economy option:contains('Отрасль экономики')").prop('selected', true);
+    /*$("#economy option:contains('Отрасль экономики')").prop('selected', true);
     $("#company_size option:contains('Размер компании')").prop('selected', true);
     $("#city option:contains('Местонахождение штаб-квартиры')").prop('selected', true);
     document.getElementById('search-input').value = '';
-    sortDefault();
+    sortDefault();*/
+        window.location.reload();
 }
