@@ -111,91 +111,15 @@
         });
 // /Search. При нажатии на кнопку поиска отобразить результаты поиска
 
-//  Seacrh. Выпадающий список с селекторами. Наличие стандартов
-$(".dropdown1 dt a").on('click', function() { //нажат заголовок dropdown1
-  $(".dropdown1 dd ul").slideToggle('fast');  //раскрыть варианты
-   $(".dropdown2 dt a").hide(); //скрыть заголовок у dropdown2
+// Search. Интерактивный поиск
+$(document).ready(function() {
+  $(".js-example-basic-single").select2();
 });
 
-$(".dropdown1 dt a").on('mousedown', function() { //нажатие на заголовок dropdown1
-   $(".dropdown2 dt a").hide(); //скрыть заголовок у dropdown2
+$(document).ready(function() {
+  $(".js-example-basic-multiple").select2();
 });
-
-
-$(".dropdown1 dd ul").on('mouseleave', function() { //покинули выпадающий список
-   $(".dropdown2 dt a").show(); //показать заголовок у dropdown2
-   $(".dropdown1 dd ul").hide();  //скрыть варианты
-});
-
-
-
-$(".dropdown1 dd ul li a").on('click', function() {
-  $(".dropdown1 dd ul").hide();
-});
-
-function getSelectedValue(id) {
-  return $("#" + id).find("dt a span.value").html();
-}
-
-$(document).bind('click', function(e) {
-  var $clicked = $(e.target);
-  if (!$clicked.parents().hasClass("dropdown1")) $(".dropdown1 dd ul").hide();
-});
-
-$('.mutliSelect1 input[type="checkbox"]').on('click', function() {
-
-  var title = $(this).closest('.mutliSelect1').find('input[type="checkbox"]').val(),
-    title = $(this).val() + ",";
-
-  if ($(this).is(':checked')) {
-    var html = '<span title="' + title + '">' + title + '</span>';
-    $('.multiSel1').append(html);
-    $(".hida1").hide();
-  } else {
-    $('span[title="' + title + '"]').remove();
-    var ret = $(".hida1");
-    $('.dropdown1 dt a').append(ret);
-
-  }
-});
-//  /Seacrh. Выпадающий список с селекторами. Наличие стандартов
-
-//  Seacrh. Выпадающий список с селекторами. Лучшие практики
-$(".dropdown2 dt a").on('click', function() {
-  $(".dropdown2 dd ul").slideToggle('fast');
-});
-
-$(".dropdown2 dd ul li a").on('click', function() {
-  $(".dropdown2 dd ul").hide();
-});
-
-function getSelectedValue(id) {
-  return $("#" + id).find("dt a span.value").html();
-}
-
-$(document).bind('click', function(e) {
-  var $clicked = $(e.target);
-  if (!$clicked.parents().hasClass("dropdown2")) $(".dropdown2 dd ul").hide();
-});
-
-$('.mutliSelect2 input[type="checkbox"]').on('click', function() {
-
-  var title = $(this).closest('.mutliSelect2').find('input[type="checkbox"]').val(),
-    title = $(this).val() + " ";
-
-  if ($(this).is(':checked')) {
-    var html = '<span title="' + title + '">' + title + '</span>';
-    $('.multiSel2').append(html);
-    $(".hida2").hide();
-  } else {
-    $('span[title="' + title + '"]').remove();
-    var ret = $(".hida2");
-    $('.dropdown2 dt a').append(ret);
-
-  }
-});
-//  /Seacrh. Выпадающий список с селекторами. Лучшие практики
-
+// /Search. Интерактивный поиск
 
 
 //      Register-company. Проверка заполненности форм

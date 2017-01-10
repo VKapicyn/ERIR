@@ -1,10 +1,10 @@
 doctype html
-html(lang='en' ng-app="livesearch")
+html(lang='en')
   
   //подключение header
   include includes/head 
 - var companies = company
-body.ng-cloak(ng-controller='LivesearchCtrl as ctrl')
+body
     .wrapper
       .navigation
         nav.navbar.navbar-default
@@ -50,42 +50,25 @@ body.ng-cloak(ng-controller='LivesearchCtrl as ctrl')
                 div.navbar-form.navbar-left(role='search' method='post')
                   .form-group
                     input.form-control#search-input(type='text', placeholder='Search')
-                  //- br
-                  //- select(name='economy', id='economy')
-                  //-   for sec in sector
-                  //-     option(value='#{sec}') #{sec}
-                  //- br
-                  .livesearch
-                      | Отрасль экономики
-                      ui-select(ng-model='ctrl.sector.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Отрасль экономики')
-                        ui-select-match(placeholder='Выберите отрасль') {{$select.selected.val}}
-                        ui-select-choices(repeat='sector in ctrl.sectors | filter: $select.search')
-                          span(ng-bind-html='sector.name | highlight: $select.search')   
+                  br
+                  br
+                  select.js-example-basic-single(name='economy', id='economy')
+                    for val in sector
+                      option(value='#{val}') #{val}
+                  br
+                  br
 
-                  //- select(name='city', id='city')
-                  //-   for val in city
-                  //-     option(value='#{val}') #{val}
+                  select.js-example-basic-single
+                    for val in city
+                      option(value='#{val}') #{val}
 
-                  //- div.livesearch
-                  .livesearch
-                      | Местонахождение штаб-квартиры
-                      ui-select(ng-model='ctrl.city.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Местонахождение штаб-квартиры')
-                        ui-select-match(placeholder='Местонахождение штаб-квартиры') {{$select.selected.val}}
-                        ui-select-choices(repeat='city in ctrl.cities | filter: $select.search')
-                          span(ng-bind-html='city.name | highlight: $select.search')   
-
-                  //- br
-                  //- select(name='company_size', id='company_size')
-                  //-   for comp in size_of_company
-                  //-     option(value='#{comp}') #{comp}
-                  //- br
-
-                  .livesearch
-                      | Размер предприятия
-                      ui-select(ng-model='ctrl.size.selected', theme='selectize', ng-disabled='ctrl.disabled', title='Размер предприятия')
-                        ui-select-match(placeholder='Выберите размер предприятия') {{$select.selected.val}}
-                        ui-select-choices(repeat='size in ctrl.sizes | filter: $select.search')
-                          span(ng-bind-html='size.name | highlight: $select.search')   
+                  br
+                  br
+                  select.js-example-basic-single(name='company_size', id='company_size')
+                    for comp in size_of_company
+                      option(value='#{comp}') #{comp}
+                  br
+                  br 
 
                   button.btn.btn-default.green-btn(type='button' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
