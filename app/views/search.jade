@@ -89,28 +89,7 @@ body
                   br 
                   br 
 
-<<<<<<< HEAD
                   | Наличие стандартов
-=======
-                  dl.dropdown1
-                    dt.simple-border
-                      a(href='#', title='Нажмите для отображения стандартов')
-                        .hida1 Наличие стандартов 
-                          p &#9660;
-                        p.multiSel1
-                    dd
-                      .mutliSelect1
-                        ul
-                          li
-                            for val in standarts
-                              input(type='checkbox', value='#{val}', id='#{val}')
-                              label(for='#{val}')
-                                |   #{val}
-                              br             
-
-                  br
-                  br
->>>>>>> eb9f104e9e5c98f0e63498c2f68fe30bb0355c9b
                   br
                   select.js-example-basic-multiple(multiple='multiple')
                     for val in standarts
@@ -118,7 +97,6 @@ body
                   br                   
                   br 
 
-<<<<<<< HEAD
                   | Лучшие практики
                   br                 
                   select.js-example-basic-multiple(multiple='multiple')
@@ -126,28 +104,6 @@ body
                       option(value='#{val}') #{val}
                   br 
                   br 
-=======
-                  dl.dropdown2
-                    dt.simple-border
-                      a(href='#', title='Нажмите для отображения списка лучших практик')
-                        .hida2 Лучшая практика 
-                          p &#9660;
-                        p.multiSel2
-                    dd
-                      .mutliSelect2
-                        ul
-                          li
-                            for val in best
-                              input(type='checkbox', value='#{val}', id='#{val}')
-                              label(for='#{val}')
-                                | #{val}
-                              br              
-                  br
-                  br
-                  br
-                  br
-                  br
->>>>>>> eb9f104e9e5c98f0e63498c2f68fe30bb0355c9b
 
                   button.btn.btn-default.green-btn(type='submit' onclick='sortDefault()')
                     i.fa.fa-search(aria-hidden='true')
