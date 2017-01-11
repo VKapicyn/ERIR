@@ -41,13 +41,21 @@ html(lang='en')
           .row
                     br
                     span(style='font-size:12pt')
-                      | Если у Вас есть вопросы или пожелания, Вы можете связаться с администратором сайта
+                      | Если у Вас есть вопросы или пожелания, Вы можете связаться с администратором сайта через данную форму
                       br
-                      | Лазаренко Вячеславом по адресу 
-                    span(style='font-size:12pt')
-                      a(href='mailto:lasarenko91@mail.ru')
-                        | lasarenko91@mail.ru
+                    //  | Лазаренко Вячеславом по адресу 
+                    //span(style='font-size:12pt')
+                    //  a(href='mailto:lasarenko91@mail.ru')
+                    //    | lasarenko91@mail.ru
+                    //br
                     br
+                    form(action='/send-email', method='POST')
+                      input(name='from', placeholder='Ваш e-mail')
+                      br
+                      br
+                      textarea(name='message', rows='8', cols='80', placeholder='Ваше сообщение')
+                      br
+                      input(type='submit', value='Отправить', onclick='sendemail()')
 
           // /row
       // /mainpage
@@ -59,5 +67,7 @@ html(lang='en')
       script(src='js/exporting.js')
       script(src='https://code.highcharts.com/modules/data.js')
       script(src='https://code.highcharts.com/modules/drilldown.js')
+      script.
+        function sendemail(){alert('Ваше сообщение успешно отправлено!')}
 
 

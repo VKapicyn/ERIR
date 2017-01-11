@@ -102,7 +102,8 @@ html(lang='en' ng-app="livesearch")
                         |  Нет
                       br
                     div
-                      | Наличие Общественного заверения отчета 
+                      span(title='Под общественным заверением отчетной информации понимается экспертное и/или заверение заинтересованными сторонами.') 
+                        | Общественное заверение отчета
                       label.radio-inline
                         input#radio1(name='Assurance', value='1', type='radio')
                         |  Да
@@ -120,7 +121,7 @@ html(lang='en' ng-app="livesearch")
                         |  Нет
                       br
                     div
-                      | Проведение диалогов с заинтересованными сторонами.
+                      | Проведение диалогов с заинтересованными сторонами при подготовке отчета
                       label.radio-inline
                         input#radio1(name='ZS', value='1', type='radio')
                         |  Да
@@ -149,7 +150,7 @@ html(lang='en' ng-app="livesearch")
                       br
                     div
                       | Консультант подготовки отчета 
-                      input.change-w(name='consultant', placeholder='Консультант подготовки отчета', onkeyup="return quotesBan(this);")
+                      input.change-w(name='consultant', placeholder='Название компании', onkeyup="return quotesBan(this);")
                       br
                     div
                       | Дизайнер отчета 

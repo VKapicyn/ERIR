@@ -70,11 +70,6 @@ if admin || report.accept==1
                           td  Рейтинг прозрачности РРС
                           td 
                             | #{report.RRS}
-                      if (report.RRSlink != undefined)
-                        tr
-                          td  Является лучшей практикой исследовании РРС корпоративной прозрачности российских компаний
-                          td 
-                            a(href='#{report.RRSlink}') #{report.RRSlink}
                       tr
                         td  Наличие в отчете бизнес-модели 
                         td  
@@ -113,7 +108,7 @@ if admin || report.accept==1
                           else
                             i.fa.fa-close(aria-hidden='true') 
                       tr
-                        td Проведение диалогов с заинтересованными сторонами.
+                        td Проведение диалогов с заинтересованными сторонами при подготовке отчета
                         td
                           if report.ZS == true
                             i.fa.fa-check(aria-hidden='true')
@@ -122,7 +117,11 @@ if admin || report.accept==1
                         
                       if (report.Best != 0)
                         tr
-                          td  Является лучшей практикой в: 
+                          td  
+                            if report.RRSlink!=undefined
+                              a(href='#{report.RRSlink}') Является лучшей практикой исследовании РРС корпоративной прозрачности российских компаний
+                            else
+                              | Является лучшей практикой исследовании РРС корпоративной прозрачности российских компаний
                           td
                             for val in report.Best
                               | #{val}
@@ -141,7 +140,7 @@ if admin || report.accept==1
                           td  #{report.consultant}
                       if (report.manager != undefined)
                         tr
-                          td  Ответственный за профиль отчета
+                          td  Ответственный за подготовку отчета
                           td  #{report.manager}
                       if (report.designer!=undefined)
                         tr
@@ -154,7 +153,7 @@ if admin || report.accept==1
                       if (report.fin_auditor!=undefined)
                         tr
                           td  Финансовый аудитор отчета
-                          td  #{report.auditor}
+                          td  #{report.fin_auditor}
                 .col-md-2.col-xs-12.col-sm-12.report-buttons
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-download(aria-hidden='true')

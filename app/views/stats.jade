@@ -45,26 +45,26 @@ html(lang='en')
                 | Формирование диаграммы
               .stats-selection
                 div
-                  select(name='diagram_type')
+                  select.js-example-basic-single(name='diagram_type')
                     option(value='0') Круговая диаграмма
                     option(value='1') Гистограмма
                 div
-                  select(name='economy')
+                  select.js-example-basic-single(name='economy')
                     for val in sector
                       option(value='#{val}') #{val}
                   br
                 div
-                  select(name='standart')
+                  select.js-example-basic-single(name='standart')
                     option(value='Все стандарты') Все стандарты
                       for val in standarts
                         option(value='#{val}') #{val}
                 div
-                  select(name='company_size')
+                  select.js-example-basic-single(name='company_size')
                     for val in size_of_company
                       option(value='#{val}') #{val}
                   br
                 div
-                  select(name='ownership')
+                  select.js-example-basic-single(name='ownership')
                     for val in type_of_ownership
                       option(value='#{val}') #{val}
                   br

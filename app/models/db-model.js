@@ -1,5 +1,5 @@
-var url = 'mongodb://80.93.177.208:27017/ERIO';
-//var url = 'mongodb://login:password@80.93.177.208:27017/db';
+//var url = 'mongodb://80.93.177.208:27017/ERIO';
+var url = 'mongodb://admin:pass@80.93.177.208:27017/ERIO';
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var db = mongoose.connect(url)//конектимсся к БД

@@ -63,6 +63,7 @@ app.post('/company/accept/single/:company_id', require('./app/controllers/compan
 app.post('/report/accept/single/:report_id', require('./app/controllers/report').acceptReport);
 app.post('/news/add', require('./app/models/newsModel').addNews)
 app.get('/:filename', require('./app/controllers/db-files').getFile);
+app.post('/send-email', require('./app/controllers/email').sendEmail);
 // 4 маршрута для редактирования
 //app.post('/create/user', require('./app/controllers/admin').adminCreate);
 

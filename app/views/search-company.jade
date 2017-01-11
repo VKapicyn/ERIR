@@ -66,7 +66,7 @@ body
                   br
                   select.js-example-basic-single(name='company_size', id='company_size')
                     for comp in size_of_company
-                      option(value='#{comp}') #{comp}
+                      option(title='Малое: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Среднее: до 2 млрд рублей, количество сотрудников до 250 человек. Крупное: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек' value='#{comp}') #{comp}
                   br
                   br 
 
@@ -123,7 +123,7 @@ body
                     tr
                       th Компания
                       th Отрасль экономики
-                      th Размер предприятия
+                      th Размер компании
                   tbody#oo-view2
                   tr
                     td
