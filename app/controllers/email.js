@@ -1,8 +1,9 @@
 var email 	= require('emailjs/email');
+var pass = require('../config.js').emailPass;
 
 var server 	= email.server.connect({
    user:    'reestr@da-strateg.ru', 
-   password: '', 
+   password: pass, 
    host:    'smtp.beget.com',
    ssl:     true
 });
