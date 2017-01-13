@@ -57,6 +57,7 @@ exports.addReport = function (req, res){
         new_rep.Strategy = req.body.Strategy;
         new_rep.RiskMap = req.body.RiskMap;
         new_rep.Assurance = req.body.Assurance;
+        new_rep.AssuranceZS = req.body.AssuranceZS;
         new_rep.Stakes = req.body.Stakes;
         new_rep.ZS = req.body.ZS;
         new_rep.interactive = req.body.interactive;

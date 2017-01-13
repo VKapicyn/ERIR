@@ -1,7 +1,5 @@
 var express = require('express');
-
 var bodyParser = require('body-parser');
-//var fileUpload = require('express-fileupload');
 var babel_es6 = require('babel-core/register');
 var es6 = require('./server')
 var dbModel = require('./app/models/db-model');
@@ -27,15 +25,11 @@ app.use(session({
   saveUninitialized: false,
   store: new MongoStore({ 
     url: require('./app/models/db-model').url
-    //url: 'mongodb://80.93.177.208:27017/ERIO',
   })
 }));
-//app.use(multer({dest: '../src/buffer'}).single('upload_logo'));
-//app.use(require('skipper')());
 app.use(bodyParser());
 app.use(express.static('./src/buffer'));                                                                
 app.use(bodyParser.json());
-//app.use(fileUpload());
 app.use(express.static(__dirname + '/src'));                                                                                                    
 app.set('views', './app/views');
 app.set('view engine', 'jade');
@@ -64,8 +58,6 @@ app.post('/report/accept/single/:report_id', require('./app/controllers/report')
 app.post('/news/add', require('./app/models/newsModel').addNews)
 app.get('/:filename', require('./app/controllers/db-files').getFile);
 app.post('/send-email', require('./app/controllers/email').sendEmail);
-// 4 маршрута для редактирования
-//app.post('/create/user', require('./app/controllers/admin').adminCreate);
 
 
 //маршрутизация API запросов
@@ -73,12 +65,7 @@ app.get('/v1/search/company/:amount/:page/:sort/:sector/:size_of_company/:city/:
 app.get('/v1/stats/:sector/:standart/:size_of_company/:type_of_ownership', require('./app/controllers/stats').getStats);
 app.get('/v1/search/report/:amount/:page/:sort/:sector/:size_of_company/:city/:year/:opf/:type_of_ownership/:standarts/:best/:search', 
 require('./app/controllers/search').searchReportPageREST);
-//app.get('/v1/static/standarts', require('./app/models/staticModel').standartsREST);
 app.get('/v1/static/:name', require('./app/models/staticModel').staticREST);
-//app.get('/v1/report/:id', rest.getReportById);
-//app.get('/v1/company/:name', rest.getCompanyByName);
-//app.get('/v1/search/companies/', rest.searchCompnaies);
-//app.get('/v1/search/reports/', rest.searchReports);
 
 
 app.listen(8080);

@@ -38,6 +38,8 @@ html(lang='en' ng-app="livesearch")
       main.container
         .row
           h1.uppercase.center Регистрация отчета
+          div(style='font-size:12pt;background:#ECF3EE;width:60%;margin-left:20%;padding:1%;border-radius:10px 10px 10px 10px;' align='center')
+            | В данном разделе регистрируются отчеты, при подготовке которых использовался Международный стандарт <ИО>
           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12.profile-company
             br
             .row.register-report
@@ -102,8 +104,7 @@ html(lang='en' ng-app="livesearch")
                         |  Нет
                       br
                     div
-                      span(title='Под общественным заверением отчетной информации понимается экспертное и/или заверение заинтересованными сторонами.') 
-                        | Общественное заверение отчета
+                      | Экспертное заверение отчета
                       label.radio-inline
                         input#radio1(name='Assurance', value='1', type='radio')
                         |  Да
@@ -112,6 +113,15 @@ html(lang='en' ng-app="livesearch")
                         |  Нет
                       br
                     div
+                      | Заверение отчета заинтересованными сторонами
+                      label.radio-inline
+                        input#radio1(name='AssuranceZS', value='1', type='radio')
+                        |  Да
+                      label.radio-inline
+                        input#radio2(name='AssuranceZS', value='0', checked='', type='radio')
+                        |  Нет
+                      br
+                    //div
                       | Наличие Панели/комиссии заинтересованных сторон
                       label.radio-inline
                         input#radio1(name='Stakes', value='1', type='radio')
@@ -137,7 +147,7 @@ html(lang='en' ng-app="livesearch")
                       input.change-w(name='interactive', type='text', placeholder='Полная ссылка с http://', onkeyup="return quotesBan(this);")
                       br
                     div
-                      | Ответственный за подготовку отчета 
+                      | Ответственный за подготовку отчета (со сторны компании)
                       input.change-w(name='manager', placeholder='ФИО, должность')
                       br
                     div
@@ -157,11 +167,11 @@ html(lang='en' ng-app="livesearch")
                       input.change-w(name='designer', placeholder='Название компании', onkeyup="return quotesBan(this);")
                       br
                     div
-                      | Победы в национальных конкурсах отчетности 
+                      | Победы в российских конкурсах отчетности 
                       input.change-w(name='wins', placeholder='Конкурсы и занятые места', onkeyup="return quotesBan(this);")
                       br
                     div
-                      | Победы в зарубежных конкурсах отчетности 
+                      | Победы в международных конкурсах отчетности 
                       input.change-w(name='world_wins', placeholder='Конкурсы и занятые места')
                       br
 

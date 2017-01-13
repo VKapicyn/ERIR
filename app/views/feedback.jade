@@ -41,7 +41,8 @@ html(lang='en')
           .row
                     br
                     span(style='font-size:12pt')
-                      | Если у Вас есть вопросы или пожелания, Вы можете связаться с администратором сайта через данную форму
+                      | Если у Вас есть вопросы или пожелания, Вы можете связаться с менеджером реестра Лазаренко Вячеславом Александровичем через данную форму или связаться с ним по телефону 
+                      img(src='/img/phone.png')
                       br
                     //  | Лазаренко Вячеславом по адресу 
                     //span(style='font-size:12pt')
@@ -55,7 +56,7 @@ html(lang='en')
                       br
                       textarea(name='message', rows='8', cols='80', placeholder='Ваше сообщение')
                       br
-                      input(type='submit', value='Отправить', onclick='sendemail()')
+                      button.btn.btn-default.green-btn(type='button', onclick='sendemail()') Отправить
 
           // /row
       // /mainpage

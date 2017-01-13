@@ -21,6 +21,7 @@ var reportSchema = new mongoose.Schema({
         Strategy: Boolean,
         RiskMap: Boolean,
         Assurance: Boolean, // Общественное заверение отчета
+        AssuranceZS: Boolean,
         Stakes: Boolean, // Участие в панели заинтересованных сторон
         ZS: Boolean,
         Best: [String], //админ

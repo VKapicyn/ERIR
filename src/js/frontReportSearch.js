@@ -34,9 +34,12 @@ function getSearchCompany(){
             tableContent += '<tr class="output">';
             tableContent += '<td><a href="/company/'+data[key].company_id+'" title="Перейти на страницу компании">'+data[key].company+'</a></td>';
             tableContent += '<td><a href="/report/'+data[key]._id+'" title="Перейти на страницу отчета">'+data[key].name+'</a></td>';
-            tableContent += '<td>'+data[key].year+'</td>';
-            tableContent += '<td>'+data[key].standarts+'</td>';
-            tableContent += '</tr>';
+            tableContent += '<td>'+data[key].year+'</td><td>';
+
+            for(let i=0; i<data[key].standarts.length; i++)
+                tableContent += i != data[key].standarts.length-1 ? data[key].standarts[i]+', ' : data[key].standarts[i];
+
+            tableContent += '</td></tr>';
             $('#r-view2').append(tableContent); 
 
             tableContent = '';

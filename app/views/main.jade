@@ -53,8 +53,9 @@ html(lang='en')
                     .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
                       - var i = 7;
                       - for (i = 7; (i<14) && (i<=(new_reports.length-1)); i++)
-                        a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                          img(src='#{new_reports[i].preview}', alt='')
+                        div
+                          a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
+                            img(src='#{new_reports[i].preview}', alt='')
                 // /Slide2
               // /.carousel-inner
               .control-box
@@ -78,7 +79,7 @@ html(lang='en')
                 br
                 | &nbsp&nbsp&nbsp&nbsp&nbspВ реестре есть возможности поиска интегрированных отчетов по различным фильтрам и составления интерактивной статистики. Пользователи также имеют возможность самостоятельно загружать данные об отчетах и компаниях. 
                 br
-                | &nbsp&nbsp&nbsp&nbsp&nbspВ Национальном реестре зарегистрировано 100 отчетов 22 компаний
+                | &nbsp&nbsp&nbsp&nbsp&nbspВ Национальном реестре зарегистрировано 100 отчетов 22 компаний.
               .space  
               center
                   button.btn.btn-default.btn-lg.green-btn(type='button', title='Перейти на страницу поиска')
@@ -103,7 +104,7 @@ html(lang='en')
             // /.mainpage-news
           // / row stat & news
           .col-md-12.col-xs-12.col-sm-12.partners
-            h2 «Национальный реестр подготовлен Группой компаний «Да-Стратегия» в сотрудничестве с Российской сетью по интегрированной отчетности».
+            h2 Национальный реестр подготовлен Группой компаний «Да-Стратегия» при поддержке Российской сети по интегрированной отчетности».
             .logo
               a(href='http://ir.org.ru/', target='_blank', title='Перейти на сайт компании')
                 img(src=' img/rrc-logo.png', alt='logo2')
