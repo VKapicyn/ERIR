@@ -114,7 +114,7 @@ main {
   text-align: right;
 }
 .left {
-   margin-right: auto;
+  margin-right: auto;
   margin-left: 0;
   text-align: left;
 }
@@ -184,7 +184,9 @@ main {
 .space2 {
   margin-top: @normal-margin-top*3;
 }
-
+.space-for-fixed-top {
+  margin-top: @normal-margin-top*4;
+}
 .simple-border {
   border: 1px solid @dark-gray;
 }
@@ -197,8 +199,11 @@ main {
     margin-bottom: 0;
 }
   .navbar-brand{
+    padding: 0;
+    margin: 10px;
+    
     img {
-      width: 300px;
+      width: 200px;
     }
 }
 
@@ -227,7 +232,7 @@ main {
         font-weight: 600;
         letter-spacing: 1px;
         padding: 2px 4px;
-        margin: 40px 5px;        
+        margin: 20px 5px;        
       }      
 
       a:hover {
@@ -241,8 +246,8 @@ main {
 
 .nav-description {
   font-size: 20px;
-      margin-top: 20px;
-    margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /* /Navbar */
