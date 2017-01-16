@@ -103,15 +103,6 @@ html(lang='en')
                   | Интегрированный отчет это отчет, подготовленный в соответствии с Международным стандартом интегрированной отчетности. Он содержит краткую информацию о том, как стратегия, управление, результаты деятельности и перспективы организации в контексте внешней̆ среды ведут к созданию 
                   | стоимости на протяжении кратко-, средне- и долгосрочного периода. При подготовке отчета могут использоваться и другие международные стандарты (Руководство GRI, АА1000SES и пр.).
 
-              //- center
-              //-     button.btn.btn-default.btn-lg.green-btn(type='button', title='Перейти на страницу поиска')
-              //-       a(href='/search', target='_blank', title='Перейти на страницу поиска')
-              //-         span.glyphicon.glyphicon-search
-              //-         span.uppercase  Поиск
-              //-         br
-              //-         |  Перейти на страницу поиска  
-              //- .space        
-
             .col-md-4.col-xs-12.col-sm-12.mainpage-news
               .news-caption.uppercase
                 | Новости
@@ -123,7 +114,6 @@ html(lang='en')
                     - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
                     p #{test}
 
-
                     //- h3 #{nw.header}
                     //- - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
                     //- p #{test}
@@ -131,11 +121,47 @@ html(lang='en')
                     //- hr
             // /.mainpage-news
           // / row stat & news
-          .col-md-12.col-xs-12.col-sm-12.partners
-            h2 Национальный реестр подготовлен Группой компаний «Да-Стратегия» при поддержке Российской сети по интегрированной отчетности».
-            .logo
-              a(href='http://ir.org.ru/', target='_blank', title='Перейти на сайт компании')
-                img(src=' img/rrc-logo.png', alt='logo2')
+          //- .row.best
+          .space.col-md-12.col-xs-12.col-sm-12
+          .row.best
+            .col-md-7.col-xs-12.col-sm-12
+              span.cap-bg
+                Лучшие практики
+              br  
+              .col-md-6.col-xs-6.col-sm-6
+                .items 
+                  .item
+                    img(src='img/best1.png', alt='')
+                    a(href='#', target='_blank') Стратегия
+                  .item
+                    img(src='img/best2.png', alt='')
+                    a(href='#', target='_blank') Бизнес-модель                  
+                  .item
+                    img(src='img/best2.png', alt='')
+                    a(href='#', target='_blank') Риски              
+
+              .col-md-6.col-xs-6.col-sm-6
+                .items 
+                  .item
+                    img(src='img/best4.png', alt='')
+                    a(href='#', target='_blank') Система публичной отчетности
+                  .item
+                    img(src='img/best5.png', alt='')
+                    a(href='#', target='_blank') Корпоративное управление          
+                  .item
+                    img(src='img/best6.png', alt='')
+                    a(href='#', target='_blank') Деятельность в области УР
+
+            .col-md-4.col-xs-12.col-sm-12.partners
+              .logo
+                a(href='http://ir.org.ru/', target='_blank', title='Перейти на сайт компании')
+                  img(src=' img/rrc-logo.png', alt='logo2')
+              .info
+                p
+                  Национальный реестр подготовлен 
+                  Группой компаний «Да-Стратегия» 
+                  при поддержке Российской сети 
+                  по интегрированной отчетности.
 
           // /.partners
       // /mainpage
