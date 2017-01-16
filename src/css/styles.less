@@ -124,6 +124,7 @@ main {
 
 
 /* elements */
+//green-btn
 .green-btn {
   background-color: @sea-green;
   color: @white;
@@ -141,6 +142,30 @@ main {
 }
   .green-btn:active {
   background-color: darken(@sea-green,20);
+}
+
+//red-btn
+.red-btn {
+  background-color: @red;
+  color: @black;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-color: @red;
+  a {
+    color: @black;
+  }
+
+}
+.red-btn:hover {
+  background-color: lighten(@red,10);
+  color: @white !important;
+  border-color: @red;
+    a {
+    .no-underline;
+  }
+}
+  .red-btn:active {
+  background-color: darken(@red,20);
 }
 
 .red {
@@ -168,6 +193,7 @@ main {
 /* Navbar */
   .navbar {
     background: @new-white;
+    margin-bottom: 0;
 }
   .navbar-brand{
     img {
@@ -209,6 +235,31 @@ main {
 }
 
 /* /Navbar */
+
+/* Jumbotron */
+.jumbotron {
+  background: url(../img/top.jpg) no-repeat top center;
+  height: 250px;
+  .caption {
+    font-size: 35px;
+    color: @white;
+  }
+
+  .red-btn {
+    margin-top: 20px;
+  }
+
+}
+/* /Jumbotron */
+
+// @media screen and (min-width: 768px) {
+//   .jumbotron {
+//     padding-top: 8%;
+//     padding-bottom: 7%;
+//   }
+    
+// }
+
 
 /* ---Page Main---*/
   .mainpage {

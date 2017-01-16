@@ -35,8 +35,34 @@ html(lang='en')
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
+
+      .jumbotron
+        center
+          .caption
+            Национальный реестр
+            br
+            интегрированных отчетов  
+
+
+          button.btn.btn-default.btn-lg.red-btn(type='button', title='Перейти на страницу поиска')
+            a(href='/search', target='_blank', title='Перейти на страницу поиска')
+              span.glyphicon.glyphicon-search
+              span.uppercase  Поиск отчетов
+
+
       .container.mainpage
         main.container
+
+          //- .container
+          //-   .jumbotron
+          //-     center
+          //-         button.btn.btn-default.btn-lg.green-btn(type='button', title='Перейти на страницу поиска')
+          //-           a(href='/search', target='_blank', title='Перейти на страницу поиска')
+          //-             span.glyphicon.glyphicon-search
+          //-             span.uppercase  Поиск отчетов
+
+
+
           .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
             // слайдер
             #myCarousel.carousel.slide
