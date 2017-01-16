@@ -42,8 +42,6 @@ html(lang='en')
             Национальный реестр
             br
             интегрированных отчетов  
-
-
           button.btn.btn-default.btn-lg.red-btn(type='button', title='Перейти на страницу поиска')
             a(href='/search', target='_blank', title='Перейти на страницу поиска')
               span.glyphicon.glyphicon-search
@@ -52,17 +50,6 @@ html(lang='en')
 
       .container.mainpage
         main.container
-
-          //- .container
-          //-   .jumbotron
-          //-     center
-          //-         button.btn.btn-default.btn-lg.green-btn(type='button', title='Перейти на страницу поиска')
-          //-           a(href='/search', target='_blank', title='Перейти на страницу поиска')
-          //-             span.glyphicon.glyphicon-search
-          //-             span.uppercase  Поиск отчетов
-
-
-
           .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
             // слайдер
             #myCarousel.carousel.slide
@@ -93,12 +80,14 @@ html(lang='en')
           .space.col-md-12.col-xs-12.col-sm-12
           .row.description-and-news
             .col-md-7.col-xs-12.col-sm-12.mainpage-description
-              div(style='padding:1%;background:#EEE;border-radius:10px 10px 10px 10px')
-                span(style='font-size:9pt;text-align:left')
-                  | Интегрированный отчет это отчет, подготовленный в соответствии с Международным стандартом интегрированной отчетности. Он содержит краткую информацию о том, как стратегия, управление, результаты деятельности и перспективы организации в контексте внешней̆ среды ведут к созданию 
-                  | стоимости на протяжении кратко-, средне- и долгосрочного периода. При подготовке отчета могут использоваться и другие международные стандарты (Руководство GRI, АА1000SES и пр.).
+              span.cap-bg
+                О проекте
+              //- div(style='padding:1%;background:#EEE;border-radius:10px 10px 10px 10px')
+              //-   span(style='font-size:9pt;text-align:left')
+              //-     | Интегрированный отчет это отчет, подготовленный в соответствии с Международным стандартом интегрированной отчетности. Он содержит краткую информацию о том, как стратегия, управление, результаты деятельности и перспективы организации в контексте внешней̆ среды ведут к созданию 
+              //-     | стоимости на протяжении кратко-, средне- и долгосрочного периода. При подготовке отчета могут использоваться и другие международные стандарты (Руководство GRI, АА1000SES и пр.).
               br
-              p(style='font-size:12pt;', align='left') 
+              p
                 | &nbsp&nbsp&nbsp&nbsp&nbspНациональный реестр интегрированных отчетов является базой данных и содержит все интегрированные отчеты российских компаний, выпущенные с 2009 года, когда в России появились первые интегрированные отчеты.
                 br
                 | &nbsp&nbsp&nbsp&nbsp&nbspФункциональные возможности реестра предназначены российским компаниям, а также консультантам в области корпоративной отчетности, аналитикам, инвесторам и другим заинтересованным сторонам. 
@@ -107,14 +96,21 @@ html(lang='en')
                 br
                 | &nbsp&nbsp&nbsp&nbsp&nbspВ Национальном реестре зарегистрировано 100 отчетов 22 компаний.
               .space  
-              center
-                  button.btn.btn-default.btn-lg.green-btn(type='button', title='Перейти на страницу поиска')
-                    a(href='/search', target='_blank', title='Перейти на страницу поиска')
-                      span.glyphicon.glyphicon-search
-                      span.uppercase  Поиск
-                      br
-                      |  Перейти на страницу поиска  
-              .space        
+
+              .definition                
+                span   
+                  img(src='img/graph-icon.png', alt='graph-icon') 
+                  | Интегрированный отчет это отчет, подготовленный в соответствии с Международным стандартом интегрированной отчетности. Он содержит краткую информацию о том, как стратегия, управление, результаты деятельности и перспективы организации в контексте внешней̆ среды ведут к созданию 
+                  | стоимости на протяжении кратко-, средне- и долгосрочного периода. При подготовке отчета могут использоваться и другие международные стандарты (Руководство GRI, АА1000SES и пр.).
+
+              //- center
+              //-     button.btn.btn-default.btn-lg.green-btn(type='button', title='Перейти на страницу поиска')
+              //-       a(href='/search', target='_blank', title='Перейти на страницу поиска')
+              //-         span.glyphicon.glyphicon-search
+              //-         span.uppercase  Поиск
+              //-         br
+              //-         |  Перейти на страницу поиска  
+              //- .space        
 
             .col-md-4.col-xs-12.col-sm-12.mainpage-news
               .news-caption.uppercase
