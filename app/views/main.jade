@@ -61,7 +61,8 @@ html(lang='en')
                     - var i = 0;
                     - for (i = 0; (i<7) && (i<=(new_reports.length-1)); i++)
                       a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                        img(src='#{new_reports[i].preview}', alt='')
+                        img(src='#{new_reports[i].preview}', alt='')  
+                        //- span #{new_reports[i].year} //здесь сокращенное название?                 
                 // /Slide1
                 if new_reports.length>7
                   .item
