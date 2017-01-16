@@ -118,11 +118,17 @@ html(lang='en')
               .news
                 for nw in news
                   .new
-                    h3 #{nw.header}
+                    a(href='#{nw.link}', target='_blank', title='') 
+                      h3 #{nw.header}
                     - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
                     p #{test}
-                    a.underline(href='#{nw.link}', target='_blank', title='') Читать далее >>> 
-                    hr
+
+
+                    //- h3 #{nw.header}
+                    //- - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
+                    //- p #{test}
+                    //- a.underline(href='#{nw.link}', target='_blank', title='') Читать далее >>> 
+                    //- hr
             // /.mainpage-news
           // / row stat & news
           .col-md-12.col-xs-12.col-sm-12.partners

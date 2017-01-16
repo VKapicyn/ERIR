@@ -297,13 +297,28 @@ main {
       margin-top: 50px;
       
       .news-caption {
-        background-color: @red;
-        color: @white;
-        .center;
+        // background-color: @red;
+        color: @black;
+        .bold;
+        .left;
+        font-size: 20px;
       }      
       
       .mainpage-news {
+        background-color: @new-gray;
+        .new {
+          h3 {
+            .uppercase;
+            color: @white;
+            font-weight: 200; //убрать bold
+            font-size: 16px;
+          }
 
+          p {
+            color: @red; //дата
+          }
+
+         }
       }
 
       .mainpage-description{
