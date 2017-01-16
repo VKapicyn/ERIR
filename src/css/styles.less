@@ -48,11 +48,13 @@ body {
 @gray: #ccc;
 @dark-gray: #a6a8aa;
 @sea-green: #336666;
+@new-white: #f6f6f6;
+@new-gray: #a6a5a5;
 /* /Colors*/
 /* /Variables */
 
 body {
-  background-color: @white;
+  background-color: @new-white;
   color: @black;
   font-family: 'PTSansRegular','Helvetica','Arial', sans-serif;
   overflow-x: hidden !important; //от белой полосы
@@ -165,11 +167,11 @@ main {
 
 /* Navbar */
   .navbar {
-    background: @gray;
+    background: @new-white;
 }
   .navbar-brand{
     img {
-      width: 160px;
+      width: 300px;
     }
 }
 
@@ -177,22 +179,23 @@ main {
 
   .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: @white; //активная кнопка
-    background-color: @red;
+    background-color: @new-gray;
 }
 
   .navbar-nav {
     li {
       a {
-        color: @red; //цвет текста ссылок
+        color: @black; //цвет текста ссылок
         .uppercase;
-        background-color: @dark-gray;
-        padding: 5px 15px;
-        margin: 20px 5px;        
+        .bold;
+        letter-spacing: 1px;
+        padding: 2px 4px;
+        margin: 40px 5px;        
       }      
 
       a:hover {
-        color: @red; //цвет текста ссылок
-        background-color: @dark-gray;    
+        color: @white; //цвет текста ссылок
+        background-color: @new-gray;    
         .underline; 
       }
     }
@@ -211,7 +214,7 @@ main {
   .mainpage {
     .mainpage-slider {
         .carousel-inner {
-          background-color: @gray;
+          background-color: @new-white;
           img 
            {
               height: 130px;
@@ -239,7 +242,7 @@ main {
     } /* /.mainpage-slider */
     
     .description-and-news {
-      background-color: @white;
+      background-color: @new-white;
       margin-top: 50px;
       
       .news-caption {
