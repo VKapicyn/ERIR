@@ -6,7 +6,7 @@ html(lang='en')
   body
     .wrapper
       .navigation
-        nav.navbar.navbar-default
+        nav.navbar.navbar-default.navbar-fixed-top 
           .container
             // Brand and toggle get grouped for better mobile display
             // <h1>Национальный реестр интегрированных отчетов</h1>
@@ -23,7 +23,7 @@ html(lang='en')
                 img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
-              ul.nav.navbar-nav
+              ul.nav.navbar-nav.pull-right
                 li
                   a(href='/main') На главную
                 li
@@ -37,6 +37,7 @@ html(lang='en')
             // /.navbar-collapse
           // /.container-fluid
       // /container navigation
+      .space-for-fixed-top
       .container.mainpage
         main.container
           .row

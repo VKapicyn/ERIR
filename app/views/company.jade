@@ -7,7 +7,7 @@ if admin || company.accept==1
     body
       .wrapper
         .navigation
-          nav.navbar.navbar-default
+          nav.navbar.navbar-default.navbar-fixed-top
             .container
               // Brand and toggle get grouped for better mobile display
               //- p.nav-description Национальный реестр интегрированных отчетов
@@ -23,7 +23,7 @@ if admin || company.accept==1
 
               // Collect the nav links, forms, and other content for toggling
               #bs-example-navbar-collapse-1.collapse.navbar-collapse
-                ul.nav.navbar-nav
+                ul.nav.navbar-nav.pull-right
                   li
                     a(href='/main') На главную
                   li.active
@@ -37,6 +37,8 @@ if admin || company.accept==1
               // /.navbar-collapse
             // /.container-fluid
         // /container navigation
+
+        .space-for-fixed-top
 
         main.container
           .row
