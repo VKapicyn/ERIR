@@ -70,12 +70,6 @@ if admin || report.accept==1
                           td  Рейтинг прозрачности РРС
                           td 
                             | #{report.RRS}
-                      if (report.RRSlink != undefined)
-                        tr
-                          td  Является лучшей практикой исследовании РРС корпоративной прозрачности российских компаний
-                          td 
-                            a(href='#{report.RRSlink}')
-                              #{report.RRSlink}
                       tr
                         td  Наличие в отчете бизнес-модели 
                         td  
@@ -98,56 +92,88 @@ if admin || report.accept==1
                           else
                             i.fa.fa-close(aria-hidden='true') 
                       tr
-                        td  
-                          span(title='Под общественным заверением отчетной информации понимается экспертное и/или заверение заинтересованными сторонами.') 
-                            | Общественное заверение отчета
+                        td   
+                            | Экспертное заверение отчета
                         td  
                           if report.Assurance == true
                             i.fa.fa-check(aria-hidden='true')
                           else
-                            i.fa.fa-close(aria-hidden='true') 
+                            i.fa.fa-close(aria-hidden='true')
                       tr
-                        td  Участие в панели заинтересованных сторон
+                        td   
+                            | Заверение отчета заинтересованными сторонами
+                        td  
+                          if report.AssuranceZS == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true')
+                        
+                      //tr
+                        td  Наличие Панели/комиссии заинтересованных сторон
                         td  
                           if report.Stakes == true
                             i.fa.fa-check(aria-hidden='true')
                           else
                             i.fa.fa-close(aria-hidden='true') 
+                      tr
+                        td Проведение диалогов с заинтересованными сторонами при подготовке отчета
+                        td
+                          if report.ZS == true
+                            i.fa.fa-check(aria-hidden='true')
+                          else
+                            i.fa.fa-close(aria-hidden='true') 
+                        
                       if (report.Best != 0)
                         tr
-                          td  Является лучшей практикой в: 
+                          td  
+                            if report.RRSlink!=undefined
+                              a(href='#{report.RRSlink}') Является лучшей практикой исследовании РРС корпоративной прозрачности российских компаний
+                            else
+                              | Является лучшей практикой исследовании РРС корпоративной прозрачности российских компаний
                           td
                             for val in report.Best
                               | #{val}
                               br
                       if (report.wins != undefined)
                         tr
-                          td  Победы в национальных конкурсах отчетности 
+                          td  Победы в российских конкурсах отчетности 
                           td  #{report.wins}
                       if (report.world_wins != undefined)
                         tr
-                          td  Победы в зарубежных конкурсах отчетности 
+                          td  Победы в международных конкурсах отчетности 
                           td  #{report.world_wins}
-                      if (report.consultant != undefined)
+                      tr
+                        td  Компания-консультант
+                        td
+                          if (report.consultant!='')  
+                            | #{report.consultant}
+                          else
+                            | Нет информации
+                      //if (report.manager != undefined)
                         tr
-                          td  Компания-консультант
-                          td  #{report.consultant}
-                      if (report.manager != undefined)
-                        tr
-                          td  Ответственный за профиль отчета
-                          td  #{report.manager}
-                      if (report.designer!=undefined)
-                        tr
-                          td  Дизайн отчета
-                          td  #{report.designer} 
-                      if (report.auditor!=undefined)
-                        tr
-                          td  Аудитор нефинансовой информации отчета
-                          td  #{report.auditor}
-                      if (report.fin_auditor!=undefined)
-                        tr
-                          td  Финансовый аудитор отчета
-                          td  #{report.auditor}
+                          td  Ответственный за подготовку отчета
+                          td  {report.manager}
+                      tr
+                        td  Дизайн отчета
+                        td  
+                          if (report.designer!='')
+                            | #{report.designer}
+                          else
+                            | Нет информации 
+                      tr
+                        td  Аудитор нефинансовой информации отчета
+                        td  
+                          if (report.auditor!='')
+                            | #{report.auditor}
+                          else
+                            | Нет информации
+                      tr
+                        td  Финансовый аудитор отчета
+                        td  
+                          if (report.fin_auditor!='')
+                            | #{report.fin_auditor}
+                          else
+                            | Нет информации
                 .col-md-2.col-xs-12.col-sm-12.report-buttons
                   button.btn.btn-default.green-btn(type='submit')
                     i.fa.fa-download(aria-hidden='true')

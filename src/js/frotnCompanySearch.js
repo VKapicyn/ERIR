@@ -35,7 +35,8 @@ function getSearchCompany(){
             tableContent += '<tr class="output">';
             tableContent += '<td><a href="/company/'+data[key]._id+'" title="Перейти на страницу компании">'+data[key].name+'</a></td>';
             tableContent += '<td>'+data[key].sector+'</td>';
-            tableContent += '<td>'+data[key].size_of_company+'</td>';
+            tableContent += '<td><span title="Малое: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Среднее: до 2 млрд рублей, количество сотрудников до 250 человек. Крупное: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек">';
+            tableContent += data[key].size_of_company+'</span></td>';
             tableContent += '</tr>';
             $('#oo-view2').append(tableContent); 
 
@@ -133,9 +134,10 @@ function endPage(){
 }
 
 function clear_params(){
-    $("#economy option:contains('Отрасль экономики')").prop('selected', true);
+    /*$("#economy option:contains('Отрасль экономики')").prop('selected', true);
     $("#company_size option:contains('Размер компании')").prop('selected', true);
     $("#city option:contains('Местонахождение штаб-квартиры')").prop('selected', true);
     document.getElementById('search-input').value = '';
-    sortDefault();
+    sortDefault();*/
+        window.location.reload();
 }

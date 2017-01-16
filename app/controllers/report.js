@@ -14,7 +14,7 @@ var getStatic = require('../models/staticModel').getStatic;
 exports.registerReportPage = function (req, res){
     getStatic(function(result, parse){
         var stat = parse(result);
-        Company.find({}).then(function (_company){
+        Company.find({accept: 1}).then(function (_company){
             res.render('register-report',{
                 year:stat.year, 
                 size_of_company: stat.size_of_company, 
@@ -27,6 +27,8 @@ exports.registerReportPage = function (req, res){
 
 exports.addReport = function (req, res){
     var new_rep = new Report;
+    console.log(req.body);
+    console.log(req.files);
     Company.findOne({name: req.body.company}).then(function(result){  
         getStatic(function(resul, parse){
         let stat = parse(resul);
@@ -55,6 +57,7 @@ exports.addReport = function (req, res){
         new_rep.Strategy = req.body.Strategy;
         new_rep.RiskMap = req.body.RiskMap;
         new_rep.Assurance = req.body.Assurance;
+        new_rep.AssuranceZS = req.body.AssuranceZS;
         new_rep.Stakes = req.body.Stakes;
         new_rep.ZS = req.body.ZS;
         new_rep.interactive = req.body.interactive;
