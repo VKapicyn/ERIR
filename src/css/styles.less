@@ -48,11 +48,14 @@ body {
 @gray: #ccc;
 @dark-gray: #a6a8aa;
 @sea-green: #336666;
+@new-white: #f6f6f6;
+@new-gray: #a6a5a5;
+@light-blue: #0084c9;
 /* /Colors*/
 /* /Variables */
 
 body {
-  background-color: @white;
+  background-color: @new-white;
   color: @black;
   font-family: 'PTSansRegular','Helvetica','Arial', sans-serif;
   overflow-x: hidden !important; //от белой полосы
@@ -111,7 +114,7 @@ main {
   text-align: right;
 }
 .left {
-   margin-right: auto;
+  margin-right: auto;
   margin-left: 0;
   text-align: left;
 }
@@ -122,6 +125,7 @@ main {
 
 
 /* elements */
+//green-btn
 .green-btn {
   background-color: @sea-green;
   color: @white;
@@ -141,6 +145,30 @@ main {
   background-color: darken(@sea-green,20);
 }
 
+//red-btn
+.red-btn {
+  background-color: @red;
+  color: @black;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-color: @red;
+  a {
+    color: @black;
+  }
+
+}
+.red-btn:hover {
+  background-color: lighten(@red,10);
+  color: @white !important;
+  border-color: @red;
+    a {
+    .no-underline;
+  }
+}
+  .red-btn:active {
+  background-color: darken(@red,20);
+}
+
 .red {
   color: @red;
 }
@@ -156,7 +184,9 @@ main {
 .space2 {
   margin-top: @normal-margin-top*3;
 }
-
+.space-for-fixed-top {
+  margin-top: @normal-margin-top*4;
+}
 .simple-border {
   border: 1px solid @dark-gray;
 }
@@ -165,34 +195,49 @@ main {
 
 /* Navbar */
   .navbar {
-    background: @gray;
+    background: @new-white;
+    margin-bottom: 0;
 }
   .navbar-brand{
+    padding: 0;
+    margin: 10px;
+    
     img {
-      width: 160px;
+      width: 230px;
     }
 }
+
+
+@media screen and (max-width: 768px) {
+   .navbar-brand{
+    img {
+      width: 35%;
+    }
+}
+}
+
 
 .navbar-default {
 
   .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: @white; //активная кнопка
-    background-color: @red;
+    background-color: @new-gray;
 }
 
   .navbar-nav {
     li {
       a {
-        color: @red; //цвет текста ссылок
+        color: @black; //цвет текста ссылок
         .uppercase;
-        background-color: @dark-gray;
-        padding: 5px 15px;
-        margin: 20px 5px;        
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 2px 4px;
+        margin: 27px 5px;        
       }      
 
       a:hover {
-        color: @red; //цвет текста ссылок
-        background-color: @dark-gray;    
+        color: @white; //цвет текста ссылок
+        background-color: @new-gray;    
         .underline; 
       }
     }
@@ -201,17 +246,42 @@ main {
 
 .nav-description {
   font-size: 20px;
-      margin-top: 20px;
-    margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /* /Navbar */
+
+/* Jumbotron */
+.jumbotron {
+  background: url(../img/top.jpg) no-repeat top center;
+  height: 250px;
+  .caption {
+    font-size: 35px;
+    color: @white;
+  }
+
+  .red-btn {
+    margin-top: 20px;
+  }
+
+}
+/* /Jumbotron */
+
+// @media screen and (min-width: 768px) {
+//   .jumbotron {
+//     padding-top: 8%;
+//     padding-bottom: 7%;
+//   }
+    
+// }
+
 
 /* ---Page Main---*/
   .mainpage {
     .mainpage-slider {
         .carousel-inner {
-          background-color: @gray;
+          background-color: @new-white;
           img 
            {
               height: 130px;
@@ -229,37 +299,82 @@ main {
        }
 
        .carousel-control.right {
-           background-image: url(../img/Forward-50.png);
+           background-image: url(../img/Forward-gray.png);
         }
        .carousel-control.left {
-           background-image: url(../img/Backward-50.png);
+           background-image: url(../img/Backward-gray.png);
         }    
 
       
     } /* /.mainpage-slider */
     
+
+
+    .cap-bg {
+      color: @white; //активная кнопка
+      background-color: @new-gray;
+      .uppercase;
+      padding: 2px 4px;
+      font-size: 18px;
+    }
+
+
     .description-and-news {
-      background-color: @white;
+      background-color: @new-white;
       margin-top: 50px;
       
       .news-caption {
-        background-color: @red;
-        color: @white;
-        .center;
+        // background-color: @red;
+        color: @black;
+        .bold;
+        .left;
+        font-size: 20px;
       }      
       
       .mainpage-news {
+        background-color: @new-gray;
+        .new {
+          h3 {
+            .uppercase;
+            color: @white;
+            font-weight: 200; //чтобы убрать bold
+            font-size: 16px;
+          }
 
+          p {
+            color: @red; //дата
+          }
+
+         }
       }
 
+
+
+
+
       .mainpage-description{
-        p {
-          font-size: 16px;
-          .justify;
+
+        .definition {
+          padding: 1%;
+          background: #EEE;
+          border-radius: 10px;
           span {
-            color: @red;
-            .bold;
+            font-size:9pt;
+            text-align:left
           }
+
+          img {
+            float: left;
+            padding: 15px;
+          }
+
+        }
+
+
+        p {
+          font-size: 10pt;
+          text-align: left;
+          margin-top: 20px;
        }
       }
     } /* /.description-and-news*/
@@ -267,17 +382,48 @@ main {
 
   } 
 
-      .partners {
-      img {
-        width: 120px;
-        margin: 20px;
+.best { //лучшие практики
+  .items {
+
+    margin-top: 20px;
+
+    .item {
+      a {
+        .uppercase;
+        .black;
+        .bold;
       }
 
-      div {
-        display: inline-block;
+      img {
+        padding: 5px 15px 5px 0;
+
       }
+    }
+
+  }
+
+
+  .partners {
+    .info {
+      p {
+        color: @light-blue;
+        font-size: 15px;
+      }
+    }
+    
+    img {
+      width: 120px;
+      margin: 20px;
+    }
+
+    div {
+      display: inline-block;
+    }
 
     }
+}
+
+
 
 /* /---Page Main---*/
 
@@ -308,7 +454,17 @@ footer {
     }
   }
 
+  @media screen and (max-width: 768px) {
+  height: 112px*1.3;
 }
+
+
+}
+
+
+
+
+
 
 /* /Footer */
 
@@ -630,6 +786,11 @@ footer {
     margin-left: 55%;
   }
 }
+
+.w-live-select {
+  width: 90%;
+}
+
 
 
 //  /правка стилей для интерактивного поиска
