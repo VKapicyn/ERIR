@@ -48,7 +48,6 @@ app.get('/logout', require('./app/controllers/admin').adminLogout)
 app.post('/user/login', require('./app/controllers/admin').adminLogin);
 
 
-app.get('/search/:sort', require('./app/controllers/search').searchReportPage);
 app.get('/company/:id', require('./app/controllers/company').getCompanyById);
 app.get('/report/:id', require('./app/controllers/report').getReportById);
 app.post('/report/create/', upload.fields([{name:'upload'},{name:'ru_PDF'},{name:'en_PDF'}]), require('./app/controllers/report').addReport);
@@ -58,6 +57,7 @@ app.post('/report/accept/single/:report_id', require('./app/controllers/report')
 app.post('/news/add', require('./app/models/newsModel').addNews)
 app.get('/:filename', require('./app/controllers/db-files').getFile);
 app.post('/send-email', require('./app/controllers/email').sendEmail);
+app.get('/search/:best', require('./app/controllers/search').searchReportPage);
 
 
 //маршрутизация API запросов

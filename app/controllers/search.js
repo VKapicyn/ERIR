@@ -9,11 +9,9 @@ var getStatic = require('../models/staticModel').getStatic;
 var company;
 var reports;
 
-//ВАЖНО!!! добавить проверку на accept
 exports.searchReportPage = function (req, res){
         getStatic(function(result, parse){
             var stat = parse(result);
-            //console.log('ok');
             res.render('search', {
                 year: stat.year,
                 opf: stat.opf,
@@ -23,7 +21,8 @@ exports.searchReportPage = function (req, res){
                 size_of_company: stat.size_of_company,
                 best: stat.best,
                 city: stat.city, 
-                reports: reports
+                reports: reports,
+                parametr: req.params.best
             });
         });
 };
@@ -126,7 +125,7 @@ exports.searchCompanyPageREST = function (req, res){
     var sector = req.params.sector;
     var city = req.params.city;
     var size_of_company = req.params.size_of_company;
-    var search = req.params.search;
+    var search = req.params.search;у
     var page = req.params.page;
     var amount = req.params.amount;
     var query = Company.find({accept:'1'});

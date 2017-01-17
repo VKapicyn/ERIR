@@ -19,7 +19,7 @@ body
                 span.icon-bar
 
               a.navbar-brand(href='#')
-                img(src='img/da-strateg-logo.png', alt='logo1')
+                img(src='/img/da-strateg-logo.png', alt='logo1')
 
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -58,33 +58,33 @@ body
                     |  Поиск отчета
                   br
                   br
-                  select.js-example-basic-single(name='report_year' id='report_year')
+                  select.js-example-basic-single.w-live-select(name='report_year' id='report_year')
                     for val in year
                       option(value='#{val}') #{val}
                   br    
                   br    
-                  select.js-example-basic-single(name='economy', id='economy')
+                  select.js-example-basic-single.w-live-select(name='economy', id='economy')
                     for val in sector
                       option(value='#{val}') #{val}
                   br
                   br 
-                  select.js-example-basic-single(name='city', id='city')
+                  select.js-example-basic-single.w-live-select(name='city', id='city')
                     for val in city
                       option(value='#{val}') #{val}
 
                   br
                   br
-                  select.js-example-basic-single(name='company_size', id='company_size')
+                  select.js-example-basic-single.w-live-select(name='company_size', id='company_size')
                     for val in size_of_company
                       option(title='Малое: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Среднее: до 2 млрд рублей, количество сотрудников до 250 человек. Крупное: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек' value='#{val}') #{val}
                   br
                   br
-                  select.js-example-basic-single(name='organization_form', id='organization_form')
+                  select.js-example-basic-single.w-live-select(name='organization_form', id='organization_form')
                     for val in opf
                       option(value='#{val}') #{val}
                   br
                   br
-                  select.js-example-basic-single(name='ownership', id='ownership')
+                  select.js-example-basic-single.w-live-select(name='ownership', id='ownership')
                     for val in type_of_ownership
                       option(value='#{val}') #{val}
                   br 
@@ -92,17 +92,20 @@ body
 
                   | Наличие стандартов
                   br
-                  select.js-example-basic-multiple(multiple='multiple')
+                  select.js-example-basic-multiple.w-live-select(multiple='multiple')
                     for val in standarts
-                      option(value='#{val}' name='#{val}' id='#{val}') #{val}
+                        option(value='#{val}' name='#{val}' id='#{val}') #{val}
                   br                   
                   br 
 
                   | Лучшие практики
                   br                 
-                  select.js-example-basic-multiple(multiple='multiple')
+                  select.js-example-basic-multiple.w-live-select(multiple='multiple')
                     for val in best
-                      option(value='#{val}' name='#{val}' id='#{val}') #{val}
+                      if (parametr == val)
+                        option(value='#{val}' name='#{val}' id='#{val}', selected='selected') #{val}
+                      else
+                        option(value='#{val}' name='#{val}' id='#{val}') #{val}
                   br 
                   br 
 

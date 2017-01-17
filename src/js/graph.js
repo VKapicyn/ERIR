@@ -191,7 +191,9 @@ function create(){
     });
 }
 
-
+$('#diagram_type').change(function() {
+        create();
+});
 
 $(function () {
     create();

@@ -53,19 +53,19 @@ body
                     input.form-control#search-input(type='text', placeholder='Search')
                   br
                   br
-                  select.js-example-basic-single(name='economy', id='economy')
+                  select.js-example-basic-single.w-live-select(name='economy', id='economy')
                     for val in sector
                       option(value='#{val}') #{val}
                   br
                   br
 
-                  select.js-example-basic-single(name='city', id='city')
+                  select.js-example-basic-single.w-live-select(name='city', id='city')
                     for val in city
                       option(value='#{val}') #{val}
 
                   br
                   br
-                  select.js-example-basic-single(name='company_size', id='company_size')
+                  select.js-example-basic-single.w-live-select(name='company_size', id='company_size')
                     for comp in size_of_company
                       option(title='Малое: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Среднее: до 2 млрд рублей, количество сотрудников до 250 человек. Крупное: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек' value='#{comp}') #{comp}
                   br
