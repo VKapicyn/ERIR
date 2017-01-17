@@ -60,10 +60,12 @@ html(lang='en' ng-app="livesearch")
                         select.js-example-basic-single(name='report_year', style='padding-right:5%')
                           for val in year
                             option(value='#{val}') #{val}               
+
                     div.change-w-live-select
                       p.right Компания 
                         br
                         select.js-example-basic-single.w-live-select.pull-right(name='company' style='padding-right:5%')
+
                           for val in companies
                             option(value='#{val.name}') #{val.name}                                
                     div
