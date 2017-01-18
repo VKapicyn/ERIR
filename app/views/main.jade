@@ -16,8 +16,8 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
 
-              a.navbar-brand(href='#')
-                img(src='img/da-strateg-logo.png', alt='logo1')
+              a.navbar-brand(href='http://da-strateg.ru', target='_blank')
+                img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
 
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -41,11 +41,11 @@ html(lang='en')
       .jumbotron
         center
           .caption
-            Национальный реестр
+            | Национальный реестр
             br
-            интегрированных отчетов  
+            | интегрированных отчетов  
           button.btn.btn-default.btn-lg.red-btn(type='button', title='Перейти на страницу поиска')
-            a(href='/search', target='_blank', title='Перейти на страницу поиска')
+            a(href='/search', title='Перейти на страницу поиска')
               span.glyphicon.glyphicon-search
               span.uppercase  Поиск отчетов
 
@@ -60,7 +60,7 @@ html(lang='en')
                   .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
                     - var i = 0;
                     - for (i = 0; (i<7) && (i<=(new_reports.length-1)); i++)
-                      a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
+                      a(href='/report/#{new_reports[i]._id}',  title='#{new_reports[i].name}')
                         img(src='#{new_reports[i].preview}', alt='')  
                         //- span #{new_reports[i].year} //здесь сокращенное название?                 
                 // /Slide1
@@ -70,7 +70,7 @@ html(lang='en')
                       - var i = 7;
                       - for (i = 7; (i<14) && (i<=(new_reports.length-1)); i++)
                         div
-                          a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
+                          a(href='/report/#{new_reports[i]._id}',  title='#{new_reports[i].name}')
                             img(src='#{new_reports[i].preview}', alt='')
                 // /Slide2
               // /.carousel-inner
@@ -84,7 +84,7 @@ html(lang='en')
           .row.description-and-news
             .col-md-7.col-xs-12.col-sm-12.mainpage-description
               span.cap-bg
-                О проекте
+                | О проекте
               //- div(style='padding:1%;background:#EEE;border-radius:10px 10px 10px 10px')
               //-   span(style='font-size:9pt;text-align:left')
               //-     | Интегрированный отчет это отчет, подготовленный в соответствии с Международным стандартом интегрированной отчетности. Он содержит краткую информацию о том, как стратегия, управление, результаты деятельности и перспективы организации в контексте внешней̆ среды ведут к созданию 
@@ -130,31 +130,31 @@ html(lang='en')
           .row.best
             .col-md-7.col-xs-12.col-sm-12
               span.cap-bg
-                Лучшие практики
+                | Лучшие практики
               br  
               .col-md-6.col-xs-6.col-sm-6
                 .items 
                   .item
-                    img(src='img/best1.png', alt='')
-                    a(href='/search/Лучшее раскрытие стратегии', target='_blank') Стратегия
+                    img(src='img/1.jpg', alt='')
+                    a(href='/search/Лучшее раскрытие стратегии') Стратегия
                   .item
-                    img(src='img/best2.png', alt='')
-                    a(href='/search/Лучшее раскрытие бизнес-модели', target='_blank') Бизнес-модель                  
+                    img(src='img/2.jpg', alt='')
+                    a(href='/search/Лучшее раскрытие бизнес-модели') Бизнес-модель                  
                   .item
-                    img(src='img/best2.png', alt='')
-                    a(href='/search/Лучшее раскрытие информации о рисках', target='_blank') Риски              
+                    img(src='img/3.jpg', alt='')
+                    a(href='/search/Лучшее раскрытие информации о рисках') Риски              
 
               .col-md-6.col-xs-6.col-sm-6
                 .items 
                   .item
-                    img(src='img/best4.png', alt='')
-                    a(href='/search/Лучшее раскрытие информации о системе публичной отчетности', target='_blank') Система публичной отчетности
+                    img(src='img/4.jpg', alt='', )
+                    a(href='/search/Лучшее раскрытие информации о системе публичной отчетности') Система публичной отчетности
                   .item
-                    img(src='img/best5.png', alt='')
-                    a(href='/search/Лучшее раскрытие информации о корпоративном управлении', target='_blank') Корпоративное управление          
+                    img(src='img/5.jpg', alt='')
+                    a(href='/search/Лучшее раскрытие информации о корпоративном управлении') Корпоративное управление          
                   .item
-                    img(src='img/best6.png', alt='')
-                    a(href='/search/Лучшее раскрытие информации о деятельности в области устойчивого развития', target='_blank') Деятельность в области УР
+                    img(src='img/6.jpg', alt='')
+                    a(href='/search/Лучшее раскрытие информации о деятельности в области устойчивого развития') Устойчивое развитие
 
             .col-md-4.col-xs-12.col-sm-12.partners
               .logo
@@ -162,10 +162,10 @@ html(lang='en')
                   img(src=' img/rrc-logo.png', alt='logo2')
               .info
                 p
-                  Национальный реестр подготовлен 
-                  Группой компаний «Да-Стратегия» 
-                  при поддержке Российской сети 
-                  по интегрированной отчетности.
+                  | Национальный реестр подготовлен 
+                  | Группой компаний «Да-Стратегия» 
+                  | при поддержке Российской сети 
+                  | по интегрированной отчетности
 
 
           // /.partners

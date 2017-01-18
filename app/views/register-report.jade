@@ -16,7 +16,7 @@ html(lang='en' ng-app="livesearch")
                 span.icon-bar
                 span.icon-bar
 
-              a.navbar-brand(href='#')
+              a.navbar-brand(href='http://da-strateg.ru', target='_blank')
                 img(src='img/da-strateg-logo.png', alt='logo1')
 
             // Collect the nav links, forms, and other content for toggling
@@ -107,7 +107,7 @@ html(lang='en' ng-app="livesearch")
                         |  Нет
                       br
                     div
-                      | Экспертное заверение отчета
+                      | Экспертное заверение отчета 
                       label.radio-inline
                         input#radio1(name='Assurance', value='1', type='radio')
                         |  Да
@@ -116,7 +116,7 @@ html(lang='en' ng-app="livesearch")
                         |  Нет
                       br
                     div
-                      | Заверение отчета заинтересованными сторонами
+                      | Заверение отчета заинтересованными сторонами 
                       label.radio-inline
                         input#radio1(name='AssuranceZS', value='1', type='radio')
                         |  Да
@@ -146,7 +146,7 @@ html(lang='en' ng-app="livesearch")
                   .col-md-5.col-xs-12.col-sm-6.register-right
                     div
                       | Ссылка на HTML версию отчета 
-
+                      br
                       input(name='interactive', type='text', placeholder='Полная ссылка с http://', onkeyup="return quotesBan(this);")
                       br
                     div
@@ -167,6 +167,7 @@ html(lang='en' ng-app="livesearch")
                       br
                     div
                       | Дизайнер отчета 
+                      br
                       input.change-w(name='designer', placeholder='Название компании', onkeyup="return quotesBan(this);")
                       br
                     div
@@ -237,11 +238,11 @@ html(lang='en' ng-app="livesearch")
                         label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
                         input#submit-reg-company(type='submit', value='Submit')
                     br
+                    span(style='font-size:12pt;')
+                      | Если при регистрации у Вас появились вопросы или пожелания к изменению сайта, Вы можете связаться с менеджером реестра Лазаренко Вячеславом Александровичем по адресу 
                     span(style='font-size:12pt')
-                      | Если у вас остались вопросы или пожелания, свяжитесь с администратором сайта по адресу 
-                    span(style='font-size:12pt')
-                      a(href='mailto:lasarenko91@mail.ru')
-                        | lasarenko91@mail.ru
+                      a(href='mailto:v.lasarenko@da-strateg.ru')
+                        | v.lasarenko@da-strateg.ru
                     br
                     br
                     .space
