@@ -22,7 +22,7 @@ html(lang='en')
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
                ul.nav.navbar-nav.pull-right
                 li
-                  a(href='/main') На главную
+                  a(href='/main') Главная
                 li
                   a(href='/search') Поиск
                 li
@@ -92,7 +92,7 @@ html(lang='en')
                       span.red  * 
                       select.js-example-basic-single.w-live-select(name='company_size')
                         for val in size_of_company
-                          option(title='Малое: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Среднее: до 2 млрд рублей, количество сотрудников до 250 человек. Крупное: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек' value='#{val}') #{val}
+                          option(title='Малая: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Средняя: до 2 млрд рублей, количество сотрудников до 250 человек. Крупная: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек' value='#{val}') #{val}
                       br
                     div
                       span.red  * 
@@ -179,13 +179,13 @@ html(lang='en')
 
                   br  
                   br  
-
+                  .g-recaptcha(data-sitekey='6Le5kxIUAAAAAITcLsIIB1pQOXatBkQbs4cEOw1w')
                   .submit
                     label.btn.btn-default.green-btn(for='submit_reg_company')  Отправить
                     input#submit_reg_company(type='submit',         name='submit_reg_company' value='Submit')
                   br
                   span(style='font-size:12pt;')
-                    | Если при регистрации у Вас появились вопросы или пожелания к изменению сайта, Вы можете связаться с менеджером реестра Лазаренко Вячеславом Александровичем по адресу 
+                    | Если при регистрации у Вас появились вопросы или пожелания к изменению сайта, Вы можете связаться с менеджером реестра Вячеславом Лазаренко по адресу 
                   span(style='font-size:12pt')
                     a(href='mailto:v.lasarenko@da-strateg.ru')
                       | v.lasarenko@da-strateg.ru

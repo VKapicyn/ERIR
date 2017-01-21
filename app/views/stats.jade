@@ -19,13 +19,13 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
 
-              a.navbar-brandhref='http://da-strateg.ru', target='_blank')
+              a.navbar-brand(href='http://da-strateg.ru', target='_blank')
                 img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav.pull-right
                 li
-                  a(href='/main') На главную
+                  a(href='/main') Главная
                 li
                   a(href='/search') Поиск
                 li.active
@@ -46,10 +46,6 @@ html(lang='en')
                 | Формирование диаграммы
               .stats-selection
                 div
-                  select.js-example-basic-single.w-live-select(name='diagram_type', id='diagram_type')
-                    option(value='0') Круговая диаграмма
-                    option(value='1') Гистограмма
-                div
                   select.js-example-basic-single.w-live-select(name='economy')
                     for val in sector
                       option(value='#{val}') #{val}
@@ -62,7 +58,7 @@ html(lang='en')
                 div
                   select.js-example-basic-single.w-live-select(name='company_size')
                     for val in size_of_company
-                      option(title='Малое: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Среднее: до 2 млрд рублей, количество сотрудников до 250 человек. Крупное: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек', value='#{val}') #{val}
+                      option(title='Малая: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Средняя: до 2 млрд рублей, количество сотрудников до 250 человек. Крупная: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек', value='#{val}') #{val}
                   br
                 div
                   select.js-example-basic-single.w-live-select(name='ownership')
@@ -81,7 +77,7 @@ html(lang='en')
                 //h3 Название диаграммы
                 .graph
                   //- | Здесь диаграмма
-                  #piechart(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
+                  //#piechart(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto') 
                   #barchart(style='min-width: 310px; height: 400px; margin: 0 auto') 
 
                   //- #test_rest.p.

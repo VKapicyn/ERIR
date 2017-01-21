@@ -23,7 +23,7 @@ html(lang='en' ng-app="livesearch")
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav.pull-right
                 li
-                  a(href='/main') На главную
+                  a(href='/main') Главная
                 li
                   a(href='/search') Поиск
                 li
@@ -233,13 +233,13 @@ html(lang='en' ng-app="livesearch")
                           input#upload-report-en(type='file', name='en_PDF', accept='.pdf')
                       input#en_pdf.en_pdf(type='text', disabled='')                 
                     br
-
+                    .g-recaptcha(data-sitekey='6Le5kxIUAAAAAITcLsIIB1pQOXatBkQbs4cEOw1w')
                     div
                         label.btn.btn-default.green-btn(for='submit-reg-company') Отправить
                         input#submit-reg-company(type='submit', value='Submit')
                     br
                     span(style='font-size:12pt;')
-                      | Если при регистрации у Вас появились вопросы или пожелания к изменению сайта, Вы можете связаться с менеджером реестра Лазаренко Вячеславом Александровичем по адресу 
+                      | Если при регистрации у Вас появились вопросы или пожелания к изменению сайта, Вы можете связаться с менеджером реестра Вячеславом Лазаренко по адресу 
                     span(style='font-size:12pt')
                       a(href='mailto:v.lasarenko@da-strateg.ru')
                         | v.lasarenko@da-strateg.ru
