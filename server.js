@@ -68,5 +68,5 @@ require('./app/controllers/search').searchReportPageREST);
 app.get('/v1/static/:name', require('./app/models/staticModel').staticREST);
 
 
-app.listen(8080);
+app.listen(require('./app/config.js').port);
 console.log('Server started!');                                                                                                                                                              
