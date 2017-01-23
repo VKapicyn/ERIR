@@ -287,15 +287,17 @@ main {
 /* ---Page Main---*/
 
   .mainpage-slider {
+     @cover-h: 250px;
+     
         .carousel-inner {
-           @cover-h: 200px;
+          .center;
            img 
            {
               height: @cover-h;
               width: @cover-h/sqrt(2); //соотношение сторон листа А4
-              display: inline-block;
               margin: 40px 18px;
               .center;
+              display: inline-block;
            }
 
           // max-height: @cover-h + 50px;
@@ -309,7 +311,8 @@ main {
 
       .carousel-control {
           background-repeat: no-repeat;
-          margin-top: 7%;
+          // margin-top: 7%;
+          margin-top: @cover-h/2;
           margin-left: 3%;
           width: 7%;
        }

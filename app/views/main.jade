@@ -51,81 +51,35 @@ html(lang='en')
                 span.uppercase  Поиск отчетов
 
       .jumbotron
-          .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
-              // слайдер
-              #myCarousel.carousel.slide
-                .carousel-inner
-                  .item.active
-                    .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-                      - var i = 0;
-                      - for (i = 0; (i<7) && (i<=(new_reports.length-1)); i++)
-                        div 
+         .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
+            // слайдер
+            #myCarousel.carousel.slide
+              .carousel-inner
+                .item.active
+                  .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
+                    - var i = 0;
+                    - for (i = 0; i<8; i++)
                           a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                            img(src='#{new_reports[i].preview}', alt='')
-                          h5 #{new_reports[i].short_name}      
-                  // /Slide1
-
-                  if new_reports.length>7
-                  .item  
-                    .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-                      - var i = 7;
-                      - for (i = 7; (i<14) && (i<=(new_reports.length-1)); i++)
-                        div 
+                            img(src='#{new_reports[i].preview}', alt='')               
+                // /Slide1
+                if new_reports.length > 8
+                .item
+                  .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
+                    - var i = 8;
+                    - for (i = 8; i<14; i++)
                           a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                            img(src='#{new_reports[i].preview}', alt='')
-                          h5 #{new_reports[i].short_name} 
-                  
-                  if new_reports.length>14
-                  .item  
-                    .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-                      - var i = 14;
-                      - for (i = 14; (i<21) && (i<=(new_reports.length-1)); i++)
-                        div 
-                          a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                            img(src='#{new_reports[i].preview}', alt='')
-                          h5 #{new_reports[i].short_name} 
-    
-
-                // /.carousel-inner
-                .control-box
-                  a.carousel-control.left(data-slide='prev', href='#myCarousel')
-                  a.carousel-control.right(data-slide='next', href='#myCarousel')
-                // /.control-box
-              // /#myCarousel
-            // /mainpage-slider
-              
-
+                            img(src='#{new_reports[i].preview}', alt='')           
+                // /Slide2
+              // /.carousel-inner
+              .control-box
+                a.carousel-control.left(data-slide='prev', href='#myCarousel')
+                a.carousel-control.right(data-slide='next', href='#myCarousel')
+              // /.control-box
+            // /#myCarousel
+          // /mainpage-slider          
 
       .container.mainpage
         main.container      
-
-          //- .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
-          //-   // слайдер
-          //-   #myCarousel.carousel.slide
-          //-     .carousel-inner
-          //-       .item.active
-          //-         .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-          //-           - var i = 0;
-          //-           - for (i = 0; (i<7) && (i<=(new_reports.length-1)); i++)
-          //-             a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-          //-               img(src='#{new_reports[i].preview}', alt='')              
-          //-       // /Slide1
-          //-       if new_reports.length>7
-          //-         .item
-          //-           .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-          //-             - var i = 7;
-          //-             - for (i = 7; (i<14) && (i<=(new_reports.length-1)); i++)
-          //-               div
-          //-                 a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-          //-                   img(src='#{new_reports[i].preview}', alt='')
-          //-       // /Slide2
-          //-     // /.carousel-inner
-          //-     .control-box
-          //-       a.carousel-control.left(data-slide='prev', href='#myCarousel')
-          //-       a.carousel-control.right(data-slide='next', href='#myCarousel')
-          //-     // /.control-box
-          //-   // /#myCarousel
-          //- // /mainpage-slider
           .space.col-md-12.col-xs-12.col-sm-12
           .row.description-and-news
             .col-md-7.col-xs-12.col-sm-12.mainpage-description
