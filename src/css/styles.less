@@ -285,6 +285,36 @@ main {
 
 
 /* ---Page Main---*/
+.owl-carousel {
+
+  .owl-item {
+    width: @cover-h/sqrt(2) + 20px !important; //соотношение сторон листа А4
+  }
+  
+     @cover-h: 250px;
+     div {
+       display: inline-block;
+       img 
+           {
+              height: @cover-h;
+              width: @cover-h/sqrt(2); //соотношение сторон листа А4
+              margin: 40px 18px;
+              .center;
+              display: inline-block;
+           }
+
+          // max-height: @cover-h + 50px;
+          background-color: @new-white;
+     }
+      
+
+  .control-box {
+    .carousel-control {
+      z-index: 100000;
+    }
+  }         
+      
+}
 
   .mainpage-slider {
      @cover-h: 250px;

@@ -6,6 +6,49 @@
       });
 
 
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel();
+});
+
+$(document).ready(function(){
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:6,
+    loop:true,
+    margin:15,
+    nav:true,
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true
+});
+$('.play').on('click',function(){
+    owl.trigger('play.owl.autoplay',[1000])
+})
+$('.stop').on('click',function(){
+    owl.trigger('stop.owl.autoplay')
+})
+});
+
+
+// $('.owl-carousel').owlCarousel({
+//     loop:true,
+//     margin:10,
+//     nav:true,
+//     autoplay: true;
+//     responsive:{
+//         0:{
+//             items:7
+//         },
+//         600:{
+//             items:6
+//         },
+//         1000:{
+//             items:8
+//         }
+//     }
+// })
+
+
 // Search. Выбор вида. Поиск отчета
        $(document).ready(function(){
         $(".showView1").click(function(){

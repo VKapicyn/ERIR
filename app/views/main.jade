@@ -48,39 +48,23 @@ html(lang='en')
             button.btn.btn-default.btn-lg.red-btn(type='button', title='Перейти на страницу поиска')
               a(href='/search', target='_blank', title='Перейти на страницу поиска')
                 span.glyphicon.glyphicon-search
-                span.uppercase  Поиск отчетов
-
-      .jumbotron
-         .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
-            // слайдер
-            #myCarousel.carousel.slide
-              .carousel-inner
-                .item.active
-                  .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-                    - var i = 0;
-                    - for (i = 0; i<7; i++)
-                          a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                            img(src='#{new_reports[i].preview}', alt='')               
-                // /Slide1
-                if new_reports.length > 7
-                .item
-                  .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-                    - var i = 7;
-                    - for (i = 7; i<14; i++)
-                        div
-                          a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                            img(src='#{new_reports[i].preview}', alt='')           
-                // /Slide2
-              // /.carousel-inner
-              .control-box
-                a.carousel-control.left(data-slide='prev', href='#myCarousel')
-                a.carousel-control.right(data-slide='next', href='#myCarousel')
-              // /.control-box
-            // /#myCarousel
-          // /mainpage-slider          
+                span.uppercase  Поиск отчетов      
 
       .container.mainpage
-        main.container      
+        main.container
+          .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
+            #myCarousel.carousel.slide
+              .carousel-inner
+                .owl-carousel.owl-theme
+                 - var i = 0;
+                 - for (i = 0; i<14; i++)
+                    div
+                      a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
+                        img(src='#{new_reports[i].preview}', alt='')
+              .control-box
+                a.carousel-control.left(data-slide='prev', href='#myCarousel')
+                a.carousel-control.right(data-slide='next', href='#myCarousel')           
+
           .space.col-md-12.col-xs-12.col-sm-12
           .row.description-and-news
             .col-md-7.col-xs-12.col-sm-12.mainpage-description
