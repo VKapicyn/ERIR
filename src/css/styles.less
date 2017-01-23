@@ -253,18 +253,25 @@ main {
 /* /Navbar */
 
 /* Jumbotron */
-.jumbotron {
-  background: url(../img/top.jpg) no-repeat top center;
-  height: 250px;
-  .caption {
-    font-size: 35px;
-    color: @white;
-  }
+.jumbotron 
+{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  .jumbo-with-page 
+  {
+    background: url(../img/top.jpg) no-repeat top center;
+    height: 250px;
+    .caption {
+      font-size: 35px;
+      color: @white;
+      padding-top: 40px;
+    }
 
-  .red-btn {
-    margin-top: 20px;
-  }
+    .red-btn {
+      margin-top: 20px;
+    }
 
+  }
 }
 /* /Jumbotron */
 
@@ -278,15 +285,17 @@ main {
 
 
 /* ---Page Main---*/
-  .mainpage {
-    .mainpage-slider {
+
+  .mainpage-slider {
         .carousel-inner {
           background-color: @new-white;
           img 
            {
-              height: 130px;
+              @cover-h: 200px;
+              height: @cover-h;
+              width: @cover-h/sqrt(2); //соотношение сторон листа А4
               display: inline-block;
-              margin: 40px 16px;
+              margin: 40px 18px;
               .center;
            }
           
@@ -295,11 +304,13 @@ main {
       .carousel-control {
           background-repeat: no-repeat;
           margin-top: 7%;
+          margin-left: 3%;
           width: 7%;
        }
 
        .carousel-control.right {
            background-image: url(../img/Forward-gray.png);
+           margin-right: -4%;
         }
        .carousel-control.left {
            background-image: url(../img/Backward-gray.png);
@@ -309,7 +320,9 @@ main {
     } /* /.mainpage-slider */
     
 
-
+  .mainpage {
+  
+    
     .cap-bg {
       color: @white; //активная кнопка
       background-color: @new-gray;
