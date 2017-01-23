@@ -59,16 +59,22 @@ html(lang='en')
                     .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
                       - var i = 0;
                       - for (i = 0; (i<7) && (i<=(new_reports.length-1)); i++)
-                        a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                          img(src='#{new_reports[i].preview}', alt='')              
-                  // /Slide1
+                        div  
+                          a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
+                            img(src='#{new_reports[i].preview}', alt='')
+                          //- h5 Название компании   
+                          //- h4 #{new_reports[i].short_name}    
+                          //- h4 #{company[i].short_name}    
+
                   .item
                     .col-md-11.col-md-offset-1.col-xs-12.col-sm-12(data-toggle='tooltip', data-placement='top', data-html='true')
-                        - var i = 0;
-                        - for (i = 1; (i<8) && (i<=(new_reports.length-1)); i++)
+                      - var i = 0;
+                      - for (i = 1; (i<8) && (i<=(new_reports.length-1)); i++)
+                        div  
                           a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                              img(src='#{new_reports[i].preview}', alt='')
-                  // /Slide2
+                            img(src='#{new_reports[i].preview}', alt='')
+                          //- h5 Название компании      
+
                 // /.carousel-inner
                 .control-box
                   a.carousel-control.left(data-slide='prev', href='#myCarousel')
