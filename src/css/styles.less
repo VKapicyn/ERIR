@@ -288,19 +288,22 @@ main {
 
   .mainpage-slider {
         .carousel-inner {
-          background-color: @new-white;
-          div {
-            display: inline-block;
-          }
-          img 
+           @cover-h: 200px;
+           img 
            {
-              @cover-h: 200px;
               height: @cover-h;
               width: @cover-h/sqrt(2); //соотношение сторон листа А4
               display: inline-block;
               margin: 40px 18px;
               .center;
            }
+
+          // max-height: @cover-h + 50px;
+          background-color: @new-white;
+          div {
+            display: inline-block;
+          }
+         
           
       }
 
