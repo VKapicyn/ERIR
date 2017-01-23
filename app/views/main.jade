@@ -48,22 +48,37 @@ html(lang='en')
             button.btn.btn-default.btn-lg.red-btn(type='button', title='Перейти на страницу поиска')
               a(href='/search', target='_blank', title='Перейти на страницу поиска')
                 span.glyphicon.glyphicon-search
-                span.uppercase  Поиск отчетов      
+                span.uppercase  Поиск отчетов 
+
 
       .container.mainpage
         main.container
-          .row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
-            #myCarousel.carousel.slide
-              .carousel-inner
-                .owl-carousel.owl-theme
-                 - var i = 0;
-                 - for (i = 0; i<14; i++)
-                    div
-                      a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
-                        img(src='#{new_reports[i].preview}', alt='')
-              .control-box
-                a.carousel-control.left(data-slide='prev', href='#myCarousel')
-                a.carousel-control.right(data-slide='next', href='#myCarousel')           
+          .row.col-md-12.col-xs-12.col-sm-12 
+
+             #makeMeScrollable
+              .smoothDivScroll
+                   - var i = 0;
+                   - for (i = 0; i<7; i++)
+                        a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
+                          img(src='#{new_reports[i].preview}', alt='')
+
+
+
+
+           
+
+            //-.row.mainpage-slider.col-md-12.col-xs-12.col-sm-12
+            //- #myCarousel.carousel.slide
+            //-   .carousel-inner
+            //-     .owl-carousel.owl-theme
+            //-      - var i = 0;
+            //-      - for (i = 0; i<14; i++)
+            //-         div
+            //-           a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
+            //-             img(src='#{new_reports[i].preview}', alt='')
+            //-   .control-box
+            //-     a.carousel-control.left(data-slide='prev', href='#myCarousel')
+            //-     a.carousel-control.right(data-slide='next', href='#myCarousel')           
 
           .space.col-md-12.col-xs-12.col-sm-12
           .row.description-and-news

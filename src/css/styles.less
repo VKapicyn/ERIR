@@ -285,42 +285,21 @@ main {
 
 
 /* ---Page Main---*/
-.owl-carousel {
 
-  .owl-item {
-    width: @cover-h/sqrt(2) + 20px !important; //соотношение сторон листа А4
-  }
-  
-     @cover-h: 250px;
-     div {
-       display: inline-block;
-       img 
-           {
-              height: @cover-h;
-              width: @cover-h/sqrt(2); //соотношение сторон листа А4
-              margin: 40px 18px;
-              .center;
-              display: inline-block;
-           }
+@cover-h: 250px;
 
-          // max-height: @cover-h + 50px;
-          background-color: @new-white;
-     }
+    #makeMeScrollable
+    {
+      width:100%;
+      height: 330px;
+      position: relative;
+      margin: 50px auto;
+
       
 
-  .control-box {
-    .carousel-control {
-      z-index: 100000;
-    }
-  }         
-      
-}
 
-  .mainpage-slider {
-     @cover-h: 250px;
-     
-        .carousel-inner {
-          .center;
+
+      .center;
            img 
            {
               height: @cover-h;
@@ -335,9 +314,87 @@ main {
           div {
             display: inline-block;
           }
+
+
+    }
+
+#makeMeScrollable div.scrollableArea *
+{
+    position: relative;
+    display: block;
+    float: left;
+    // margin: 0;
+    // padding: 0;
+    /* If you don't want the images in the scroller to be selectable, try the following
+        block of code. It's just a nice feature that prevent the images from
+        accidentally becoming selected/inverted when the user interacts with the scroller. */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+
+
+
+// .owl-carousel {
+
+//   .owl-item {
+//     width: @cover-h/sqrt(2) + 20px !important; //соотношение сторон листа А4
+//   }
+  
+//      @cover-h: 250px;
+//      div {
+//        display: inline-block;
+//        img 
+//            {
+//               height: @cover-h;
+//               width: @cover-h/sqrt(2); //соотношение сторон листа А4
+//               margin: 40px 18px;
+//               .center;
+//               display: inline-block;
+//            }
+
+//           // max-height: @cover-h + 50px;
+//           background-color: @new-white;
+//      }
+      
+
+//   .control-box {
+//     .carousel-control {
+//       z-index: 100000;
+//     }
+//   }         
+      
+// }
+
+     // @cover-h: 250px;
+     
+     //    .carousel-inner {
+     //      .center;
+     //       img 
+     //       {
+     //          height: @cover-h;
+     //          width: @cover-h/sqrt(2); //соотношение сторон листа А4
+     //          margin: 40px 18px;
+     //          .center;
+     //          display: inline-block;
+     //       }
+
+     //      max-height: @cover-h + 50px;
+     //      background-color: @new-white;
+     //      div {
+     //        display: inline-block;
+     //      }
          
           
-      }
+     //  }
+
+
+  .mainpage-slider {
+
 
       .carousel-control {
           background-repeat: no-repeat;
