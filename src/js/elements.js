@@ -1,9 +1,10 @@
-//Main. Карусель 
+// //Main. Карусель 
       $(document).ready(function() {
         $('.carousel').carousel({
           interval: 3000
         })
       });
+
 
 // Search. Выбор вида. Поиск отчета
        $(document).ready(function(){
