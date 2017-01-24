@@ -31,9 +31,9 @@ if admin || report.accept==1
                   li
                     a(href='/stats') Интерактивная статистика
                   li
-                    a(href='/register-report') Регистрация отчета
-                  li
                     a(href='/register-company') Регистрация компании
+                  li
+                    a(href='/register-report') Регистрация отчета
               // /.navbar-collapse
             // /.container-fluid
         // /container navigation
@@ -70,7 +70,7 @@ if admin || report.accept==1
                         tr
                           td  Рейтинг прозрачности РРС
                           td 
-                            | #{report.RRS}
+                            a(href='#{report.RRSlink}') #{report.RRS}
                       tr
                         td  Наличие в отчете бизнес-модели 
                         td  
