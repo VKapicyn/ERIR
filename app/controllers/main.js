@@ -9,6 +9,7 @@ import {upload, fs, gfs} from '../models/db-model';
 
 var Report = require('../models/reportModel').reportModel;
 var newsModel = require('../models/newsModel').newsModel;
+var recaptcha = require('../models/recaptchaModel').recaptcha;
 
 
 exports.mainPage = function (req, res){

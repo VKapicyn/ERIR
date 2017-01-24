@@ -17,13 +17,13 @@ body
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='#')
+              a.navbar-brand(href='http://da-strateg.ru', target='_blank')
                 img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav.pull-right
                 li
-                  a(href='/main') На главную
+                  a(href='/main') Главная
                 li.active
                   a(href='/search') Поиск
                 li
@@ -53,21 +53,21 @@ body
                     input.form-control#search-input(type='text', placeholder='Search')
                   br
                   br
-                  select.js-example-basic-single(name='economy', id='economy')
+                  select.js-example-basic-single.w-live-select(name='economy', id='economy')
                     for val in sector
                       option(value='#{val}') #{val}
                   br
                   br
 
-                  select.js-example-basic-single(name='city', id='city')
+                  select.js-example-basic-single.w-live-select(name='city', id='city')
                     for val in city
                       option(value='#{val}') #{val}
 
                   br
                   br
-                  select.js-example-basic-single(name='company_size', id='company_size')
+                  select.js-example-basic-single.w-live-select(name='company_size', id='company_size')
                     for comp in size_of_company
-                      option(title='Малое: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Среднее: до 2 млрд рублей, количество сотрудников до 250 человек. Крупное: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек' value='#{comp}') #{comp}
+                      option(title='Малая: Оборот до 800 млн рублей, количество сотрудников до 100 человек. Средняя: до 2 млрд рублей, количество сотрудников до 250 человек. Крупная: Оборот свыше 2 млрд рублей, количество сотрудников свыше 250 человек' value='#{comp}') #{comp}
                   br
                   br 
 

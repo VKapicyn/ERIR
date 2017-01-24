@@ -41,75 +41,6 @@ function create(){
             }
         }
     }).done(function(){
-        var select = document.getElementsByName('diagram_type');
-        select = select[0].options[select[0].selectedIndex].value;
-
-        if(select=='0'){
-            $( "#barchart" ).hide(); //скрыть гистограмму
-            $( "#piechart" ).show(); //показать круговую диаграмму
-            // Реализация круговой диаграммы
-            $(document).ready(function () {
-                // Build the chart
-                Highcharts.chart('piechart', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotShadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Количество отчетов по годам'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: <b>{point.y:1.f}</b>'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: false
-                            },
-                            showInLegend: true
-                        }
-                    },
-                    series: [{
-                        name: 'Количество',
-                        colorByPoint: true,
-                        data: [{
-                            name: '2009',
-                            y: reports.y2009
-                        }, {
-                            name: '2010',
-                            y: reports.y2010,
-                        }, {
-                            name: '2011',
-                            y: reports.y2011,
-                        }, {
-                            name: '2012',
-                            y: reports.y2012,
-                        }, {
-                            name: '2013',
-                            y: reports.y2013,
-                        }, {
-                            name: '2014',
-                            y: reports.y2014,
-                        },{
-                            name: '2015',
-                            y: reports.y2015,
-                        },{
-                            name: '2016',
-                            y: reports.y2016,
-                            sliced: true,
-                            selected: true
-                        }]
-                    }]
-                });
-            });
-        } 
-
-        if(select=='1'){
-            $( "#piechart" ).hide(); //скрыть круговую диаграмму
             $( "#barchart" ).show(); //показать гистограмму
             // Реализация гистаграммы
             $(document).ready(function () {
@@ -185,13 +116,13 @@ function create(){
                 }],
 
             });
-    });
-                console.log('1');
-        }
+        });
     });
 }
 
-
+$('#diagram_type').change(function() {
+        create();
+});
 
 $(function () {
     create();

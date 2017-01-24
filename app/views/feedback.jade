@@ -18,13 +18,13 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='#')
+              a.navbar-brand(href='http://da-strateg.ru', target='_blank')
                 img(src='/img/da-strateg-logo.png', alt='logo1')
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
                 li
-                  a(href='/main') На главную
+                  a(href='/main') Главная
                 li
                   a(href='/search') Поиск
                 li
@@ -41,14 +41,9 @@ html(lang='en')
           .row
                     br
                     span(style='font-size:12pt')
-                      | Если у Вас есть вопросы или пожелания, Вы можете связаться с менеджером реестра Лазаренко Вячеславом Александровичем через данную форму или связаться с ним по телефону 
+                      | Если у Вас есть вопросы или пожелания, Вы можете связаться с менеджером реестра Вячеславом Лазаренко через данную форму или связаться с ним по телефону 
                       img(src='/img/phone.png')
                       br
-                    //  | Лазаренко Вячеславом по адресу 
-                    //span(style='font-size:12pt')
-                    //  a(href='mailto:lasarenko91@mail.ru')
-                    //    | lasarenko91@mail.ru
-                    //br
                     br
                     form(action='/send-email', method='POST')
                       input(name='from', placeholder='Ваш e-mail')
@@ -56,7 +51,8 @@ html(lang='en')
                       br
                       textarea(name='message', rows='8', cols='80', placeholder='Ваше сообщение')
                       br
-                      button.btn.btn-default.green-btn(type='button', onclick='sendemail()') Отправить
+                      .g-recaptcha(data-sitekey='6Le5kxIUAAAAAITcLsIIB1pQOXatBkQbs4cEOw1w')
+                      button.btn.btn-default.green-btn(onclick='sendemail()') Отправить
 
           // /row
       // /mainpage
