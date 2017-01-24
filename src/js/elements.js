@@ -1,9 +1,19 @@
 // //Main. Карусель 
-      $(document).ready(function() {
-        $('.carousel').carousel({
-          interval: 3000
-        })
-      });
+//slick
+$('.autoplay').slick({
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+
+
+
+      // $(document).ready(function() {
+      //   $('.carousel').carousel({
+      //     interval: 3000
+      //   })
+      // });
 
 
 // $(document).ready(function(){
@@ -11,18 +21,18 @@
 // });
 
 
-// smooth div scroll
-$(document).ready(function () {
-        $("#makeMeScrollable").smoothDivScroll({
-            mousewheelScrolling: "allDirections",
-            manualContinuousScrolling: true,
-            autoScrollingMode: "onStart",
-            // hotSpotScrolling: true,
-            visibleHotSpotBackgrounds: "always",
-            hotSpotScrollingStep: 15,
-            hotSpotScrollingInterval: 10
-        });
-    });
+// // smooth div scroll
+// $(document).ready(function () {
+//         $("#makeMeScrollable").smoothDivScroll({
+//             mousewheelScrolling: "allDirections",
+//             manualContinuousScrolling: true,
+//             autoScrollingMode: "onStart",
+//             // hotSpotScrolling: true,
+//             visibleHotSpotBackgrounds: "always",
+//             hotSpotScrollingStep: 15,
+//             hotSpotScrollingInterval: 10
+//         });
+//     });
 
 
 
