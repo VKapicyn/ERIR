@@ -17,7 +17,7 @@ $(document).ready(function () {
             mousewheelScrolling: "allDirections",
             manualContinuousScrolling: true,
             autoScrollingMode: "onStart",
-            hotSpotScrolling: true,
+            // hotSpotScrolling: true,
             visibleHotSpotBackgrounds: "always",
             hotSpotScrollingStep: 15,
             hotSpotScrollingInterval: 10
