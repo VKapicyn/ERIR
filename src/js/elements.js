@@ -1,6 +1,6 @@
 // Main slick-слайдер http://kenwheeler.github.io/slick/
 $('.autoplay').slick({
-  slidesToShow: 6,
+  slidesToShow: 7,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
