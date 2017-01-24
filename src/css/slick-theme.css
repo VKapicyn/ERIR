@@ -79,22 +79,12 @@
 
 .slick-prev
 {
-    left: -10%;
-}
-[dir='rtl'] .slick-prev
-{
-    right: -10%;
-    left: auto;
+    left: -7%;
 }
 
 .slick-next
 {
-    right: -10%;
-}
-[dir='rtl'] .slick-next
-{
-    right: auto;
-    left: -25px;
+    right: -5%;
 }
 
 /* Dots */
