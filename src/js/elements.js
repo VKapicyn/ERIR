@@ -1,9 +1,11 @@
-//Main. Карусель 
-      $(document).ready(function() {
-        $('.carousel').carousel({
-          interval: 3000
-        })
-      });
+// Main slick-слайдер http://kenwheeler.github.io/slick/
+$('.autoplay').slick({
+  slidesToShow: 7,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+
 
 // Search. Выбор вида. Поиск отчета
        $(document).ready(function(){

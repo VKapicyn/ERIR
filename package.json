@@ -25,6 +25,7 @@
     "mongoose": "^4.6.7",
     "multer": "^1.2.1",
     "nodemon": "^1.11.0",
+    "owl.carousel": "^2.2.0",
     "skipper": "^0.7.3"
   },
   "devDependencies": {
