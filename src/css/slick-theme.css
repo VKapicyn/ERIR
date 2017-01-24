@@ -81,21 +81,21 @@
 {
     left: -10%;
 }
-[dir='rtl'] .slick-prev
-{
-    right: -10%;
-    left: auto;
-}
+// [dir='rtl'] .slick-prev
+// {
+//     right: -10%;
+//     left: auto;
+// }
 
 .slick-next
 {
-    right: -10%;
+    right: -5%;
 }
-[dir='rtl'] .slick-next
-{
-    right: auto;
-    left: -25px;
-}
+// [dir='rtl'] .slick-next
+// {
+//     right: auto;
+//     left: -25px;
+// }
 
 /* Dots */
 .slick-dotted.slick-slider
