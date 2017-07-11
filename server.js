@@ -27,6 +27,7 @@ app.use(session({
     url: require('./app/models/db-model').url
   })
 }));
+
 app.use(bodyParser());
 app.use(express.static('./src/buffer'));                                                                
 app.use(bodyParser.json());
