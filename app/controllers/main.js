@@ -13,7 +13,7 @@ var recaptcha = require('../models/recaptchaModel').recaptcha;
 
 
 exports.mainPage = function (req, res){
-  Report.find({accept: 1}).sort({date : 'desc'}).limit(14).exec(function (err, reports){ 
+  Report.find({accept: 1}).sort({date : 'desc'}).limit(25).exec(function (err, reports){
     newsModel.find({}).sort({date: 'desc'}).limit(3).exec(function(err, news){
       res.render('main', {
         new_reports: reports,
