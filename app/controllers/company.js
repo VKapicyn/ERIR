@@ -42,7 +42,7 @@ exports.addCompany = function (req,res){
             new_comp.CEO = req.body.CEO;
             new_comp.link = req.body.company_site;
             new_comp.user_email = req.body.registrator_email;
-            new_comp.user_FIO = req.body.registrator_fio
+            new_comp.user_FIO = req.body.registrator_fio;
             new_comp.user_position = req.body.registrator_position;
             new_comp.employees = req.body.employees;
             new_comp.revenue = req.body.revenue;
@@ -91,7 +91,7 @@ exports.getCompanyById = function (req, res) {
 	});
 };
 
-exports.acceptCompany = function (req, res) {
+exports.validateCompany = function (req, res) {
     if (req.session.user){
         if (req.body.accept!=7){
             Company.findOne({_id:req.params.company_id}).then(function (company){
@@ -105,4 +105,4 @@ exports.acceptCompany = function (req, res) {
     {
         res.send('У Вас нет прав для данной операции');
     }
-}
+};

@@ -31,4 +31,6 @@ app.use('/', require('./router'));
 
 let port = require('./app/config.js').port;
 app.listen(port);
+let kek = __dirname;
+console.log(kek);
 console.log(`Server started on port ${port}`);

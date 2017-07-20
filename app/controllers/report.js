@@ -3,7 +3,7 @@ var ObjectId = mongoose.Types.ObjectId;
 var dbModel = require('../models/db-model');
 var db = dbModel.db;
 
-import {upload, fs, gfs} from '../models/db-model';
+import {fs, gfs, upload} from '../models/db-model';
 
 
 var Company = require('../models/companyModel').companyModel;
@@ -154,7 +154,7 @@ exports.getReportById = function (req, res){
     }); 
 };
 
-exports.acceptReport = function (req, res){
+exports.validateReport = function (req, res) {
     if (req.session.user){
         Report.findOne({_id:req.params.report_id}).then(function (report){
             if (req.body.accept!=7){
@@ -187,5 +187,5 @@ exports.acceptReport = function (req, res){
     {
         res.send('У Вас нет прав для данной операции');
     }
-}
+};
 
