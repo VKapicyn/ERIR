@@ -68,6 +68,6 @@ app.get('/v1/search/report/:amount/:page/:sort/:sector/:size_of_company/:city/:y
 require('./app/controllers/search').searchReportPageREST);
 app.get('/v1/static/:name', require('./app/models/staticModel').staticREST);
 
-
-app.listen(require('./app/config.js').port);
-console.log('Server started!');                                                                                                                                                              
+let port = require('./app/config.js').port;
+app.listen(port);
+console.log(`Server started on port ${port}`);
