@@ -1,3 +1,5 @@
+import masterController from "./app/controllers/master";
+
 let express = require('express'),
     app = express.Router(),
     multer = require('multer'),
@@ -9,47 +11,7 @@ let express = require('express'),
             cb(null, Date.now() + '-' + file.originalname)
         }
     }),
-    upload = multer({storage: storage}),
-    masterController = {
-        main: require('./app/controllers/main').mainPage,
-        feedback: require('./app/controllers/main').feedbackPage,
-        search: {
-            report: require('./app/controllers/search').searchReportPage,
-            company: require('./app/controllers/search').searchCompanyPage
-        },
-        stats: require('./app/controllers/stats').statsPage,
-        register: {
-            report: require('./app/controllers/report').registerReportPage,
-            company: require('./app/controllers/company').registerCompanyPage
-        },
-        admin: {
-            login: require('./app/controllers/admin').adminLogin,
-            logout: require('./app/controllers/admin').adminLogout,
-            page: require('./app/controllers/admin').adminPage
-        },
-        company: {
-            create: require('./app/controllers/company').addCompany,
-            validate: require('./app/controllers/company').validateCompany,
-            getById: require('./app/controllers/company').getCompanyById
-        },
-        report: {
-            create: require('./app/controllers/report').addReport,
-            validate: require('./app/controllers/report').validateReport,
-            getById: require('./app/controllers/report').getReportById
-        },
-        sendEmail: require('./app/controllers/email').sendEmail,
-        getFile: require('./app/controllers/db-files').getFile,
-        addNews: require('./app/models/newsModel').addNews,
-        API: {
-            search: {
-                company: require('./app/controllers/search').searchCompanyPageREST,
-                report: require('./app/controllers/search').searchReportPageREST
-            },
-            stats: require('./app/controllers/stats').getStats,
-            static: require('./app/models/staticModel').staticREST
-        }
-    };
-
+    upload = multer({storage: storage});
 
 app.get('/', masterController.main);
 app.get('/main', masterController.main);

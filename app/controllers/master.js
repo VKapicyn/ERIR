@@ -1,5 +1,5 @@
 let dirname = __dirname;
-module.exports = Controller = {
+module.exports = {
     main: require(`${dirname}/main`).mainPage,
     feedback: require(`${dirname}/main`).feedbackPage,
     search: {
@@ -28,13 +28,13 @@ module.exports = Controller = {
     },
     sendEmail: require(`${dirname}/email`).sendEmail,
     getFile: require(`${dirname}/db-files`).getFile,
-    addNews: require(`${dirname}/newsModel`).addNews,
+    addNews: require(`../models/newsModel`).addNews,
     API: {
         search: {
             company: require(`${dirname}/search`).searchCompanyPageREST,
             report: require(`${dirname}/search`).searchReportPageREST
         },
         stats: require(`${dirname}/stats`).getStats,
-        static: require(`${dirname}/staticModel`).staticREST
+        static: require(`../models/staticModel`).staticREST
     }
 };
