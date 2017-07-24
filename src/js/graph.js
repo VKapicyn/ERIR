@@ -50,7 +50,7 @@ function create(){
                     type: 'column'
                 },
                 title: {
-                    text: 'Количество отчетов по годам'
+                    text: 'Количество отчетов по отчетному году'
                 },
 
                 yAxis: {
@@ -74,7 +74,7 @@ function create(){
                 tooltip: {
                     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
                     // pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>'
                 },
 
                 series: [{
