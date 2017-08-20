@@ -56,6 +56,7 @@ html(lang='en')
                 .autoplay
                      - var i = 0;
                      - for (i = 0; i<25; i++)
+                      if(new_reports[i])
                           a(href='/report/#{new_reports[i]._id}', target='_blank', title='#{new_reports[i].name}')
                             img(src='#{new_reports[i].preview}', alt='')     
 
@@ -93,10 +94,10 @@ html(lang='en')
               .news
                 for nw in news
                   .new
-                    a(href='#{nw.link}', target='_blank', title='') 
+                    a(href='#{nw.link}', target='_blank', title='')
                       h3 #{nw.header}
-                    - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
-                    p #{test}
+                    //- var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});
+                    //p #{test}
 
                     //- h3 #{nw.header}
                     //- - var test = nw.date.toLocaleString("ru", {day: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {month: 'numeric'}) + '-' + nw.date.toLocaleString("ru", {year: 'numeric'});

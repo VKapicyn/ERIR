@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 
-var reportSchema = new mongoose.Schema({
+let reportSchema = new mongoose.Schema({
         accept: Number,
         date: mongoose.Schema.Types.Date,
         name: String,
@@ -45,9 +45,9 @@ var reportSchema = new mongoose.Schema({
         user_FIO: String,
         user_position: String,
         user_telphone: String,
-        user_email: String,
+        user_email: String
 })
 
 
-var reportModel = mongoose.model('report', reportSchema);
+let reportModel = mongoose.model('report', reportSchema);
 module.exports.reportModel = reportModel;

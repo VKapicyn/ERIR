@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 
-var companySchema = new mongoose.Schema({
+let companySchema = new mongoose.Schema({
 
     accept: Number,
     date: mongoose.Schema.Types.Date,
@@ -38,5 +38,5 @@ var companySchema = new mongoose.Schema({
 })
 
 
-var companyModel = mongoose.model('company', companySchema);
+let companyModel = mongoose.model('company', companySchema);
 module.exports.companyModel = companyModel;

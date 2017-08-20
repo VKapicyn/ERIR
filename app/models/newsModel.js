@@ -1,14 +1,14 @@
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 
-var newsSchema = new mongoose.Schema({
+let newsSchema = new mongoose.Schema({
     date: mongoose.Schema.Types.Date,
     header: String,
     link: String
-})
+});
 
 
-var newsModel = mongoose.model('news', newsSchema);
+let newsModel = mongoose.model('news', newsSchema);
 module.exports.newsModel = newsModel;
 
 exports.addNews = function (req, res){
@@ -27,4 +27,4 @@ exports.addNews = function (req, res){
     {
         res.send('У Вас нет прав для данной операции');
     }
-}
+};

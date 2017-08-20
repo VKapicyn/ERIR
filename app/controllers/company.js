@@ -1,20 +1,20 @@
-var mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId; 
-var dbModel = require('../models/db-model');
-var db = dbModel.db;
+let mongoose = require('mongoose');
+let ObjectId = mongoose.Types.ObjectId; 
+let dbModel = require('../models/db-model');
+let db = dbModel.db;
 
 
 import {fs, gfs} from '../models/db-model';
 
 
-var getStatic = require('../models/staticModel').getStatic;
-var Company = require('../models/companyModel').companyModel;
-var Report = require('../models/reportModel').reportModel;
+let getStatic = require('../models/staticModel').getStatic;
+let Company = require('../models/companyModel').companyModel;
+let Report = require('../models/reportModel').reportModel;
 
 
 exports.registerCompanyPage = function (req, res){  
     getStatic(function(result, parse){
-        var stat = parse(result);
+        let stat = parse(result);
         res.render('register-company', {
             sector: stat.sector, 
             opf:stat.opf, 
@@ -28,7 +28,7 @@ exports.registerCompanyPage = function (req, res){
 exports.addCompany = function (req,res){
     recaptcha.verify(req, function(error){
         if(!error){
-            var new_comp = new Company;
+            let new_comp = new Company;
             new_comp.name = req.body.company_name;
             new_comp.short_name = req.body.company_short_name;
             new_comp.info = req.body.company_description;
@@ -54,7 +54,7 @@ exports.addCompany = function (req,res){
 
             new_comp.date = new Date();
 
-            var writestream = gfs.createWriteStream({
+            let writestream = gfs.createWriteStream({
             filename: req.file.filename
             });
 
@@ -93,7 +93,7 @@ exports.getCompanyById = function (req, res) {
 
 exports.validateCompany = function (req, res) {
     if (req.session.user){
-        if (req.body.accept!=7){
+        if (req.body.accept!==7){
             Company.findOne({_id:req.params.company_id}).then(function (company){
                 company.accept = req.body.accept;
                 company.save();

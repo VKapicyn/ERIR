@@ -1,20 +1,21 @@
-var mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId; 
-var dbModel = require('../models/db-model');
-var db = dbModel.db;
+let mongoose = require('mongoose');
+let ObjectId = mongoose.Types.ObjectId; 
+let dbModel = require('../models/db-model');
+let db = dbModel.db;
 
 import {fs, gfs, upload} from '../models/db-model';
 
 
-var Company = require('../models/companyModel').companyModel;
-var Report = require('../models/reportModel').reportModel;
-var getStatic = require('../models/staticModel').getStatic;
-var recaptcha = require('../models/recaptchaModel').recaptcha;
+let Company = require('../models/companyModel').companyModel;
+let Report = require('../models/reportModel').reportModel;
+let getStatic = require('../models/staticModel').getStatic;
+let recaptcha = require('../models/recaptchaModel').recaptcha;
 
 
 exports.registerReportPage = function (req, res){
     getStatic(function(result, parse){
-        var stat = parse(result);
+        console.log(result);
+        let stat = parse(result);
         Company.find({accept: 1}).then(function (_company){
             res.render('register-report',{
                 year:stat.year, 
@@ -30,7 +31,7 @@ exports.registerReportPage = function (req, res){
 exports.addReport = function (req, res){
     recaptcha.verify(req, function(error){
         if(!error){
-            var new_rep = new Report;
+            let new_rep = new Report;
             console.log(req.body);
             console.log(req.files);
             Company.findOne({name: req.body.company}).then(function(result){  
@@ -48,7 +49,7 @@ exports.addReport = function (req, res){
                 new_rep.type_of_ownership = result.type_of_ownership;
                 new_rep.company_id = result._id;
 
-                var standarts = [];
+                let standarts = [];
                 for(let i=0; i<stat.standarts.length; i++){
                     if (req.body[stat.standarts[i]] != undefined)
                         {
@@ -82,7 +83,7 @@ exports.addReport = function (req, res){
 
 
                 //лого
-                var writestream = gfs.createWriteStream({
+                let writestream = gfs.createWriteStream({
                     filename: req.files['upload'][0].filename
                 });
                 fs.createReadStream(req.files['upload'][0].path)
@@ -140,7 +141,7 @@ exports.addReport = function (req, res){
 
 exports.getReportById = function (req, res){
     getStatic(function(result, parse){
-        var stat = parse(result);
+        let stat = parse(result);
         Report.findOne({_id:new ObjectId(req.params.id)}).then(function (_report){
             Report.find({company_id:_report.company_id}).then(function (reports, err){
                 res.render('report', {
@@ -168,8 +169,8 @@ exports.validateReport = function (req, res) {
                 report.RRSlink = req.body.RRSlink_correct;
 
             getStatic(function(resul, parse){
-                var stat = parse(resul);
-                var best = [];
+                let stat = parse(resul);
+                let best = [];
                 for(let i=0; i<stat.best.length; i++)
                     if (req.body[stat.best[i]] != undefined)
                         best.push(req.body[stat.best[i]]);
