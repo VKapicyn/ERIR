@@ -22,6 +22,7 @@ app.get('/stats', masterController.stats);
 app.get('/register-report', masterController.register.report);
 app.get('/register-company', masterController.register.company);
 app.get('/admin', masterController.admin.page);
+//app.get('/admin/create/:name/:password', masterController.admin.create);
 app.get('/logout', masterController.admin.logout);
 app.post('/user/login', masterController.admin.login);
 

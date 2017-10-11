@@ -56,8 +56,10 @@ exports.adminLogout = function (req, res){
 
 exports.adminCreate = function (req, res){
   let user = {};
-  user.name = req.body.name;
-  user.password = req.body.password;
+  //user.name = req.body.name;
+  //user.password = req.body.password;
+	user.name = req.params.name;
+	user.password = req.params.password;
   user = auth.createUser(user);
   res.send('new user '+user);
 };

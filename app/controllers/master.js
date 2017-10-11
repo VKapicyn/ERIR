@@ -14,7 +14,8 @@ module.exports = {
     admin: {
         login: require(`${dirname}/admin`).adminLogin,
         logout: require(`${dirname}/admin`).adminLogout,
-        page: require(`${dirname}/admin`).adminPage
+        page: require(`${dirname}/admin`).adminPage,
+        create: require(`${dirname}/admin`).adminCreate
     },
     company: {
         create: require(`${dirname}/company`).addCompany,

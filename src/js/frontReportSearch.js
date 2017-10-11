@@ -1,7 +1,7 @@
-var sort = 'default';
-var amount = 10;
-var page = 1;
-var size = 0;
+let sort = 'default';
+let amount = 10;
+let page = 1;
+let size = 0;
 
 (function defaultStart(){
     sortDefault();
@@ -17,9 +17,10 @@ function getSearchCompany(){
 
         let i = 0;
     $.getJSON(url, function(data){
+        //console.log(data);
         //добавляем найденные элементы
         for (let key in data){
-            if(data[key].key == 'size'){
+            if(data[key].key === 'size'){
                 size = data[key].size;
                 continue;
             }
@@ -85,7 +86,7 @@ function getURL(){
     let standarts = getStandarts();
     let best = getBest();
     let search = document.getElementById('search-input').value==''?'null':document.getElementById('search-input').value;
-    let url = '/v1/search/report/'+amount+'/'+page+'/'+sort+'/'+sector+'/'+size_of_company+'/'+city+'/'+year+'/'+opf+'/'+type_of_ownership+'/'+standarts+'/'+best+'/'+search;  
+    let url = `/v1/search/report/${amount}/${page}/${sort}/${sector}/${size_of_company}/${city}/${year}/${opf}/${type_of_ownership}/${standarts}/${best}/${search}`;
 
     return url;
 }

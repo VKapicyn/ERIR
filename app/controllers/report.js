@@ -91,24 +91,31 @@ exports.addReport = function (req, res){
                     .on('err', function () { console.log('Error uploading image') })
                     .pipe(writestream);
                 writestream.on('close', function (file) {
-                    console.log(file.filename + ' Written To DB');
+                    //console.log(file.filename + ' Written To DB');
                 });
                 new_rep.preview = '/' + req.files['upload'][0].filename;
 
 
                 //отчет ru
-                writestream = gfs.createWriteStream({
-                    filename: req.files['ru_PDF'][0].filename
-                });
-                fs.createReadStream(req.files['ru_PDF'][0].path)
-                    .on('end', function () { fs.unlink(req.files['ru_PDF'][0].path, function (err) { console.log("success") }) })
-                    .on('err', function () { console.log('Error uploading pdf_ru') })
-                    .pipe(writestream);
-                writestream.on('close', function (file) {
-                    console.log(file.filename + ' Written To DB');
-                });
-                new_rep.doc_rus = '/' + req.files['ru_PDF'][0].filename;
-
+                    if(req.files['ru_PDF']!=undefined) {
+                        writestream = gfs.createWriteStream({
+                            filename: req.files['ru_PDF'][0].filename
+                        });
+                        fs.createReadStream(req.files['ru_PDF'][0].path)
+                            .on('end', function () {
+                                fs.unlink(req.files['ru_PDF'][0].path, function (err) {
+                                    console.log("success")
+                                })
+                            })
+                            .on('err', function () {
+                                console.log('Error uploading pdf_ru')
+                            })
+                            .pipe(writestream);
+                        writestream.on('close', function (file) {
+                            console.log(file.filename + ' Written To DB');
+                        });
+                        new_rep.doc_rus = '/' + req.files['ru_PDF'][0].filename;
+                    }
 
                 //отчет en
                 if (req.files['en_PDF']!=undefined){
@@ -120,22 +127,34 @@ exports.addReport = function (req, res){
                         .on('err', function () { console.log('Error uploading pdf_en') })
                         .pipe(writestream);
                     writestream.on('close', function (file) {
-                        console.log(file.filename + ' Written To DB');
+                        //console.log(file.filename + ' Written To DB');
                     });
                     new_rep.doc_en = '/' + req.files['en_PDF'][0].filename;
                 }
 
-
-                new_rep.save();
-                result.reports.unshift(new_rep._id);
-                result.save();
-
                 res.render('ok',{user: new_rep.user_FIO, object: 'отчета'});
+                console.log(new_rep);
+                result.push(new_rep._id);
+                console.log('Company: ', result);
+                new_rep.save((err)=>{
+                    console.log(err);
+                });
+                console.log(result.reports);
+                //result.reports.unshift(new_rep._id);
+
+                result.save().then(()=>{
+                    console.log('компания сейванулась');
+                },()=>{
+                    console.log('компания не сейванулась');
+                });
+
+
+
                 });
             });
         }
         else
-            Console.log('Ошибка капчи');
+            console.log('Ошибка капчи');
     });
 };
 

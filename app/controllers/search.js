@@ -1,17 +1,18 @@
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 
-var Company = require('../models/companyModel').companyModel;
-var Report = require('../models/reportModel').reportModel;
-var getStatic = require('../models/staticModel').getStatic;
+let Company = require('../models/companyModel').companyModel;
+let Report = require('../models/reportModel').reportModel;
+let getStatic = require('../models/staticModel').getStatic;
 
 
-var company;
-var reports;
+let company;
+let reports;
 
 exports.searchReportPage = function (req, res){
         getStatic(function(result, parse){
-            var stat = parse(result);
+            let stat = parse(result);
+            console.log(stat);
             res.render('search', {
                 year: stat.year,
                 opf: stat.opf,
@@ -28,20 +29,20 @@ exports.searchReportPage = function (req, res){
 };
 
 exports.searchReportPageREST = function(req, res){
-    var sort = req.params.sort;
-    var sector = req.params.sector;
-    var size_of_company = req.params.size_of_company;
-    var city = req.params.city;
-    var year = req.params.year;
-    var opf = req.params.opf;
-    var type_of_ownership = req.params.type_of_ownership;
-    var standarts = req.params.standarts;
-    var best = req.params.best;
+    let sort = req.params.sort;
+    let sector = req.params.sector;
+    let size_of_company = req.params.size_of_company;
+    let city = req.params.city;
+    let year = req.params.year;
+    let opf = req.params.opf;
+    let type_of_ownership = req.params.type_of_ownership;
+    let standarts = req.params.standarts;
+    let best = req.params.best;
 
-    var search = req.params.search;
-    var page = req.params.page;
-    var amount = req.params.amount;
-    var query = query = Report.find({accept:'1'});
+    let search = req.params.search;
+    let page = req.params.page;
+    let amount = req.params.amount;
+    let query = query = Report.find({accept:'1'});
 
     if(search!='null')
         query.where({name:{$regex: search, $options:'i'}});
@@ -94,7 +95,8 @@ exports.searchReportPageREST = function(req, res){
         query.where('type_of_ownership', type_of_ownership);
 
 
-    var result = [];
+    let result = [];
+    console.log(query);
     query.exec(function (err, _report){
         if (_report!=undefined){
             let start = amount * page - amount;
@@ -104,6 +106,7 @@ exports.searchReportPageREST = function(req, res){
             }
             let size = {'key':'size', 'size':_report.length};
             result.push(size);
+            console.log(result);
             res.json(result);
         }
     });
@@ -111,7 +114,7 @@ exports.searchReportPageREST = function(req, res){
 
 exports.searchCompanyPage = function (req, res){
     getStatic(function(result, parse){
-        var stat = parse(result);
+        let stat = parse(result);
         res.render('search-company', {
             sector: stat.sector, 
             size_of_company: stat.size_of_company, 
@@ -121,14 +124,14 @@ exports.searchCompanyPage = function (req, res){
 };
 
 exports.searchCompanyPageREST = function (req, res){
-    var sort = req.params.sort;
-    var sector = req.params.sector;
-    var city = req.params.city;
-    var size_of_company = req.params.size_of_company;
-    var search = req.params.search;
-    var page = req.params.page;
-    var amount = req.params.amount;
-    var query = Company.find({accept:'1'});
+    let sort = req.params.sort;
+    let sector = req.params.sector;
+    let city = req.params.city;
+    let size_of_company = req.params.size_of_company;
+    let search = req.params.search;
+    let page = req.params.page;
+    let amount = req.params.amount;
+    let query = Company.find({accept:'1'});
 
     if(search!='null')
         query.where({$or: [
@@ -160,7 +163,7 @@ exports.searchCompanyPageREST = function (req, res){
     if (city != 'Местонахождение штаб-квартиры')
         query.where('city', city);
     
-    var result = [];
+    let result = [];
     query.exec(function (err, _company){
         if (_company!=undefined){
             let start = amount * page - amount;

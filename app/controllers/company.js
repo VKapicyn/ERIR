@@ -10,6 +10,7 @@ import {fs, gfs} from '../models/db-model';
 let getStatic = require('../models/staticModel').getStatic;
 let Company = require('../models/companyModel').companyModel;
 let Report = require('../models/reportModel').reportModel;
+let recaptcha = require('../models/recaptchaModel').recaptcha;
 
 
 exports.registerCompanyPage = function (req, res){  
@@ -74,7 +75,7 @@ exports.addCompany = function (req,res){
             res.render('ok',{user: new_comp.user_FIO, object: 'компании'});
         }
         else
-            Console.log('Ошибка капчи');
+            console.log('Ошибка капчи');
     });
     //res.redirect('/'); // Добавить страницу об успешной регистрации
 };
@@ -82,6 +83,7 @@ exports.addCompany = function (req,res){
 exports.getCompanyById = function (req, res) {
     Company.findOne({_id:req.params.id}).then(function (company){
         Report.find({company_id: company._id}).then(function (reports){
+            console.log(reports);
 		    res.render('company', {
                 company:company, 
                 reports:reports, 
