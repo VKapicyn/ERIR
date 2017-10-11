@@ -34,7 +34,7 @@ exports.addReport = function (req, res){
             let new_rep = new Report;
             //console.log(req.body);
             //console.log(req.files);
-            Company.findOne({name: req.body.company}).then(function(result){  
+            Company.findOne({$and: [{name: req.body.company},{accept:1}]}).then(function(result){  
                 getStatic(function(resul, parse){
                 let stat = parse(resul);
                 //console.log('результат', result);
