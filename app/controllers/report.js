@@ -32,11 +32,12 @@ exports.addReport = function (req, res){
     recaptcha.verify(req, function(error){
         if(!error){
             let new_rep = new Report;
-            console.log(req.body);
-            console.log(req.files);
+            //console.log(req.body);
+            //console.log(req.files);
             Company.findOne({name: req.body.company}).then(function(result){  
-                getStatic(function(result, parse){
-                let stat = parse(result);
+                getStatic(function(resul, parse){
+                let stat = parse(resul);
+                //console.log('результат', result);
                 new_rep.accept = '0';
                 new_rep.date = new Date();
                 new_rep.name = req.body.report_name;
@@ -134,13 +135,9 @@ exports.addReport = function (req, res){
 
                 res.render('ok',{user: new_rep.user_FIO, object: 'отчета'});
                 console.log(new_rep);
-                result.push(new_rep._id);
-                console.log('Company: ', result);
-                new_rep.save((err)=>{
-                    console.log(err);
-                });
-                console.log(result.reports);
-                //result.reports.unshift(new_rep._id);
+                result.reports.push(new_rep._id);
+                new_rep.save();
+
 
                 result.save().then(()=>{
                     console.log('компания сейванулась');
@@ -157,6 +154,7 @@ exports.addReport = function (req, res){
             console.log('Ошибка капчи');
     });
 };
+
 
 exports.getReportById = function (req, res){
     getStatic(function(result, parse){
